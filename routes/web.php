@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+/*route test authen authorization*/
 Route::get('/guest', function () {
     return "Hello Guest";
 });
@@ -23,7 +24,11 @@ Route::get('/user', function () {
 Route::get('/admin', function () {
     return "Hello Admin";
 })->middleware('role:admin');
-
+/*route test upload ảnh cloud*/
+Route::get('/admin/image/create','DemoImageUploadController@create');
+Route::post('/admin/image','DemoImageUploadController@upload');
+/*route test luồng crud*/
+/*route test relationship table*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
