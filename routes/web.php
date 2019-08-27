@@ -14,16 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/guest', function () {
-    return "Hello Guest";
+Route::get('/home', function () {
+    return view('home');
 });
-Route::get('/user', function () {
-    return "Hello User";
-})->middleware('auth');
-Route::get('/admin', function () {
-    return "Hello Admin";
-})->middleware('role:admin');
+//Route::get('/guest', function () {
+//    return "Hello Guest";
+//});
+//Route::get('/user', function () {
+//    return "Hello User";
+//})->middleware('auth');
+//Route::get('/admin', function () {
+//    return "Hello Admin";
+//})->middleware('role:admin');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
