@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
@@ -90,10 +91,10 @@
     <div class="row">
         <div class="col">
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-10 mt-5 ml-5">
+                <div data-aos="slide-right"  class="col-xl-4 col-lg-4 col-md-12 col-sm-10 mt-5 ml-5 " >
                     <img src="/img/toy3.jpg" alt="..." class="img-thumbnail">
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 " data-aos="slide-left">
                     <i class="font1">MyToys là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
                     Nếu là một fan ruột của Manga-Anime thì bạn không thể không đến với shop,
                     bạn có thể tìm thấy cho mình những nhân vật
@@ -121,7 +122,7 @@
     <div class="row">
         <div class="col">
             <div class="row">
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-1 "></div>
+                <div  class="col-xl-2 col-lg-2 col-md-2 col-sm-1 "></div>
                 <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mt-4">
                     <i class="fas fa-user-tie" style="font-size: 500%"></i><br>
                     <p class="font1">Mục đích của MyToys</p>
@@ -220,6 +221,12 @@
     {{--        </div>--}}
     {{--    </div>--}}
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration:500,
+
+    })
+</script>
 </body>
 </html>
