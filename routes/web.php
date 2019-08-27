@@ -32,3 +32,14 @@ Route::post('/admin/image','DemoImageUploadController@upload');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*show layout admin*/
+Route::get('/admin/layout', function () {
+    return view('admin.layout');
+});
+Route::get('/admin/layout/form', function () {
+    return view('admin.product.form');
+});
+Route::get('/admin/layout/list', function () {
+    return view('admin.product.list');
+});
