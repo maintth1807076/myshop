@@ -106,12 +106,11 @@
             </div>
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-10 mt-5 ml-5 pt-3 ">
-                    <i class="font1">Lorem Ipsum is simply dummy text</i><br>
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged.
-                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <i class="font1"></i><br>
+                    Bạn thích chơi game ư và bạn chưa bỏ qua một game hot nào vậy bạn có muốn những nhân vật trong game đó được bày ở một góc trong phòng bạn không, hãy đến với Joker Face Shop. Sẽ có đầy đủ các nhân vật game như LOL, Dota2, God Of War, Assassin Credd, Mortal Combat.. cho các bạn lựa chọn.
+                    Bạn đang đắn đo suy nghĩ ko biết tặng gì cho bạn bè, người thân và người yêu mỗi khi đến dịp sinh nhật cũng như những ngày kỉ niệm..vậy chần chừ gì nữa hãy đến với Joker Face Shop, thế giới đồ lưu niệm, quà tặng, mô hình manga,gấu bông xinh xắn đang chờ các bạn..
+
+                    Mời các bạn Like shop tại địa chỉ Facebook: https://www.facebook.com/jokerface.vn để cập nhật hàng mới nhanh nhất.
                 </div>
             </div>
         </div>
