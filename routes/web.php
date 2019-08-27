@@ -14,20 +14,27 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home');
+/*route test authen authorization*/
+Route::get('/guest', function () {
+    return "Hello Guest";
 });
-//Route::get('/guest', function () {
-//    return "Hello Guest";
-//});
-//Route::get('/user', function () {
-//    return "Hello User";
-//})->middleware('auth');
-//Route::get('/admin', function () {
-//    return "Hello Admin";
-//})->middleware('role:admin');
-//
-//Auth::routes();
-//
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user', function () {
+    return "Hello User";
+})->middleware('auth');
+Route::get('/admin', function () {
+    return "Hello Admin";
+})->middleware('role:admin');
+/*route test upload ảnh cloud*/
+Route::get('/admin/image/create','DemoImageUploadController@create');
+Route::post('/admin/image','DemoImageUploadController@upload');
+Route::get('/client/abouts',function (){
+    return view('layouts.client.about-us');
+});
+Route::get('/client/login',function (){
+    return view('layouts.client.login');
+});
+/*route test luồng crud*/
+/*route test relationship table*/
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
