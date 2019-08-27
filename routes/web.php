@@ -27,25 +27,36 @@ Route::get('/admin', function () {
 /*route test upload ảnh cloud*/
 Route::get('/admin/image/create','DemoImageUploadController@create');
 Route::post('/admin/image','DemoImageUploadController@upload');
-Route::get('/client/abouts',function (){
-    return view('layouts.client.about-us');
-});
-Route::get('/client/login',function (){
-    return view('layouts.client.login');
-});
 /*route test luồng crud*/
 /*route test relationship table*/
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
+/*show layout admin*/
+Route::get('/admin/layout', function () {
+    return view('admin.layout');
+});
+Route::get('/admin/layout/form', function () {
+    return view('admin.product.form');
+});
+Route::get('/admin/layout/list', function () {
+    return view('admin.product.list');
+});
+/*giao diện client*/
+Route::get('/about',function (){
+    return view('client.about');
+});
+Route::get('/home',function (){
+    return view('client.home');
+});
+Route::get('/contact', function (){
+    return view('client.contact');
+});
+Route::get('/detail', function () {
+    return view('client.detail-product');
+});
+Route::get('/product', function () {
+    return view('client.product');
+});
 
-Route::get('/contact', function (){ //trang contact.
-    return view('product.contact');
-});
-Route::get('/detail', function (){  //trang detail.
-    return view('product.details');
-});
-Route::get('/category-product', function (){ //trang danh mục sản phẩm
-    return view('client.category-product');
-});
