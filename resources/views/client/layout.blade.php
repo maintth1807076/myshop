@@ -19,115 +19,190 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+<style>
+    .navbar {
+        background: white;
+
+    }
+
+    .nav-item{
+        font-size: 14px;
+        font-family:Verdana;
+
+    }
+    b:hover{
+        color: #1bb206;
+    }
+    i:hover{
+        color: #1bb206;
+    }
+    * {
+        box-sizing: border-box;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    footer{
+        color: white;
+    }
+</style>
 </head>
 <body>
-<div id="app" class="container-fluid">
-    <div class="header">
-        <nav class="bg-light sticky-top">
-            <div class="navbar navbar-expand-lg bg-light">
-                <a href="#" style="padding-left: 200px">
-                    <img src="https://icon-library.net/images/icon-anime/icon-anime-24.jpg" width="100px" height="auto"
-                         alt="">
+
+
+<nav class="navbar navbar-expand-sm  navbar-light  fixed-top">
+    <a class="navbar-brand" href="#"> <img src="https://www.darkpony.com/data/originals/2015/10/0079-animehouse.png" width="150px" height="auto"
+                                           alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 350px;">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active " href="#"> <b>TRANG CHỦ</b></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link  active   dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <b>SẢN PHẨM</b>
                 </a>
-                <div class="collapse navbar-collapse" style="margin-left: 200px">
-                    <ul class="navbar-nav">
-                        <li class="nav-item ">
-                            <a class="nav-link  active-page" href="#">TRANG CHỦ</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                SẢN PHẨM
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">MÔ HÌNH/FIGURE</a>
-                                <a class="dropdown-item" href="#">ÁO TSHIRT</a>
-                                <a class="dropdown-item" href="#">PHỤ KIỆN</a>
-                                <a class="dropdown-item" href="#">ĐỒ COSPLAY</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">GIỚI THIỆU</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">LIÊN HỆ</a>
-                        </li>
-                        <li>
-                            <form class="form-inline" >
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
-                                            class="fa fa-search"></i></button>
-                            </form>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#" style="margin-left: 50px">
-                                <i class="fa fa-shopping-basket" style="font-size:25px"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user" style="font-size:25px"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Đăng ký</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Đăng nhập</a>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">MÔ HÌNH/FIGURE</a>
+                    <a class="dropdown-item" href="#"> ÁO TSHIRT</a>
+                    <a class="dropdown-item" href="#">  PHỤ KIỆN</a>
+                    <a class="dropdown-item" href="#">  ĐỒ COSPLAY</a>
                 </div>
-            </div>
-        </nav>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  active   " href="#"><b> GIỚI THIỆU</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  active  " href="#"><b>LIÊN HỆ</b></a>
+            </li>
+            <li>
+                <form class="form-inline" >
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                            class="fa fa-search"></i></button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#" style="margin-left: 50px">
+                    <i class="fa fa-shopping-basket" style="font-size:25px"></i>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user" style="font-size:25px"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Đăng ký</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Đăng nhập</a>
+                </div>
+            </li>
+        </ul>
     </div>
-    <div class="dropdown-divider"></div>
+</nav>
+</div>
+    <div class="dropdown-divider"  style="margin-top:180px"></div>
     <main class="py-4">
         @yield('content')
     </main>
     <div class="dropdown-divider"></div>
     <div class="dropdown-divider"></div>
-    <footer class="bg-dark">
+
+<footer class="bg-dark">
+    <div class="container" >
         <div class="row">
-            <div class="col-3" style="color: white;margin: 75px">
-                <h3>Giới thiệu</h3>
-                <p>
-                    Cửa hàng quà tặng - Vật phẩm trong game : Liên minh huyền thoại, Overwatch, ... - Phụ kiện anime :
-                    Onepiece, Naruto, dragonball, Attack on Titan... - Vật phẩm trong siêu anh hùng... Chất lượng đảm
-                    bảo - uy tín - Độc nhất
-                </p>
-                <div class="dropdown-divider"></div>
-                <h3>Chúng tôi có thể giúp bạn ?</h3>
-                <ul>
-                    <li class="">Hotline 1:</li>
-                    <li class="">Hotline 2:</li>
-                    <li class="">Open-Close:7:00-22:00</li>
-                    <li class="">Email:cuccutdangyeu@gmail.com</li>
-                </ul>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12 col-sm-6">
+
+
+
+                        <div class="widget">
+                            <h3 class="widget-title">GIỚI THIỆU </h3>
+
+                            <div class="widget-content">
+                                <p>Cửa hàng quà tặng
+                                    - Vật phẩm trong game : Liên minh huyền thoại, Overwatch, ...
+                                    - Phụ kiện anime : Onepiece, Naruto, dragonball, Attack on Titan...
+                                    - Vật phẩm trong siêu anh hùng...
+                                    Chất lượng đảm bảo - uy tín - Độc nhất</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 col-sm-6">
+
+
+                        <div class="widget">
+                            <h3 class="widget-title">CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h3>
+
+                            <div class="widget-content">
+                                <p>Hotline 1: 0985-776-331</p>
+                                <p>Hotline 2: 0934-648-240</p>
+                                <p>Open - Close: 08:30-22:00</p>
+                                <p>Mail: anhnguyentvn@gmail.com</p>
+                            </div>
+                        </div><!-- /.widget -->
+
+                    </div>
+                </div>
             </div>
-            <div>
-                <img src="https://ae01.alicdn.com/kf/HTB12S67dAfb_uJkSnfoq6z_epXaX/anime-sexy-girl-with-headphones-PSG025-wall-art-canvas-fabric-poster-custom-print-frame-available-room.jpg_640x640.jpg"
-                     width="500px" height="auto" alt="">
+
+            <div class="col-md-4 col-sm-6">
+
+                <div class="widget">
+                    <h3 class="widget-title">KẾT NỐI VỚI CHÚNG TÔI</h3>
+                    <img src="https://ae01.alicdn.com/kf/HTB12S67dAfb_uJkSnfoq6z_epXaX/anime-sexy-girl-with-headphones-PSG025-wall-art-canvas-fabric-poster-custom-print-frame-available-room.jpg_640x640.jpg"
+                         width="350px" height="auto" alt="">
+
+
+                </div><!-- /.widget -->
+
             </div>
-            <div class="col-3" style="color: white;margin: 50px">
-                <h3>Kết nối với chúng tôi</h3>
-                <a href="#" style="margin-right: 40px">
-                    <i class="fa fa-twitter" style="font-size:36px"></i>
-                </a>
-                <a href="#" style="margin-right: 40px">
-                    <i class="fa fa-facebook-f" style="font-size:36px"></i>
-                </a>
-                <a href="#">
-                    <i class="fa fa-google-plus" style="font-size:36px"></i>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h3>Thanh toán</h3>
-                <p>Các bạn có thể thanh toán trước qua tài khoản ngân hàng hoặc thanh toán COD khi nhận hàng.</p>
+
+
+            <div class="col-md-4">
+
+
+                <div class="widget">
+                    <h3 class="widget-title">SOCIAL</h3>
+
+                    <ul class="list-socials">
+                        <li><a href="#"  style="margin-right: 40px;" title=""><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"   style="margin-right: 40px ;" title=""><i class="fa fa-facebook-f"></i></a></li>
+                        <li><a href="#"   style="margin-right: 40px;" title=""><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"   style="margin-right: 40px;" title=""><i class="fa fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+
+
+
+
+                <div class="widget">
+                    <h3 class="widget-title">THANH TOÁN</h3>
+
+
+                    <p>
+                        Các bạn có thể thanh toán trước qua tài khoản ngân hàng hoặc thanh toán COD khi nhận hàng.
+                    </p>
+
+
+                </div>
             </div>
+
         </div>
-    </footer>
+    </div>
+    </div><!-- Preloader -->
+</footer>
 </div>
 </body>
 </html>
