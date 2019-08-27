@@ -48,7 +48,7 @@
             </ul>
         </div>
     </nav>
-    <div class="row m-3">
+    <div class="row pt-5 ml-2">
         <div class="col-4 col-md-3 col-lg-2">
             <div class="nav flex-column nav-pills">
                 <a class="nav-link active" href="/admin"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
@@ -56,6 +56,7 @@
                 <a class="nav-link" href="/admin/categories"><i class="fas fa-th-list pr-2"></i>Danh mục</a>
                 <a class="nav-link" href="/admin/products"><i class="fas fa-cube pr-2"></i>Sản phẩm</a>
                 <a class="nav-link" href="/admin/orders"><i class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
+                <a class="nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo cáo</a>
             </div>
         </div>
         <div class="col-8 col-md-9 col-lg-10 pl-5">
