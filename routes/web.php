@@ -46,3 +46,6 @@ Route::get('/contact', function (){ //trang contact.
 Route::get('/detail', function (){  //trang detail.
     return view('product.details');
 });
+Route::get('/category-product', function (){ //trang danh mục sản phẩm
+    return view('client.category-product');
+});
