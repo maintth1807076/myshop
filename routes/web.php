@@ -32,3 +32,11 @@ Route::post('/admin/image','DemoImageUploadController@upload');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/contact', function (){ //trang contact.
+    return view('product.contact');
+});
+Route::get('/detail', function (){  //trang detail.
+    return view('product.details');
+});
