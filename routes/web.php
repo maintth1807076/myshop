@@ -59,3 +59,4 @@ Route::get('/detail', function () {
 Route::get('/product', function () {
     return view('client.product');
 });
+
