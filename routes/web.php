@@ -27,6 +27,12 @@ Route::get('/admin', function () {
 /*route test upload ảnh cloud*/
 Route::get('/admin/image/create','DemoImageUploadController@create');
 Route::post('/admin/image','DemoImageUploadController@upload');
+Route::get('/client/abouts',function (){
+    return view('layouts.client.about-us');
+});
+Route::get('/client/login',function (){
+    return view('layouts.client.login');
+});
 /*route test luồng crud*/
 /*route test relationship table*/
 Auth::routes();
