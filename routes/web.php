@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 /*route test authen authorization*/
 Route::get('/guest', function () {
     return "Hello Guest";
@@ -31,7 +28,7 @@ Route::post('/admin/image','DemoImageUploadController@upload');
 /*route test relationship table*/
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 /*show layout admin*/
 Route::get('/admin/layout', function () {
@@ -47,7 +44,7 @@ Route::get('/admin/layout/list', function () {
 Route::get('/about',function (){
     return view('client.about');
 });
-Route::get('/home',function (){
+Route::get('/',function (){
     return view('client.home');
 });
 Route::get('/contact', function (){
@@ -57,6 +54,6 @@ Route::get('/detail', function () {
     return view('client.detail-product');
 });
 Route::get('/product', function () {
-    return view('client.product');
+    return view('layouts.client.category-product');
 });
 
