@@ -1,4 +1,146 @@
 .image{
-       width: 225px;
-       height:auto;
-   }
+     width: 225px;
+     height:auto;
+ }
+/*css for detail-product*/
+.product-name {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.product-status {
+    color: #f11a18;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.thumbnail {
+    overflow: hidden;
+    border: 2px solid #e5e5e5;
+}
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    transition-duration: 2s;
+    /* Safari & Google Chrome */
+    -webkit-transition-duration: 0.5s;
+}
+.thumbnail img:hover {
+    transform: scale(1.2);
+    /* Safari & Google Chrome */
+    -webkit-transform: scale(1.2);
+    cursor: pointer;
+}
+.product-price {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff5002;
+}
+.product-single-quantity {
+    width: 16%;
+    display: inline-block;
+}
+.product-actions {
+    margin-top: 30px;
+    overflow: hidden;
+}
+b.kiluc1{
+    font-size: 250%;
+    color: red;
+}
+b.kiluc{
+    font-size: 250%;
+    color: blueviolet;
+}
+.margin-top-20 {
+    margin-top: 20px;
+}
+.margin-top-50 {
+    margin-top: 50px;
+}
+.product-detail {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    border-radius: .125rem;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 0.25rem;
+    padding: .625rem;
+}
+.checked {
+    color: #ffe70a;
+}
+.rating {
+    font-size: 14px;
+    color: #e9605c;
+}
+.title-name {
+    text-transform: capitalize;
+}
+.img-reponsive {
+    width: 265px;
+    height: 265px;
+}
+.pro-price {
+    display: block;
+    color: #af2727;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/*!*css for client about*!*/
+img.img-thumbnail{
+    border-radius:100%;
+}
+h1{
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-family: playfair display,serif;
+}
+img.titel-about{
+    width: 30%;
+    border-radius: 100%;
+    margin-left: 35%;
+}
+i.font1{
+    font-family: " Nestle-Text-Light";
+    font-size: 30px;
+}
+i.font2{
+    font-family: " Nestle-Text-Light";
+    font-size: 30px;
+    margin-left: 26%;
+}
+p.font1{
+    font-family: " playfair display,serif";
+    font-size: 160%;
+    margin-left: -35%;
+}
+i.fas fa-user-tie{
+    font-size: 100px;
+}
+p.text-toy{
+    text-align: center;
+}
+strong.kiluc1{
+    font-size: 120%;
+    color: blue;
+}
+strong.kiluc{
+    font-size: 120%;
+    color: orangered;
+}
+/*b{*/
+/*    font-size: 250%;*/
+/*    color: #1d68a7;*/
+/*}*/
+.card-body#card{
+    margin-bottom: 39%;
+}
+@media screen and (min-width: 576px)and (max-device-width: 776px) {
+    #thua2{
+        display: none;
+    }
+}
+@media screen and (min-width: 576px)and (max-device-width: 992px) {
+    #thua{
+        display: none;
+    }
+}

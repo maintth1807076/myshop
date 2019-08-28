@@ -172,7 +172,7 @@
                 <div class="col-xl-3 col-lg-3 ml-4 col-md-6 col-sm-5" style="border-right: black 1px solid">
                     <strong>CHO CÁ NHÂN & GIA ĐÌNH</strong>
                     <p>giúp đỡ </p><br>
-                    <b> 50 TRIỆU</b><br>
+                    <b class="kiluc"> 50 TRIỆU</b><br>
                     <p>trẻ em có cuộc sống lành mạnh hơn</p>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-5 col-sm-5">
