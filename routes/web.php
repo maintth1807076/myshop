@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 /*route test authen authorization*/
 Route::get('/guest', function () {
     return "Hello Guest";

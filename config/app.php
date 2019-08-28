@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         JD\Cloudder\CloudderServiceProvider::class,
+        jeremykenedy\LaravelRoles\RolesServiceProvider::class,
     ],
 
     /*
