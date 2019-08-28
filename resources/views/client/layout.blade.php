@@ -240,6 +240,14 @@
     </div><!-- Preloader -->
 </footer>
 </div>
+<script src="{{ asset('js/myjs.js') }}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+
+        duration:1200
+    });
+</script>
 </body>
 </html>
 

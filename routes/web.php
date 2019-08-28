@@ -26,7 +26,7 @@ Route::post('/admin/image','DemoImageUploadController@upload');
 /*route test relationship table*/
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 /*show layout admin*/
 Route::get('/admin/layout', function () {
@@ -45,6 +45,9 @@ Route::get('/about',function (){
 Route::get('/',function (){
     return view('client.home');
 });
+Route::get('/home',function (){
+    return view('client.home');
+});
 Route::get('/contact', function (){
     return view('client.contact');
 });
@@ -52,7 +55,7 @@ Route::get('/detail', function () {
     return view('client.detail-product');
 });
 Route::get('/product', function () {
-    return view('layouts.client.category-product');
+    return view('client.product');
 });
 /*route admin*/
 Route::get('/admin', function () {

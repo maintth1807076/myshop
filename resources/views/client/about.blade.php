@@ -2,15 +2,15 @@
 
 @section('content')
     <div class="container">
-        <h1>About Us</h1>
-        <img class="titel-about" src="/img/us.jpg">
+        <a href="/home">Trang chủ</a>/<a href="">Về chúng tôi</a>     <h1>Về chúng tôi</h1>
+        {{--        <img class="titel-about" src="/img/us.jpg">--}}
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-10 mt-5 ml-5">
-                        <img src="/img/toy3.jpg" alt="..." class="img-thumbnail">
+                    <div data-aos="fade-up" class="col-xl-4 col-lg-4 col-md-12 col-sm-10 mt-5 ml-5">
+                        <img src="/img/mohinh.jpg" alt="..." class="img-thumbnail">
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
+                    <div data-aos="fade-down" class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
                         <i class="font1">MyToys là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
                         Nếu là một fan ruột của Manga-Anime thì bạn không thể không đến với shop,
                         bạn có thể tìm thấy cho mình những nhân vật
@@ -24,8 +24,8 @@
                         bạn cũng không thể bỏ qua
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-10 mt-5 ml-5 pt-3 ">
+                <div  class="row">
+                    <div data-aos="fade-left" class="col-xl-12 col-lg-12 col-md-12 col-sm-10 mt-5 ml-5 pt-3">
                         <i class="font1">Lorem Ipsum is simply dummy text</i><br>
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                         It has survived not only five centuries, but also the leap into electronic typesetting,
@@ -45,17 +45,17 @@
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-1 "></div>
                     <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mt-4">
-                        <i class="fas fa-user-tie" style="font-size: 500%"></i><br>
-                        <p class="font1">Mục đích của MyToys</p>
+                        <i data-aos="flip-left" class="fas fa-user-tie" style="font-size: 500%"></i><br>
+                        <p data-aos="flip-right" class="font1">Mục đích của MyToys</p>
                         <p class="text-toy">
                     </div>
                     <div class=" col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mt-4">
-                        <i class="fas fa-lightbulb" style="font-size: 500%"></i><br>
-                        <p class="font1">Mục đích của MyToys</p>
+                        <i data-aos="flip-up" class="fas fa-lightbulb" style="font-size: 500%"></i><br>
+                        <p data-aos="flip-down" class="font1">Mục đích của MyToys</p>
                     </div>
                     <div class=" col-3 col-xl-3 col-lg-3 col-md-2 col-sm-3 ml-4 mt-4">
-                        <i class="fas fa-exclamation" style="font-size: 500%"></i><br>
-                        <p class="font1">Mục đích của MyToys</p>
+                        <i data-aos="flip-up" class="fas fa-exclamation" style="font-size: 500%"></i><br>
+                        <p data-aos="flip-right"class="font1">Mục đích của MyToys</p>
                     </div>
                 </div>
             </div>
@@ -65,19 +65,19 @@
                 <div class="row" id="thua2">
                     <div class="col-xl-1 col-lg-1 "></div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mr-1">
-                        <p class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
+                        <p data-aos="zoom-in" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
                             khỏe mạnh hơn. Chúng tôi cũng mong muốn truyền cảm hứng cho mọi người sống
                         </p>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mr-1">
-                        <p class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
+                        <p data-aos="zoom-in" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
                             khỏe mạnh hơn. Chúng tôi cũng mong muốn truyền cảm hứng cho mọi người sống
                         </p>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mr-1">
-                        <p class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
+                        <p data-aos="zoom-in-up" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
                             khỏe mạnh hơn. Chúng tôi cũng mong muốn truyền cảm hứng cho mọi người sống
                         </p>
@@ -92,16 +92,16 @@
             <div class="col">
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-5 ml-5" id="thua"></div>
-                    <div class="col-xl-3 col-lg-3 ml-4 col-md-6 col-sm-5" style="border-right: black 1px solid">
-                        <strong>CHO CÁ NHÂN & GIA ĐÌNH</strong>
+                    <div data-aos="fade-up" class="col-xl-3 col-lg-3 ml-4 col-md-6 col-sm-5" style="border-right: black 1px solid">
+                        <strong class="kiluc1">CHO CÁ NHÂN & GIA ĐÌNH</strong>
                         <p>giúp đỡ </p><br>
-                        <b> 50 TRIỆU</b><br>
+                        <b class="kiluc"> 50 TRIỆU</b><br>
                         <p>trẻ em có cuộc sống lành mạnh hơn</p>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-5 col-sm-5">
+                    <div data-aos="fade-down" class="col-xl-4 col-lg-4 col-md-5 col-sm-5">
                         <strong class="kiluc">CHO CỘNG ĐỒNG</strong>
                         <p>giúp đỡ </p><br>
-                        <b class="kiluc"> 30 TRIỆU</b><br>
+                        <b class="kiluc1"> 30 TRIỆU</b><br>
                         <p>trẻ em có cuộc sống lành mạnh hơn</p>
                     </div>
                 </div>
