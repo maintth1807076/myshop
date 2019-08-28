@@ -18,9 +18,7 @@ Route::get('/guest', function () {
 Route::get('/user', function () {
     return "Hello User";
 })->middleware('auth');
-Route::get('/admin', function () {
-    return "Hello Admin";
-})->middleware('role:admin');
+
 /*route test upload ảnh cloud*/
 Route::get('/admin/image/create','DemoImageUploadController@create');
 Route::post('/admin/image','DemoImageUploadController@upload');
@@ -36,10 +34,10 @@ Route::get('/admin/layout', function () {
 });
 Route::get('/admin/layout/form', function () {
     return view('admin.product.form');
-});
+})->middleware('role:admin');
 Route::get('/admin/layout/list', function () {
     return view('admin.product.list');
-});
+})->middleware('role:admin');
 /*giao diện client*/
 Route::get('/about',function (){
     return view('client.about');
@@ -56,4 +54,9 @@ Route::get('/detail', function () {
 Route::get('/product', function () {
     return view('layouts.client.category-product');
 });
+/*route admin*/
+Route::get('/admin', function () {
+    return view('admin.layout');
+})->middleware('role:admin');
+Route::resource('/admin/categories','CategoryController')->middleware('role:admin');
 

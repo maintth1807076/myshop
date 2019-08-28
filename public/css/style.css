@@ -140,3 +140,12 @@
 /*        display: none;*/
 /*    }*/
 /*}*/
+
+/*css for admin layout*/
+.admin-nav-link:hover {
+    background: white;
+}
+.admin-nav-side {
+    border-right: 2px solid black;
+}
+/*end css for admin layout*/
