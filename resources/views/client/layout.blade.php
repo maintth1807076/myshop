@@ -59,13 +59,13 @@
 
 
 <nav class="navbar navbar-expand-sm  navbar-light  fixed-top">
-    <a class="navbar-brand" href="#"> <img src="https://www.darkpony.com/data/originals/2015/10/0079-animehouse.png"
-                                           width="150px" height="auto"
-                                           alt=""></a>
+
+    <a class="navbar-brand" href="#" style="margin-left: 80px;"> <img src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" width="150px" height="auto" alt=""></a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 350px;">
+    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 150px;">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link active " href="#"> <b>TRANG CHỦ</b></a>
@@ -84,14 +84,16 @@
             <li class="nav-item">
                 <a class="nav-link  active   " href="#"><b> GIỚI THIỆU</b></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"  style="margin-right: 20px;">
                 <a class="nav-link  active  " href="#"><b>LIÊN HỆ</b></a>
             </li>
             <li>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
-                                class="fa fa-search"></i></button>
+
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">  <i class="fas fa-search"></i></button>
+
+
                 </form>
             </li>
             <li class="nav-item">
@@ -144,14 +146,19 @@
 <div class="dropdown-divider"></div>
 
 <footer class="bg-dark">
-    <div class="container">
-        <div class="row">
+
+    <div class="container" >
+        <div class="row" style="padding-top: 40px;">
+
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-12 col-sm-6">
 
 
-                        <div class="widget">
+
+
+                        <div class="widget" style="padding-top: 20px;">
+
                             <h3 class="widget-title">GIỚI THIỆU </h3>
 
                             <div class="widget-content">
@@ -168,7 +175,7 @@
                     <div class="col-md-12 col-sm-6">
 
 
-                        <div class="widget">
+                        <div class="widget" style="padding-top: 20px;">
                             <h3 class="widget-title">CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h3>
 
                             <div class="widget-content">
@@ -185,9 +192,9 @@
 
             <div class="col-md-4 col-sm-6">
 
-                <div class="widget">
+                <div class="widget" style="padding-top: 20px;">
                     <h3 class="widget-title">KẾT NỐI VỚI CHÚNG TÔI</h3>
-                    <img src="https://ae01.alicdn.com/kf/HTB12S67dAfb_uJkSnfoq6z_epXaX/anime-sexy-girl-with-headphones-PSG025-wall-art-canvas-fabric-poster-custom-print-frame-available-room.jpg_640x640.jpg"
+                    <img src="https://media.timeout.com/images/103173510/630/472/image.jpg"
                          width="350px" height="auto" alt="">
 
 
@@ -199,19 +206,22 @@
             <div class="col-md-4">
 
 
-                <div class="widget">
+                <div class="widget" style="padding-top: 20px;">
                     <h3 class="widget-title">SOCIAL</h3>
 
-                    <ul class="list-socials">
-                        <li><a href="#" style="margin-right: 40px;" title=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" style="margin-right: 40px ;" title=""><i class="fa fa-facebook-f"></i></a></li>
-                        <li><a href="#" style="margin-right: 40px;" title=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" style="margin-right: 40px;" title=""><i class="fa fa-pinterest"></i></a></li>
-                    </ul>
+
+                        <a href="#"  style="margin-right: 40px;color: white;" title=""><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#"   style="margin-right: 40px ; color: white;" title=""><i class="fab fa-facebook-f fa-2x" ></i></a>
+                        <a href="#"   style="margin-right: 40px; color: white;" title=""><i class="fab fa-google-plus-g fa-2x"></i></a>
+                        <a href="#"   style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+
                 </div>
 
 
-                <div class="widget">
+
+
+                <div class="widget" style="padding-top: 20px;">
+
                     <h3 class="widget-title">THANH TOÁN</h3>
 
 
