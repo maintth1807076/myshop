@@ -20,42 +20,47 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-<style>
-    .navbar {
-        background: white;
+    <style>
+        .navbar {
+            background: white;
 
-    }
+        }
 
-    .nav-item{
-        font-size: 14px;
-        font-family:Verdana;
+        .nav-item {
+            font-size: 14px;
+            font-family: Verdana;
 
-    }
-    b:hover{
-        color: #1bb206;
-    }
-    i:hover{
-        color: #1bb206;
-    }
-    * {
-        box-sizing: border-box;
-    }
+        }
 
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    footer{
-        color: white;
-    }
-</style>
+        b:hover {
+            color: #1bb206;
+        }
+
+        i:hover {
+            color: #1bb206;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
 
 <nav class="navbar navbar-expand-sm  navbar-light  fixed-top">
-    <a class="navbar-brand" href="#"> <img src="https://www.darkpony.com/data/originals/2015/10/0079-animehouse.png" width="150px" height="auto"
+    <a class="navbar-brand" href="#"> <img src="https://www.darkpony.com/data/originals/2015/10/0079-animehouse.png"
+                                           width="150px" height="auto"
                                            alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -72,8 +77,8 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">MÔ HÌNH/FIGURE</a>
                     <a class="dropdown-item" href="#"> ÁO TSHIRT</a>
-                    <a class="dropdown-item" href="#">  PHỤ KIỆN</a>
-                    <a class="dropdown-item" href="#">  ĐỒ COSPLAY</a>
+                    <a class="dropdown-item" href="#"> PHỤ KIỆN</a>
+                    <a class="dropdown-item" href="#"> ĐỒ COSPLAY</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -83,10 +88,10 @@
                 <a class="nav-link  active  " href="#"><b>LIÊN HỆ</b></a>
             </li>
             <li>
-                <form class="form-inline" >
+                <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
-                            class="fa fa-search"></i></button>
+                                class="fa fa-search"></i></button>
                 </form>
             </li>
             <li class="nav-item">
@@ -94,35 +99,57 @@
                     <i class="fa fa-shopping-basket" style="font-size:25px"></i>
                 </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user" style="font-size:25px"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Đăng ký</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Đăng nhập</a>
-                </div>
-            </li>
+            @guest
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user" style="font-size:25px"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <div class="dropdown-divider"></div>
+                        @if (Route::has('register'))
+                            <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        @endif
+                    </div>
+                </li>
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
         </ul>
     </div>
 </nav>
 </div>
-    <div class="dropdown-divider"  style="margin-top:180px"></div>
-    <main class="py-4">
-        @yield('content')
-    </main>
-    <div class="dropdown-divider"></div>
-    <div class="dropdown-divider"></div>
+<div class="dropdown-divider" style="margin-top:180px"></div>
+<main class="py-4">
+    @yield('content')
+</main>
+<div class="dropdown-divider"></div>
+<div class="dropdown-divider"></div>
 
 <footer class="bg-dark">
-    <div class="container" >
+    <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-12 col-sm-6">
-
 
 
                         <div class="widget">
@@ -177,14 +204,12 @@
                     <h3 class="widget-title">SOCIAL</h3>
 
                     <ul class="list-socials">
-                        <li><a href="#"  style="margin-right: 40px;" title=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"   style="margin-right: 40px ;" title=""><i class="fa fa-facebook-f"></i></a></li>
-                        <li><a href="#"   style="margin-right: 40px;" title=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"   style="margin-right: 40px;" title=""><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" style="margin-right: 40px;" title=""><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" style="margin-right: 40px ;" title=""><i class="fa fa-facebook-f"></i></a></li>
+                        <li><a href="#" style="margin-right: 40px;" title=""><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" style="margin-right: 40px;" title=""><i class="fa fa-pinterest"></i></a></li>
                     </ul>
                 </div>
-
-
 
 
                 <div class="widget">

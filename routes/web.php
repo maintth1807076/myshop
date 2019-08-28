@@ -57,6 +57,6 @@ Route::get('/detail', function () {
     return view('client.detail-product');
 });
 Route::get('/product', function () {
-    return view('client.product');
+    return view('layouts.client.category-product');
 });
 
