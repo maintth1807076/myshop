@@ -136,7 +136,6 @@
         </ul>
     </div>
 </nav>
-</div>
 <div class="dropdown-divider" style="margin-top:180px"></div>
 <main class="py-4">
     @yield('content')
