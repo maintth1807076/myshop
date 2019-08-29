@@ -4,38 +4,38 @@
     <div class="container-fluid" >
         <div class="row">
             <div class=" sidenav col-sm-3">
-                    <a href="#" class="active" style="background: black; color: white;">Lọc sản phẩm</a>
-                    <button class="dropdown-btn">Giá tiền
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-container">
-                        <a href="#">0 - 1000$</a>
-                        <a href="#">1000$ - 2000$</a>
-                        <a href="#">2000$ - 6000$</a>
-                        <a href="#">Lớn hơn 6000$</a>
-                    </div>
-                    <button class="dropdown-btn">Hãng sản xuất
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-container">
-                        <a href="#">Titan</a>
-                        <a href="#">Toys</a>
-                    </div>
-                    <button class="dropdown-btn">Màu
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-container">
-                        <a href="#">Red</a>
-                        <a href="#">Green</a>
-                        <a href="#">Bmw</a>
-                    </div>
-                    <button class="dropdown-btn">Bảo hành
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-container">
-                        <a href="#">1 năm</a>
-                        <a href="#">6 tháng</a>
-                    </div>
+                <a href="#" class="active" style="background: rgba(7,7,7,0.8); color: white;">Lọc sản phẩm</a>
+                <button class="dropdown-btn active">Giá tiền
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container active">
+                    <a href="#">0 - 1000$</a>
+                    <a href="#">1000$ - 2000$</a>
+                    <a href="#">2000$ - 6000$</a>
+                    <a href="#">Lớn hơn 6000$</a>
+                </div>
+                <button class="dropdown-btn active">Hãng sản xuất
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container active">
+                    <a href="#">Titan</a>
+                    <a href="#">Toys</a>
+                </div>
+                <button class="dropdown-btn active">Màu
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container active">
+                    <a href="#">Red</a>
+                    <a href="#">Green</a>
+                    <a href="#">Bmw</a>
+                </div>
+                <button class="dropdown-btn active">Bảo hành
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container active">
+                    <a href="#">1 năm</a>
+                    <a href="#">6 tháng</a>
+                </div>
 
             </div>
             <div class="col-sm-9">
@@ -201,6 +201,12 @@
         @media screen and (max-height: 450px) {
             .sidenav {padding-top: 15px;}
             .sidenav a {font-size: 18px;}
+        }
+        .dropdown-container a:hover{
+            background: rgba(90, 98, 104, 0.13);
+        }
+        .dropdown-btn:hover{
+            background: rgba(90, 98, 104, 0.13);
         }
 
     </style>
