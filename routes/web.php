@@ -57,6 +57,8 @@ Route::get('/detail', function () {
 Route::get('/product', function () {
     return view('client.product');
 });
+/*route user*/
+Route::get('/information', 'UserController@show');
 /*route admin*/
 Route::get('/admin', function () {
     return view('admin.layout');

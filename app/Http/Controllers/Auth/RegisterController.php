@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $role = config('roles.models.role')::where('name', '=', 'Admin')->first();
+        $role = config('roles.models.role')::where('name', '=', 'User')->first();
         $user->attachRole($role);
 
         return $user;
