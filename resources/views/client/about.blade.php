@@ -1,5 +1,4 @@
 @extends('client.layout')
-
 @section('content')
     <div class="col-12 pl-0 pr-0">
         <section class=" bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url('/img/shaco.jpg'); background-position: center">
