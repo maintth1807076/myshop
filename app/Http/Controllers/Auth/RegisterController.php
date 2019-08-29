@@ -66,7 +66,7 @@ class RegisterController extends Controller
         $user = config('roles.models.defaultUser')::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['password'])
         ]);
 
         $role = config('roles.models.role')::where('name', '=', 'User')->first();

@@ -59,6 +59,8 @@ Route::get('/product', function () {
 });
 /*route user*/
 Route::get('/information', 'UserController@show');
+Route::post('/change-name', 'UserController@changeName');
+Route::post('/change-avatar', 'UserController@changeAvatar');
 /*route admin*/
 Route::get('/admin', function () {
     return view('admin.layout');

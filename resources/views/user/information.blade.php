@@ -1,71 +1,86 @@
 @extends('client.layout')
 
 @section('content')
-   <div style="margin-top: 200px;">
-       <div class="card-body">
-           <form method="POST" action="/update-information">
-               @csrf
+   <div style="margin-top: 50px;">
+       <ul class="nav nav-tabs">
+           <li class="nav-item">
+               <a class="nav-link active" data-toggle="tab" href="#home">Thông tin tài khoản</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#menu1">Sửa tên</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#menu2">Sửa ảnh đại diện</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#menu3">Đổi mật khẩu</a>
+           </li>
+       </ul>
 
-               <div class="form-group row">
-                   <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+       <!-- Tab panes -->
+       <div class="tab-content">
+           <div id="home" class="container tab-pane active"><br>
+               <p>Tên tài khoản: {{ Auth::user()->name }}</p>
+           </div>
+           <div id="menu1" class="container tab-pane fade"><br>
+               <form method="POST" action="/change-name">
+                   @csrf
+                   <div class="form-group row">
+                       <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                   <div class="col-md-6">
-                       <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
+                       <div class="col-md-6">
+                           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
 
-                       @error('name')
-                       <span class="invalid-feedback" role="alert">
+                           @error('name')
+                           <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                       @enderror
+                           @enderror
+                       </div>
                    </div>
-               </div>
 
-               <div class="form-group row">
-                   <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                   <div class="form-group row mb-0">
+                       <div class="col-md-6 offset-md-4">
+                           <button type="submit" class="btn btn-primary">
+                               Save
+                           </button>
+                       </div>
+                   </div>
+               </form>
+           </div>
+           <div id="menu2" class="container tab-pane fade"><br>
+               <form method="POST" action="/change-avatar">
+                   @csrf
+                   <div class="form-group row">
+                       <label for="name" class="col-md-4 col-form-label text-md-right">Avatar</label>
 
-                   <div class="col-md-6">
-                       <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth::user()->email }}" required autocomplete="email">
-
-                       @error('email')
-                       <span class="invalid-feedback" role="alert">
+                       <div class="col-md-6">
+                           <input type="text" class="form-control @error('name') is-invalid @enderror" name="avatar" value="" required autocomplete="name" autofocus>
+                           <img src="" alt="">
+                           @error('name')
+                           <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                       @enderror
+                           @enderror
+                       </div>
                    </div>
-               </div>
 
-               <div class="form-group row">
-                   <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                   <div class="col-md-6">
-                       <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                       @error('password')
-                       <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                       @enderror
+                   <div class="form-group row mb-0">
+                       <div class="col-md-6 offset-md-4">
+                           <button type="submit" class="btn btn-primary">
+                               Save
+                           </button>
+                       </div>
                    </div>
-               </div>
-
-               <div class="form-group row">
-                   <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                   <div class="col-md-6">
-                       <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                   </div>
-               </div>
-
-               <div class="form-group row mb-0">
-                   <div class="col-md-6 offset-md-4">
-                       <button type="submit" class="btn btn-primary">
-                           Save
-                       </button>
-                   </div>
-               </div>
-           </form>
+               </form>
+           </div>
+           <div id="menu3" class="container tab-pane fade"><br>
+               <h3>Menu 3</h3>
+               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+           </div>
        </div>
-       {{ Auth::user()->name }}
+
+
    </div>
 @endsection
 
