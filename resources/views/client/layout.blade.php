@@ -152,6 +152,7 @@
         </ul>
     </div>
 </nav>
+<div style="margin-top: 50px;"></div>
 <main class="py-4">
     @yield('content')
 </main>
