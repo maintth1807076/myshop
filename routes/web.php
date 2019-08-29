@@ -67,3 +67,5 @@ Route::get('/admin', function () {
 })->middleware('role:admin');
 Route::resource('/admin/categories','CategoryController')->middleware('role:admin');
 
+
+

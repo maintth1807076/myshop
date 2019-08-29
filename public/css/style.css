@@ -7,6 +7,17 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.btn-warning:hover,.btn-danger1:hover,
+.btn-danger:hover{
+    background-color: #c9d1da
+}
+
+.btn-danger1{
+    color: #212529;
+    background-color: orangered;
+}
+
 .product-status {
     color: #f11a18;
     margin-bottom: 10px;
@@ -61,7 +72,8 @@ b.kiluc{
     border-radius: .125rem;
     overflow: hidden;
     background: #fff;
-    margin-top: 0.25rem;
+    margin-top: -5px;
+    margin-bottom: 50px;
     padding: .625rem;
 }
 .checked {
@@ -83,6 +95,36 @@ b.kiluc{
     color: #af2727;
     font-size: 18px;
     font-weight: 700;
+}
+
+.avatar-letter {
+    margin-left: 45px;
+    border-radius: 50%;
+    background: #d3d2d3;
+    color: #919090;
+    font-weight: 500;
+    width: 65px;
+    height: 65px;
+    display: inline-block;
+    text-align: center;
+    line-height: 65px;
+    font-size: 25px;
+    font-family: Roboto;
+}
+
+.name-dt {
+    font-size: 14px;
+    margin: -8px 39px 0px;
+    font-weight: 500;
+    text-transform: capitalize;
+    width: 178px;
+    font-family: cursive;
+}
+
+.day-dt {
+    font-size: 12px;
+    color: #999;
+    margin: 0px 40px 30px;
 }
 
 /*!*css for client about*!*/
