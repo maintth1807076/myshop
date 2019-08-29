@@ -19,6 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         .navbar {
@@ -53,13 +54,22 @@
         footer {
             color: white;
         }
+        #navHeader{
+            position: fixed;
+            height: 16%;
+            background: rgba(193, 162, 163, 0.9);
+            /* box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
+        }
+        body{
+            /*background-image:url("/img/anhnen.jpg") ;*/
+        }
+       /*css của temple*/
+
     </style>
 </head>
 <body>
 
-
-<nav class="navbar navbar-expand-sm  navbar-light  fixed-top">
-
+<nav class="navbar navbar-expand-sm  navbar-light  fixed-top" id="navHeader">
     <a class="navbar-brand" href="#" style="margin-left: 80px;"> <img
                 src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" width="150px"
                 height="auto" alt=""></a>
@@ -142,7 +152,6 @@
         </ul>
     </div>
 </nav>
-<div class="dropdown-divider" style="margin-top:180px"></div>
 <main class="py-4">
     @yield('content')
 </main>
@@ -203,22 +212,20 @@
                 </div><!-- /.widget -->
 
             </div>
-
-
             <div class="col-md-4">
-
-
                 <div class="widget" style="padding-top: 20px;">
                     <h3 class="widget-title">SOCIAL</h3>
-
-
-                    <a href="#" style="margin-right: 40px;color: white;" title=""><i
-                                class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#" style="margin-right: 40px ; color: white;" title=""><i
-                                class="fab fa-facebook-f fa-2x"></i></a>
-                    <a href="#" style="margin-right: 40px; color: white;" title=""><i
-                                class="fab fa-google-plus-g fa-2x"></i></a>
-                    <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+                    <a href="#"  style="margin-right: 40px;color: white;" title=""><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#"   style="margin-right: 40px ; color: white;" title=""><i class="fab fa-facebook-f fa-2x" ></i></a>
+                    <a href="#"   style="margin-right: 40px; color: white;" title=""><i class="fab fa-google-plus-g fa-2x"></i></a>
+                    <a href="#"   style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px;color: white;" title="">
+                    </a>
+{{--                    <a href="#" style="margin-right: 40px ; color: white;" title=""><i--}}
+{{--                                class="fab fa-facebook-f fa-2x"></i></a>--}}
+{{--                    <a href="#" style="margin-right: 40px; color: white;" title=""><i--}}
+{{--                                class="fab fa-google-plus-g fa-2x"></i></a>--}}
+{{--                    <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>--}}
 
                 </div>
 
@@ -226,13 +233,9 @@
                 <div class="widget" style="padding-top: 20px;">
 
                     <h3 class="widget-title">THANH TOÁN</h3>
-
-
                     <p>
                         Các bạn có thể thanh toán trước qua tài khoản ngân hàng hoặc thanh toán COD khi nhận hàng.
                     </p>
-
-
                 </div>
             </div>
 
@@ -245,7 +248,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
-
         duration:1200
     });
 </script>
