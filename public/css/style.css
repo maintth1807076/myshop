@@ -1,47 +1,93 @@
-.image{
-    width: 225px;
-    height:auto;
-}
 /*css for detail-product*/
-/*.product-price {*/
-/*    font-size: 25px;*/
-/*    font-weight: bold;*/
-/*    color: #ff5002;*/
-/*}*/
+.product-name {
+    text-transform: uppercase;
+    font-weight: bold;
+}
 
-/*.product-single-quantity {*/
-/*    width: 16%;*/
-/*    display: inline-block;*/
-/*}*/
+.product-status {
+    color: #f11a18;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
 
-/*.product-actions {*/
-/*    margin-top: 30px;*/
-/*    overflow: hidden;*/
-/*}*/
+.thumbnail {
+    overflow: hidden;
+    border: 2px solid #e5e5e5;
+}
 
-/*.margin-top-20 {*/
-/*    margin-top: 20px;*/
-/*}*/
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    transition-duration: 2s;
+    /* Safari & Google Chrome */
+    -webkit-transition-duration: 0.5s;
+}
 
-/*.margin-top-50 {*/
-/*    margin-top: 50px;*/
-/*}*/
+.thumbnail img:hover {
+    transform: scale(1.2);
+    /* Safari & Google Chrome */
+    -webkit-transform: scale(1.2);
+    cursor: pointer;
+}
 
-/*.product-detail {*/
-/*    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);*/
-/*    border-radius: .125rem;*/
-/*    overflow: hidden;*/
-/*    background: #fff;*/
-/*    margin-top: 1.25rem;*/
-/*    padding: .625rem;*/
-/*}*/
+.product-price {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff5002;
+}
 
-/*.product-detail-text {*/
-/*    color: rgba(119, 18, 26, 0.87);*/
-/*    font-size: 26px;*/
-/*    padding: .875rem;*/
-/*    text-transform: capitalize;*/
-/*}*/
+.product-single-quantity {
+    width: 16%;
+    display: inline-block;
+}
+
+.product-actions {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.product-detail {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    border-radius: .125rem;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 0.25rem;
+    padding: .625rem;
+}
+
+.checked {
+    color: #ffe70a;
+}
+
+.rating {
+    font-size: 14px;
+    color: #e9605c;
+}
+
+.title-name {
+    text-transform: capitalize;
+}
+
+.img-reponsive {
+    width: 265px;
+    height: 265px;
+}
+
+.pro-price {
+    display: block;
+    color: #af2727;
+    font-size: 18px;
+    font-weight: 700;
+}
+
 /*!*css for client about*!*/
 /*img.img-thumbnail{*/
 /*    border-radius:100%;*/
@@ -105,12 +151,12 @@
 /*        display: none;*/
 /*    }*/
 /*}*/
-.dropdown-toggle::after{
+.dropdown-toggle::after {
     display: none;
 }
+
 .dropbtn {
     color: white;
-    font-size: 16px;
     border: none;
 }
 
@@ -124,7 +170,7 @@
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -135,7 +181,92 @@
     display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
+* {
+    box-sizing: border-box;
+}
+
+.fuild {
+    position: relative;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background:white;
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.overlay1{
+    background:rgba(0,0,0,0.5);!important;
+}
+
+.fuild:hover .overlay {
+    opacity: 1;
+}
+
+.container1 {
+    display: table-cell;
+    padding: 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+.btn1 {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 45px;
+    margin: 0 auto 2em;
+    max-width: 160px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+.btn-5 {
+    border: 0 solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    outline: 1px solid;
+    outline-color: rgba(255, 255, 255, 0.5);
+    outline-offset: 0px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-5:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}
+.buttons {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.color{
+    color: black;
+}
