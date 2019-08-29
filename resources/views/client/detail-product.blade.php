@@ -17,11 +17,11 @@
                         </div>
                         <div class="carousel-item thumbnail">
                             <img class="d-block w-100" height="540px"
-                                 src="https://cf.shopee.vn/file/c9240c39cf24c4dd5e96e6813a03426a" alt="Second slide">
+                                 src="https://cf.shopee.vn/file/3a79b120e0d89c94397ba62ba1db5567" alt="Second slide">
                         </div>
                         <div class="carousel-item thumbnail">
                             <img class="d-block w-100" height="540px"
-                                 src="https://cf.shopee.vn/file/c9240c39cf24c4dd5e96e6813a03426a" alt="Third slide">
+                                 src="https://cf.shopee.vn/file/da48b2b1f5b6849b421a0d7d62460f9c" alt="Third slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carousel-simple" role="button" data-slide="prev">
@@ -52,7 +52,7 @@
                     </div>
                     <div><p>Bộ mô hình đồ chơi bằng nhựa PVC cao cấp Tôn Ngộ Không</p></div>
                     <div class="product-price product-actions">
-                        <span class="price">1,000,000 đ</span>
+                        <span class="price">1,000,000 <ins>đ</ins></span>
                     </div>
                     <div class="product-actions-wrapper">
                         <form action=" " method="post" enctype="multipart/form-data" id="AddToCartForm">
@@ -65,53 +65,147 @@
                             </div>
 
                             <div class="product-actions row">
-                                <div class="col-3">
+                                <div class="col-md-3">
                                     <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-warning">
                                         <span class="fas fa-shopping-cart"> Mua ngay</span>
                                     </button>
                                 </div>
-                                <div class="col-3">
-                                    <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-danger">
+                                <div class="col-md-3">
+                                    <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-danger1">
                                         <span id="AddToCartText" class="fas fa-cart-plus"> Thêm vào giỏ hàng</span>
                                     </button>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                 </div>
                             </div>
                         </form>
-                    </div>
 
+                        <div class="col-md-12 margin-top-50">
+                            <div class="title-name">
+                                <h5>Mô Tả Sản Phẩm</h5>
+                            </div>
+                        </div>
+                        <div class="product-detail">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <dt>Thể Loại</dt>
+                                    <dd>Mô Hình Đồ Chơi</dd>
+                                    <dt>Kích cỡ</dt>
+                                    <dd>16x7cm</dd>
+                                </div>
+                                <div class="col-md-6">
+                                    <dt>Chất Liệu</dt>
+                                    <dd>PVC cao cấp</dd>
+                                    <dt>Tình Trạng</dt>
+                                    <dd>Full Box</dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-12 margin-top-50">
-            <div class="title-name">
-                <h3>Chi Tiết Sản Phẩm</h3>
+        <div class="product-detail">
+            <div class="col-md-12">
+                <div class="title-name">
+                    <h4>Chi Tiết Sản Phẩm</h4>
+                    <hr>
+                </div>
             </div>
+            <span>
+                <ul>
+                    <li>Mã sản phẩm: TNK-2019 </li>
+                    <li>Mô hình nhân vật huyền thoại trong tâm trí các fan châu Á nói chung và Việt Nam nói riêng: Tôn Ngộ Không.</li>
+                    <li>Xuất xứ: Trung Quốc</li>
+                    <li>Chiều cao: 16cm</li>
+                    <li>Chất liệu: PVC, vải</li>
+                    <li>Đóng hộp: Fullbox</li>
+                    <li>Phụ kiện: Đầy đủ như hình</li>
+                </ul>
+            </span>
         </div>
         <div class="product-detail">
-            <dl>
-                <dt>Danh mục</dt>
-                <dd>Mô Hình Đồ Chơi</dd>
-                <dt>Chất Liệu</dt>
-                <dd>PVC cao cấp</dd>
-                <dt>Kích cỡ</dt>
-                <dd>24x10x7cm</dd>
-            </dl>
-        </div>
-        <div class="col-md-12 margin-top-50">
-            <div class="title-name">
-                <h3>Đánh Giá Sản Phẩm</h3>
+            <div class="col-md-12">
+                <div class="title-name">
+                    <h4>Đánh Giá Sản Phẩm</h4>
+                    <hr>
+                </div>
             </div>
-        </div>
-        <div class="product-detail">
+            <div class="row">
+                <div class="col-md-2">
+                    <p class="avatar-letter">
+                        <span>TN</span>
+                    </p>
+                    <p class="name-dt" itemprop="author">Thơ Nguyễn</p>
+                    <p class="day-dt">3 ngày trước</p>
+                </div>
+                <div class="col-md-10">
+                    <div class="info-dt">
+                        <div class="rating-dt stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="rating">Rất Hài Lòng</span>
+                        </div>
+                        <div class="comment-text">
+                            <span>Sản phẩm chất lượng. Giá cả phải chăng. Các bé trên kênh youtube của chị rất thích nó. Chúc shop càng ngày càng phát triển hơn.<br></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <p class="avatar-letter">
+                        <span>TV</span>
+                    </p>
+                    <p class="name-dt" itemprop="author">Bà Tân Vlog</p>
+                    <p class="day-dt">5 ngày trước</p>
+                </div>
+                <div class="col-md-10">
+                    <div class="info-dt">
+                        <div class="rating-dt stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="rating">Rất Hài Lòng</span>
+                        </div>
+                        <div class="comment-text">
+                            <span>Các cháu ơi hơn 60 nồi bánh trưng mà bà chưa thấy sản phẩm nào đẹp như này. Hy vọng các sau này các cháu có thể làm những sản phẩm siêu to khổng lồ như bà.<br></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <p class="avatar-letter">
+                        <span>SK</span>
+                    </p>
+                    <p class="name-dt" itemprop="author">Shark Hưng</p>
+                    <p class="day-dt">7 ngày trước</p>
+                </div>
+                <div class="col-md-10">
+                    <div class="info-dt">
+                        <div class="rating-dt stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="rating">Rất Hài Lòng</span>
+                        </div>
+                        <div class="comment-text">
+                            <span>Mô hình công nghệ cũng như sản phẩm bên em rất tốt. Hãy liên lạc với anh để chúng ta có thể cùng hợp tác và phát triển dự án này<br></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <form accept-charset='UTF-8' action='/contact' class='contact-form' method='post'>
                     <input name='form_type' type='hidden' value='contact'>
                     <input name='utf8' type='hidden' value='✓'>
                     <div class="form-group">
-                    <textarea class="form-control dark" rows="4" id="ContactFormMessage"
-                              name="contact[body]" placeholder="Nhận xét của bạn:"></textarea>
+                    <textarea class="form-control dark" rows="3" id="ContactFormMessage"
+                              name="contact[body]" placeholder="Nhận xét của bạn"></textarea>
                     </div>
                     <div class="text-center">
                         <span>Vui lòng <a href="">đăng nhập</a> hoặc <a href="">đăng kí</a> để bình luận</span>
@@ -123,12 +217,14 @@
                 </form>
             </div>
         </div>
-        <div class="col-md-12 margin-top-50">
-            <div class="title-name">
-                <h3>Sản Phẩm Liên Quan</h3>
-            </div>
-        </div>
+
         <div class="row product-detail">
+            <div class="col-md-12">
+                <div class="title-name">
+                    <h4>Sản Phẩm Liên Quan</h4>
+                    <hr>
+                </div>
+            </div>
             <div class="col-md-3">
                 <div class="product-item">
                     <div class="product-img hover-img">
@@ -187,5 +283,6 @@
             </div>
         </div>
     </div>
+
 @endsection
 

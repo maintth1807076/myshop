@@ -26,27 +26,27 @@
                         <div class="form-group">
                             <label>Tên:</label>
                             <input class="form-control dark" type="text" id="ContactFormName" name="contact[ten]"
-                                   placeholder="Tên:" autocapitalize="words" value="">
+                                   placeholder="Tên" autocapitalize="words" value="">
 
                         </div>
 
                         <div class="form-group">
                             <label>Email:</label>
                             <input class="form-control dark" type="email" id="ContactFormEmail"
-                                   name="contact[email]" placeholder="Email:" autocorrect="off" autocapitalize="off"
+                                   name="contact[email]" placeholder="Email" autocorrect="off" autocapitalize="off"
                                    value="">
                         </div>
 
                         <div class="form-group">
                             <label>Điện thoại:</label>
                             <input class="form-control dark" type="tel" id="ContactFormPhone" name="contact[ten]"
-                                   placeholder="Điện thoại:" pattern="[0-9\-]*" value="">
+                                   placeholder="Điện thoại" pattern="[0-9\-]*" value="">
                         </div>
 
                         <div class="form-group">
                             <label>Tin nhắn:</label>
                             <textarea class="form-control dark" rows="5" id="ContactFormMessage"
-                                      name="contact[body]" placeholder="Tin nhắn:"></textarea>
+                                      name="contact[body]" placeholder="Tin nhắn"></textarea>
                         </div>
 
                         <div class="form-button">
