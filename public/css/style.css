@@ -86,8 +86,45 @@ b.kiluc{
 }
 
 /*!*css for client about*!*/
+/*css for client about*/
+.hover01 figure img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.hover01 figure:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+
 img.img-thumbnail{
-    border-radius:100%;
+    border: 0px white;
+    width: 80%;
+    margin-left: 20%;
+}
+.header-intro {
+    background-attachment: fixed;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/img/tris.jpg);
+    background-position: center -5.55556px;
+}
+.t-center {
+    text-align: center;
+}
+.p-b-158 {
+    padding-bottom: 158px;
+}
+.p-t-135 {
+    padding-top: 135px;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 h1{
     text-align: center;
@@ -101,17 +138,17 @@ img.titel-about{
 }
 i.font1{
     font-family: " Nestle-Text-Light";
-    font-size: 30px;
+    font-size: 142%;
 }
 i.font2{
     font-family: " Nestle-Text-Light";
-    font-size: 30px;
+    font-size: 210%;
     margin-left: 26%;
 }
 p.font1{
     font-family: " playfair display,serif";
     font-size: 160%;
-    margin-left: -35%;
+    margin-left: -5%;
 }
 i.fas fa-user-tie{
     font-size: 100px;
@@ -143,4 +180,45 @@ strong.kiluc{
     #thua{
         display: none;
     }
+}
+/*css for admin layout*/
+.admin-nav-link:hover {
+    background: white;
+}
+.admin-nav-side {
+    border-right: 2px solid black;
+}
+/*end css for admin layout*/
+
+/*css của header*/
+.bg-title-page {
+    width: 100%;
+    min-height: 545px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+}
+.flex-c-m {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+.p-r-15 {
+    padding-right: 15px;
+}
+.p-l-15 {
+    padding-left: 15px;
+}
+.p-b-80 {
+    padding-bottom: 80px;
+}
+.p-t-160 {
+    padding-top: 160px;
 }

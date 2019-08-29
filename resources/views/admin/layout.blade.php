@@ -21,42 +21,46 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <i class="fas fa-ad fa-2x text-white"></i>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <div class="col-2"><a class="navbar-brand ml-5" href="/home">
+                <img src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" width="75px"
+                     height="auto" alt="">
+            </a></div>
+        <div class="col-8"></div>
+        <div class="col-2">
+            <ul class="navbar-nav float-right">
+                <li class="nav-item dropdown float-right">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="row pt-5 ml-2">
-        <div class="col-4 col-md-3 col-lg-2">
-            <div class="nav flex-column nav-pills">
-                <a class="nav-link active" href="/admin"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
-                <a class="nav-link" href="/admin/users"><i class="fas fa-users pr-2"></i>Khách hàng</a>
-                <a class="nav-link" href="/admin/categories"><i class="fas fa-th-list pr-2"></i>Danh mục</a>
-                <a class="nav-link" href="/admin/products"><i class="fas fa-cube pr-2"></i>Sản phẩm</a>
-                <a class="nav-link" href="/admin/orders"><i class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
-                <a class="nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo cáo</a>
+        <div class="col-4 col-md-3 col-lg-2 admin-nav-side">
+            <div class="nav flex-column nav-pills text-dark">
+                <a class="nav-link active bg-dark" href="/admin"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/users"><i class="fas fa-users pr-2"></i>Khách hàng</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/categories"><i class="fas fa-th-list pr-2"></i>Danh mục</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/products"><i class="fas fa-cube pr-2"></i>Sản phẩm</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/orders"><i class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo cáo</a>
             </div>
         </div>
         <div class="col-8 col-md-9 col-lg-10 pl-5">

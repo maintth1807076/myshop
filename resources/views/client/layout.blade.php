@@ -54,12 +54,25 @@
         footer {
             color: white;
         }
+        #navHeader{
+            position: fixed;
+            height: 16%;
+            background: rgba(193, 162, 163, 0.9);
+            /* box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
+        }
+        body{
+            /*background-image:url("/img/anhnen.jpg") ;*/
+        }
+       /*css của temple*/
+
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm  navbar-light  fixed-top">
 
-    <a class="navbar-brand" href="#" style="margin-left: 80px;"> <img src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" width="150px" height="auto" alt=""></a>
+<nav class="navbar navbar-expand-sm  navbar-light  fixed-top" id="navHeader">
+    <a class="navbar-brand" href="#" style="margin-left: 80px;"> <img
+                src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" width="150px"
+                height="auto" alt=""></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -67,7 +80,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 150px;">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active " href="#"> <b>TRANG CHỦ</b></a>
+                <a class="nav-link active " href="/home"> <b>TRANG CHỦ</b></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link  active   dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -81,16 +94,17 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link  active   " href="#"><b> GIỚI THIỆU</b></a>
+                <a class="nav-link  active   " href="/about"><b> GIỚI THIỆU</b></a>
             </li>
-            <li class="nav-item"  style="margin-right: 20px;">
-                <a class="nav-link  active  " href="#"><b>LIÊN HỆ</b></a>
+            <li class="nav-item" style="margin-right: 20px;">
+                <a class="nav-link  active  " href="/contact"><b>LIÊN HỆ</b></a>
             </li>
             <li>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">  <i class="fas fa-search"></i></button>
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                    </button>
 
 
                 </form>
@@ -137,7 +151,6 @@
         </ul>
     </div>
 </nav>
-<div class="dropdown-divider" style="margin-top:180px"></div>
 <main class="py-4">
     @yield('content')
 </main>
@@ -146,14 +159,12 @@
 
 <footer class="bg-dark">
 
-    <div class="container" >
+    <div class="container">
         <div class="row" style="padding-top: 40px;">
 
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-12 col-sm-6">
-
-
 
 
                         <div class="widget" style="padding-top: 20px;">
@@ -200,23 +211,22 @@
                 </div><!-- /.widget -->
 
             </div>
-
-
             <div class="col-md-4">
-
-
                 <div class="widget" style="padding-top: 20px;">
                     <h3 class="widget-title">SOCIAL</h3>
-
-
                     <a href="#"  style="margin-right: 40px;color: white;" title=""><i class="fab fa-twitter fa-2x"></i></a>
                     <a href="#"   style="margin-right: 40px ; color: white;" title=""><i class="fab fa-facebook-f fa-2x" ></i></a>
                     <a href="#"   style="margin-right: 40px; color: white;" title=""><i class="fab fa-google-plus-g fa-2x"></i></a>
                     <a href="#"   style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px;color: white;" title="">
+                    </a>
+{{--                    <a href="#" style="margin-right: 40px ; color: white;" title=""><i--}}
+{{--                                class="fab fa-facebook-f fa-2x"></i></a>--}}
+{{--                    <a href="#" style="margin-right: 40px; color: white;" title=""><i--}}
+{{--                                class="fab fa-google-plus-g fa-2x"></i></a>--}}
+{{--                    <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>--}}
 
                 </div>
-
-
 
 
                 <div class="widget" style="padding-top: 20px;">
@@ -233,6 +243,7 @@
     </div><!-- Preloader -->
 </footer>
 </div>
+<script src="{{ asset('js/myjs.js') }}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
