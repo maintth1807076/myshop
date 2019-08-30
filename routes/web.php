@@ -18,9 +18,7 @@ Route::get('/guest', function () {
 Route::get('/user', function () {
     return "Hello User";
 })->middleware('auth');
-Route::get('/admin', function () {
-    return "Hello Admin";
-})->middleware('role:admin');
+
 /*route test upload ảnh cloud*/
 Route::get('/admin/image/create','DemoImageUploadController@create');
 Route::post('/admin/image','DemoImageUploadController@upload');
@@ -28,7 +26,7 @@ Route::post('/admin/image','DemoImageUploadController@upload');
 /*route test relationship table*/
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 /*show layout admin*/
 Route::get('/admin/layout', function () {
@@ -36,15 +34,18 @@ Route::get('/admin/layout', function () {
 });
 Route::get('/admin/layout/form', function () {
     return view('admin.product.form');
-});
+})->middleware('role:admin');
 Route::get('/admin/layout/list', function () {
     return view('admin.product.list');
-});
+})->middleware('role:admin');
 /*giao diện client*/
 Route::get('/about',function (){
     return view('client.about');
 });
 Route::get('/',function (){
+    return view('client.home');
+});
+Route::get('/home',function (){
     return view('client.home');
 });
 Route::get('/contact', function (){
@@ -54,6 +55,17 @@ Route::get('/detail', function () {
     return view('client.detail-product');
 });
 Route::get('/product', function () {
-    return view('layouts.client.category-product');
+    return view('client.product');
 });
+/*route user*/
+Route::get('/information', 'UserController@show');
+Route::post('/change-name', 'UserController@changeName');
+Route::post('/change-avatar', 'UserController@changeAvatar');
+/*route admin*/
+Route::get('/admin', function () {
+    return view('admin.layout');
+})->middleware('role:admin');
+Route::resource('/admin/categories','CategoryController')->middleware('role:admin');
+
+
 

@@ -36,7 +36,7 @@
                          src="https://image.dhgate.com/0x0/f2/albu/g8/M00/4E/37/rBVaVFxBNcaAQ2pxAADOJJcXDvg341.jpg"
                          alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title"><b>Kaneki Ken</b></h5>
+                        <a href="/detail"><h5 class="card-title"><b>Kaneki Ken</b></h5></a>
                         <h3><b>1,200,000 đ</b></h3></div>
                 </div>
                 <div class="card  col-sm-4" style="width:400px">
@@ -732,5 +732,10 @@
                 </a>
             </div>
         </div>
+    <div class="col-12 text-center"style="margin-top: 50px">
+        <button type="button" class="btn btn-outline-dark" style="padding-top: 15px">
+            <h4>Xem thêm sản phẩm</h4>
+        </button>
+    </div>
     </div>
 @endsection
