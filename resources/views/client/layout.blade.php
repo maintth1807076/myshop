@@ -5,72 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Thế giới đồ chơi</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{asset('js/my.js')}}" defer></script>
-    <script src="../path-to/jquery.min.js"></script>
-    <script src="../path-to/multislider.min.js"></script>
-    <!-- Fonts -->
+<!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        .navbar {
-            background: white;
-
-        }
-
-        .nav-item {
-            font-size: 14px;
-            font-family: Verdana;
-
-        }
-
-        b:hover {
-            color: #1bb206;
-        }
-
-        i:hover {
-            color: #1bb206;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        footer {
-            color: white;
-        }
-        #navHeader{
-            position: fixed;
-            height: 16%;
-            background: rgba(193, 162, 163, 0.9);
-            /* box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
-        }
-        body{
-            /*background-image:url("/img/anhnen.jpg") ;*/
-        }
-       /*css của temple*/
-
-    </style>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-sm  navbar-light  fixed-top" id="navHeader">
     <a class="navbar-brand" href="#" style="margin-left: 80px;"> <img
                 src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" width="150px"
@@ -85,7 +35,7 @@
                 <a class="nav-link active " href="/home"> <b>TRANG CHỦ</b></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link  active   dropdown-toggle dropbtn" href="#" id="navbardrop" data-toggle="dropdown">
+                <a class="nav-link active dropdown-toggle dropbtn" href="#" id="navbardrop" data-toggle="dropdown">
                     <b>SẢN PHẨM</b>
                 </a>
                 <div class="dropdown-menu dropdown-content">
@@ -104,7 +54,8 @@
             <li>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">  <i class="fas fa-search"></i></button>
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                    </button>
                 </form>
             </li>
             <li class="nav-item">
@@ -130,7 +81,9 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span class="caret"></span>
+                        <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;">
+                        {{ Auth::user()->name }}
+                        <span class="caret"></span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -150,13 +103,9 @@
         </ul>
     </div>
 </nav>
-<div style="margin-top: 50px;"></div>
-<main class="py-4">
+<div class="" style="margin-top: 50px;">
     @yield('content')
-</main>
-<div class="dropdown-divider"></div>
-<div class="dropdown-divider"></div>
-
+</div>
 <footer class="bg-dark">
 
     <div class="container">
@@ -214,12 +163,15 @@
             <div class="col-md-4">
                 <div class="widget" style="padding-top: 20px;">
                     <h3 class="widget-title">SOCIAL</h3>
-                    <a href="#"  style="margin-right: 40px;color: white;" title=""><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#"   style="margin-right: 40px ; color: white;" title=""><i class="fab fa-facebook-f fa-2x" ></i></a>
-                    <a href="#"   style="margin-right: 40px; color: white;" title=""><i class="fab fa-google-plus-g fa-2x"></i></a>
-                    <a href="#"   style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px;color: white;" title=""><i
+                                class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px ; color: white;" title=""><i
+                                class="fab fa-facebook-f fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px; color: white;" title=""><i
+                                class="fab fa-google-plus-g fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
                     <a href="#" style="margin-right: 40px;color: white;" title="">
-  </a>
+                    </a>
                 </div>
 
 
@@ -241,7 +193,7 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
-        duration:1200
+        duration: 1200
     });
 </script>
 </body>
