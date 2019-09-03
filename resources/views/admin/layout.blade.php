@@ -68,6 +68,9 @@
             @show()
         </div>
     </div>
+    <br>
+    <br>
+    <br>
     <div class="row">
         <div class="col bg-dark p-2 fixed-bottom">
             <div class="text-center text-white">
