@@ -9,7 +9,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{asset('js/my.js')}}" defer></script>
+    <script src="../path-to/jquery.min.js"></script>
+    <script src="../path-to/multislider.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -83,10 +85,10 @@
                 <a class="nav-link active " href="/home"> <b>TRANG CHỦ</b></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link  active   dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <a class="nav-link  active   dropdown-toggle dropbtn" href="#" id="navbardrop" data-toggle="dropdown">
                     <b>SẢN PHẨM</b>
                 </a>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu dropdown-content">
                     <a class="dropdown-item" href="#">MÔ HÌNH/FIGURE</a>
                     <a class="dropdown-item" href="#"> ÁO TSHIRT</a>
                     <a class="dropdown-item" href="#"> PHỤ KIỆN</a>
@@ -102,11 +104,7 @@
             <li>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
-                    </button>
-
-
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">  <i class="fas fa-search"></i></button>
                 </form>
             </li>
             <li class="nav-item">
@@ -115,12 +113,12 @@
                 </a>
             </li>
             @guest
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown dropbtn">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user" style="font-size:25px"></i>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                         <div class="dropdown-divider"></div>
                         @if (Route::has('register'))
@@ -221,13 +219,7 @@
                     <a href="#"   style="margin-right: 40px; color: white;" title=""><i class="fab fa-google-plus-g fa-2x"></i></a>
                     <a href="#"   style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
                     <a href="#" style="margin-right: 40px;color: white;" title="">
-                    </a>
-{{--                    <a href="#" style="margin-right: 40px ; color: white;" title=""><i--}}
-{{--                                class="fab fa-facebook-f fa-2x"></i></a>--}}
-{{--                    <a href="#" style="margin-right: 40px; color: white;" title=""><i--}}
-{{--                                class="fab fa-google-plus-g fa-2x"></i></a>--}}
-{{--                    <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>--}}
-
+  </a>
                 </div>
 
 
@@ -254,3 +246,4 @@
 </script>
 </body>
 </html>
+
