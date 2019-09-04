@@ -24,11 +24,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        .navbar {
-            background: white;
-
-        }
-
         .nav-item {
             font-size: 14px;
             font-family: Verdana;
@@ -56,81 +51,42 @@
         footer {
             color: white;
         }
-        #navHeader{
-            position: fixed;
-            height: 16%;
-            background: rgba(193, 162, 163, 0.9);
-            /* box-shadow: 0px 2px 5px rgba(0,0,0,0.1); */
-        }
-        body{
-            /*background-image:url("/img/anhnen.jpg") ;*/
-        }
-       /*css của temple*/
 
     </style>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-sm  navbar-light  fixed-top" id="navHeader">
-    <a class="navbar-brand" href="#" style="margin-left: 80px;"> <img
-                src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" width="150px"
-                height="auto" alt=""></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<nav class="navbar background navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/home" style="margin-left: 100px">
+        <img src="https://www.otakuhouse.com/wp-content/themes/yamidoo/images/new_logo.png" width="auto"
+             height="70px" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 150px;">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active " href="/home"> <b>TRANG CHỦ</b></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link  active   dropdown-toggle dropbtn" href="#" id="navbardrop" data-toggle="dropdown">
-                    <b>SẢN PHẨM</b>
-                </a>
-                <div class="dropdown-menu dropdown-content">
-                    <a class="dropdown-item" href="#">MÔ HÌNH/FIGURE</a>
-                    <a class="dropdown-item" href="#"> ÁO TSHIRT</a>
-                    <a class="dropdown-item" href="#"> PHỤ KIỆN</a>
-                    <a class="dropdown-item" href="#"> ĐỒ COSPLAY</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  active   " href="/about"><b> GIỚI THIỆU</b></a>
-            </li>
-            <li class="nav-item" style="margin-right: 20px;">
-                <a class="nav-link  active  " href="/contact"><b>LIÊN HỆ</b></a>
-            </li>
-            <li>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">  <i class="fas fa-search"></i></button>
-                </form>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#" style="margin-left: 50px">
-                    <i class="fa fa-shopping-basket" style="font-size:25px"></i>
-                </a>
-            </li>
+    <form style="margin-left: 100px;">
+        <div class="form-control">
+            <input type="search" placeholder="Search" aria-label="Search"
+                   style="border:none;border-right: 1px solid black;width: 400px;height: 25px">
+            <i class="fas fa-search"></i>
+        </div>
+    </form>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 100px">
+        <ul class="navbar-nav" style="padding-left: 100px">
             @guest
-                <li class="nav-item dropdown dropbtn">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user" style="font-size:25px"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        <div class="dropdown-divider"></div>
-                        @if (Route::has('register'))
-                            <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        @endif
-                    </div>
+                <li>
+                    <a class="active" href="{{ route('login') }}"><b style="color: black">{{ __('Đăng nhập ') }}</b></a>
+                    <b>|</b>
+                    @if (Route::has('register'))
+                        <a class="active" href="{{ route('register') }}"><b style="color: black">{{ __('Đăng ký') }}</b></a>
+                    @endif
                 </li>
             @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span class="caret"></span>
+                        <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span
+                                class="caret"></span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -150,7 +106,34 @@
         </ul>
     </div>
 </nav>
-<div style="margin-top: 50px;"></div>
+
+<nav class="navbar navbar-expand-sm  navbar-light sticky " style="background:#d6d8d9">
+    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 300px;">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/home"> <b>TRANG CHỦ</b></a>
+            </li>
+            <li class="nav-item dropdown" style="padding-left: 150px">
+                <a class="nav-link  active   dropdown-toggle dropbtn" href="#" id="navbardrop"
+                   data-toggle="dropdown">
+                    <b>SẢN PHẨM</b>
+                </a>
+                <div class="dropdown-menu dropdown-content">
+                    <a class="dropdown-item" href="#">MÔ HÌNH/FIGURE</a>
+                    <a class="dropdown-item" href="#"> ÁO TSHIRT</a>
+                    <a class="dropdown-item" href="#"> PHỤ KIỆN</a>
+                    <a class="dropdown-item" href="#"> ĐỒ COSPLAY</a>
+                </div>
+            </li>
+            <li class="nav-item" style="padding-left: 150px">
+                <a class="nav-link  active   " href="/about"><b> GIỚI THIỆU</b></a>
+            </li>
+            <li class="nav-item" style="margin-right: 20px;padding-left: 150px">
+                <a class="nav-link  active  " href="/contact"><b>LIÊN HỆ</b></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <main class="py-4">
     @yield('content')
 </main>
@@ -214,12 +197,15 @@
             <div class="col-md-4">
                 <div class="widget" style="padding-top: 20px;">
                     <h3 class="widget-title">SOCIAL</h3>
-                    <a href="#"  style="margin-right: 40px;color: white;" title=""><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#"   style="margin-right: 40px ; color: white;" title=""><i class="fab fa-facebook-f fa-2x" ></i></a>
-                    <a href="#"   style="margin-right: 40px; color: white;" title=""><i class="fab fa-google-plus-g fa-2x"></i></a>
-                    <a href="#"   style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px;color: white;" title=""><i
+                                class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px ; color: white;" title=""><i
+                                class="fab fa-facebook-f fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px; color: white;" title=""><i
+                                class="fab fa-google-plus-g fa-2x"></i></a>
+                    <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
                     <a href="#" style="margin-right: 40px;color: white;" title="">
-  </a>
+                    </a>
                 </div>
 
 
@@ -241,7 +227,7 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
-        duration:1200
+        duration: 1200
     });
 </script>
 </body>
