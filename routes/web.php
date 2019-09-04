@@ -66,6 +66,3 @@ Route::get('/admin', function () {
     return view('admin.layout');
 })->middleware('role:admin');
 Route::resource('/admin/categories','CategoryController')->middleware('role:admin');
-
-
-
