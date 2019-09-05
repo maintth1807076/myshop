@@ -113,7 +113,7 @@
             <li class="nav-item">
                 <a class="nav-link active" href="/home"> <b>TRANG CHỦ</b></a>
             </li>
-            <li class="nav-item dropdown" style="padding-left: 150px">
+            <li class="nav-item dropdown" style="padding-left: 100px">
                 <a class="nav-link  active   dropdown-toggle dropbtn" href="#" id="navbardrop"
                    data-toggle="dropdown">
                     <b>SẢN PHẨM</b>
@@ -125,11 +125,18 @@
                     <a class="dropdown-item" href="#"> ĐỒ COSPLAY</a>
                 </div>
             </li>
-            <li class="nav-item" style="padding-left: 150px">
+            <li class="nav-item" style="padding-left: 100px">
                 <a class="nav-link  active   " href="/about"><b> GIỚI THIỆU</b></a>
             </li>
-            <li class="nav-item" style="margin-right: 20px;padding-left: 150px">
+            <li class="nav-item" style="margin-right: 20px;padding-left: 100px">
                 <a class="nav-link  active  " href="/contact"><b>LIÊN HỆ</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#" style="padding-left: 100px">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="d-inline list-added text-dark" id="added-quantity">0</div>
+                    GIỎ HÀNG
+                </a>
             </li>
         </ul>
     </div>
