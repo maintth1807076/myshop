@@ -73,7 +73,9 @@ Route::resource('/admin/categories','CategoryController')->middleware('role:admi
 Route::resource('/admin/products','ProductController')->middleware('role:admin');
 
 Route::get('/lienket',function(){
-    $data = App\product::find(1)-> categories ->toArray();
-    var_dump($data);
+    $data = App\Category::find(2)->products ->toArray();
+//    var_dump($data);
+    dd($data);
 } );
-
+//Route::get('/admin/products/create','ProductController@create');
+//Route::post('/admin/products','ProductController@upload');

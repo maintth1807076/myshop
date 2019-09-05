@@ -14,14 +14,14 @@
                 <div class="row mr-0 ml-0">
                     <div data-aos="fade-up" class="col-12 col-xl-4 col-lg-4 col-md-11 col-sm-10 mt-5 ml-3">
 {{--                        <img src="/img/shacon.png" alt="..." class="img-thumbnail">--}}
-                        <div class="hover01 column">
-                            <div>
+{{--                        <div class="hover01 column">--}}
+{{--                            <div>--}}
                                 <figure><img class="img-thumbnail" src="/img/shacon.png" /></figure>
-                            </div>
-                    </div>
+{{--                            </div>--}}
+{{--                    </div>--}}
                     </div>
                     <div data-aos="fade-down" class="col-12 col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
-                        <i class="font1">MyToys là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
+                        <i class="font1"><img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"> là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
                         Nếu là một fan ruột của Manga-Anime thì bạn không thể không đến với shop,
                         bạn có thể tìm thấy cho mình những nhân vật
                         manga mà từ thời bé xíu đã gắn bó với bạn qua những tập truyện tranh như mèo máy Đoraemon,
@@ -32,50 +32,55 @@
 
                     </div>
                 </div>
-                <div  class="row ml-0 mr-0">
-                    <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-10 ml-1 pt-3">
-                        <i class="font1">Ship hàng COD toàn quốc</i><br>
-                        Ship hàng COD toàn quốc , chuyển phát nhanh phí hợp lý.
-                        Chúng tôi chuyên về các loại mặt hàng mô hình - figure, nendoroid.
-                        Các loại phụ kiện đa dạng như mũ, vòng cổ, vòng tay, móc khóa, ví, thắt lưng, nhẫn..v..v..
-                        Các bạn cũng có thể order sản phẩm theo yêu cầu hoặc hình ảnh.
-                    </div>
-                </div>
+{{--                <div  class="row ml-0 mr-0">--}}
+{{--                    <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-10 ml-1 pt-3">--}}
+{{--                        <i class="font1">Ship hàng COD toàn quốc</i><br>--}}
+{{--                        Ship hàng COD toàn quốc , chuyển phát nhanh phí hợp lý.--}}
+{{--                        Chúng tôi chuyên về các loại mặt hàng mô hình - figure, nendoroid.--}}
+{{--                        Các loại phụ kiện đa dạng như mũ, vòng cổ, vòng tay, móc khóa, ví, thắt lưng, nhẫn..v..v..--}}
+{{--                        Các bạn cũng có thể order sản phẩm theo yêu cầu hoặc hình ảnh.--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
 {{--                </div>--}}
         </div>
+    <div class="row">
+        <div class="col-12 mt-2">
+            <h1>Thành Viên của <img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"></h1>
+        </div>
+    </div>
         <div class="row mr-0 ml-0">
             <div class="col">
                 <div class="row mr-0 ml-0">
-                    <div class="col-12 col-xl-2 col-lg-2 col-md-1 col-sm-1 "></div>
+                    <div class="col-12 col-xl-1 col-lg-2 col-md-1 col-sm-1 "></div>
                     <div class="col-12 col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mt-4">
 {{--
    <i data-aos="flip-left" class="fas fa-user-tie" style="font-size: 500%"></i><br>--}}
                         <div class="hover01 column">
-                            <div>
-                                <figure><img class="img-thumbnail" src="/img/leb.png"style="margin-left: 0;width: 63%"></figure>
+                            <div class="img_dev">
+                                <figure><img class="img-thumbnail" src="/img/just1.jpg"style="margin-left: 0;width: 63%;border-radius: 100%"></figure>
                             </div>
                         </div>
 
-                        <p  class="font1" data-aos="flip-down" class="text-toy"class="font1 aos-init aos-animate">Mục đích của MyToys</p>
+                        <p  class="font1" data-aos="flip-down" class="text-toy"class="font1 aos-init aos-animate">Justin_Bieber</p>
                     </div>
                     <div class=" col-12 col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mt-4">
 {{--                        <i data-aos="flip-up" class="fas fa-lightbulb" style="font-size: 500%"></i><br>--}}
                         <div class="hover01 column">
-                            <div>
-                                <figure><img class="img-thumbnail" src="/img/sona.png"style="margin-left: 0;width: 63%"></figure>
+                            <div class="img_dev">
+                                <figure><img class="img-thumbnail" src="/img/tyga1.jpg"style="margin-left: 0;width: 63%;border-radius: 100%"></figure>
                             </div>
                         </div>
-                        <p data-aos="flip-down" class="font1">Mục đích của MyToys</p>
+                        <p data-aos="flip-down" class="font1">Tyga</p>
                     </div>
                     <div class=" col-12 col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mt-4">
 {{--                        <i data-aos="flip-up" class="fas fa-exclamation" style="font-size: 500%"></i><br>--}}
                         <div class="hover01 column">
-                            <div>
-                                <figure><img class="img-thumbnail" src="/img/amumu.png"style="margin-left: 0;width: 63%"></figure>
+                            <div class="img_dev">
+                                <figure><img class="img-thumbnail" src="/img/rap1.jpg"style="margin-left: 0;width: 63%;border-radius: 100%"></figure>
                             </div>
                         </div>
-                        <p data-aos="flip-down"class="font1">Mục đích của MyToys</p>
+                        <p data-aos="flip-down"class="font1">Lil Wayne</p>
                     </div>
                 </div>
             </div>
@@ -84,22 +89,22 @@
             <div class="col">
                 <div class="row mr-0 ml-0" id="thua2">
                     <div class="col-xl-1 col-lg-1 "></div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-5 mr-1">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-3 mr-1">
                         <p data-aos="zoom-in" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
-                            khỏe mạnh hơn. Chúng tôi cũng mong muốn truyền cảm hứng cho mọi người sống
+                            khỏe mạnh hơn.
                         </p>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mr-1">
                         <p data-aos="zoom-in" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
-                            khỏe mạnh hơn. Chúng tôi cũng mong muốn truyền cảm hứng cho mọi người sống
+                            khỏe mạnh hơn.
                         </p>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mr-1">
                         <p data-aos="zoom-in-up" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
-                            khỏe mạnh hơn. Chúng tôi cũng mong muốn truyền cảm hứng cho mọi người sống
+                            khỏe mạnh hơn.
                         </p>
                     </div>
                 </div>

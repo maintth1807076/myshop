@@ -17,8 +17,9 @@ class ProductController extends Controller
     {
         $list = product::paginate(2);
         $data = ['list' => $list];
-        return view('admin.admin_list_products', $data);
+        return view('admin.product.list', $data);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('auth.products_form');
+        return view ('admin.product.form');
     }
 
     /**
@@ -37,7 +38,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response|string
      */
     public function upload(Request $request){
-        $image_name = $request->file('image')->getRealPath();;
+        $image_name = $request->file('thumbnail')->getRealPath();;
         Cloudder::upload($image_name, null);
         $result = Cloudder::getResult();
         $image_id = $result['public_id'].'.'.$result['format'];
@@ -56,7 +57,6 @@ class ProductController extends Controller
         $product->save();
         return redirect('/admin/products');
     }
-
     /**
      * Display the specified resource.
      *
@@ -65,7 +65,17 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('client.detail-product');
+        $product = product::find($id);
+        $data = ['product' => $product];
+        return view('admin.product.detail', $data);
+
+//
+//        // get the nerd
+//        $product = product::find($id);
+//
+//        // show the view and pass the nerd to it
+//        return View::make('admin.product.detail')
+//            ->with('product', $product);
     }
 
     /**
@@ -78,9 +88,8 @@ class ProductController extends Controller
     {
         $product = product::find($id);
         $data = ['product' => $product];
-        return view('admin.product.admin_edit_products', $data);
+        return view('admin.product.edit',$data);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -110,6 +119,17 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        error_log('Some message here.');
+        $product = product::find($id);
+        $product->delete();
+        return response()->json(['status' => '200', 'message' => 'Okie']);
     }
+    public function changeStatus(Request $request)
+    {
+        $listItem = product::whereIn('id', $request->input('ids'));
+        $listItem->update(array(
+            'status' => (int)$request->input('status'),
+            'updated_at' => date('Y-m-d H:i:s')));
+        return response()->json(['status' => '200', 'message' => 'Good']);
+}
 }
