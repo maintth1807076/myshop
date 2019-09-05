@@ -5,13 +5,10 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-tanabata-beautiful-romantic-valentines-day-image_11047.jpg" class="d-block w-100" alt="...">
+                    <img src="http://otakushop.com.vn/upload/slideshow/832394432520815_1301.2232415902x500.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-tanabata-beautiful-romantic-valentines-day-image_11047.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-tanabata-beautiful-romantic-valentines-day-image_11047.jpg" class="d-block w-100" alt="...">
+                    <img src="http://otakushop.com.vn/upload/slideshow/567682701517304_1366x455.33333333333.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
