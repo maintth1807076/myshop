@@ -8,13 +8,10 @@
     text-transform: uppercase;
     font-weight: bold;
 }
-
-.btn-warning:hover, .btn-danger1:hover,
-.btn-danger:hover {
+.btn:hover{
     background-color: #c9d1da
 }
-
-.btn-danger1 {
+.btn-d1{
     color: #212529;
     background-color: orangered;
 }
@@ -34,14 +31,10 @@
     width: 100%;
     height: 100%;
     transition-duration: 2s;
-    /* Safari & Google Chrome */
-    -webkit-transition-duration: 0.5s;
 }
 
 .thumbnail img:hover {
     transform: scale(1.2);
-    /* Safari & Google Chrome */
-    -webkit-transform: scale(1.2);
     cursor: pointer;
 }
 
@@ -78,7 +71,6 @@ b.kiluc {
 .margin-top-50 {
     margin-top: 50px;
 }
-
 .product-detail {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
     border-radius: .125rem;
@@ -97,11 +89,9 @@ b.kiluc {
     font-size: 14px;
     color: #e9605c;
 }
-
 .title-name {
     text-transform: capitalize;
 }
-
 .img-reponsive {
     width: 265px;
     height: 265px;
@@ -113,22 +103,6 @@ b.kiluc {
     font-size: 18px;
     font-weight: 700;
 }
-
-.avatar-letter {
-    margin-left: 45px;
-    border-radius: 50%;
-    background: #d3d2d3;
-    color: #919090;
-    font-weight: 500;
-    width: 65px;
-    height: 65px;
-    display: inline-block;
-    text-align: center;
-    line-height: 65px;
-    font-size: 25px;
-    font-family: Roboto;
-}
-
 .name-dt {
     font-size: 14px;
     margin: -8px 39px 0px;
@@ -137,13 +111,21 @@ b.kiluc {
     width: 178px;
     font-family: cursive;
 }
-
 .day-dt {
     font-size: 12px;
     color: #999;
     margin: 0px 40px 30px;
 }
-
+/*contact*/
+.media-contact {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    margin: 6px;
+    text-align: center;
+    line-height: 45px;
+    background-color: #ededed;
+}
 /*!*css for client about*!*/
 /*css for client about*/
 .hover01 figure img {
@@ -208,8 +190,15 @@ i.font1 {
     font-family: " Nestle-Text-Light";
     font-size: 142%;
 }
-
-i.font2 {
+b.kiluc1{
+    font-size: 250%;
+    color: red;
+}
+b.kiluc{
+    font-size: 250%;
+    color: blueviolet;
+}
+i.font2{
     font-family: " Nestle-Text-Light";
     font-size: 210%;
     margin-left: 26%;
