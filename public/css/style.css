@@ -143,7 +143,7 @@ b.kiluc {
 
 img.img-thumbnail {
     border: 0px white;
-    width: 80%;
+    width: 67%;
     margin-left: 20%;
 }
 
@@ -208,6 +208,7 @@ p.font1 {
     font-family: " playfair display,serif";
     font-size: 160%;
     margin-left: -5%;
+    text-align: center;
 }
 
 i.fas fa-user-tie {
@@ -418,6 +419,11 @@ strong.kiluc {
 .p-t-160 {
     padding-top: 160px;
 }
+#imglogo{
+    width: 14%;
+}
+.img_dev{
+    text-align: center;
 
 .box {
     width: 1336px;

@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\View\ViewServiceProvider;
+use JD\Cloudder\Facades\Cloudder;
+
 return [
 
     /*
@@ -161,7 +164,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        JD\Cloudder\CloudderServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -177,6 +181,7 @@ return [
 
         JD\Cloudder\CloudderServiceProvider::class,
         jeremykenedy\LaravelRoles\RolesServiceProvider::class,
+
     ],
 
     /*
@@ -227,7 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class
     ],
 
 ];

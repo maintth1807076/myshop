@@ -19,7 +19,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    Thumbnail<input type="text" name="thumbnail" class="form-control" value="1">
+                    Thumbnail<input type="text" name="thumbnail" class="form-control" value="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>

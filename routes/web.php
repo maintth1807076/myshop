@@ -24,6 +24,10 @@ Route::get('/admin/image/create','DemoImageUploadController@create');
 Route::post('/admin/image','DemoImageUploadController@upload');
 /*route test luồng crud*/
 /*route test relationship table*/
+Route::get('/admin/products/create','ProductController@create');
+Route::post('/admin/products','ProductController@upload');
+
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -66,3 +70,12 @@ Route::get('/admin', function () {
     return view('admin.layout');
 })->middleware('role:admin');
 Route::resource('/admin/categories','CategoryController')->middleware('role:admin');
+Route::resource('/admin/products','ProductController')->middleware('role:admin');
+
+Route::get('/lienket',function(){
+    $data = App\Category::find(2)->products ->toArray();
+//    var_dump($data);
+    dd($data);
+} );
+//Route::get('/admin/products/create','ProductController@create');
+//Route::post('/admin/products','ProductController@upload');
