@@ -83,3 +83,4 @@ Route::get('search',[
     'as'=>'search',
     'uses'=>'ProductController@getSearch',
 ]);
+
