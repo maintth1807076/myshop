@@ -4,6 +4,9 @@
 }
 
 /*css for detail-product*/
+tr.td-products{
+    text-align: center;
+}
 .product-name {
     text-transform: uppercase;
     font-weight: bold;
@@ -269,6 +272,7 @@ strong.kiluc {
 
 * {
     box-sizing: border-box;
+
 }
 
 .fuild {

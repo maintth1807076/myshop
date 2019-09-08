@@ -79,3 +79,8 @@ Route::get('/lienket',function(){
 } );
 //Route::get('/admin/products/create','ProductController@create');
 //Route::post('/admin/products','ProductController@upload');
+Route::get('search',[
+    'as'=>'search',
+    'uses'=>'ProductController@getSearch',
+]);
+

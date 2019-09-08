@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductVailidate;
 use App\product;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
@@ -44,10 +45,10 @@ class ProductController extends Controller
         $image_id = $result['public_id'].'.'.$result['format'];
         return $image_id;
     }
-    public function store(Request $request)
+    public function store(ProductVailidate $request)
     {
         $product = new product();
-
+        $request->validated();
         $product->name = $request->get('name');
         $product->price = $request->get('price');
         $product->thumbnail =$request->get('thumbnail');
@@ -97,8 +98,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductVailidate $request, $id)
     {
+        $request->validated();
         $product = product::find($id);
         $product->name = $request->get('name');
         $product->price = $request->get('price');
@@ -132,4 +134,13 @@ class ProductController extends Controller
             'updated_at' => date('Y-m-d H:i:s')));
         return response()->json(['status' => '200', 'message' => 'Good']);
 }
+    public function getById($id)
+    {
+        $product = product::find($id);
+        return response()->json(['status' => '200', 'message' => 'Okie', 'data' => $product]);
+    }
+    public function getSearch(Request $req){
+        $product = product::where('name','like','%'.$req->key.'%')->get();
+        return view('admin.product.searce',compact('product'));
+    }
 }
