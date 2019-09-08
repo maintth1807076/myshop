@@ -12,15 +12,15 @@
                             <li data-target="#carousel-simple" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-item active thumbnail">
-                            <img class="d-block w-100" height="540px"
+                            <img class="d-block w-100"
                                  src="{{$product->thumbnail}}" alt="First slide">
                         </div>
                         <div class="carousel-item thumbnail">
-                            <img class="d-block w-100" height="540px"
+                            <img class="d-block w-100"
                                  src="{{$product->thumbnail}}" alt="Second slide">
                         </div>
                         <div class="carousel-item thumbnail">
-                            <img class="d-block w-100" height="540px"
+                            <img class="d-block w-100"
                                  src="{{$product->thumbnail}}" alt="Third slide">
                         </div>
                     </div>
@@ -50,9 +50,9 @@
                     <div class="product-status">
                         <span>Đang bán chạy</span>
                     </div>
-                    <div><p>Bộ mô hình đồ chơi bằng nhựa PVC cao cấp Tôn Ngộ Không</p></div>
+                    <div><p>Bộ mô hình đồ chơi bằng {{$product->description}}</p></div>
                     <div class="product-price product-actions">
-                        <span class="price">1,000,000 <ins>đ</ins></span>
+                        <span class="price">Giá:{{$product->price}} <ins>đ</ins></span>
                     </div>
                     <div class="product-actions-wrapper">
                         <form action=" " method="post" enctype="multipart/form-data" id="AddToCartForm">
@@ -114,7 +114,7 @@
             </div>
             <span>
                 <ul>
-                    <li>Mã sản phẩm: TNK-2019 </li>
+                    <li>Mã sản phẩm:{{$product->id}} </li>
                     <li>Mô hình nhân vật huyền thoại trong tâm trí các fan châu Á nói chung và Việt Nam nói riêng: Tôn Ngộ Không.</li>
                     <li>Xuất xứ: Trung Quốc</li>
                     <li>Chiều cao: 16cm</li>

@@ -1,7 +1,7 @@
 @extends('client.layout')
 @section('content')
     <div class="col-12 pl-0 pr-0">
-        <section class=" bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url('/img/shaco.jpg'); background-position: center">
+        <section class=" bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url('/img/aniie.jpg'); background-position: center">
             <h2 data-aos="fade-left" class="tit6 t-center"style="font-size: 500%;color: greenyellow;font-family: auto">
                 Về chúng tôi
             </h2>

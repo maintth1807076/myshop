@@ -23,7 +23,6 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <script src="{{asset('js/app.js')}}" ></script>
-    <script src="{{asset('js/custom.js')}}" ></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -171,7 +170,7 @@
         $('.btn-edit').click(function () {
             var editId = $(this).attr('id').replace('btn-edit-', '');
             $.ajax({
-                url: 'admin/products/get-by-id/' + editId,
+                url: 'admin/products/get-by/' + editId,
                 method: 'GET',
                 success: function (response) {
                     $('input[name="name"]').val(response.data.name);
@@ -181,14 +180,14 @@
                 }
             });
         });
-        function changeStatus(linhtinhlonxon,status1) {
+        function changeStatus(arrayId,action) {
             $.ajax({
-                url: 'admin/products/change-status',
+                url: '/admin/products/changeStatus',
                 method: 'POST',
                 data: {
                     '_token': $('meta[name=csrf-token]').attr("content"),
-                    'ids': linhtinhlonxon,
-                    'status': status1
+                    'ids': arrayId,
+                    'status': action
                 },
                 success: function () {
                     alert("Thao tác thành công, reload lại page!");
