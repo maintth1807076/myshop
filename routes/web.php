@@ -12,6 +12,11 @@
 */
 
 /*route test authen authorization*/
+
+use App\Category;
+use App\Product;
+use App\Slide;
+
 Route::get('/guest', function () {
     return "Hello Guest";
 });
@@ -46,20 +51,41 @@ Route::get('/admin/layout/list', function () {
 Route::get('/about',function (){
     return view('client.about');
 });
-Route::get('/',function (){
-    return view('client.home');
-});
+//Route::get('/',function (){
+//    return view('client.home');
+//});
 Route::get('/home',function (){
-    return view('client.home');
+    $data = [
+        'list_slide' => Slide::all(),
+        'list_product_hot' => Product::all(),
+        'list_category' => Category::all()
+    ];
+    return view('client.home', $data);
+});
+Route::get('/',function (){
+    $data = [
+        'list_product_hot' => Product::all(),
+        'list_category' => Category::all()
+    ];
+    return view('client.layout', $data);
 });
 Route::get('/contact', function (){
     return view('client.contact');
 });
-Route::get('/detail', function () {
-    return view('client.detail-product');
+Route::get('/product/{product}', function ($id) {
+    $data = [
+        'list_category' => Category::all(),
+        'item' => Product::find($id)
+    ];
+    return view('client.detail-product', $data);
 });
-Route::get('/product', function () {
-    return view('client.product');
+Route::get('/category/{category}', function ($id) {
+    $data = [
+        'list_category' => Category::all(),
+        'item' => Category::find($id),
+        'list_product' => Category::find($id)->products
+    ];
+    return view('client.product', $data);
 });
 /*route user*/
 Route::get('/information', 'UserController@show');
@@ -69,13 +95,14 @@ Route::post('/change-avatar', 'UserController@changeAvatar');
 Route::get('/admin', function () {
     return view('admin.layout');
 })->middleware('role:admin');
-Route::resource('/admin/categories','CategoryController')->middleware('role:admin');
-Route::resource('/admin/products','ProductController')->middleware('role:admin');
+Route::resource('/admin/categories','CategoryController');
+Route::post('/admin/categories/change-status','CategoryController@changeStatus');
+Route::resource('/admin/products','ProductController');
+Route::resource('/admin/slides','SlideController');
 
-Route::get('/lienket',function(){
-    $data = App\Category::find(2)->products ->toArray();
-//    var_dump($data);
-    dd($data);
-} );
 //Route::get('/admin/products/create','ProductController@create');
 //Route::post('/admin/products','ProductController@upload');
+//test upload multiple
+Route::get('/multiuploads', 'DemoImageUploadController@uploadForm');
+Route::post('/multiuploads', 'DemoImageUploadController@uploadSubmit');
+Route::get('/multiupload', 'DemoImageUploadController@show');

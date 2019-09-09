@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\product;
+use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 
@@ -46,14 +47,13 @@ class ProductController extends Controller
     }
     public function store(Request $request)
     {
-        $product = new product();
-
+        $product = new Product();
         $product->name = $request->get('name');
         $product->price = $request->get('price');
         $product->thumbnail =$request->get('thumbnail');
         $product->description = $request->get('description');
         $product->detail = $request->get('detail');
-        $product->id_categories =$request->get('id_categories');
+        $product->category_id = $request->category_id;
         $product->save();
         return redirect('/admin/products');
     }
@@ -101,11 +101,11 @@ class ProductController extends Controller
     {
         $product = product::find($id);
         $product->name = $request->get('name');
-        $product->price = $request->get('price');
+        $product->price = (double)$request->get('price');
         $product->thumbnail =$request->get('thumbnail');
         $product->description = $request->get('description');
         $product->detail = $request->get('detail');
-        $product->id_categories =$request->get('id_categories');
+        $product->category_id =$request->get('category_id');
         $product->save();
         return redirect('/admin/products');
 

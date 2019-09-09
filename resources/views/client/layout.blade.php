@@ -10,8 +10,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{asset('js/my.js')}}" defer></script>
-    <script src="../path-to/jquery.min.js"></script>
-    <script src="../path-to/multislider.min.js"></script>
+{{--    <script src="../path-to/jquery.min.js"></script>--}}
+{{--    <script src="../path-to/multislider.min.js"></script>--}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -119,10 +119,9 @@
                     <b>SẢN PHẨM</b>
                 </a>
                 <div class="dropdown-menu dropdown-content">
-                    <a class="dropdown-item" href="#">MÔ HÌNH/FIGURE</a>
-                    <a class="dropdown-item" href="#"> ÁO TSHIRT</a>
-                    <a class="dropdown-item" href="#"> PHỤ KIỆN</a>
-                    <a class="dropdown-item" href="#"> ĐỒ COSPLAY</a>
+                    @foreach($list_category as $item)
+                        <a class="dropdown-item" href="/category/{{$item->id}}">{{$item->name}}</a>
+                        @endforeach
                 </div>
             </li>
             <li class="nav-item" style="padding-left: 100px">
