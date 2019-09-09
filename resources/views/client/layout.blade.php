@@ -119,9 +119,11 @@
                     <b>SẢN PHẨM</b>
                 </a>
                 <div class="dropdown-menu dropdown-content">
-                    @foreach($list_category as $item)
-                        <a class="dropdown-item" href="/category/{{$item->id}}">{{$item->name}}</a>
-                        @endforeach
+{{--                    @foreach($list_category as $item)--}}
+{{--                        <a class="dropdown-item" href="/category/{{$item->id}}">{{$item->name}}</a>--}}
+{{--                        @endforeach--}}
+                    <a class="dropdown-item" href="/category/1">Mô hình tĩnh </a>
+                    <a class="dropdown-item" href="/category/2">Mô hình động</a>
                 </div>
             </li>
             <li class="nav-item" style="padding-left: 100px">
