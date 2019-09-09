@@ -75,7 +75,8 @@ Route::get('/contact', function (){
 Route::get('/product/{product}', function ($id) {
     $data = [
         'list_category' => Category::all(),
-        'item' => Product::find($id)
+        'item' => Product::find($id),
+        'list_product_detail' => Product::find($id)->productDetail
     ];
     return view('client.detail-product', $data);
 });

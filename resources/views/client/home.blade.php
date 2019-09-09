@@ -29,7 +29,7 @@
             @foreach($list_product_hot as $item)
                 <div class="card  col-sm-4" style="width:400px">
                     <img class="card-img-top"
-                         src="{{$item->thumbnail}}"
+                         src="{{$item->productDetail->first()->thumbnail}}"
                          alt="Card image cap">
                     <div class="card-body">
                         <a href="/product/{{$item->id}}"><h5 class="card-title"><b>{{$item->name}}</b></h5></a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\ProductDetail;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 
@@ -50,11 +51,20 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->get('name');
         $product->price = $request->get('price');
-        $product->thumbnail =$request->get('thumbnail');
         $product->description = $request->get('description');
         $product->detail = $request->get('detail');
         $product->category_id = $request->category_id;
         $product->save();
+        foreach ($request->images as $image) {
+            $image_name = $image->getRealPath();;
+            Cloudder::upload($image_name, null);
+            $result = Cloudder::getResult();
+            $image_id = $result['public_id'].'.'.$result['format'];
+            $product_detail = new ProductDetail();
+            $product_detail->product_id = $product->id;
+            $product_detail->thumbnail = $image_id;
+            $product_detail->save();
+        }
         return redirect('/admin/products');
     }
     /**
