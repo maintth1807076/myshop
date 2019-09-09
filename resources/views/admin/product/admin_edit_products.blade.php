@@ -19,11 +19,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Image</label>
-                    <input type="file" class="form-control" name="images[]" multiple>
-                    @error('name')
-                    <small class="text-danger form-text text-muted">{{ $message }}</small>
-                    @enderror
+                    Thumbnail<input type="text" name="thumbnail" class="form-control" value="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>
@@ -48,8 +44,8 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Id_Categories</label>
-                    <input name="category_id" type="text" class="form-control" placeholder="Please enter description">
-                    @error('category_id')
+                    <input name="id_categories" type="text" class="form-control" placeholder="Please enter description">
+                    @error('id_categories')
                     <small class="text-danger form-text text-muted">{{ $message }}</small>
                     @enderror
                 </div>

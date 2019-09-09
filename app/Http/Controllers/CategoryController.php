@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data = [
-            'list' => Category::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(1)
+            'list' => Category::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(2)
         ];
         return view('admin.category.list', $data);
     }
@@ -39,16 +39,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->name = $request->name;
+        $item = new Category();
+        $item->name = $request->name;
         if($request->hasFile('images')){
             $image_name = $request->file('images')->getRealPath();;
             Cloudder::upload($image_name, null);
             $result = Cloudder::getResult();
-            $category->thumbnail = $result['public_id'].'.'.$result['format'];
+            $item->thumbnail = $result['public_id'].'.'.$result['format'];
         }
-        $category->description = $request->description;
-        $category->save();
+        $item->description = $request->description;
+        $item->save();
         return redirect('/admin/categories');
     }
 
@@ -58,9 +58,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        $data = [
+            'item' => Category::find($id)
+        ];
+        return view('admin.category.detail', $data);
     }
 
     /**
@@ -69,9 +72,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $data = [
+            'item' => Category::find($id)
+        ];
+        return $data;
     }
 
     /**
@@ -81,9 +87,19 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $item = Category::find($id);
+        $item->name = $request->name;
+//        if($request->hasFile('images')){
+//            $image_name = $request->file('images')->getRealPath();;
+//            Cloudder::upload($image_name, null);
+//            $result = Cloudder::getResult();
+//            $item->thumbnail = $result['public_id'].'.'.$result['format'];
+//        }
+        $item->description = $request->description;
+        $item->save();
+        return redirect('/admin/categories');
     }
 
     /**
@@ -92,8 +108,21 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $item = Category::find($id);
+        if ($item == null) {
+
+        }
+        $item->status = -1;
+        $item->save();
+        return response()->json(['status' => '200', 'message' => 'Okie']);
+    }
+    public function changeStatus(Request $request)
+    {
+        $data = Category::whereIn('id', $request->input('ids'));
+        $data->update(array(
+            'status' => (int)$request->input('status')));
+        return response()->json(['status' => '200', 'message' => 'Okie']);
     }
 }
