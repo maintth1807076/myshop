@@ -17,7 +17,7 @@ class CreateProductDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
-            $table->string('thumbnails');
+            $table->string('thumbnail');
             $table->integer('status');
             $table->timestamps();
         });

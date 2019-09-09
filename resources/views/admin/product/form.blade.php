@@ -19,7 +19,11 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    Thumbnail<input type="text" name="thumbnail" class="form-control">
+                    <label for="exampleInputEmail1">Image</label>
+                    <input type="file" class="form-control" name="images[]" multiple>
+                    @error('name')
+                    <small class="text-danger form-text text-muted">{{ $message }}</small>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>
