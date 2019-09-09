@@ -13,7 +13,7 @@
                         </ol>
                         <div class="carousel-item active thumbnail">
                             <img class="d-block w-100 img-fluid" height="540px"
-                                 src="https://cf.shopee.vn/file/c9240c39cf24c4dd5e96e6813a03426a" alt="First slide">
+                                 src="{{$item->thumbnail}}" alt="First slide">
                         </div>
                         <div class="carousel-item thumbnail">
                             <img class="d-block w-100 img-fluid" height="540px"
@@ -37,7 +37,7 @@
             <div class="col-xl-6">
                 <div class="product-details-wrapper">
                     <h2 class="product-name">
-                        <a title=" Mô Hình Yasuo"> MÔ HÌNH TÔN NGỘ KHÔNG</a>
+                        <a title=" Mô Hình Yasuo"> {{$item->name}}</a>
                     </h2>
                     <div class="stars">
                         <span class="fa fa-star checked"></span>

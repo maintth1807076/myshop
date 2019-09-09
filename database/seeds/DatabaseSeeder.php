@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(ConnectRelationshipsSeeder::class);
         Model::reguard();
+        $this->call(SlideSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(ProductSeeder::class);
     }
 }

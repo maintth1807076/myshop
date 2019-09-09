@@ -19,7 +19,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    Thumbnail<input type="text" name="thumbnail" class="form-control" value="1">
+                    Thumbnail<input type="text" name="thumbnail" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>
@@ -44,8 +44,8 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Id_Categories</label>
-                    <input name="id_categories" type="text" class="form-control" placeholder="Please enter description">
-                    @error('id_categories')
+                    <input name="category_id" type="text" class="form-control" placeholder="Please enter description">
+                    @error('category_id')
                     <small class="text-danger form-text text-muted">{{ $message }}</small>
                     @enderror
                 </div>
