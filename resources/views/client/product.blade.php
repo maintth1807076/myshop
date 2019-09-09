@@ -40,6 +40,16 @@
             </div>
             <div class="col-sm-9">
                 <h3> Tất cả sản phẩm</h3>
+                @foreach($list_product as $item)
+                    <div class="card  col-sm-4" style="width:400px">
+                        <img class="card-img-top"
+                             src="{{$item->productDetail->first()->thumbnail}}"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <a href="/product/{{$item->id}}"><h5 class="card-title"><b>{{$item->name}}</b></h5></a>
+                            <h3><b>{{$item->price}}</b></h3></div>
+                    </div>
+                @endforeach
                 <hr>
                 <div class="row" >
                     <div id="btnContainer" class="col-sm-6">

@@ -4,15 +4,11 @@
     <div class="box">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-tanabata-beautiful-romantic-valentines-day-image_11047.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-tanabata-beautiful-romantic-valentines-day-image_11047.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-tanabata-beautiful-romantic-valentines-day-image_11047.jpg" class="d-block w-100" alt="...">
-                </div>
+                @foreach($list_slide as $key => $item)
+                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                        <img src="{{$item->url}}" class="d-block w-100" alt="...">
+                    </div>
+                @endforeach
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,6 +26,16 @@
             <h2>SẢN PHẨM NỔI BẬT</h2>
         </div>
         <div class="row" style="margin-top: 50px">
+            @foreach($list_product_hot as $item)
+                <div class="card  col-sm-4" style="width:400px">
+                    <img class="card-img-top"
+                         src="{{$item->productDetail->first()->thumbnail}}"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <a href="/product/{{$item->id}}"><h5 class="card-title"><b>{{$item->name}}</b></h5></a>
+                        <h3><b>{{$item->price}}</b></h3></div>
+                </div>
+                @endforeach
             <div class="card-deck">
                 <div class="card  col-sm-4" style="width:400px">
                     <img class="card-img-top"

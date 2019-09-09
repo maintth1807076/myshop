@@ -8,16 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Form ImageUpload</h1>
-<form enctype="multipart/form-data" method="post" action="/admin/image">
-    @csrf
-    <div>
-        <input type="file" name="image">
+<div class="row">
+    <div class="col-6">
+        <form action="/test" method="post">
+            {{ csrf_field() }}
+            <input type="text" name="name">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-
-    <div>
-        <button type="submit">Upload Image</button>
-    </div>
-</form>
+</div>
 </body>
 </html>
