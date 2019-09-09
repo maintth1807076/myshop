@@ -95,7 +95,7 @@ Route::post('/change-avatar', 'UserController@changeAvatar');
 /*route admin*/
 Route::get('/admin', function () {
     return view('admin.layout');
-})->middleware('role:admin');
+});
 Route::resource('/admin/categories','CategoryController');
 Route::post('/admin/categories/change-status','CategoryController@changeStatus');
 Route::resource('/admin/products','ProductController');
@@ -107,3 +107,6 @@ Route::resource('/admin/slides','SlideController');
 Route::get('/multiuploads', 'DemoImageUploadController@uploadForm');
 Route::post('/multiuploads', 'DemoImageUploadController@uploadSubmit');
 Route::get('/multiupload', 'DemoImageUploadController@show');
+
+Route::get('test','GuestController@showForm');
+Route::post('test','GuestController@filterByName');
