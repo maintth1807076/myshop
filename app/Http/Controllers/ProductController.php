@@ -60,7 +60,6 @@ class ProductController extends Controller
         }
         return redirect('/admin/products');
     }
-
     /**
      * Display the specified resource.
      *
@@ -85,7 +84,11 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+<<<<<<< HEAD
      * @param int $id
+=======
+     * @param  int  $id
+>>>>>>> cd02b2db7b7254b67be1f1d38e36882fd495a067
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -119,7 +122,6 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

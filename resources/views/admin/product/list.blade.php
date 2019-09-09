@@ -68,8 +68,8 @@
     </div>
     <div class="row">
         <div class="form-group mr-3">
-            <select class="form-control mr-2" name="action-id">
-                <option value="0">Choose action</option>
+            <select class="form-control mr-2" name="action-id" id="select-action">
+                <option value="2">Choose action</option>
                 <option value="-1">Delete</option>
                 <option value="1">Publish</option>
             </select>
