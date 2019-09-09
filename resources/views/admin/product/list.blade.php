@@ -52,12 +52,12 @@
                     <td>{{$item->id}}</td>
                     <td><a href="/game/{{$item->id}}">{{$item->name}}</a></td>
 {{--                    <td><img src="https://res.cloudinary.com/khaihoquang/image/upload/v1566356468/c_fit,h_300,w_300/{{$item->thumbnail}}" alt="{{$item->name}}"></td>--}}
-                    <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%" src="{{$item->thumbnail}}"></td>
+                    <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%" src="{{$item->productDetail->first()->thumbnail}}"></td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->detail}}</td>
                     <td>{{$item->categories->name}}</td>
                     <td>
-                        <a href="/admin/products/{{$item->id}}/detail"id="btn-update-{{$item->id}}"  class="mr-2" title="View game detail">Detail</a>
+                        <a href="/admin/products/{{$item->id}}"id="btn-update-{{$item->id}}"  class="mr-2" title="View game detail">Detail</a>
                         <a href="/admin/products/{{$item->id}}/edit" id="btn-update-{{$item->id}}" class="mr-2 btn-update" title="Edit this game">Edit</a>
                         <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-delete" title="Delete this game">Delete</a>
                 </tr>
