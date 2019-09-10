@@ -10,11 +10,6 @@ use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $list = Product::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(2);
@@ -22,23 +17,11 @@ class ProductController extends Controller
         return view('admin.product.list', $data);
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.product.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response|string
-     */
     public function store(Request $request)
     {
         $product = new Product();
@@ -60,37 +43,14 @@ class ProductController extends Controller
         }
         return redirect('/admin/products');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $product = product::find($id);
         $data = ['product' => $product];
         return view('admin.product.detail', $data);
-
-//
-//        // get the nerd
-//        $product = product::find($id);
-//
-//        // show the view and pass the nerd to it
-//        return View::make('admin.product.detail')
-//            ->with('product', $product);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-<<<<<<< HEAD
-     * @param int $id
-=======
-     * @param  int  $id
->>>>>>> cd02b2db7b7254b67be1f1d38e36882fd495a067
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $product = product::find($id);
@@ -98,13 +58,6 @@ class ProductController extends Controller
         return view('admin.product.edit', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $product = product::find($id);
@@ -119,11 +72,6 @@ class ProductController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $item = Product::find($id);
@@ -134,6 +82,7 @@ class ProductController extends Controller
         $item->save();
         return response()->json(['status' => '200', 'message' => 'Okie']);
     }
+
     public function changeStatus(Request $request)
     {
         $data = Product::whereIn('id', $request->input('ids'));
@@ -141,5 +90,11 @@ class ProductController extends Controller
             'status' => (int)$request->input('status'),
             'updated_at' => date('Y-m-d H:i:s')));
         return response()->json(['status' => '200', 'message' => 'Good']);
+    }
+
+    public function getSearch(Request $req)
+    {
+        $product = Product::where('name', 'like', '%' . $req->key . '%')->get();
+        return view('search', compact('product'));
     }
 }

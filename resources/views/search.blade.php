@@ -23,9 +23,8 @@
                 </select>
             </div>
             <form method="get" action="{{route('search')}}">
-                <div class="form-group float-left mr-2">
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
-                           placeholder="Enter keyword to search" name="key">
+                <div  class="form-group float-left mr-2" >
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Enter keyword to search" name="key">
                 </div>
                 <div class="form-group float-left">
                     <button type="submit" class="btn btn-outline-primary mb-2">Search</button>
@@ -37,8 +36,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col"><input style="width: auto" id="check-all" type="checkbox" class="form-control" name="">
-                </th>
+                <th scope="col"><input style="width: auto" id="check-all" type="checkbox" class="form-control" name=""></th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Thumbnail</th>
@@ -48,27 +46,24 @@
                 <th scope="col">Action</th>
             </tr>
             </thead>
+            <h1> Tìm thấy {{count($product)}} sản phẩm</h1>
             <tbody>
-            @foreach($list as $item)
+            @foreach($product as $item)
                 <tr>
 
                     <th><input type="checkbox" class="check-item" value="{{$item->id}}"></th>
                     <td>{{$item->id}}</td>
                     <td><a href="/game/{{$item->id}}">{{$item->name}}</a></td>
-                    {{--                    <td><img src="https://res.cloudinary.com/khaihoquang/image/upload/v1566356468/c_fit,h_300,w_300/{{$item->thumbnail}}" alt="{{$item->name}}"></td>--}}
-                    <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%"
-                                                src="http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/{{$item->productDetail->first()->thumbnail}}">
-                    </td>
+                    {{--                                        <td><img src="https://res.cloudinary.com/khaihoquang/image/upload/v1566356468/c_fit,h_300,w_300/{{$item->thumbnail}}" alt="{{$item->name}}"></td>--}}
+                    <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%" src="{{$item->productDetail->first()->thumbnail}}"></td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->detail}}</td>
                     <td>{{$item->categories->name}}</td>
                     <td>
-                        <a href="{{route('products.show', [$item->id])}}" class="mr-2"
-                           title="View game detail">Detail</a>
-                        <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-edit"
-                           title="Edit this game">Edit</a>
-                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-delete"
-                           title="Delete this game">Delete</a>
+                        <a href="{{route('products.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>
+                        {{--                                                <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-edit" title="Edit this game">Edit</a>--}}
+                        <a href="{{route('products.edit',[$item->id])}}" class="mr-2">Edit</a>
+                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-delete" title="Delete this game">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -91,7 +86,7 @@
         <div class="col-8"></div>
         <div class="col-4">
             <nav aria-label="Page navigation example">
-                {{$list->links()}}
+                {{--                {{$list->links()}}--}}
             </nav>
         </div>
     </div>
