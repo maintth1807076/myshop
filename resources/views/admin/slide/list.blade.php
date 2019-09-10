@@ -6,7 +6,7 @@
                 <i class="fas fa-stream"></i> List category
                 <small class="text-muted">All category availble</small>
             </h3>
-            <a href="{{route('categories.create')}}"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add new</a>
+            <a href="{{route('slides.create')}}"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add new</a>
         </div>
     </div>
     <div class="row mb-2 mt-2">
@@ -36,20 +36,15 @@
             <tr>
                 <th scope="col"><input id="check-all" type="checkbox" class="form-control" name=""></th>
                 <th scope="col">ID</th>
-                <th scope="col">Name</th>
                 <th scope="col">Thumbnail</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach($list as $item)
                 <tr>
                     <th scope="row"><input type="checkbox" class="form-control check-item" value="{{$item->id}}"></th>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
-                    <td><img src="http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/{{$item->thumbnail}}" alt="{{$item->name}}"></td>
-                    <td>{{$item->description}}</td>
+                    <td><img src="http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/{{$item->url}}" alt="{{$item->id}}"></td>
+                    <td>{{$item->content}}</td>
                     <td>
                         <a href="{{route('categories.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>
                         <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-edit" title="Edit this game">Edit</a>

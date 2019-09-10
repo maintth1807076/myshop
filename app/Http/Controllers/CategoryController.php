@@ -91,12 +91,12 @@ class CategoryController extends Controller
     {
         $item = Category::find($id);
         $item->name = $request->name;
-//        if($request->hasFile('images')){
-//            $image_name = $request->file('images')->getRealPath();;
-//            Cloudder::upload($image_name, null);
-//            $result = Cloudder::getResult();
-//            $item->thumbnail = $result['public_id'].'.'.$result['format'];
-//        }
+        if($request->hasFile('images')){
+            $image_name = $request->file('images')->getRealPath();;
+            Cloudder::upload($image_name, null);
+            $result = Cloudder::getResult();
+            $item->thumbnail = $result['public_id'].'.'.$result['format'];
+        }
         $item->description = $request->description;
         $item->save();
         return redirect('/admin/categories');
