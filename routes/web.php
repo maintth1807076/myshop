@@ -51,9 +51,9 @@ Route::get('/admin/layout/list', function () {
 Route::get('/about',function (){
     return view('client.about');
 });
-//Route::get('/',function (){
-//    return view('client.home');
-//});
+Route::get('/',function (){
+    return view('client.home');
+});
 Route::get('/home',function (){
     $data = [
         'list_slide' => Slide::all(),
@@ -108,4 +108,8 @@ Route::post('test','GuestController@filterByName');
 Route::get('search',[
     'as'=>'search',
     'uses'=>'ProductController@getSearch',
+]);
+Route::get('search_home',[
+    'as'=>'search_home',
+    'uses'=>'ProductController@getSearch_home',
 ]);

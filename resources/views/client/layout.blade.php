@@ -12,7 +12,7 @@
     <script src="{{asset('js/my.js')}}" defer></script>
 {{--    <script src="../path-to/jquery.min.js"></script>--}}
 {{--    <script src="../path-to/multislider.min.js"></script>--}}
-    <!-- Fonts -->
+<!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -64,11 +64,11 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <form style="margin-left: 100px;">
+    <form style="margin-left: 100px;" method="get" action="{{route('search_home')}}">
         <div class="form-control">
-            <input type="search" placeholder="Search" aria-label="Search"
+            <input type="search" placeholder="Search" aria-label="Search" name="key"
                    style="border:none;border-right: 1px solid black;width: 400px;height: 25px">
-            <i class="fas fa-search"></i>
+            <button class="fas fa-search" type="submit"></button>
         </div>
     </form>
     <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 100px">
@@ -119,9 +119,9 @@
                     <b>SẢN PHẨM</b>
                 </a>
                 <div class="dropdown-menu dropdown-content">
-{{--                    @foreach($list_category as $item)--}}
-{{--                        <a class="dropdown-item" href="/category/{{$item->id}}">{{$item->name}}</a>--}}
-{{--                        @endforeach--}}
+                    {{--                    @foreach($list_category as $item)--}}
+                    {{--                        <a class="dropdown-item" href="/category/{{$item->id}}">{{$item->name}}</a>--}}
+                    {{--                        @endforeach--}}
                     <a class="dropdown-item" href="/category/1">Mô hình tĩnh </a>
                     <a class="dropdown-item" href="/category/2">Mô hình động</a>
                 </div>
