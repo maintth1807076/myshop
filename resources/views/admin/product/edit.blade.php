@@ -11,7 +11,7 @@
         <div class="col-6">
 {{--            <form enctype="multipart/form-data" method="put" action="/admin/products">--}}
 {{--                @csrf--}}
-            <form action="{{ route('products.update', $product->id) }}" method="POST">
+            <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
@@ -22,7 +22,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    Thumbnail<input type="text" name="thumbnail" class="form-control" value="{{$product->thumbnail}}">
+                    Thumbnail<input type="file"  class="form-control" name="images[]" multiple>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>

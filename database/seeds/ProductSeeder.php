@@ -46,6 +46,39 @@ class ProductSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
+            [
+                'id' => 4,
+                'name' => 'mô hình 3',
+                'price' => '5000',
+                'description' => 'hi',
+                'detail' => 'hi',
+                'category_id' => 2,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 1
+            ],
+            [
+                'id' => 5,
+                'name' => 'mô hình 3',
+                'price' => '5000',
+                'description' => 'hi',
+                'detail' => 'hi',
+                'category_id' => 2,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 1
+            ],
+            [
+                'id' => 6,
+                'name' => 'mô hình 6',
+                'price' => '5000',
+                'description' => 'hi',
+                'detail' => 'hi',
+                'category_id' => 2,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 1
+            ],
 //            [
 //                'id' => 2,
 //                'name' => 'mô hình 2',

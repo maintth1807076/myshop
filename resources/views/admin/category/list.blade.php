@@ -71,7 +71,6 @@
         <div class="form-group">
             <button id="btn-apply-all" type="submit" class="btn btn-outline-primary mb-2">Apply to all</button>
         </div>
-
     </div>
     <div class="row">
         <div class="col-8"></div>

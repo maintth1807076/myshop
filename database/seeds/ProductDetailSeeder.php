@@ -53,7 +53,37 @@ class ProductDetailSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
-
+            [
+                'id' => 6,
+                'product_id' => 5,
+                'thumbnail' => 'https://res.cloudinary.com/kuramakyubi/image/upload/v1567611778/gesawdfbptmurzko20xp.jpg',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 1
+            ], [
+                'id' => 7,
+                'product_id' => 4,
+                'thumbnail' => 'https://res.cloudinary.com/kuramakyubi/image/upload/v1567611778/gesawdfbptmurzko20xp.jpg',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 1
+            ],
+            [
+                'id' => 8,
+                'product_id' => 4,
+                'thumbnail' => 'https://res.cloudinary.com/kuramakyubi/image/upload/v1567611778/gesawdfbptmurzko20xp.jpg',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 1
+            ],
+            [
+                'id' => 9,
+                'product_id' => 6,
+                'thumbnail' => 'https://i.ytimg.com/vi/3fumBcKC6RE/maxresdefault.jpg',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 1
+            ],
         ]);
         DB::statement("ALTER SEQUENCE product_details_id_seq RESTART WITH 20");
     }

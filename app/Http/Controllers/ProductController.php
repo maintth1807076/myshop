@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\ProductDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
@@ -13,13 +14,15 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function index()
     {
-        $list = product::paginate(2);
+        $list = Product::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(3);
         $data = ['list' => $list];
         return view('admin.product.list', $data);
+//        return view('admin.product.list', $data);
+
     }
 
 
@@ -30,22 +33,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view ('admin.product.form');
+        return view('admin.product.form');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response|string
      */
-    public function upload(Request $request){
-        $image_name = $request->file('thumbnail')->getRealPath();;
-        Cloudder::upload($image_name, null);
-        $result = Cloudder::getResult();
-        $image_id = $result['public_id'].'.'.$result['format'];
-        return $image_id;
-    }
     public function store(Request $request)
     {
         $product = new Product();
@@ -59,7 +55,7 @@ class ProductController extends Controller
             $image_name = $image->getRealPath();;
             Cloudder::upload($image_name, null);
             $result = Cloudder::getResult();
-            $image_id = $result['public_id'].'.'.$result['format'];
+            $image_id = $result['public_id'] . '.' . $result['format'];
             $product_detail = new ProductDetail();
             $product_detail->product_id = $product->id;
             $product_detail->thumbnail = $image_id;
@@ -70,7 +66,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -91,20 +87,25 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+<<<<<<< HEAD
+     * @param int $id
+=======
      * @param  int  $id
+>>>>>>> cd02b2db7b7254b67be1f1d38e36882fd495a067
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $product = product::find($id);
         $data = ['product' => $product];
-        return view('admin.product.edit',$data);
+        return view('admin.product.edit', $data);
     }
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -112,10 +113,10 @@ class ProductController extends Controller
         $product = product::find($id);
         $product->name = $request->get('name');
         $product->price = (double)$request->get('price');
-        $product->thumbnail =$request->get('thumbnail');
+        $product->thumbnail = $request->get('thumbnail');
         $product->description = $request->get('description');
         $product->detail = $request->get('detail');
-        $product->category_id =$request->get('category_id');
+        $product->category_id = $request->get('category_id');
         $product->save();
         return redirect('/admin/products');
 
@@ -124,22 +125,28 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        error_log('Some message here.');
-        $product = product::find($id);
-        $product->delete();
+        $item = Product::find($id);
+        if ($item == null) {
+
+        }
+        $item->status = -1;
+        $item->save();
         return response()->json(['status' => '200', 'message' => 'Okie']);
     }
     public function changeStatus(Request $request)
     {
-        $listItem = product::whereIn('id', $request->input('ids'));
-        $listItem->update(array(
+        $data = Product::whereIn('id', $request->input('ids'));
+        $data->update(array(
             'status' => (int)$request->input('status'),
             'updated_at' => date('Y-m-d H:i:s')));
         return response()->json(['status' => '200', 'message' => 'Good']);
-}
+    }
+    public function getSearch(Request $req){
+        $product = Product::where('name','like','%'.$req->key.'%')->get();
+        return view('admin.product.search',compact('product'));
+    }
 }

@@ -81,12 +81,52 @@ $( document ).ready(function() {
             return;
         }
         if (confirm('Bạn có chắc muốn thực hiện thao tác ')) {
-            changeStatus(arrayId, action);
+            changeStatus(arrayId,'/admin/categories/change-status', action);
         }
     });
-    function changeStatus(arrayId, status) {
+    // end js for category
+    //js for product
+    $('.btn-delete').click(function () {
+        if(confirm('Are you sure wanna delete this game?')){
+            var deleteId = $(this).attr('id').replace('btn-delete-', '');
+            var currentItem = $(this);
+            $.ajax({
+                url:'/admin/products/' + deleteId,
+                method: 'DELETE',
+                data:{
+                    '_token': $('meta[name=csrf-token]').attr('content')
+                },
+                success: function () {
+                    alert('Success');
+                    currentItem.closest("tr").remove();
+                },
+                error: function () {
+                    alert('Error');
+                }
+            });
+        }
+    });
+    $('#btn-apply-all-product').click(function () {
+        var arrayId = new Array();
+        $('.check-item:checkbox:checked').each(function () {
+            arrayId.push($(this).val());
+        });
+        if (arrayId.length == 0) {
+            alert('Vui lòng chọn ít nhất một danh mục trước khi thực hiện thao tác!');
+            return;
+        }
+        var action = $("select[name='action-id']").val();
+        if (action == 0) {
+            alert('Vui lòng chọn thao tác muốn thực hiện!');
+            return;
+        }
+        if (confirm('Bạn có chắc muốn thực hiện thao tác ')) {
+            changeStatus(arrayId,'/admin/products/change-status', action);
+        }
+    });
+    function changeStatus(arrayId, url, status) {
         $.ajax({
-            url: '/admin/categories/change-status',
+            url: url,
             method: 'POST',
             data: {
                 '_token': $('meta[name=csrf-token]').attr("content"),
@@ -102,5 +142,5 @@ $( document ).ready(function() {
             }
         });
     }
-    // end js for category
+    //end js for product
 });
