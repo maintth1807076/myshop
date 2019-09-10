@@ -51,9 +51,9 @@ Route::get('/admin/layout/list', function () {
 Route::get('/about',function (){
     return view('client.about');
 });
-//Route::get('/',function (){
-//    return view('client.home');
-//});
+Route::get('/',function (){
+    return view('client.home');
+});
 Route::get('/home',function (){
     $data = [
         'list_slide' => Slide::all(),
@@ -99,14 +99,17 @@ Route::get('/admin', function () {
 Route::resource('/admin/categories','CategoryController');
 Route::post('/admin/categories/change-status','CategoryController@changeStatus');
 Route::resource('/admin/products','ProductController');
+Route::post('/admin/products/change-status','ProductController@changeStatus');
 Route::resource('/admin/slides','SlideController');
 
-//Route::get('/admin/products/create','ProductController@create');
-//Route::post('/admin/products','ProductController@upload');
-//test upload multiple
-Route::get('/multiuploads', 'DemoImageUploadController@uploadForm');
-Route::post('/multiuploads', 'DemoImageUploadController@uploadSubmit');
-Route::get('/multiupload', 'DemoImageUploadController@show');
 
 Route::get('test','GuestController@showForm');
 Route::post('test','GuestController@filterByName');
+Route::get('search',[
+    'as'=>'search',
+    'uses'=>'ProductController@getSearch',
+]);
+Route::get('search_home',[
+    'as'=>'search_home',
+    'uses'=>'ProductController@getSearch_home',
+]);
