@@ -102,12 +102,10 @@ Route::resource('/admin/products','ProductController');
 Route::post('/admin/products/change-status','ProductController@changeStatus');
 Route::resource('/admin/slides','SlideController');
 
-//Route::get('/admin/products/create','ProductController@create');
-//Route::post('/admin/products','ProductController@upload');
-//test upload multiple
-Route::get('/multiuploads', 'DemoImageUploadController@uploadForm');
-Route::post('/multiuploads', 'DemoImageUploadController@uploadSubmit');
-Route::get('/multiupload', 'DemoImageUploadController@show');
 
 Route::get('test','GuestController@showForm');
 Route::post('test','GuestController@filterByName');
+Route::get('search',[
+    'as'=>'search',
+    'uses'=>'ProductController@getSearch',
+]);

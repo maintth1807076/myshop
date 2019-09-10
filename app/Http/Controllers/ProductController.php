@@ -142,4 +142,8 @@ class ProductController extends Controller
             'updated_at' => date('Y-m-d H:i:s')));
         return response()->json(['status' => '200', 'message' => 'Good']);
     }
+    public function getSearch(Request $req){
+        $product = Product::where('name','like','%'.$req->key.'%')->get();
+        return view('search',compact('product'));
+    }
 }
