@@ -64,11 +64,11 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <form style="margin-left: 100px;">
+    <form style="margin-left: 100px;" method="get" action="{{route('search_home')}}">
         <div class="form-control">
-            <input type="search" placeholder="Search" aria-label="Search"
+            <input type="search" placeholder="Search" aria-label="Search" name="key"
                    style="border:none;border-right: 1px solid black;width: 400px;height: 25px">
-            <i class="fas fa-search"></i>
+            <button class="fas fa-search" type="submit"></button>
         </div>
     </form>
     <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 100px">

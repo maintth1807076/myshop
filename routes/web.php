@@ -115,4 +115,10 @@ Route::post('test','GuestController@filterByName');
 Route::get('search',[
     'as'=>'search',
     'uses'=>'ProductController@getSearch',
+
+]);
+Route::get('search_home',[
+    'as'=>'search_home',
+    'uses'=>'ProductController@getSearch_home',
+
 ]);

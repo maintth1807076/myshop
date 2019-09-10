@@ -113,11 +113,21 @@ class ProductController extends Controller
         $product = product::find($id);
         $product->name = $request->get('name');
         $product->price = (double)$request->get('price');
-        $product->thumbnail = $request->get('thumbnail');
+//        $product->thumbnail = $request->get('thumbnail');
         $product->description = $request->get('description');
         $product->detail = $request->get('detail');
         $product->category_id = $request->get('category_id');
         $product->save();
+        foreach ($request->images as $image) {
+            $image_name = $image->getRealPath();;
+            Cloudder::upload($image_name, null);
+            $result = Cloudder::getResult();
+            $image_id = $result['public_id'] . '.' . $result['format'];
+            $product_detail = new ProductDetail();
+            $product_detail->product_id = $product->id;
+            $product_detail->thumbnail = $image_id;
+            $product_detail->save();
+        }
         return redirect('/admin/products');
 
     }
@@ -147,6 +157,16 @@ class ProductController extends Controller
     }
     public function getSearch(Request $req){
         $product = Product::where('name','like','%'.$req->key.'%')->get();
+//        $product_home = Product::where('name','like','%'.$req->key.'%')->get();
         return view('admin.product.search',compact('product'));
+//        return view('client.home_search',compact('product_home'));
+
     }
+public function getSearch_home(Request $req){
+//    $product = Product::where('name','like','%'.$req->key.'%')->get();
+        $product_home = Product::where('name','like','%'.$req->key.'%')->get();
+//    return view('admin.product.search',compact('product'));
+        return view('client.home_search',compact('product_home'));
+
+}
 }
