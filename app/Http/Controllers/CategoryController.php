@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\Cate_validate;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 
@@ -37,8 +38,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Cate_validate $request)
     {
+        $request->validated();
         $item = new Category();
         $item->name = $request->name;
         if($request->hasFile('images')){
@@ -87,8 +89,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Cate_validate $request, $id)
     {
+        $request->validated();
         $item = Category::find($id);
         $item->name = $request->name;
 //        if($request->hasFile('images')){

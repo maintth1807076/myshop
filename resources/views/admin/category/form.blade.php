@@ -15,7 +15,7 @@
                     <label for="exampleInputEmail1">Name</label>
                     <input name="name" type="text" class="form-control" placeholder="Please enter name">
                     @error('name')
-                    <small class="text-danger form-text text-muted">{{ $message }}</small>
+                    <small class="text-danger form-text ">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -25,7 +25,7 @@
                     <label for="exampleInputPassword1">Description</label>
                     <input name="description" type="text" class="form-control" placeholder="Please enter description">
                     @error('description')
-                    <small class="text-danger form-text text-muted">{{ $message }}</small>
+                    <small class="text-danger form-text ">{{ $message }}</small>
                     @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\Product_validate;
 use App\Product;
 use App\ProductDetail;
 use Illuminate\Http\Request;
@@ -42,8 +43,9 @@ class ProductController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response|string
      */
-    public function store(Request $request)
+    public function store(Product_validate $request)
     {
+        $request->validated();
         $product = new Product();
         $product->name = $request->get('name');
         $product->price = $request->get('price');
@@ -108,8 +110,9 @@ class ProductController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Product_validate $request, $id)
     {
+        $request->validated();
         $product = product::find($id);
         $product->name = $request->get('name');
         $product->price = (double)$request->get('price');
@@ -118,16 +121,16 @@ class ProductController extends Controller
         $product->detail = $request->get('detail');
         $product->category_id = $request->get('category_id');
         $product->save();
-        foreach ($request->images as $image) {
-            $image_name = $image->getRealPath();;
-            Cloudder::upload($image_name, null);
-            $result = Cloudder::getResult();
-            $image_id = $result['public_id'] . '.' . $result['format'];
-            $product_detail = new ProductDetail();
-            $product_detail->product_id = $product->id;
-            $product_detail->thumbnail = $image_id;
-            $product_detail->save();
-        }
+//        foreach ($request->images as $image) {
+//            $image_name = $image->getRealPath();;
+//            Cloudder::upload($image_name, null);
+//            $result = Cloudder::getResult();
+//            $image_id = $result['public_id'] . '.' . $result['format'];
+//            $product_detail = new ProductDetail();
+//            $product_detail->product_id = $product->id;
+//            $product_detail->thumbnail = $image_id;
+//            $product_detail->save();
+//        }
         return redirect('/admin/products');
 
     }
