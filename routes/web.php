@@ -113,3 +113,4 @@ Route::get('search_home',[
     'as'=>'search_home',
     'uses'=>'ProductController@getSearch_home',
 ]);
+//test
