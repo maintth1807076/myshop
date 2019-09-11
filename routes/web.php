@@ -76,7 +76,7 @@ Route::post('/admin/categories/change-status','CategoryController@changeStatus')
 Route::resource('/admin/products','ProductController');
 Route::post('/admin/products/change-status','ProductController@changeStatus');
 Route::resource('/admin/slides','SlideController');
-
+Route::post('/admin/slides/change-status','SlideController@changeStatus');
 Route::get('search',[
     'as'=>'search',
     'uses'=>'ProductController@getSearch',

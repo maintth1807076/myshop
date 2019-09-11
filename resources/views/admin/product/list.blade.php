@@ -42,6 +42,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Thumbnail</th>
+                <th scope="col">Price</th>
                 <th scope="col">Description</th>
                 <th scope="col">Detail</th>
                 <th scope="col">Category</th>
@@ -53,20 +54,21 @@
                 <tr>
                     <th><input type="checkbox" class="check-item" value="{{$item->id}}"></th>
                     <td>{{$item->id}}</td>
-                    <td><a href="/game/{{$item->id}}">{{$item->name}}</a></td>
+                    <td>{{$item->name}}</td>
                     <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%"
-                                                src="http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/{{$item->productDetail->first()->thumbnail}}">
+                                                src="{{$item->productDetail->first()->thumbnail}}">
                     </td>
+                    <td>{{$item->price}}</td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->detail}}</td>
                     <td>{{$item->categories->name}}</td>
                     <td>
                         <a href="{{route('products.show', [$item->id])}}" class="mr-2"
-                           title="View game detail">Detail</a>
-                        <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-edit"
-                           title="Edit this game">Edit</a>
-                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-delete"
-                           title="Delete this game">Delete</a>
+                           title="View product detail">Detail</a>
+                        <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-product-edit"
+                           title="Edit this product">Edit</a>
+                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-product-delete"
+                           title="Delete this product">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -75,14 +77,14 @@
     </div>
     <div class="row">
         <div class="form-group mr-3">
-            <select class="form-control mr-2" name="action-id" id="select-action">
-                <option value="2">Choose action</option>
+            <select class="form-control mr-2" name="action-id">
+                <option value="0">Choose action</option>
                 <option value="-1">Delete</option>
                 <option value="1">Publish</option>
             </select>
         </div>
         <div class="form-group">
-            <button id="btn-apply-all-product" type="submit" class="btn btn-outline-primary mb-2">Apply to all</button>
+            <button id="btn-product-apply-all" type="submit" class="btn btn-outline-primary mb-2">Apply to all</button>
         </div>
     </div>
     <div class="row">
@@ -91,6 +93,68 @@
             <nav aria-label="Page navigation example">
                 {{$list->links()}}
             </nav>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="form-product-edit-model">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form enctype="multipart/form-data" method="post" action="">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input name="name" type="text" class="form-control" placeholder="Please enter name">
+                        @error('name')
+                        <small class="text-danger form-text text-muted">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Image</label>
+                        <input type="file" class="form-control" name="images" multiple>
+                        @error('name')
+                        <small class="text-danger form-text text-muted">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Description</label>
+                        <input name="description" type="text" class="form-control" placeholder="Please enter description">
+                        @error('description')
+                        <small class="text-danger form-text text-muted">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Price</label>
+                        <input name="price" type="text" class="form-control" placeholder="Please enter price">
+                        @error('price')
+                        <small class="text-danger form-text text-muted">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Detail</label>
+                        <input name="detail" type="text" class="form-control" placeholder="Please enter detail">
+                        @error('detail')
+                        <small class="text-danger form-text text-muted">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Category</label>
+                        <input name="category_id" type="text" class="form-control" placeholder="Please enter description">
+                        @error('category_id')
+                        <small class="text-danger form-text text-muted">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

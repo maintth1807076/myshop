@@ -60,14 +60,15 @@
                 <a class="nav-link active bg-dark" href="/admin"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
                 <a class="nav-link text-dark admin-nav-link" href="/admin/users"><i class="fas fa-users pr-2"></i>Khách
                     hàng</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/slides"><i class="fas fa-images pr-2"></i>Ảnh
+                    slide</a>
                 <a class="nav-link text-dark admin-nav-link" href="/admin/categories"><i
                             class="fas fa-th-list pr-2"></i>Danh mục</a>
                 <a class="nav-link text-dark admin-nav-link" href="/admin/products"><i class="fas fa-cube pr-2"></i>Sản
                     phẩm</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/orders"><i
-                            class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo
-                    cáo</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/orders"><i class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
+                <a class="nav-link text-dark admin-nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo cáo</a>
+
             </div>
         </div>
         <div class="col-8 col-md-9 col-lg-10 pl-5">

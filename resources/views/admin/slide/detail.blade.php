@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-6">
-            <p>{{$item->name}}</p>
+            <img src="{{$item->url}}" alt="">
         </div>
     </div>
 @endsection

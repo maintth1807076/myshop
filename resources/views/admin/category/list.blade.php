@@ -45,15 +45,15 @@
             <tbody>
             @foreach($list as $item)
                 <tr>
-                    <th scope="row"><input type="checkbox" class="form-control check-item" value="{{$item->id}}"></th>
+                    <td scope="row"><input type="checkbox" class="form-control check-item" value="{{$item->id}}"></td>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
                     <td><img src="{{$item->thumbnail}}" alt="{{$item->name}}"></td>
                     <td>{{$item->description}}</td>
                     <td>
                         <a href="{{route('categories.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>
-                        <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-edit" title="Edit this game">Edit</a>
-                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-delete" title="Delete this game">Delete</a>
+                        <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-category-edit" title="Edit this game">Edit</a>
+                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-category-delete" title="Delete this game">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -69,7 +69,7 @@
             </select>
         </div>
         <div class="form-group">
-            <button id="btn-apply-all" type="submit" class="btn btn-outline-primary mb-2">Apply to all</button>
+            <button id="btn-category-apply-all" type="submit" class="btn btn-outline-primary mb-2">Apply to all</button>
         </div>
     </div>
     <div class="row">
@@ -80,7 +80,7 @@
             </nav>
         </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" id="form-edit-model">
+    <div class="modal" tabindex="-1" role="dialog" id="form-category-edit-model">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -114,7 +114,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
