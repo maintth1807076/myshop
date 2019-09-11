@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -63,14 +63,29 @@ return [
             ]) : [],
         ],
 
+//        'pgsql' => [
+//            'driver' => 'pgsql',
+//            'url' => env('DB_URL', 'postgres://xnwhbgempdhuoo:76c5240404b6591bba8970bfdeb39baad985595a64259174ef8573c11372214d@ec2-174-129-10-235.compute-1.amazonaws.com:5432/dfhc93fool7c2k'),
+//            'host' => env('DB_HOST', 'ec2-174-129-10-235.compute-1.amazonaws.com'),
+//            'port' => env('DB_PORT', '5432'),
+//            'database' => env('DB_DATABASE', 'dfhc93fool7c2k'),
+//            'username' => env('DB_USERNAME', 'xnwhbgempdhuoo'),
+//            'password' => env('DB_PASSWORD', '76c5240404b6591bba8970bfdeb39baad985595a64259174ef8573c11372214d'),
+//            'charset' => 'utf8',
+//            'prefix' => '',
+//            'prefix_indexes' => true,
+//            'schema' => 'public',
+//            'sslmode' => 'prefer',
+//        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL', 'postgres://xnwhbgempdhuoo:76c5240404b6591bba8970bfdeb39baad985595a64259174ef8573c11372214d@ec2-174-129-10-235.compute-1.amazonaws.com:5432/dfhc93fool7c2k'),
-            'host' => env('DB_HOST', 'ec2-174-129-10-235.compute-1.amazonaws.com'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'dfhc93fool7c2k'),
-            'username' => env('DB_USERNAME', 'xnwhbgempdhuoo'),
-            'password' => env('DB_PASSWORD', '76c5240404b6591bba8970bfdeb39baad985595a64259174ef8573c11372214d'),
+            'url' => '',
+            'host' => '127.0.0.1',
+            'port' => '5432',
+            'database' => 'mystore',
+            'username' => 'postgres',
+            'password' => 'abcD1234',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

@@ -39,17 +39,6 @@
 
             </div>
             <div class="col-sm-9">
-                <h3> Tất cả sản phẩm</h3>
-                @foreach($list_product as $item)
-                    <div class="card  col-sm-4" style="width:400px">
-                        <img class="card-img-top"
-                             src="{{$item->productDetail->first()->thumbnail}}"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <a href="/product/{{$item->id}}"><h5 class="card-title"><b>{{$item->name}}</b></h5></a>
-                            <h3><b>{{$item->price}}</b></h3></div>
-                    </div>
-                @endforeach
                 <hr>
                 <div class="row" >
                     <div id="btnContainer" class="col-sm-6">
@@ -74,43 +63,17 @@
                     </form>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="column">
-                        <div class="card  "  style="width:400px">
-                            <img class="card-img-top" src="https://image.dhgate.com/0x0/f2/albu/g8/M00/4E/37/rBVaVFxBNcaAQ2pxAADOJJcXDvg341.jpg" alt="Card image cap">
+                    @foreach($list_product as $item)
+                        <div class="column">
+                            <img class="card-img-top"
+                                 src="{{$item->productDetail->first()->thumbnail}}"
+                                 alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title"><b>Kaneki Ken</b></h5>
-                                <h3><b>1,200,000 đ</b></h3></div>
+                                <a href="/product/{{$item->id}}"><h5 class="card-title"><b>{{$item->name}}</b></h5></a>
+                                <h3><b>{{$item->price}}</b></h3></div>
                         </div>
-                    </div>
-                    <div class="column">
-                        <div class="card  "  style="width:400px">
-                            <img class="card-img-top" src="https://image.dhgate.com/0x0/f2/albu/g8/M00/4E/37/rBVaVFxBNcaAQ2pxAADOJJcXDvg341.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Kaneki Ken</b></h5>
-                                <h3><b>1,200,000 đ</b></h3></div>
-                        </div>
-                    </div>
+                    @endforeach
 
-                </div>
-                <div class="row">
-                    <div class="column">
-                        <div class="card  "  style="width:400px">
-                            <img class="card-img-top" src="https://image.dhgate.com/0x0/f2/albu/g8/M00/4E/37/rBVaVFxBNcaAQ2pxAADOJJcXDvg341.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Kaneki Ken</b></h5>
-                                <h3><b>1,200,000 đ</b></h3></div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="card  "  style="width:400px">
-                            <img class="card-img-top" src="https://image.dhgate.com/0x0/f2/albu/g8/M00/4E/37/rBVaVFxBNcaAQ2pxAADOJJcXDvg341.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Kaneki Ken</b></h5>
-                                <h3><b>1,200,000 đ</b></h3></div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
@@ -133,7 +96,7 @@
 
         .column {
             float: left;
-            width: 50%;
+            width: 40%;
             padding: 10px;
 
         }
@@ -189,10 +152,10 @@
         /* Main content */
 
         /* Add an active class to the active dropdown button */
-        .active {
-            background-color: #fffff7;
-            color: #060606;
-        }
+        /*.dropdown-btn button {*/
+        /*    background-color: #fffff7;*/
+        /*    color: black;*/
+        /*}*/
 
         /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
         .dropdown-container {
