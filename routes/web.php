@@ -76,7 +76,7 @@ Route::post('/admin/categories/change-status','CategoryController@changeStatus')
 Route::resource('/admin/products','ProductController');
 Route::post('/admin/products/change-status','ProductController@changeStatus');
 Route::resource('/admin/slides','SlideController');
-Route::post('/admin/slides/change-status','SlideController@changeStatus');
+Route::post('/admin/slides/change-status','ProductController@changeStatus');
 Route::get('search',[
     'as'=>'search',
     'uses'=>'ProductController@getSearch',
@@ -93,4 +93,28 @@ Route::get('/send', function () {
 
     return 'A message has been sent to Mailtrap!';
 
+});
+Route::get('/cart', function (){
+    return view('search');
+});
+Route::get('/hihi', function (){
+    $games = Game::orderBy('created_at', 'desc')->whereNotIn('status', [-1]);
+    if (Input::get('keyword')) {
+        $games = $games->where('name', 'like', '%' . $request->get('keyword') . '%');
+    }
+    $category_id = Input::get('category_id');
+    if ($category_id) {
+        $games = $games->where('category_id', $category_id);
+    } else {
+        $category_id = 0;
+    }
+    $games = $games->paginate(5);
+    $data = [
+        'list' => $games->appends(Input::except('page')),
+        'currentPage' => $request->get('page'),
+        'currentCategoryId' => $category_id,
+        'currentKeyword' => $request->get('keyword'),
+        'categories' => Category::all()
+    ];
+    return view('game.home', $data);
 });

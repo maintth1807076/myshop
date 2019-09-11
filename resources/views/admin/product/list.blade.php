@@ -14,23 +14,21 @@
         </div>
         <div class="col-5">
             <div class="form-group float-left mr-2">
-                <select class="form-control">
-                    <option>Category 01</option>
-                    <option>Category 01</option>
-                    <option>Category 01</option>
-                    <option>Category 01</option>
-                    <option>Category 01</option>
+                <select name="categoryId" class="form-control">
+                    <option value="0" {{($currentCategoryId == 0) ? 'selected':''}}>Tất cả</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}" {{($currentCategoryId == $category->id) ? 'selected':''}}>{{$category->name}}</option>
+                    @endforeach
                 </select>
             </div>
-            <form method="get" action="{{route('search')}}">
-                <div class="form-group float-left mr-2">
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
-                           placeholder="Enter keyword to search" name="key">
-                </div>
-                <div class="form-group float-left">
-                    <button type="submit" class="btn btn-outline-primary mb-2">Search</button>
-                </div>
-            </form>
+            <div class="form-group float-left mr-2">
+                <input type="text" class="form-control mb-2 mr-sm-2" name="keyword"
+                       placeholder="Enter keyword to search" value="{{$currentKeyword}}">
+                <input type="hidden" name="currentPage" value="{{$currentPage}}">
+            </div>
+            <div class="form-group float-left">
+                <button type="submit" id="btn-search" class="btn btn-outline-primary mb-2">Search</button>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -55,9 +53,9 @@
                     <th><input type="checkbox" class="check-item" value="{{$item->id}}"></th>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
-                    <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%"
-                                                src="{{$item->productDetail->first()->thumbnail}}">
-                    </td>
+{{--                    <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%"--}}
+{{--                                                src="{{$item->productDetail->first()->thumbnail}}">--}}
+{{--                    </td>--}}
                     <td>{{$item->price}}</td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->detail}}</td>

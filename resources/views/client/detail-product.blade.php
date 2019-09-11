@@ -16,19 +16,6 @@
                                 <img class="d-block w-100 img-fluid" height="540px"
                                      src="{{$item->thumbnail}}" alt="First slide">
                             </div>
-                        @endforeach
-{{--                        <div class="carousel-item active thumbnail">--}}
-{{--                            <img class="d-block w-100 img-fluid" height="540px"--}}
-{{--                                 src="{{$item->thumbnail}}" alt="First slide">--}}
-{{--                        </div>--}}
-{{--                        <div class="carousel-item thumbnail">--}}
-{{--                            <img class="d-block w-100 img-fluid" height="540px"--}}
-{{--                                 src="https://cf.shopee.vn/file/3a79b120e0d89c94397ba62ba1db5567" alt="Second slide">--}}
-{{--                        </div>--}}
-{{--                        <div class="carousel-item thumbnail">--}}
-{{--                            <img class="d-block w-100 img-fluid" height="540px"--}}
-{{--                                 src="https://cf.shopee.vn/file/da48b2b1f5b6849b421a0d7d62460f9c" alt="Third slide">--}}
-{{--                        </div>--}}
                     </div>
                     <a class="carousel-control-prev" href="#carousel-simple" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -44,7 +31,14 @@
                 <div class="product-details-wrapper">
                     <h2 class="product-name">
                         <a title=" Mô Hình Yasuo"> {{$item->name}}</a>
+                        <a href="javascript:void(0)"
+                           class="card-link add-cart"
+                           data-id="{{$item->id}}"
+                           data-price="{{$item->price}}"
+                           data-name="{{$item->name}}"
+                           data-thumbnail="{{$item->thumbnail}}">Add cart</a>
                     </h2>
+                    @endforeach
                     <div class="stars">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>

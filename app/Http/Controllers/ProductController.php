@@ -6,14 +6,30 @@ use App\Category;
 use App\Product;
 use App\ProductDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $list = Product::orderBy('created_at', 'desc')->whereNotIn('status', [-1]);
+        if (Input::get('keyword')) {
+            $list = $list->where('name', 'like', '%' . $request->get('keyword') . '%');
+        }
+        $category_id = Input::get('category_id');
+        if ($category_id) {
+            $list = $list->where('category_id', $category_id);
+        } else {
+            $category_id = 0;
+        }
+        $list = $list->paginate(2);
         $data = [
-            'list' => Product::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(2)
+            'list' => $list->appends(Input::except('page')),
+            'currentPage' => $request->get('page'),
+            'currentCategoryId' => $request->get('category_id'),
+            'currentKeyword' => $request->get('keyword'),
+            'categories' => Category::all()
         ];
         return view('admin.product.list', $data);
     }
@@ -72,18 +88,6 @@ class ProductController extends Controller
         $product->detail = $request->get('detail');
         $product->category_id = $request->category_id;
         $product->save();
-        if($request->images){
-            foreach ($request->images as $image) {
-                $image_name = $image->getRealPath();;
-                Cloudder::upload($image_name, null);
-                $result = Cloudder::getResult();
-                $image_id = 'http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/' . $result['public_id'] . '.' . $result['format'];
-                $product_detail = new ProductDetail();
-                $product_detail->product_id = $product->id;
-                $product_detail->thumbnail = $image_id;
-                $product_detail->save();
-            }
-        }
         return redirect('/admin/products');
 
     }
@@ -106,11 +110,5 @@ class ProductController extends Controller
             'status' => (int)$request->input('status'),
             'updated_at' => date('Y-m-d H:i:s')));
         return response()->json(['status' => '200', 'message' => 'Okie']);
-    }
-
-    public function getSearch(Request $req)
-    {
-        $product = Product::where('name', 'like', '%' . $req->key . '%')->get();
-        return view('search', compact('product'));
     }
 }

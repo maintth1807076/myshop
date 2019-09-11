@@ -48,6 +48,12 @@
                         <div class="card-body">
                             <a href="/product/{{$item->id}}"><h5 class="card-title"><b>{{$item->name}}</b></h5></a>
                             <h3><b>{{$item->price}}</b></h3></div>
+                        <a href="javascript:void(0)"
+                           class="card-link add-cart"
+                           data-id="{{$item->id}}"
+                           data-price="{{$item->price}}"
+                           data-name="{{$item->name}}"
+                           data-thumbnail="{{$item->thumbnail}}">Add cart</a>
                     </div>
                 @endforeach
                 <hr>

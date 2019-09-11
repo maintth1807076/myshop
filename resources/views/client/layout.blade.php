@@ -9,9 +9,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{asset('js/my.js')}}" defer></script>
-{{--    <script src="../path-to/jquery.min.js"></script>--}}
-{{--    <script src="../path-to/multislider.min.js"></script>--}}
+    <script src="{{asset('js/admin.js')}}" defer></script>
 <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -119,9 +117,6 @@
                     <b>SẢN PHẨM</b>
                 </a>
                 <div class="dropdown-menu dropdown-content">
-                    {{--                    @foreach($list_category as $item)--}}
-                    {{--                        <a class="dropdown-item" href="/category/{{$item->id}}">{{$item->name}}</a>--}}
-                    {{--                        @endforeach--}}
                     <a class="dropdown-item" href="/category/1">Mô hình tĩnh </a>
                     <a class="dropdown-item" href="/category/2">Mô hình động</a>
                 </div>
@@ -133,7 +128,7 @@
                 <a class="nav-link  active  " href="/contact"><b>LIÊN HỆ</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#" style="padding-left: 100px">
+                <a class="nav-link " href="/cart" style="padding-left: 100px">
                     <i class="fas fa-shopping-cart"></i>
                     <div class="d-inline list-added text-dark" id="added-quantity">0</div>
                     GIỎ HÀNG
