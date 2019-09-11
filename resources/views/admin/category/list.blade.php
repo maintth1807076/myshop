@@ -48,7 +48,7 @@
                     <th scope="row"><input type="checkbox" class="form-control check-item" value="{{$item->id}}"></th>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
-                    <td><img src="http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/{{$item->thumbnail}}" alt="{{$item->name}}"></td>
+                    <td><img src="{{$item->thumbnail}}" alt="{{$item->name}}"></td>
                     <td>{{$item->description}}</td>
                     <td>
                         <a href="{{route('categories.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>

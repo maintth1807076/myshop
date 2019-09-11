@@ -14,8 +14,11 @@
 /*route test authen authorization*/
 
 use App\Category;
+use App\Mail\DemoMail;
 use App\Product;
 use App\Slide;
+use Illuminate\Support\Facades\Mail;
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -82,3 +85,12 @@ Route::get('search_home',[
     'as'=>'search_home',
     'uses'=>'ProductController@getSearch_home',
 ]);
+
+//test
+Route::get('/send', function () {
+
+    Mail::to('demo@gmail.com')->send(new DemoMail());
+
+    return 'A message has been sent to Mailtrap!';
+
+});

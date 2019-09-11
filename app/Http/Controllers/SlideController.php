@@ -7,89 +7,79 @@ use Illuminate\Http\Request;
 
 class SlideController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = [
-            'list' => Slide::all()
+            'list' => Slide::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(2)
+        ];
+        return view('admin.slide.list', $data);
+    }
+
+    public function create()
+    {
+        return view('admin.slide.form');
+    }
+
+    public function store(Request $request)
+    {
+        $item = new Slide();
+        if ($request->hasFile('images')) {
+            $image_name = $request->file('images')->getRealPath();;
+            Cloudder::upload($image_name, null);
+            $result = Cloudder::getResult();
+            $item->url = 'http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/'.$result['public_id'] . '.' . $result['format'];
+        }
+        $item->content = $request->description;
+        $item->save();
+        return redirect('/admin/slides');
+    }
+
+    public function show($id)
+    {
+        $data = [
+            'item' => Slide::find($id)
+        ];
+        return view('admin.slide.detail', $data);
+    }
+
+    public function edit($id)
+    {
+        //
+        $data = [
+            'item' => Slide::find($id)
         ];
         return $data;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function update(Request $request, $id)
     {
-        //
+        $item = Slide::find($id);
+        if ($request->hasFile('images')) {
+            $image_name = $request->file('images')->getRealPath();;
+            Cloudder::upload($image_name, null);
+            $result = Cloudder::getResult();
+            $item->url = $result['public_id'] . '.' . $result['format'];
+        }
+        $item->content = $request->description;
+        $item->save();
+        return redirect('/admin/slides');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function destroy($id)
     {
-        //
+        $item = Slide::find($id);
+        if ($item == null) {
+        }
+        $item->status = -1;
+        $item->save();
+        return response()->json(['status' => '200', 'message' => 'Okie']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Slide  $slide
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Slide $slide)
+    public function changeStatus(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Slide  $slide
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Slide $slide)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Slide  $slide
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Slide $slide)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Slide  $slide
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Slide $slide)
-    {
-        //
-    }
-    public function display()
-    {
-        $data = [
-            'list' => Slide::whereNotIn('status', [-1])
-        ];
-        return view('client.home', $data);
+        $data = Slide::whereIn('id', $request->input('ids'));
+        $data->update(array(
+            'status' => (int)$request->input('status')));
+        return response()->json(['status' => '200', 'message' => 'Okie']);
     }
 }
