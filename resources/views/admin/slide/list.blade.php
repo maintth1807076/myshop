@@ -23,7 +23,8 @@
                 </select>
             </div>
             <div class="form-group float-left mr-2">
-                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Enter keyword to search">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
+                       placeholder="Enter keyword to search">
             </div>
             <div class="form-group float-left">
                 <button type="submit" class="btn btn-outline-primary mb-2">Search</button>
@@ -36,24 +37,22 @@
             <tr>
                 <th scope="col"><input id="check-all" type="checkbox" class="form-control" name=""></th>
                 <th scope="col">ID</th>
-                <th scope="col">Name</th>
                 <th scope="col">Thumbnail</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach($list as $item)
                 <tr>
                     <th scope="row"><input type="checkbox" class="form-control check-item" value="{{$item->id}}"></th>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
-                    <td><img src="http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/{{$item->thumbnail}}" alt="{{$item->name}}"></td>
-                    <td>{{$item->description}}</td>
+                    <td><img src="{{$item->url}}" alt="{{$item->id}}"></td>
+                    <td>{{$item->content}}</td>
                     <td>
-                        <a href="{{route('categories.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>
-                        <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-edit" title="Edit this game">Edit</a>
-                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-delete" title="Delete this game">Delete</a>
+                        <a href="{{route('categories.show', [$item->id])}}" class="mr-2"
+                           title="View game detail">Detail</a>
+                        <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-edit"
+                           title="Edit this game">Edit</a>
+                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-delete"
+                           title="Delete this game">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -107,7 +106,8 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
-                            <input name="description" type="text" class="form-control" placeholder="Please enter description">
+                            <input name="description" type="text" class="form-control"
+                                   placeholder="Please enter description">
                             @error('description')
                             <small class="text-danger form-text text-muted">{{ $message }}</small>
                             @enderror
