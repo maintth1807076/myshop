@@ -12,8 +12,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $list = Product::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(2);
-        $data = ['list' => $list];
+        $data = [
+            'list' => Product::whereNotIn('status', [-1])->orderBy('id', 'asc')->paginate(2)
+        ];
         return view('admin.product.list', $data);
     }
 
@@ -35,7 +36,7 @@ class ProductController extends Controller
             $image_name = $image->getRealPath();;
             Cloudder::upload($image_name, null);
             $result = Cloudder::getResult();
-            $image_id = $result['public_id'] . '.' . $result['format'];
+            $image_id = 'http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/' . $result['public_id'] . '.' . $result['format'];
             $product_detail = new ProductDetail();
             $product_detail->product_id = $product->id;
             $product_detail->thumbnail = $image_id;
@@ -46,28 +47,43 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = product::find($id);
-        $data = ['product' => $product];
+        $data = [
+            'item' => Product::find($id),
+            'list' => Product::find($id)->productDetail
+        ];
         return view('admin.product.detail', $data);
     }
 
     public function edit($id)
     {
-        $product = product::find($id);
-        $data = ['product' => $product];
-        return view('admin.product.edit', $data);
+        $data = [
+            'item' => Product::find($id),
+            'list' => Product::find($id)->productDetail
+        ];
+        return $data;
     }
 
     public function update(Request $request, $id)
     {
-        $product = product::find($id);
+        $product = Product::find($id);
         $product->name = $request->get('name');
-        $product->price = (double)$request->get('price');
-        $product->thumbnail = $request->get('thumbnail');
+        $product->price = $request->get('price');
         $product->description = $request->get('description');
         $product->detail = $request->get('detail');
-        $product->category_id = $request->get('category_id');
+        $product->category_id = $request->category_id;
         $product->save();
+        if($request->images){
+            foreach ($request->images as $image) {
+                $image_name = $image->getRealPath();;
+                Cloudder::upload($image_name, null);
+                $result = Cloudder::getResult();
+                $image_id = 'http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/' . $result['public_id'] . '.' . $result['format'];
+                $product_detail = new ProductDetail();
+                $product_detail->product_id = $product->id;
+                $product_detail->thumbnail = $image_id;
+                $product_detail->save();
+            }
+        }
         return redirect('/admin/products');
 
     }
@@ -89,7 +105,7 @@ class ProductController extends Controller
         $data->update(array(
             'status' => (int)$request->input('status'),
             'updated_at' => date('Y-m-d H:i:s')));
-        return response()->json(['status' => '200', 'message' => 'Good']);
+        return response()->json(['status' => '200', 'message' => 'Okie']);
     }
 
     public function getSearch(Request $req)

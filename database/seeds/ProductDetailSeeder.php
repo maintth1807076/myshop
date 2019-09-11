@@ -16,7 +16,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 1,
                 'product_id' => 1,
-                'thumbnail' => 'http://otakushop.com.vn/upload/slideshow/832394432520815_1301.2232415902x500.png',
+                'thumbnail' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -24,7 +24,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 2,
                 'product_id' => 1,
-                'thumbnail' => 'https://res.cloudinary.com/kuramakyubi/image/upload/v1567952761/k4tpmtiu6wynk70gp9qp.jpg',
+                'thumbnail' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -32,7 +32,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 3,
                 'product_id' => 1,
-                'thumbnail' => 'https://res.cloudinary.com/kuramakyubi/image/upload/v1567611778/gesawdfbptmurzko20xp.jpg',
+                'thumbnail' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -40,7 +40,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 4,
                 'product_id' => 2,
-                'thumbnail' => 'https://res.cloudinary.com/kuramakyubi/image/upload/v1567611778/gesawdfbptmurzko20xp.jpg',
+                'thumbnail' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -48,7 +48,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 5,
                 'product_id' => 3,
-                'thumbnail' => 'https://res.cloudinary.com/kuramakyubi/image/upload/v1567611778/gesawdfbptmurzko20xp.jpg',
+                'thumbnail' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1

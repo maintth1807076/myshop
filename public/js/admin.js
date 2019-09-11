@@ -1,15 +1,18 @@
-$( document ).ready(function() {
+$(document).ready(function () {
     $('.close').click(function () {
-        $('#form-edit-model').hide();
+        $('.modal').hide();
     });
-    $('#check-all').change(function(){
+    $('.btn-close').click(function () {
+        $('.modal').hide();
+    });
+    $('#check-all').change(function () {
         $('.check-item').prop('checked', $(this).is(':checked'));
     });
     $(".check-item").click(function () {
         if ($(this).is(":checked")) {
             var isAllChecked = 0;
 
-            $(".check-item").each(function() {
+            $(".check-item").each(function () {
                 if (!this.checked)
                     isAllChecked = 1;
             });
@@ -17,43 +20,41 @@ $( document ).ready(function() {
             if (isAllChecked == 0) {
                 $("#check-all").prop("checked", true);
             }
-        }
-        else {
+        } else {
             $("#check-all").prop("checked", false);
         }
     });
-    // js for category
-    $('.btn-edit').click(function () {
+    // js for slide
+    $('.btn-slide-edit').click(function () {
         var editId = $(this).attr('id').replace('btn-edit-', '');
         var currentItem = $(this);
         $.ajax({
-            url:'/admin/categories/' + editId + '/edit',
+            url: '/admin/slides/' + editId + '/edit',
             method: 'GET',
             contentType: "application/json",
             dataType: 'json',
-            data:{
+            data: {
                 '_token': $('meta[name=csrf-token]').attr('content')
             },
             success: function (response) {
-                $("#form-edit-model input[name=name]").val(response.item.name);
-                $("#form-edit-model img").attr('src','http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/' + response.item.thumbnail);
-                $("#form-edit-model input[name=description]").val(response.item.description);
-                $("#form-edit-model form").attr('action', '/admin/categories/' + response.item.id);
-                $('#form-edit-model').show();
+                $("#form-slide-edit-model img").attr('src', response.item.url);
+                $("#form-slide-edit-model input[name=content]").val(response.item.content);
+                $("#form-slide-edit-model form").attr('action', '/admin/slides/' + response.item.id);
+                $('#form-slide-edit-model').show();
             },
             error: function () {
                 alert('Error');
             }
         });
     });
-    $('.btn-delete').click(function () {
-        if(confirm('Are you sure wanna delete this game?')){
+    $('.btn-slide-delete').click(function () {
+        if (confirm('Bạn có chắc muốn xóa slide này?')) {
             var deleteId = $(this).attr('id').replace('btn-delete-', '');
             var currentItem = $(this);
             $.ajax({
-                url:'/admin/categories/' + deleteId,
+                url: '/admin/slides/' + deleteId,
                 method: 'DELETE',
-                data:{
+                data: {
                     '_token': $('meta[name=csrf-token]').attr('content')
                 },
                 success: function () {
@@ -66,8 +67,73 @@ $( document ).ready(function() {
             });
         }
     });
-    $('#btn-apply-all').click(function () {
+    $('#btn-slide-apply-all').click(function () {
         var arrayId = new Array();
+        var url = '/admin/slides/change-status';
+        $('.check-item:checkbox:checked').each(function () {
+            arrayId.push($(this).val());
+        });
+        if (arrayId.length == 0) {
+            alert('Vui lòng chọn ít nhất một ảnh trước khi thực hiện thao tác!');
+            return;
+        }
+        var action = $("select[name='action-id']").val();
+        if (action == 0) {
+            alert('Vui lòng chọn thao tác muốn thực hiện!');
+            return;
+        }
+        if (confirm('Bạn có chắc muốn thực hiện thao tác?')) {
+            changeStatus(arrayId, url, action);
+        }
+    });
+    // end js for slide
+    // js for category
+    $('.btn-category-edit').click(function () {
+        var editId = $(this).attr('id').replace('btn-edit-', '');
+        var currentItem = $(this);
+        $.ajax({
+            url: '/admin/categories/' + editId + '/edit',
+            method: 'GET',
+            contentType: "application/json",
+            dataType: 'json',
+            data: {
+                '_token': $('meta[name=csrf-token]').attr('content')
+            },
+            success: function (response) {
+                $("#form-category-edit-model input[name=name]").val(response.item.name);
+                $("#form-category-edit-model img").attr('src', response.item.thumbnail);
+                $("#form-category-edit-model input[name=description]").val(response.item.description);
+                $("#form-category-edit-model form").attr('action', '/admin/categories/' + response.item.id);
+                $('#form-category-edit-model').show();
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    });
+    $('.btn-category-delete').click(function () {
+        if (confirm('Bạn có chắc muốn xóa danh mục này?')) {
+            var deleteId = $(this).attr('id').replace('btn-delete-', '');
+            var currentItem = $(this);
+            $.ajax({
+                url: '/admin/categories/' + deleteId,
+                method: 'DELETE',
+                data: {
+                    '_token': $('meta[name=csrf-token]').attr('content')
+                },
+                success: function () {
+                    alert('Success');
+                    currentItem.closest("tr").remove();
+                },
+                error: function () {
+                    alert('Error');
+                }
+            });
+        }
+    });
+    $('#btn-category-apply-all').click(function () {
+        var arrayId = new Array();
+        var url = '/admin/categories/change-status';
         $('.check-item:checkbox:checked').each(function () {
             arrayId.push($(this).val());
         });
@@ -80,20 +146,51 @@ $( document ).ready(function() {
             alert('Vui lòng chọn thao tác muốn thực hiện!');
             return;
         }
-        if (confirm('Bạn có chắc muốn thực hiện thao tác ')) {
-            changeStatus(arrayId,'/admin/categories/change-status', action);
+        if (confirm('Bạn có chắc muốn thực hiện thao tác?')) {
+            changeStatus(arrayId, url, action);
         }
     });
     // end js for category
     //js for product
-    $('.btn-delete').click(function () {
-        if(confirm('Are you sure wanna delete this game?')){
+    $('.btn-product-edit').click(function () {
+        var editId = $(this).attr('id').replace('btn-edit-', '');
+        var currentItem = $(this);
+        $.ajax({
+            url: '/admin/products/' + editId + '/edit',
+            method: 'GET',
+            contentType: "application/json",
+            dataType: 'json',
+            data: {
+                '_token': $('meta[name=csrf-token]').attr('content')
+            },
+            success: function (response) {
+                $("#form-product-edit-model input[name=name]").val(response.item.name);
+                // var images = [];
+                // for (i = 0; i < response.list.length; i++) {
+                //     // images.push(response.list[i].thumbnail);
+                // }
+                // $("#form-product-edit-model input[name=images[]]").val(response.list[i].thumbnail);
+                $("#form-product-edit-model input[name=price]").val(response.item.price);
+                // $("#form-product-edit-model img").attr('src', response);
+                $("#form-product-edit-model input[name=description]").val(response.item.detail);
+                $("#form-product-edit-model input[name=detail]").val(response.item.description);
+                $("#form-product-edit-model input[name=category_id]").val(response.item.category_id);
+                $("#form-product-edit-model form").attr('action', '/admin/products/' + response.item.id);
+                $('#form-product-edit-model').show();
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    });
+    $('.btn-product-delete').click(function () {
+        if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
             var deleteId = $(this).attr('id').replace('btn-delete-', '');
             var currentItem = $(this);
             $.ajax({
-                url:'/admin/products/' + deleteId,
+                url: '/admin/products/' + deleteId,
                 method: 'DELETE',
-                data:{
+                data: {
                     '_token': $('meta[name=csrf-token]').attr('content')
                 },
                 success: function () {
@@ -106,8 +203,9 @@ $( document ).ready(function() {
             });
         }
     });
-    $('#btn-apply-all-product').click(function () {
+    $('#btn-product-apply-all').click(function () {
         var arrayId = new Array();
+        var url = '/admin/products/change-status';
         $('.check-item:checkbox:checked').each(function () {
             arrayId.push($(this).val());
         });
@@ -120,10 +218,12 @@ $( document ).ready(function() {
             alert('Vui lòng chọn thao tác muốn thực hiện!');
             return;
         }
-        if (confirm('Bạn có chắc muốn thực hiện thao tác ')) {
-            changeStatus(arrayId,'/admin/products/change-status', action);
+        if (confirm('Bạn có chắc muốn thực hiện thao tác?')) {
+            changeStatus(arrayId, url, action);
         }
     });
+
+    //end js for product
     function changeStatus(arrayId, url, status) {
         $.ajax({
             url: url,
@@ -142,5 +242,4 @@ $( document ).ready(function() {
             }
         });
     }
-    //end js for product
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Slide;
 use Illuminate\Http\Request;
+use JD\Cloudder\Facades\Cloudder;
 
 class SlideController extends Controller
 {
@@ -27,7 +28,7 @@ class SlideController extends Controller
             $image_name = $request->file('images')->getRealPath();;
             Cloudder::upload($image_name, null);
             $result = Cloudder::getResult();
-            $item->url = 'http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/'.$result['public_id'] . '.' . $result['format'];
+            $item->url = 'http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/' . $result['public_id'] . '.' . $result['format'];
         }
         $item->content = $request->description;
         $item->save();
@@ -44,7 +45,6 @@ class SlideController extends Controller
 
     public function edit($id)
     {
-        //
         $data = [
             'item' => Slide::find($id)
         ];
@@ -60,7 +60,7 @@ class SlideController extends Controller
             $result = Cloudder::getResult();
             $item->url = $result['public_id'] . '.' . $result['format'];
         }
-        $item->content = $request->description;
+        $item->content = $request->get('content');
         $item->save();
         return redirect('/admin/slides');
     }
@@ -79,7 +79,8 @@ class SlideController extends Controller
     {
         $data = Slide::whereIn('id', $request->input('ids'));
         $data->update(array(
-            'status' => (int)$request->input('status')));
+            'status' => (int)$request->input('status'),
+            'updated_at' => date('Y-m-d H:i:s')));
         return response()->json(['status' => '200', 'message' => 'Okie']);
     }
 }

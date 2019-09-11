@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'Mô hình tĩnh ',
-                'thumbnail' => 'http://otakushop.com.vn/upload/slideshow/832394432520815_1301.2232415902x500.png',
+                'thumbnail' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
                 'description' => 'đẹp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
             [
                 'id' => 2,
                 'name' => 'Mô hình động',
-                'thumbnail' => 'http://otakushop.com.vn/upload/slideshow/832394432520815_1301.2232415902x500.png',
+                'thumbnail' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
                 'description' => 'đẹp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
