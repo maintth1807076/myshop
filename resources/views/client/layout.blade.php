@@ -56,7 +56,8 @@
 </head>
 <body>
 <nav class="navbar background navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/home" style="margin-left: 100px">
+    <a class="navbar-brand" href="/home" style="
+    margin-left: 100px">
         <img src="https://www.otakuhouse.com/wp-content/themes/yamidoo/images/new_logo.png" width="auto"
              height="70px" alt="">
     </a>
