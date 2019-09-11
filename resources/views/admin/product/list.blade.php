@@ -51,11 +51,9 @@
             <tbody>
             @foreach($list as $item)
                 <tr>
-
                     <th><input type="checkbox" class="check-item" value="{{$item->id}}"></th>
                     <td>{{$item->id}}</td>
                     <td><a href="/game/{{$item->id}}">{{$item->name}}</a></td>
-                    {{--                    <td><img src="https://res.cloudinary.com/khaihoquang/image/upload/v1566356468/c_fit,h_300,w_300/{{$item->thumbnail}}" alt="{{$item->name}}"></td>--}}
                     <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%"
                                                 src="http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/{{$item->productDetail->first()->thumbnail}}">
                     </td>
