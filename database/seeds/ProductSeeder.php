@@ -399,7 +399,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'id' => 31,
-                'name' => '',
+                'name' => 'Amazing Marvel Revoltech DEADPOOL X-Men Action Figure Toy Gift New',
                 'price' => '1200000 ',
                 'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -412,7 +412,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'id' => 32,
-                'name' => '',
+                'name' => 'Marvel Spider-Man Venom Edward Brock Revoltech PVC Action Figure Model Toys Gift',
                 'price' => '1200000 ',
                 'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -425,7 +425,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'id' => 33,
-                'name' => '',
+                'name' => 'Kaiyodo Revoltech Amazing Yamaguchi Spider-Gwen Action Figure Toy Xmas Kids Gift',
                 'price' => '1200000 ',
                 'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -439,7 +439,7 @@ class ProductSeeder extends Seeder
 
             [
             'id' => 34,
-            'name' => '',
+            'name' => 'Kaiyodo Revoltech Amazing Yamaguchi Wolverine Action Figure X-Men Toy New in Box',
             'price' => '1200000 ',
             'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -452,7 +452,7 @@ class ProductSeeder extends Seeder
         ],
             [
             'id' => 35,
-                'name' => '',
+                'name' => 'SCI-FI Revoltech The Nightmare Before Christmas Jack Skellington Figure NO BOX',
                 'price' => '1200000 ',
                 'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -465,7 +465,7 @@ class ProductSeeder extends Seeder
             ],
          [
              'id' => 36,
-             'name' => '',
+             'name' => 'Kaiyodo Amazing Yamaguchi No.012 Gambit Revoltech Action Figure New Toy gift',
              'price' => '1200000 ',
              'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -478,7 +478,7 @@ class ProductSeeder extends Seeder
          ],
          [
              'id' => 37,
-             'name' => '',
+             'name' => 'Kaiyodo Revoltech Amazing Yamaguchi Comic Captain America Action Figure Toy New',
              'price' => '1200000 ',
              'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -491,7 +491,7 @@ class ProductSeeder extends Seeder
          ],
             [
                 'id' => 38,
-                'name' => '',
+                'name' => 'Kaiyodo Revoltech Star Wars Revo Darth Vader Figure Complex Sci-fi Model in Box',
                 'price' => '1200000 ',
                 'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -504,7 +504,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'id' => 39,
-                'name' => '',
+                'name' => 'Amazing Yamaguchi Revoltech No.010 X-Men Psylocke PVC Action Figure New In Box',
                 'price' => '1200000 ',
                 'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
@@ -517,7 +517,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'id' => 40,
-                'name' => '',
+                'name' => 'KAIYODO REVOLTECH Figure Complex Movie Revo Series No.010 Zootopia Nick Wilde',
                 'price' => '1200000 ',
                 'description' => '
                 Trang trí hoàn hảo cho bàn làm việc hoặc phòng làm việc, phòng ngủ, phòng khách của bạn. Là một món quà đặc biệt dành  cho bạn của bạn!',
