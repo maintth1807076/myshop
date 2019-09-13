@@ -48,8 +48,8 @@
                     <td scope="row"><input type="checkbox" class="form-control check-item" value="{{$item->id}}"></td>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
-                    <td><img src="{{$item->thumbnail}}" alt="{{$item->name}}"></td>
-                    <td>{{$item->description}}</td>
+                    <td><img src="{{$item->thumbnail}}" alt="{{$item->name}}" width="50px;"></td>
+                    <td width="25%">{{$item->description}}</td>
                     <td>
                         <a href="{{route('categories.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>
                         <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-category-edit" title="Edit this game">Edit</a>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="form-group">
                             Thumbnail<input type="file" name="images" class="form-control" value="">
-                            <img src="" alt="">
+                            <img src="" alt=""  width="100px;">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>

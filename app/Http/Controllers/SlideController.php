@@ -30,7 +30,7 @@ class SlideController extends Controller
             $result = Cloudder::getResult();
             $item->url = 'http://res.cloudinary.com/kuramakyubi/image/upload/c_fit,h_300,w_300/' . $result['public_id'] . '.' . $result['format'];
         }
-        $item->content = $request->description;
+        $item->content = $request->get('content');
         $item->save();
         return redirect('/admin/slides');
     }

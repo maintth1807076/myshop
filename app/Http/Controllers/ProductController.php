@@ -23,7 +23,7 @@ class ProductController extends Controller
         } else {
             $category_id = 0;
         }
-        $list = $list->paginate(2);
+        $list = $list->paginate(8);
         $data = [
             'list' => $list->appends(Input::except('page')),
             'currentPage' => $request->get('page'),

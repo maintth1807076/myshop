@@ -15,7 +15,7 @@ class SlideSeeder extends Seeder
         DB::table('slides')->insert([
             [
                 'id' => 1,
-                'url' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
+                'url' => 'http://theme.hstatic.net/1000160337/1000373353/14/psl_1_r1_slide_img_5.jpg',
                 'content' => '',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -23,7 +23,7 @@ class SlideSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'url' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
+                'url' => 'http://theme.hstatic.net/1000160337/1000373353/14/psl_1_r1_slide_img_4.jpg',
                 'content' => '',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -31,7 +31,7 @@ class SlideSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'url' => 'https://i.pinimg.com/236x/07/04/a4/0704a4b819930ee0a7c4aa66c3da3a00--figurine-manga-anime-figures.jpg',
+                'url' => 'http://theme.hstatic.net/1000160337/1000373353/14/psl_1_r1_slide_img_3.jpg',
                 'content' => '',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),

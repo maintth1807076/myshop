@@ -11,8 +11,6 @@
 |
 */
 
-/*route test authen authorization*/
-
 use App\Category;
 use App\Mail\DemoMail;
 use App\Product;
@@ -22,35 +20,34 @@ use Illuminate\Support\Facades\Mail;
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-/*giao diện client*/
-Route::get('/about',function (){
-    return view('client.about');
-});
-Route::get('/',function (){
-    return view('client.home');
-});
-Route::get('/home',function (){
+/*route guest*/
+Route::get('/', function () {
     $data = [
-        'list_slide' => Slide::all(),
+        'list_slide' => Slide::whereNotIn('status', [-1])->get(),
         'list_product_hot' => Product::all(),
         'list_category' => Category::all()
     ];
     return view('client.home', $data);
 });
-Route::get('/',function (){
+Route::get('/home', function () {
     $data = [
+        'list_slide' => Slide::whereNotIn('status', [-1])->get(),
         'list_product_hot' => Product::all(),
         'list_category' => Category::all()
     ];
-    return view('client.layout', $data);
+    return view('client.home', $data);
 });
-Route::get('/contact', function (){
+Route::get('/about', function () {
+    return view('client.about');
+});
+
+Route::get('/contact', function () {
     return view('client.contact');
 });
 Route::get('/product/{product}', function ($id) {
     $data = [
         'list_category' => Category::all(),
-        'item' => Product::find($id),
+        'product' => Product::find($id),
         'list_product_detail' => Product::find($id)->productDetail
     ];
     return view('client.detail-product', $data);
@@ -64,27 +61,19 @@ Route::get('/category/{category}', function ($id) {
     return view('client.product', $data);
 });
 /*route user*/
-Route::get('/information', 'UserController@show');
-Route::post('/change-name', 'UserController@changeName');
-Route::post('/change-avatar', 'UserController@changeAvatar');
+Route::get('/information', 'UserController@show')->middleware('auth');
+Route::post('/change-name', 'UserController@changeName')->middleware('auth');
+Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth');
 /*route admin*/
 Route::get('/admin', function () {
     return view('admin.layout');
-});
-Route::resource('/admin/categories','CategoryController');
-Route::post('/admin/categories/change-status','CategoryController@changeStatus');
-Route::resource('/admin/products','ProductController');
-Route::post('/admin/products/change-status','ProductController@changeStatus');
-Route::resource('/admin/slides','SlideController');
-Route::post('/admin/slides/change-status','ProductController@changeStatus');
-Route::get('search',[
-    'as'=>'search',
-    'uses'=>'ProductController@getSearch',
-]);
-Route::get('search_home',[
-    'as'=>'search_home',
-    'uses'=>'ProductController@getSearch_home',
-]);
+})->middleware('role:admin');
+Route::resource('/admin/categories', 'CategoryController')->middleware('role:admin');
+Route::post('/admin/categories/change-status', 'CategoryController@changeStatus')->middleware('role:admin');
+Route::resource('/admin/products', 'ProductController')->middleware('role:admin');
+Route::post('/admin/products/change-status', 'ProductController@changeStatus')->middleware('role:admin');
+Route::resource('/admin/slides', 'SlideController')->middleware('role:admin');
+Route::post('/admin/slides/change-status', 'ProductController@changeStatus')->middleware('role:admin');
 
 //test
 Route::get('/send', function () {
@@ -94,27 +83,8 @@ Route::get('/send', function () {
     return 'A message has been sent to Mailtrap!';
 
 });
-Route::get('/cart', function (){
+Route::get('/cart', function () {
     return view('search');
 });
-Route::get('/hihi', function (){
-    $games = Game::orderBy('created_at', 'desc')->whereNotIn('status', [-1]);
-    if (Input::get('keyword')) {
-        $games = $games->where('name', 'like', '%' . $request->get('keyword') . '%');
-    }
-    $category_id = Input::get('category_id');
-    if ($category_id) {
-        $games = $games->where('category_id', $category_id);
-    } else {
-        $category_id = 0;
-    }
-    $games = $games->paginate(5);
-    $data = [
-        'list' => $games->appends(Input::except('page')),
-        'currentPage' => $request->get('page'),
-        'currentCategoryId' => $category_id,
-        'currentKeyword' => $request->get('keyword'),
-        'categories' => Category::all()
-    ];
-    return view('game.home', $data);
-});
+
+

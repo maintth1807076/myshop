@@ -20,6 +20,9 @@
                 </div>
                 <div class="form-group">
                     Thumbnail<input type="file" name="images" class="form-control" value="">
+                    @error('thumbnail')
+                    <small class="text-danger form-text text-muted">{{ $message }}</small>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>
