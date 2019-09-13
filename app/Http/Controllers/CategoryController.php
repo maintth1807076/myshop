@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 
@@ -21,8 +22,9 @@ class CategoryController extends Controller
         return view('admin.category.form');
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
+        $request->validated();
         $item = new Category();
         $item->name = $request->name;
         if ($request->hasFile('images')) {

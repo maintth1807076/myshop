@@ -47,7 +47,7 @@
                 <tr>
                     <td scope="row"><input type="checkbox" class="form-control check-item" value="{{$item->id}}"></td>
                     <td>{{$item->id}}</td>
-                    <td><img src="{{$item->url}}" alt="{{$item->id}}"></td>
+                    <td><img src="{{$item->url}}" width="100px;" alt="{{$item->id}}"></td>
                     <td>{{$item->content}}</td>
                     <td>
                         <a href="{{route('slides.show', [$item->id])}}" class="mr-2"
@@ -105,7 +105,7 @@
                         </div>
                         <div class="form-group">
                             Image<input type="file" name="images" class="form-control" value="">
-                            <img src="" alt="">
+                            <img src="" alt=""  width="100px;">
                         </div>
                     </div>
                     <div class="modal-footer">

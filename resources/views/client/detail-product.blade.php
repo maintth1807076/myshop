@@ -16,6 +16,7 @@
                                 <img class="d-block w-100 img-fluid" height="540px"
                                      src="{{$item->thumbnail}}" alt="First slide">
                             </div>
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#carousel-simple" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,15 +31,8 @@
             <div class="col-xl-6">
                 <div class="product-details-wrapper">
                     <h2 class="product-name">
-                        <a title=" Mô Hình Yasuo"> {{$item->name}}</a>
-                        <a href="javascript:void(0)"
-                           class="card-link add-cart"
-                           data-id="{{$item->id}}"
-                           data-price="{{$item->price}}"
-                           data-name="{{$item->name}}"
-                           data-thumbnail="{{$item->thumbnail}}">Add cart</a>
+                        <a title=" Mô Hình Yasuo"> {{$product->name}}</a>
                     </h2>
-                    @endforeach
                     <div class="stars">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -50,9 +44,10 @@
                     <div class="product-status">
                         <span>Đang bán chạy</span>
                     </div>
-                    <div><p>Bộ mô hình đồ chơi bằng nhựa PVC cao cấp Tôn Ngộ Không</p></div>
+
+                    <div><p>{{$product->name}}</p></div>
                     <div class="product-price product-actions">
-                        <span class="price">1,000,000 <ins>đ</ins></span>
+                        <span class="price">{{$product->price}} <ins>đ</ins></span>
                     </div>
                     <div class="product-actions-wrapper">
                         <form action=" " method="post" enctype="multipart/form-data" id="AddToCartForm">
@@ -72,7 +67,13 @@
                                     </div>
                                     <div class="col-xl-3 col-md-3 col-sm-4">
                                         <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-d1">
-                                            <span id="AddToCartText" class="fas fa-cart-plus"> Thêm vào giỏ hàng</span>
+                                            <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$product->id}}"
+                                               data-price="{{$product->price}}"
+                                               data-name="{{$product->name}}"
+                                               data-thumbnail="{{$product->productDetail->first()->thumbnail}}">
+                                                <i class="fa fa-shopping-bag" style="font-size:30px">Thêm vào giỏ hàng</i>
+                                            </a>
+{{--                                            <span id="AddToCartText" class="fas fa-cart-plus"> Thêm vào giỏ hàng</span>--}}
                                         </button>
                                     </div>
                                     <div class="col-xl-6">
@@ -214,7 +215,8 @@
                     <div class="text-center">
                         <span>Vui lòng <a href="">đăng nhập</a> hoặc <a href="">đăng kí</a> để bình luận</span>
                         <div class="form-button">
-                            <button type="submit" class="btn btn-lg btn-danger far fa-comment-dots"> Gửi Tin Nhắn</button>
+                            <button type="submit" class="btn btn-lg btn-danger far fa-comment-dots"> Gửi Tin Nhắn
+                            </button>
                         </div>
                     </div>
                 </form>

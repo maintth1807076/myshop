@@ -8,9 +8,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{asset('js/admin.js')}}" defer></script>
-<!-- Fonts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{asset('js/customer.js')}}"></script>
+    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <form style="margin-left: 100px;" method="get" action="{{route('search_home')}}">
+    <form style="margin-left: 100px;" method="get" action="">
         <div class="form-control">
             <input type="search" placeholder="Search" aria-label="Search" name="key"
                    style="border:none;border-right: 1px solid black;width: 400px;height: 25px">
@@ -84,7 +84,7 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span
-                                class="caret"></span>
+                                class="caret">{{ Auth::user()->name }}</span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -117,8 +117,10 @@
                     <b>SẢN PHẨM</b>
                 </a>
                 <div class="dropdown-menu dropdown-content">
-                    <a class="dropdown-item" href="/category/1">Mô hình tĩnh </a>
-                    <a class="dropdown-item" href="/category/2">Mô hình động</a>
+                    <a class="dropdown-item" href="/category/1">PVC Figure</a>
+                    <a class="dropdown-item" href="/category/2">Nendoroid</a>
+                    <a class="dropdown-item" href="/category/3">Figma</a>
+                    <a class="dropdown-item" href="/category/4">Revoltech</a>
                 </div>
             </li>
             <li class="nav-item" style="padding-left: 100px">
@@ -140,12 +142,8 @@
 <main class="py-4">
     @yield('content')
 </main>
-<div class="dropdown-divider"></div>
-<div class="dropdown-divider"></div>
-
 <footer class="bg-dark">
-
-    <div class="container">
+    <div>
         <div class="row" style="padding-top: 40px;">
 
             <div class="col-md-4">
@@ -223,10 +221,7 @@
 
         </div>
     </div>
-    </div><!-- Preloader -->
 </footer>
-</div>
-<script src="{{ asset('js/myjs.js') }}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({

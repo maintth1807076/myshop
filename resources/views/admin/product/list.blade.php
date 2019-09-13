@@ -53,14 +53,12 @@
                     <th><input type="checkbox" class="check-item" value="{{$item->id}}"></th>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
-{{--                    <td style="width: 25%"><img alt="{{$item->name}}" style="width: 20%"--}}
-{{--                                                src="{{$item->productDetail->first()->thumbnail}}">--}}
-{{--                    </td>--}}
+                    <td width="5%"><img width="100%" alt="{{$item->name}}" src="{{$item->productDetail->first()->thumbnail}}"></td>
                     <td>{{$item->price}}</td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->detail}}</td>
                     <td>{{$item->categories->name}}</td>
-                    <td>
+                    <td width="15%">
                         <a href="{{route('products.show', [$item->id])}}" class="mr-2"
                            title="View product detail">Detail</a>
                         <a href="javascript:void(0)" id="btn-edit-{{$item->id}}" class="mr-2 btn-product-edit"
