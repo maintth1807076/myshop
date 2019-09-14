@@ -34,7 +34,7 @@
                                  alt="{{$item->name}}" height="400px">
                             <div class="card-body">
                                 <h5 class="card-text">{{$item->name}}</h5>
-                                <h5 class="card-text">{{$item->price}}</h5>
+                                <h5 class="card-text">{{number_format($item->price)}} VND</h5>
                             </div>
                             <div class="overlay">
                                 <ul class="nav">
