@@ -273,6 +273,7 @@ strong.kiluc {
 
 .fuild {
     position: relative;
+
 }
 
 .image {
@@ -422,8 +423,9 @@ strong.kiluc {
 #imglogo{
     width: 14%;
 }
-.img_dev{
+.img_dev {
     text-align: center;
+}
 
 .box {
     width: 1336px;
@@ -439,4 +441,34 @@ strong.kiluc {
     top: 0;
     padding: auto;
     z-index: 1030;
+}
+/*home*/
+body{
+    background-color: white;
+}
+.text-uppercase{
+
+    margin-top: 5%;
+    margin-bottom: 2%;
+
+}
+.cart{
+    height: 550px;
+}
+.img-cart{
+    width:85%;
+    height: 65%;
+    margin: 6%;
+}
+.card-body{
+    height: 30%;
+
+ }
+.name {
+    white-space: nowrap;
+    width: 100%;
+    height: 30%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
 }

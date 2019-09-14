@@ -20,21 +20,29 @@
             </a>
         </div>
     </div>
-    <div class="">
-        <div class="text-center col-12">
-            <h2>SẢN PHẨM NỔI BẬT</h2>
+
+    <div class="container-fluid">
+        <div class="text-center  text-uppercase col-12 col-sm-auto ">
+          <h1> <pre> S ả n  p h ẩ m  n ổ i  b ậ t</pre> </h1>
         </div>
         <div class="row m-2">
             @foreach($list_product_hot as $item)
-                <div class="col-3 mb-5">
+                <div class="col-xl-3 col-sm-4 col-12 mb-5">
                     <div class="card">
                         <div class="fuild">
-                            <img class="card-img-top"
-                                 src="{{$item->productDetail->first()->thumbnail}}"
-                                 alt="{{$item->name}}" height="400px">
+                            <div class="img-cart">
+                                <a target="_blank" href="/product/{{$item->id}}">
+{{--                                    <img class="card-img-top"--}}
+{{--                                         src="{{$item->productDetail->first()->thumbnail}}"--}}
+{{--                                         alt="{{$item->name}}" height="400px">--}}
+                                    <div style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
+                                </a>
+
+                            </div>
+
                             <div class="card-body">
-                                <h5 class="card-text">{{$item->name}}</h5>
-                                <h5 class="card-text">{{$item->price}}</h5>
+                                <h4 class="card-text name">{{$item->name}}</h4>
+                                <h3 class="card-text "> <pre> <b> {{$item->price}} VNĐ</b></pre> </h3>
                             </div>
                             <div class="overlay">
                                 <ul class="nav">
@@ -58,6 +66,12 @@
                 </div>
                 @endforeach
         </div>
+        <hr>
+        @foreach($list_product_hot as $item)
+            <div>   <div style=" width: 400px; height: 500px; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div></div>
+
+        @endforeach
+        <hr>
         <div class="col-12 text-center" style="margin-top: 50px">
             <button type="button" class="btn btn-outline-dark" style="padding-top: 15px">
                 <h4>Xem thêm sản phẩm</h4>
