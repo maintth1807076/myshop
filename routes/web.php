@@ -60,6 +60,12 @@ Route::get('/category/{category}', function ($id) {
     ];
     return view('client.product', $data);
 });
+//Route::get('search', function (Request $request) {
+//    $data = [
+//        'list_product' => Product::where('name', 'like', '%' . $request->get('keyword') . '%')->get()
+//    ];
+//    return $data;
+//});
 /*route user*/
 Route::get('/information', 'UserController@show')->middleware('auth');
 Route::post('/change-name', 'UserController@changeName')->middleware('auth');
