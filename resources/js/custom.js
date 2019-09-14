@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $('.btn-delete').click(function () {
+    $('.btn-delete1').click(function () {
         if (confirm('muốn xóa chứ')){
             var deleteId = $(this).attr('id').replace('btn-delete-', '');
             var item =$(this);
@@ -21,6 +21,7 @@ $(document).ready(function () {
             })
         }
     })
+
     $('#check-all').change(function(){
         $('.check-item').prop('checked', $(this).is(':checked'));
     });
