@@ -36,7 +36,6 @@
                                 </a>
 
                             </div>
-
                             <div class="card-body">
                                 <h4 class="card-text name">{{$item->name}}</h4>
                                 <h3 class="card-text "> <pre> <b> {{$item->price}} VNĐ</b></pre> </h3>
@@ -48,7 +47,7 @@
                                            data-price="{{$item->price}}"
                                            data-name="{{$item->name}}"
                                            data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:30px"></i>
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
                                         </a>
                                     </li>
                                     <li class="nav-item">
