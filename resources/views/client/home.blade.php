@@ -20,10 +20,9 @@
             </a>
         </div>
     </div>
-
     <div class="container-fluid">
         <div class="text-center  text-uppercase col-12 col-sm-auto ">
-          <h1> <pre> S ả n  p h ẩ m  n ổ i  b ậ t</pre> </h1>
+            <h1> <pre> S ả n  p h ẩ m  n ổ i  b ậ t</pre> </h1>
         </div>
         <div class="row m-2">
             @foreach($list_product_hot as $item)
@@ -38,7 +37,7 @@
                             </div>
                             <div class="card-body">
                                 <h4 class="card-text name">{{$item->name}}</h4>
-                                <h3 class="card-text "> <pre> <b> {{$item->price}} VNĐ</b></pre> </h3>
+                                <h3 class="card-text "> <pre> <b> {{$item->price}} VNĐ.</b></pre> </h3>
                             </div>
                             <div class="overlay">
                                 <ul class="nav">
