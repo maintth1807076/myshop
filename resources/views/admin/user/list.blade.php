@@ -6,7 +6,6 @@
                 <i class="fas fa-stream"></i> List [USER]
                 <small class="text-muted">All USER availble</small>
             </h3>
-            <a href="{{route('user.create')}}"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add new</a>
         </div>
     </div>
     <div class="row mb-2 mt-2">
@@ -18,7 +17,7 @@
             </div>
             <form >
                 <div class="form-group float-left mr-2">
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2 placeholder="Enter keyword to search">
+                    <input type="text" placeholder="Please Search" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2 placeholder="Enter keyword to search">
                 </div>
                 <div class="form-group float-left">
                     <button type="submit" class="btn btn-outline-primary mb-2">Search</button>

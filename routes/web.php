@@ -79,9 +79,9 @@ Route::get('/user/{user}', function ($id) {
     return view('client.product', $data);
 });
 //route admin_user
-Route::resource('/admin/user','quanliUserController'
+Route::resource('/admin/user','ManagerUserController'
 )->middleware('role:admin');
-Route::post('/admin/user/change-status', 'quanliUserController@changeStatus')->middleware('role:admin');
+Route::post('/admin/user/change-status', 'ManagerUserController@changeStatus')->middleware('role:admin');
 //end Route adin_user
 Route::get('/admin', function () {
     return view('admin.layout');
