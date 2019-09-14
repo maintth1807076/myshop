@@ -25,6 +25,7 @@ $(document).ready(function () {
             $("#check-all").prop("checked", false);
         }
     });
+
     // js for slide
     $('.btn-slide-edit').click(function () {
         var editId = $(this).attr('id').replace('btn-edit-', '');
@@ -88,6 +89,48 @@ $(document).ready(function () {
         }
     });
     // end js for slide
+    //js for user_admin
+    $('.btn-user-delete').click(function () {
+        if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
+            var deleteId = $(this).attr('id').replace('btn-delete-', '');
+            var currentItem = $(this);
+            $.ajax({
+                url: '/admin/user/' + deleteId,
+                method: 'DELETE',
+                data: {
+                    '_token': $('meta[name=csrf-token]').attr('content')
+                },
+                success: function () {
+                    alert('Success');
+                    currentItem.closest("tr").remove();
+                },
+                error: function () {
+                    alert('Error');
+                }
+            });
+        }
+
+    });
+    $('#btn-user-apply-all').click(function () {
+        var arrayId = new Array();
+        var url = '/admin/user/change-status';
+        $('.check-item:checkbox:checked').each(function () {
+            arrayId.push($(this).val());
+        });
+        if (arrayId.length == 0) {
+            alert('Vui lòng chọn ít nhất một danh mục trước khi thực hiện thao tác!');
+            return;
+        }
+        var action = $("select[name='action-id']").val();
+        if (action == 0) {
+            alert('Vui lòng chọn thao tác muốn thực hiện!');
+            return;
+        }
+        if (confirm('Bạn có chắc muốn thực hiện thao tác?')) {
+            changeStatus(arrayId, url, action);
+        }
+    });
+    //end js for user
     // js for category
     $('.btn-category-edit').click(function () {
         var editId = $(this).attr('id').replace('btn-edit-', '');
@@ -232,6 +275,7 @@ $(document).ready(function () {
         location.href = `${BASE_URL}/admin/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
     });
 });
+
 function changeStatus(arrayId, url, status) {
     $.ajax({
         url: url,
@@ -250,3 +294,4 @@ function changeStatus(arrayId, url, status) {
         }
     });
 }
+

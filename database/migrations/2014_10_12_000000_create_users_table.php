@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('avatar')->default('http://file.vforum.vn/hinh/2014/5/anh-dai-dien-facebook-15.jpg');
-            $table->integer('status')->default(1);
+            $table->integer('status')->default();
             $table->rememberToken();
             $table->timestamps();
         });
