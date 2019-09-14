@@ -76,26 +76,27 @@
                     <div id="gridView" class="container tab-pane active"><br>
                         <div class="row">
                             @foreach($list_product as $item)
-                                <div class="col-3 mb-5">
+                                <div class="col-xl-3 col-sm-4 col-12 mb-5">
                                     <div class="card">
                                         <div class="fuild">
-                                            <img class="card-img-top"
-                                                 src="{{$item->productDetail->first()->thumbnail}}"
-                                                 alt="{{$item->name}}" height="400px">
+                                            <div class="img-cart">
+                                                <a target="_blank" href="/product/{{$item->id}}">
+                                                    <div style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
+                                                </a>
+
+                                            </div>
                                             <div class="card-body">
-                                                <h5 class="card-text">{{$item->name}}</h5>
-                                                <h5 class="card-text">{{$item->price}}</h5>
+                                                <h4 class="card-text name">{{$item->name}}</h4>
+                                                <h3 class="card-text "> <pre> <b> {{number_format($item->price)}} VNĐ</b></pre> </h3>
                                             </div>
                                             <div class="overlay">
                                                 <ul class="nav">
                                                     <li class="nav-item">
-                                                        <a class="add-cart nav-link active color"
-                                                           href="javascript:void(0)"
-                                                           data-id="{{$item->id}}"
+                                                        <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$item->id}}"
                                                            data-price="{{$item->price}}"
                                                            data-name="{{$item->name}}"
                                                            data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
-                                                            <i class="fa fa-shopping-bag" style="font-size:30px"></i>
+                                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
@@ -114,26 +115,27 @@
                     <div id="listView" class="container tab-pane fade"><br>
                         <div class="row">
                             @foreach($list_product as $item)
-                                <div class="col-3 mb-5">
+                                <div class="col-xl-3 col-sm-4 col-12 mb-5">
                                     <div class="card">
                                         <div class="fuild">
-                                            <img class="card-img-top"
-                                                 src="{{$item->productDetail->first()->thumbnail}}"
-                                                 alt="{{$item->name}}" height="400px">
+                                            <div class="img-cart">
+                                                <a target="_blank" href="/product/{{$item->id}}">
+                                                    <div style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
+                                                </a>
+
+                                            </div>
                                             <div class="card-body">
-                                                <h5 class="card-text">{{$item->name}}</h5>
-                                                <h5 class="card-text">{{$item->price}}</h5>
+                                                <h4 class="card-text name">{{$item->name}}</h4>
+                                                <h3 class="card-text "> <pre> <b> {{number_format($item->price)}} VNĐ</b></pre> </h3>
                                             </div>
                                             <div class="overlay">
                                                 <ul class="nav">
                                                     <li class="nav-item">
-                                                        <a class="add-cart nav-link active color"
-                                                           href="javascript:void(0)"
-                                                           data-id="{{$item->id}}"
+                                                        <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$item->id}}"
                                                            data-price="{{$item->price}}"
                                                            data-name="{{$item->name}}"
                                                            data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
-                                                            <i class="fa fa-shopping-bag" style="font-size:30px"></i>
+                                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">

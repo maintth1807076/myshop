@@ -912,7 +912,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 113,
                 'product_id' => 29,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img1.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product9-img1.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -920,7 +920,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 114,
                 'product_id' => 29,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img2.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product9-img2.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -928,7 +928,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 115,
                 'product_id' => 29,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img3.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product9-img3.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -936,7 +936,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 116,
                 'product_id' => 29,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img4.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product9-img4.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -944,7 +944,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 117,
                 'product_id' => 30,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img1.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product10-img1.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -952,7 +952,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 118,
                 'product_id' => 30,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img2.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product10-img2.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -960,7 +960,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 119,
                 'product_id' => 30,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img3.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product10-img3.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
@@ -968,7 +968,7 @@ class ProductDetailSeeder extends Seeder
             [
                 'id' => 120,
                 'product_id' => 30,
-                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product3-img4.jpg',
+                'thumbnail' => 'https://res.cloudinary.com/dkzqu5nh2/image/upload/v1568238643/Figma-product10-img4.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
