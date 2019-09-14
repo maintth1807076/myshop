@@ -24,8 +24,7 @@
     <style>
         .nav-item {
             font-size: 14px;
-            font-family: Verdana;
-
+            font-family: Serif;
         }
 
         b:hover {
@@ -53,19 +52,19 @@
     </style>
 </head>
 <body>
-<nav class="navbar background navbar-expand-lg navbar-light">
+<nav class="navbar background navbar-expand-lg navbar-light" style="background: ivory">
     <a class="navbar-brand" href="/home" style="margin-left: 100px">
-        <img src="https://www.otakuhouse.com/wp-content/themes/yamidoo/images/new_logo.png" width="auto"
+        <img src="img/logo-home.png" width="auto"
              height="70px" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <form style="margin-left: 100px;" method="get" action="">
+    <form class="ml-5" method="get" action="">
         <div class="form-control">
             <input type="search" placeholder="Search" aria-label="Search" name="key"
-                   style="border:none;border-right: 1px solid black;width: 400px;height: 25px">
+                   style="border:none;border-right: 1px solid black;width: 350px;height: 25px">
             <button class="fas fa-search" type="submit"></button>
         </div>
     </form>
@@ -105,7 +104,7 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-expand-sm  navbar-light sticky " style="background:#d6d8d9">
+<nav class="navbar navbar-expand-sm  navbar-light sticky " style="background:lightgoldenrodyellow">
     <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 300px;">
         <ul class="navbar-nav">
             <li class="nav-item">
