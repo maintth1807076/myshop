@@ -32,9 +32,6 @@
                         <div class="fuild">
                             <div class="img-cart">
                                 <a target="_blank" href="/product/{{$item->id}}">
-{{--                                    <img class="card-img-top"--}}
-{{--                                         src="{{$item->productDetail->first()->thumbnail}}"--}}
-{{--                                         alt="{{$item->name}}" height="400px">--}}
                                     <div style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
                                 </a>
 
