@@ -62,10 +62,6 @@
                 @endforeach
         </div>
         <hr>
-        @foreach($list_product_hot as $item)
-            <div>   <div style=" width: 400px; height: 500px; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div></div>
-
-        @endforeach
         <hr>
         <div class="col-12 text-center" style="margin-top: 50px">
             <button type="button" class="btn btn-outline-dark" style="padding-top: 15px">
