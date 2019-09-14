@@ -40,7 +40,7 @@ $(document).ready(function () {
                     <input type="checkbox" class="check-item" value="">
                 </th>
                 <td>${cartItem.id}</td>
-                <td><img width="100px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
+                <td><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
                 </td>
                 <td>${cartItem.name}</td>
                 <td></td>
