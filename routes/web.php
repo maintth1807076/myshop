@@ -71,6 +71,18 @@ Route::get('/information', 'UserController@show')->middleware('auth');
 Route::post('/change-name', 'UserController@changeName')->middleware('auth');
 Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth');
 /*route admin*/
+Route::get('/user/{user}', function ($id) {
+    $data = [
+        'list_User' => User::whereNotIn('status', [-1])->get(),
+        'item' => User::find($id),
+    ];
+    return view('client.product', $data);
+});
+//route admin_user
+Route::resource('/admin/user','quanliUserController'
+)->middleware('role:admin');
+Route::post('/admin/user/change-status', 'quanliUserController@changeStatus')->middleware('role:admin');
+//end Route adin_user
 Route::get('/admin', function () {
     return view('admin.layout');
 })->middleware('role:admin');

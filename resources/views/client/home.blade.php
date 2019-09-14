@@ -37,7 +37,7 @@
                             </div>
                             <div class="card-body">
                                 <h4 class="card-text name">{{$item->name}}</h4>
-                                <h3 class="card-text "> <pre> <b> {{$item->price}} VNĐ.</b></pre> </h3>
+                                <h3 class="card-text "> <pre> <b> {{number_format($item->price)}} VNĐ</b></pre> </h3>
                             </div>
                             <div class="overlay">
                                 <ul class="nav">

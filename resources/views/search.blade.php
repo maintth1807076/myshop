@@ -27,7 +27,7 @@
                 <tbody id="cart-body">
                 </tbody>
             </table>
-            <button id="btn-check" class="btn btn-primary" type="button">Ok</button>
         </div>
+        <button id="btn-check" class="btn btn-primary">Ok</button>
     </div>
 @endsection

@@ -18,55 +18,21 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-{{--    <style>--}}
-{{--        .nav-item {--}}
-{{--            font-size: 14px;--}}
-{{--            font-family: Verdana;--}}
-
-{{--        }--}}
-
-{{--        b:hover {--}}
-{{--            color: #1bb206;--}}
-{{--        }--}}
-
-{{--        i:hover {--}}
-{{--            color: #1bb206;--}}
-{{--        }--}}
-
-{{--        * {--}}
-{{--            box-sizing: border-box;--}}
-{{--        }--}}
-
-{{--        .row:after {--}}
-{{--            content: "";--}}
-{{--            display: table;--}}
-{{--            clear: both;--}}
-{{--        }--}}
-
-{{--        footer {--}}
-{{--            color: white;--}}
-{{--        }--}}
-
-{{--    </style>--}}
-    <style>
-
-    </style>
 </head>
 <body>
-<nav class="navbar background navbar-expand-lg navbar-light" style="background-image: url('https://images.alphacoders.com/846/thumb-1920-84631.jpg')">
+<nav class="navbar background navbar-expand-lg navbar-light" style="background: ivory">
     <a class="navbar-brand" href="/home" style="margin-left: 100px">
-        <img src="https://www.otakuhouse.com/wp-content/themes/yamidoo/images/new_logo.png" width="auto"
+        <img src="img/logo-home.png" width="auto"
              height="70px" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <form style="margin-left: 100px;" method="get" action="/product?keyword=">
+    <form class="ml-5" method="get" action="">
         <div class="form-control">
-            <input type="search" placeholder="Search" aria-label="Search" name="keyword"
-                   style="border:none;border-right: 1px solid black;width: 400px;height: 25px">
+            <input type="search" placeholder="Search" aria-label="Search" name="key"
+                   style="border:none;border-right: 1px solid black;width: 350px;height: 25px">
             <button class="fas fa-search" type="submit"></button>
         </div>
     </form>
@@ -105,9 +71,8 @@
         </ul>
     </div>
 </nav>
-
-<nav class="navbar navbar-expand-sm  navbar-light sticky " style="background-color:rgba(255,0,0,0.3)">
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+<nav class="navbar navbar-expand-sm  navbar-light sticky " style="background:lightgoldenrodyellow">
+    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 300px;">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link active" href="/home"> <b>TRANG CHỦ</b></a>
