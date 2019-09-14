@@ -13,43 +13,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        .nav-item {
-            font-size: 14px;
-            font-family: Serif;
-        }
-
-        b:hover {
-            color: #1bb206;
-        }
-
-        i:hover {
-            color: #1bb206;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        footer {
-            color: white;
-        }
-
-    </style>
 </head>
 <body>
 <nav class="navbar background navbar-expand-lg navbar-light" style="background: ivory">
@@ -83,7 +51,7 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span
-                                class="caret">{{ Auth::user()->name }}</span>
+                                class="caret" style="color: white">{{ Auth::user()->name }}</span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -103,14 +71,13 @@
         </ul>
     </div>
 </nav>
-
 <nav class="navbar navbar-expand-sm  navbar-light sticky " style="background:lightgoldenrodyellow">
     <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 300px;">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link active" href="/home"> <b>TRANG CHỦ</b></a>
             </li>
-            <li class="nav-item dropdown" style="padding-left: 100px">
+            <li class="nav-item dropdown">
                 <a class="nav-link  active   dropdown-toggle dropbtn" href="#" id="navbardrop"
                    data-toggle="dropdown">
                     <b>SẢN PHẨM</b>
@@ -122,10 +89,10 @@
                     <a class="dropdown-item" href="/category/4">Revoltech</a>
                 </div>
             </li>
-            <li class="nav-item" style="padding-left: 100px">
+            <li class="nav-item">
                 <a class="nav-link  active   " href="/about"><b> GIỚI THIỆU</b></a>
             </li>
-            <li class="nav-item" style="margin-right: 20px;padding-left: 100px">
+            <li class="nav-item">
                 <a class="nav-link  active  " href="/contact"><b>LIÊN HỆ</b></a>
             </li>
             <li class="nav-item">
@@ -138,7 +105,8 @@
         </ul>
     </div>
 </nav>
-<main class="py-4">
+
+<main class="">
     @yield('content')
 </main>
 <footer class="bg-dark">
