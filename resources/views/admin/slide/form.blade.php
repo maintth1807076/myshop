@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-6">
-            <form enctype="multipart/form-data" method="post" action="{{route('slides.store')}}">
+            <form id="admin-form" enctype="multipart/form-data" method="post" action="{{route('slides.store')}}">
                 @csrf
                 <div class="form-group">
                     <label>Content</label>

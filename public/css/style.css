@@ -1,36 +1,49 @@
 /*home */
 
-body{
+/*css validate*/
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/**/
+body {
     background-color: white;
 }
+
 * {
     box-sizing: border-box;
 }
 
 
-.text-uppercase{
+.text-uppercase {
 
     margin-top: 7%;
     margin-bottom: 2%;
 
 }
- .text-uppercase hr{
+
+.text-uppercase hr {
     border: #1b4b72 2px solid;
     width: 70%;
     text-align: center;
 }
-.cart{
+
+.cart {
     height: 550px;
 }
-.img-cart{
-    width:85%;
+
+.img-cart {
+    width: 85%;
     height: 65%;
     margin: 6%;
 }
-.card-body{
+
+.card-body {
     height: 30%;
 
 }
+
 .name {
     white-space: nowrap;
     width: 100%;
@@ -39,17 +52,21 @@ body{
     overflow: hidden;
 
 }
-.show-more{
-    margin-top:3%;
+
+.show-more {
+    margin-top: 3%;
 }
-.product-hot{
+
+.product-hot {
     height: 362px;
     margin-bottom: 5%;
 }
+
 .fuild {
     position: relative;
 
 }
+
 .overlay {
     position: absolute;
     bottom: 0;
@@ -67,7 +84,7 @@ body{
 
 .overlay1 {
     background: rgba(0, 0, 0, 0.5);
-/important;
+/ important;
 }
 
 .fuild:hover .overlay {
@@ -119,6 +136,7 @@ body{
     height: 100%;
     width: 100%;
 }
+
 /*end home*/
 
 /*.image {*/
@@ -393,13 +411,11 @@ body{
 }
 
 
-
 /*.image {*/
 /*    display: block;*/
 /*    width: 100%;*/
 /*    height: auto;*/
 /*}*/
-
 
 
 /*.color {*/

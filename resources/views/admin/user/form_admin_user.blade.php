@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-6">
-            <form  method="post" action="{{route('user.store')}}">
+            <form  id="admin-form" method="post" action="{{route('user.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>

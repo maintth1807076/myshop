@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-6">
-            <form enctype="multipart/form-data" method="post" action="/admin/products">
+            <form id="admin-form" enctype="multipart/form-data" method="post" action="/admin/products">
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Image</label>
-                    <input type="file" class="form-control" name="images[]" multiple>
+                    <input type="file" class="form-control" name="images" multiple>
                     @error('name')
                     <small class="text-danger form-text text-muted">{{ $message }}</small>
                     @enderror

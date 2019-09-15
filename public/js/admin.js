@@ -126,7 +126,7 @@ $(document).ready(function () {
                 $('#form-category-edit-model').show();
             },
             error: function () {
-               swal('Thao tác thất bại!');
+                swal('Thao tác thất bại!');
             }
         });
     });
@@ -326,6 +326,76 @@ $(document).ready(function () {
         }
     });
     //end js for user manager
+    // js for validate-form-admin
+    $("#admin-form").validate({
+
+        rules: {
+            name: {
+              required: true,
+            },
+            content:{
+                required: true,
+            },
+            images: {
+              required: true,
+            },
+            password: {
+                required: true,
+            },
+            email: {
+                required: true,
+                minlength: 5,
+                email: true,
+            },
+            description: {
+                required: true,
+            },
+            detail: {
+              required: true,
+            },
+            price: {
+                required: true,
+                number: true,
+            },
+            category_id: {
+                required: true,
+                digits: true,
+            },
+        },
+        messages: {
+            name: {
+                required: "Trường này không được bỏ trống",
+            },
+            content:{
+                required: "Trường này không được bỏ trống",
+            },
+            images: {
+                required: "Vui lòng chọn ảnh",
+            },
+            password: {
+                required: "Vui lòng nhập mật khẩu",
+            },
+            email: {
+                required: "Trường này không được bỏ trống",
+                email: "Vui lòng nhập email hợp lệ",
+            },
+            description: {
+                required: "Trường này không được bỏ trống",
+            },
+            detail: {
+                required: "Trường này không được bỏ trống",
+            },
+            price: {
+                required: "Trường này không được bỏ trống",
+                number: "Vui lòng nhập số",
+            },
+            category_id: {
+                required: "Trường này không được bỏ trống",
+                digits: "Vui lòng nhập số nguyên dương",
+            },
+        },
+    });
+    //end js for validate-form-admin
 });
 
 function changeStatus(arrayId, url, status) {
@@ -346,3 +416,29 @@ function changeStatus(arrayId, url, status) {
         }
     });
 }
+
+// js for validate-client
+// $(document).ready(function () {
+//     $("#login-form").validate({
+//
+//         rules: {
+//             email: {
+//                 required: true,
+//                 minlength: 5,
+//                 email: true,
+//             },
+//             password: {
+//                 required: true,
+//             }
+//         },
+//         messages: {
+//             email: {
+//                 required: "Vui lòng nhập email",
+//                 email: "Vui lòng nhập email hợp lệ",
+//             },
+//             password: {
+//                 required: "Vui lòng nhập mật khẩu",
+//             }
+//         },
+//     })
+// });
