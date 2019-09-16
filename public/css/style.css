@@ -253,116 +253,116 @@ body{
 /*!*css for client about*!*/
 
 /*css for client about*/
-/*.hover01 figure img {*/
-/*    -webkit-transform: scale(1);*/
-/*    transform: scale(1);*/
-/*    -webkit-transition: .3s ease-in-out;*/
-/*    transition: .3s ease-in-out;*/
-/*}*/
+.hover01 figure img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
 
-/*.hover01 figure:hover img {*/
-/*    -webkit-transform: scale(1.3);*/
-/*    transform: scale(1.3);*/
-/*}*/
+.hover01 figure:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
 
 
-/*img.img-thumbnail {*/
-/*    border: 0px white;*/
-/*    width: 67%;*/
-/*    margin-left: 20%;*/
-/*}*/
+img.img-thumbnail {
+    border: 0px white;
+    width: 67%;
+    margin-left: 20%;
+}
 
-/*.header-intro {*/
-/*    background-attachment: fixed;*/
-/*    background-position: center 0;*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*    background-image: url(/img/tris.jpg);*/
-/*    background-position: center -5.55556px;*/
-/*}*/
+.header-intro {
+    background-attachment: fixed;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/img/tris.jpg);
+    background-position: center -5.55556px;
+}
 
-/*.t-center {*/
-/*    text-align: center;*/
-/*}*/
+.t-center {
+    text-align: center;
+}
 
-/*.p-b-158 {*/
-/*    padding-bottom: 158px;*/
-/*}*/
+.p-b-158 {
+    padding-bottom: 158px;
+}
 
-/*.p-t-135 {*/
-/*    padding-top: 135px;*/
-/*}*/
+.p-t-135 {
+    padding-top: 135px;
+}
 
-/** {*/
-/*    margin: 0px;*/
-/*    padding: 0px;*/
-/*    box-sizing: border-box;*/
-/*}*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 
-/*h1 {*/
-/*    text-align: center;*/
-/*    border-bottom: 1px solid black;*/
-/*    font-family: playfair display, serif;*/
-/*}*/
+h1 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-family: playfair display, serif;
+}
 
-/*img.titel-about {*/
-/*    width: 30%;*/
-/*    border-radius: 100%;*/
-/*    margin-left: 35%;*/
-/*}*/
+img.titel-about {
+    width: 30%;
+    border-radius: 100%;
+    margin-left: 35%;
+}
 
-/*i.font1 {*/
-/*    font-family: " Nestle-Text-Light";*/
-/*    font-size: 142%;*/
-/*}*/
-/*b.kiluc1{*/
-/*    font-size: 250%;*/
-/*    color: red;*/
-/*}*/
-/*b.kiluc{*/
-/*    font-size: 250%;*/
-/*    color: blueviolet;*/
-/*}*/
-/*i.font2{*/
-/*    font-family: " Nestle-Text-Light";*/
-/*    font-size: 210%;*/
-/*    margin-left: 26%;*/
-/*}*/
+i.font1 {
+    font-family: " Nestle-Text-Light";
+    font-size: 142%;
+}
+b.kiluc1{
+    font-size: 250%;
+    color: red;
+}
+b.kiluc{
+    font-size: 250%;
+    color: blueviolet;
+}
+i.font2{
+    font-family: " Nestle-Text-Light";
+    font-size: 210%;
+    margin-left: 26%;
+}
 
-/*p.font1 {*/
-/*    font-family: " playfair display,serif";*/
-/*    font-size: 160%;*/
-/*    margin-left: -5%;*/
-/*    text-align: center;*/
-/*}*/
+p.font1 {
+    font-family: " playfair display,serif";
+    font-size: 160%;
+    margin-left: -5%;
+    text-align: center;
+}
 
-/*i.fas fa-user-tie {*/
-/*    font-size: 100px;*/
-/*}*/
+i.fas fa-user-tie {
+    font-size: 100px;
+}
 
-/*p.text-toy {*/
-/*    text-align: center;*/
-/*}*/
+p.text-toy {
+    text-align: center;
+}
 
-/*strong.kiluc1 {*/
-/*    font-size: 120%;*/
-/*    color: blue;*/
-/*}*/
+strong.kiluc1 {
+    font-size: 120%;
+    color: blue;
+}
 
-/*strong.kiluc {*/
-/*    font-size: 120%;*/
-/*    color: orangered;*/
-/*}*/
+strong.kiluc {
+    font-size: 120%;
+    color: orangered;
+}
 
-/*.dropdown-toggle::after {*/
-/*    display: none;*/
-/*}*/
+.dropdown-toggle::after {
+    display: none;
+}
 
-/*.dropbtn {*/
-/*    color: white;*/
-/*    border: none;*/
-/*}*/
-
+.dropbtn {
+    color: white;
+    border: none;
+}
+/*xong css about*/
 .dropdown {
     position: relative;
     display: inline-block;
