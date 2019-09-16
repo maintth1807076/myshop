@@ -41,14 +41,15 @@
             <div class="col-sm-9">
                 <h3> Tất cả sản phẩm</h3>
                 <ul class="nav nav-tabs">
+
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#gridView">
-                            <button class="btn"><i class="fa fa-bars"></i></button>
+                        <a class="nav-link active" data-toggle="tab" href="#listView">
+                            <button class="btn"><i class="fa fa-th-large"></i></button>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#listView">
-                            <button class="btn"><i class="fa fa-th-large"></i></button>
+                        <a class="nav-link" data-toggle="tab" href="#gridView">
+                            <button class="btn"><i class="fa fa-bars"></i></button>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -73,10 +74,10 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div id="gridView" class="container tab-pane active"><br>
+                    <div id="listView" class="container tab-pane active"><br>
                         <div class="row">
                             @foreach($list_product as $item)
-                                <div class="col-xl-3 col-sm-4 col-12 mb-5">
+                                <div class=" col-sm-4  mb-5">
                                     <div class="card">
                                         <div class="fuild">
                                             <div class="img-cart">
@@ -89,7 +90,7 @@
                                                 <h4 class="card-text name">{{$item->name}}</h4>
                                                 <h3 class="card-text "> <pre> <b> {{number_format($item->price)}} VNĐ</b></pre> </h3>
                                             </div>
-                                            <div class="overlay">
+                                            <div class="overlay overlay-product">
                                                 <ul class="nav">
                                                     <li class="nav-item">
                                                         <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$item->id}}"
@@ -112,7 +113,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div id="listView" class="container tab-pane fade"><br>
+                    <div id="gridView" class="container tab-pane fade"><br>
                         <div class="row">
                             @foreach($list_product as $item)
                                 <div class="col-xl-3 col-sm-4 col-12 mb-5">
@@ -128,7 +129,7 @@
                                                 <h4 class="card-text name">{{$item->name}}</h4>
                                                 <h3 class="card-text "> <pre> <b> {{number_format($item->price)}} VNĐ</b></pre> </h3>
                                             </div>
-                                            <div class="overlay">
+                                            <div class="overlay overlay-product">
                                                 <ul class="nav">
                                                     <li class="nav-item">
                                                         <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$item->id}}"
@@ -151,6 +152,7 @@
                             @endforeach
                         </div>
                     </div>
+
                 </div>
 
             </div>
