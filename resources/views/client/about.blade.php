@@ -1,11 +1,9 @@
 @extends('client.layout')
 @section('content')
     <div class="col-12 pl-0 pr-0">
-        <section class=" bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url('/img/shaco.jpg'); background-position: center">
             <h2 data-aos="fade-left" class="tit6 t-center"style="font-size: 500%;color: greenyellow;font-family: auto">
                 Về chúng tôi
             </h2>
-        </section>
     </div>
 {{--    <div class="container">--}}
         <div class="row mr-0 ml-0">
@@ -21,7 +19,7 @@
 {{--                    </div>--}}
                     </div>
                     <div data-aos="fade-down" class="col-12 col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
-                        <i class="font1"><img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"> là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
+                        <i class="font1"><img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" style="width: 20%"> là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
                         Nếu là một fan ruột của Manga-Anime thì bạn không thể không đến với shop,
                         bạn có thể tìm thấy cho mình những nhân vật
                         manga mà từ thời bé xíu đã gắn bó với bạn qua những tập truyện tranh như mèo máy Đoraemon,
@@ -46,7 +44,7 @@
         </div>
     <div class="row">
         <div class="col-12 mt-2">
-            <h1>Thành Viên của <img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"></h1>
+            <h1>Thành Viên của <img id="imglogo" style="width: 20%" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"></h1>
         </div>
     </div>
         <div class="row mr-0 ml-0">
