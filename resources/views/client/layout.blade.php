@@ -23,12 +23,20 @@
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" style="font-size:25px"></i>
 </button>
 <div class="container-fluid">
-    <div class="row" style="background-color: white">
-        <div class="col-sm-9">
+    <div class="row" style="background-color: #fff8b3">
+        <div class="col-sm-5">
             <a class="navbar-brand" href="/home" style="padding-left:20% ">
-                <img src="img/logo-home.png" width="auto"
+                <img class="responsive" src="img/logo-home.png" width="auto"
                      height="70px" alt="">
             </a>
+        </div>
+        <div class="col-sm-4">
+                <div method="get" action="">
+                    <div class="searchbar">
+                        <input class="search_input" type="text" name="" placeholder="Search...">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    </div>
+                </div>
         </div>
         <div class="col-sm-3">
             <ul class="user">
@@ -73,49 +81,44 @@
         </div>
     </div>
 </div>
-
-<nav class=" navbar-expand-lg navbar-light bg-light sticky">
-    <div class="collapse navbar-collapse" style="background-color: red">
-        <div class="row mr-auto">
-            <div class=" nav-item padding">
-                <a class="nav-link active dropbtn" href="/home"><b>Trang chủ</b></a>
-            </div>
-            <div class="dropdown nav-item padding">
-                <a class="nav-link  active dropdown-toggle dropbtn" href="#" id="navbardrop"
-                   data-toggle="dropdown">
-                    <b>SẢN PHẨM</b>
-                </a>
-                <div class="dropdown-menu dropdown-content">
-                    <a class="dropdown-item" href="/category/1">PVC Figure</a>
-                    <a class="dropdown-item" href="/category/2">Nendoroid</a>
-                    <a class="dropdown-item" href="/category/3">Figma</a>
-                    <a class="dropdown-item" href="/category/4">Revoltech</a>
+<div class="navhome" style="background-color: red">
+    <div class=" navbar-expand-lg navbar-light bg-light sticky">
+        <div class="text-center" style="background-color: red">
+            <div class="row mr-auto">
+                <div class="col-sm-1"></div>
+                <div class=" nav-item col-sm-2 ">
+                    <a class="nav-link dropbtn" href="/home"><b>TRANG CHỦ</b></a>
                 </div>
-            </div>
-            <div class="nav-item padding">
-                <a class="nav-link  dropbtn" href="/about"><b>Giới thiệu</b></a>
-            </div>
-            <div class="nav-item padding">
-                <a class="nav-link active dropbtn" href="/contact"><b>Liên hệ</b></a>
-            </div>
-            <div class="nav-item padding">
-                <a class="nav-link dropbtn" href="/cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="d-inline list-added text-dark" id="added-quantity">0</div>
-                    GIỎ HÀNG
-                </a>
+                <div class="dropdown nav-item col-sm-2">
+                    <a class="nav-link  active dropdown-toggle dropbtn" href="#" id="navbardrop"
+                       data-toggle="dropdown">
+                        <b>SẢN PHẨM</b>
+                    </a>
+                    <div class="dropdown-menu dropdown-content">
+                        <a class="dropdown-item" href="/category/1"><b style="font-size: 20px">PVC Figure</b></a>
+                        <a class="dropdown-item" href="/category/2"><b style="font-size: 20px">Nendoroid</b></a>
+                        <a class="dropdown-item" href="/category/3"><b style="font-size: 20px">Figma</b></a>
+                        <a class="dropdown-item" href="/category/4"><b style="font-size: 20px">Revoltech</b></a>
+                    </div>
+                </div>
+                <div class="nav-item col-sm-2 ">
+                    <a class="nav-link dropbtn" href="/about"><b>GIỚI THIỆU</b></a>
+                </div>
+                <div class="nav-item col-sm-2">
+                    <a class="nav-link active dropbtn" href="/contact"><b>LIÊN HỆ</b></a>
+                </div>
+                <div class="nav-item col-sm-2">
+                    <a class="nav-link dropbtn" href="/cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="d-inline list-added text-dark" id="added-quantity">0</div>
+                        GIỎ HÀNG
+                    </a>
+                </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
-        <form class="form-inline my-2 my-lg-0">
-            <div class="d-flex justify-content-center" method="get" action="">
-                <div class="searchbar dropbtn">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                </div>
-            </div>
-        </form>
     </div>
-</nav>
+</div>
 <main class="">
     @yield('content')
 </main>
