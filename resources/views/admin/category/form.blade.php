@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-6">
-            <form enctype="multipart/form-data" method="post" action="{{route('categories.store')}}">
+            <form id="admin-form" enctype="multipart/form-data" method="post" action="{{route('categories.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>

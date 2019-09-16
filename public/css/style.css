@@ -1,5 +1,14 @@
 /*home */
 
+
+/*css validate*/
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/**/
+
 body {
     background-color: white;
 }
