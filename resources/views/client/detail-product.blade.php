@@ -13,8 +13,9 @@
                         </ol>
                         @foreach($list_product_detail as $key => $item)
                             <div class="carousel-item thumbnail {{ $key == 0 ? 'active' : '' }}">
-                                <img class="d-block w-100 img-fluid" height="540px"
-                                     src="{{$item->thumbnail}}" alt="First slide">
+                                <div class="product-image"
+                                     style="  width: 100%; height: 540px;  background-size: cover; background-image:url('{{$item->thumbnail}}')"></div>
+
                             </div>
                         @endforeach
                     </div>
@@ -31,7 +32,7 @@
             <div class="col-xl-6">
                 <div class="product-details-wrapper">
                     <h2 class="product-name">
-                        <a title=" Mô Hình Yasuo"> {{$product->name}}</a>
+                        <a title=" "> {{$product->name}}</a>
                     </h2>
                     <div class="stars">
                         <span class="fa fa-star checked"></span>
@@ -45,9 +46,9 @@
                         <span>Đang bán chạy</span>
                     </div>
 
-                    <div><p>{{$product->name}}</p></div>
+                    <div><p>{{$product->description}}</p></div>
                     <div class="product-price product-actions">
-                        <span class="price">{{$product->price}} <ins>đ</ins></span>
+                        <span class="price">{{number_format($product->price)}} <ins>đ</ins></span>
                     </div>
                     <div class="product-actions-wrapper">
                         <form action=" " method="post" enctype="multipart/form-data" id="AddToCartForm">
@@ -67,13 +68,13 @@
                                     </div>
                                     <div class="col-xl-3 col-md-3 col-sm-4">
                                         <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-d1">
-                                            <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$product->id}}"
+                                            <a class="add-cart " href="javascript:void(0)" data-id="{{$product->id}}"
                                                data-price="{{$product->price}}"
                                                data-name="{{$product->name}}"
                                                data-thumbnail="{{$product->productDetail->first()->thumbnail}}">
-                                                <i class="fa fa-shopping-bag" style="font-size:30px">Thêm vào giỏ hàng</i>
+                                                <i class="fa fa-shopping-bag" style="font-size:1.125rem">Thêm vào giỏ
+                                                    hàng</i>
                                             </a>
-{{--                                            <span id="AddToCartText" class="fas fa-cart-plus"> Thêm vào giỏ hàng</span>--}}
                                         </button>
                                     </div>
                                     <div class="col-xl-6">
@@ -82,7 +83,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-12 mt-4">
+                    <div class="col-md-12 mt-2">
                         <div class="title-name">
                             <h5 class="font-weight-bold">Mô Tả Sản Phẩm</h5>
                         </div>
@@ -136,8 +137,9 @@
             <div class="row">
                 <div class="col-lg-2">
                     <p>
-                        <img src="https://yt3.ggpht.com/a/AGF-l79_5C7nXoG-wA7O4ipOvuy8Luiso7_NhhAIRA=s900-c-k-c0xffffffff-no-rj-mo"
-                             class="rounded-circle img-fluid ml-5" width="65px" height="65px" alt="">
+                        <img
+                            src="https://yt3.ggpht.com/a/AGF-l79_5C7nXoG-wA7O4ipOvuy8Luiso7_NhhAIRA=s900-c-k-c0xffffffff-no-rj-mo"
+                            class="rounded-circle img-fluid ml-5" width="65px" height="65px" alt="">
                     </p>
                     <p class="name-dt" itemprop="author">Thơ Nguyễn</p>
                     <p class="day-dt">3 ngày trước</p>
@@ -159,8 +161,9 @@
                 </div>
                 <div class="col-lg-2">
                     <p>
-                        <img src="http://assets.htv.com.vn/Images/TAP%20CHI%20HTV/HAU%20TRUONG%20TRUYEN%20HINH/HIEN/CAU%20CHUYEN%20TRUYEN%20THONG/Ba%20Tan%20Vlog/H%C3%8CNH%201_BA%20TAN%20VLOG_THUMBAIL.jpg"
-                             class="rounded-circle ml-5" width="65px" height="65px" alt="">
+                        <img
+                            src="http://assets.htv.com.vn/Images/TAP%20CHI%20HTV/HAU%20TRUONG%20TRUYEN%20HINH/HIEN/CAU%20CHUYEN%20TRUYEN%20THONG/Ba%20Tan%20Vlog/H%C3%8CNH%201_BA%20TAN%20VLOG_THUMBAIL.jpg"
+                            class="rounded-circle ml-5" width="65px" height="65px" alt="">
                     </p>
                     <p class="name-dt" itemprop="author">Bà Tân Vlog</p>
                     <p class="day-dt">5 ngày trước</p>
