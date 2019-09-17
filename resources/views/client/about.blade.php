@@ -1,24 +1,12 @@
 @extends('client.layout')
 @section('content')
-    <div class="col-12 pl-0 pr-0">
-        <section class=" bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url('/img/shaco.jpg'); background-position: center">
-            <h2 data-aos="fade-left" class="tit6 t-center"style="font-size: 500%;color: greenyellow;font-family: auto">
-                Về chúng tôi
-            </h2>
-        </section>
-    </div>
 {{--    <div class="container">--}}
         <div class="row mr-0 ml-0">
 
             <div class="col">
                 <div class="row mr-0 ml-0">
                     <div data-aos="fade-up" class="col-12 col-xl-4 col-lg-4 col-md-11 col-sm-10 mt-5 ml-3">
-{{--                        <img src="/img/shacon.png" alt="..." class="img-thumbnail">--}}
-{{--                        <div class="hover01 column">--}}
-{{--                            <div>--}}
                                 <figure><img class="img-thumbnail" src="/img/shacon.png" /></figure>
-{{--                            </div>--}}
-{{--                    </div>--}}
                     </div>
                     <div data-aos="fade-down" class="col-12 col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
                         <i class="font1"><img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"> là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
@@ -32,17 +20,7 @@
 
                     </div>
                 </div>
-{{--                <div  class="row ml-0 mr-0">--}}
-{{--                    <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-10 ml-1 pt-3">--}}
-{{--                        <i class="font1">Ship hàng COD toàn quốc</i><br>--}}
-{{--                        Ship hàng COD toàn quốc , chuyển phát nhanh phí hợp lý.--}}
-{{--                        Chúng tôi chuyên về các loại mặt hàng mô hình - figure, nendoroid.--}}
-{{--                        Các loại phụ kiện đa dạng như mũ, vòng cổ, vòng tay, móc khóa, ví, thắt lưng, nhẫn..v..v..--}}
-{{--                        Các bạn cũng có thể order sản phẩm theo yêu cầu hoặc hình ảnh.--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
-{{--                </div>--}}
         </div>
     <div class="row">
         <div class="col-12 mt-2">

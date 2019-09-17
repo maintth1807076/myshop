@@ -48,11 +48,11 @@
                         @guest
                             <li>
                                 <a class="active" href="{{ route('login') }}"><b
-                                            style="color: black">{{ __('Đăng nhập ') }}</b></a>
+                                        style="color: black">{{ __('Đăng nhập ') }}</b></a>
                                 <b>/</b>
                                 @if (Route::has('register'))
                                     <a class="active" href="{{ route('register') }}"><b
-                                                style="color: black">{{ __('Đăng ký') }}</b></a>
+                                            style="color: black">{{ __('Đăng ký') }}</b></a>
                                 @endif
                             </li>
                         @else
@@ -60,7 +60,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span
-                                            class="caret">{{ Auth::user()->name }}</span>
+                                        class="caret">{{ Auth::user()->name }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -68,7 +68,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Đăng xuất') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -125,10 +125,10 @@
 <main class="">
     @yield('content')
 </main>
-<footer class="bg-dark row" style="color: white">
+<footer class="bg-dark row" style="color: white; font-family: -webkit-body">
     <div class="col-sm-4">
         <div style="padding: 25px">
-            <h2>GIỚI THIỆU</h2>
+            <h3>GIỚI THIỆU</h3>
             <p>Cửa hàng quà tặng - Vật phẩm trong game : Liên minh huyền thoại, Overwatch, ... - Phụ kiện anime :
                 Onepiece,
                 Naruto, dragonball, Attack on Titan... - Vật phẩm trong siêu anh hùng... Chất lượng đảm bảo - uy tín -
@@ -137,9 +137,8 @@
         </div>
 
         <div style="padding: 25px">
-            <h2>CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h2>
-            <p>Hotline 1: 0985-776-331</p>
-            <p>Hotline 2: 0934-648-240</p>
+            <h3>CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h3>
+            <p>Hotline : 0985-776-331</p>
             <p>Open - Close: 08:30-22:00</p>
             <p>Mail: anhnguyentvn@gmail.com</p>
         </div>
@@ -147,21 +146,21 @@
     </div>
     <div class="col-sm-4">
         <div style="padding: 25px;">
-            <h3 class="widget-title">KẾT NỐI VỚI CHÚNG TÔI</h3>
-            <img src="https://media.timeout.com/images/103173510/630/472/image.jpg"
-                 width="350px" height="auto" alt="">
+            <h3 class="widget-title mb-3">KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096814183571!2d105.7800937149326!3d21.028811885998316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455f9bdf0e1c7%3A0x26caee8e7662dd9b!2zRlBUIEFwdGVjaCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1566843331684!5m2!1svi!2s"
+                    width="100%" height="280" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
 
     </div>
     <div class="col-sm-4">
         <div style="padding: 25px">
-            <h3 class="widget-title">SOCIAL</h3>
+            <h3 class="widget-title">LIÊN KẾT</h3>
             <a href="#" style="margin-right: 40px;color: white;" title=""><i
-                        class="fab fa-twitter fa-2x"></i></a>
+                    class="fab fa-twitter fa-2x"></i></a>
             <a href="#" style="margin-right: 40px ; color: white;" title=""><i
-                        class="fab fa-facebook-f fa-2x"></i></a>
+                    class="fab fa-facebook-f fa-2x"></i></a>
             <a href="#" style="margin-right: 40px; color: white;" title=""><i
-                        class="fab fa-google-plus-g fa-2x"></i></a>
+                    class="fab fa-google-plus-g fa-2x"></i></a>
             <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
             <a href="#" style="margin-right: 40px;color: white;" title="">
             </a>
