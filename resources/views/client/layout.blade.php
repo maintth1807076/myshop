@@ -84,8 +84,8 @@
         </div>
     </div>
 </div>
-<div class="navhome" style="background-color: red">
-    <div class=" navbar-expand-lg navbar-light bg-light sticky">
+<div class="navhome sticky" style="background-color: red">
+    <div class=" navbar-expand-lg navbar-light bg-light">
         <div class="text-center" style="background-color: red">
             <div class="row mr-auto">
                 <div class="col-sm-1"></div>
