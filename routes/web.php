@@ -104,5 +104,7 @@ Route::get('/send', function () {
 Route::get('/cart', function () {
     return view('search');
 });
-
+Route::get('/admin',function (){
+    return view('admin.interactive.interactive');
+})->middleware('role:admin');
 

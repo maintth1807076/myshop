@@ -1,4 +1,65 @@
 $(document).ready(function () {
+    // js for Validate-form-client
+    $("#login-form").validate({
+
+        rules: {
+            email: {
+                required: true,
+                minlength: 5,
+                email: true,
+            },
+            password: {
+                required: true,
+            }
+        },
+        messages: {
+            email: {
+                required: "Vui lòng nhập email",
+                email: "Vui lòng nhập email hợp lệ",
+            },
+            password: {
+                required: "Vui lòng nhập mật khẩu",
+            }
+        },
+    });
+    $("#register-form").validate({
+
+        rules: {
+            name: {
+                required: true,
+            },
+            email: {
+                required: true,
+                email: true,
+            },
+            password: {
+                required: true,
+                minlength: 8,
+            },
+            password_confirmation: {
+                required: true,
+                equalTo: "#password",
+            }
+        },
+        messages: {
+            name: {
+                required: "Vui lòng nhập họ tên",
+            },
+            email: {
+                required: "Vui lòng nhập email",
+                email: "Vui lòng nhập email hợp lệ",
+            },
+            password: {
+                required: "Vui lòng nhập mật khẩu",
+                minlength: "Độ dài mật khẩu phải lớn hơn 8",
+            },
+            password_confirmation: {
+                required: "Vui lòng nhập mật khẩu",
+                equalTo: "Mật khẩu phải trùng nhau",
+            }
+        },
+    });
+    //end js for Validate-form-client
 
     $('.add-cart').click(function () {
         var shoppingCart = {};

@@ -10,6 +10,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{asset('js/customer.js')}}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -20,92 +23,105 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar background navbar-expand-lg navbar-light" style="background: ivory">
-    <a class="navbar-brand" href="/home" style="margin-left: 100px">
-        <img src="img/logo-home.png" width="auto"
-             height="70px" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <form class="ml-5" method="get" action="">
-        <div class="form-control">
-            <input type="search" placeholder="Search" aria-label="Search" name="key"
-                   style="border:none;border-right: 1px solid black;width: 350px;height: 25px">
-            <button class="fas fa-search" type="submit"></button>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" style="font-size:25px"></i>
+</button>
+<div class="container-fluid">
+    <div class="row" style="background-color: #fff8b3">
+        <div class="col-sm-5">
+            <a class="navbar-brand" href="/home" style="padding-left:20% ">
+                <img class="responsive" src="img/logo-home.png" width="auto"
+                     height="70px" alt="">
+            </a>
         </div>
-    </form>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 100px">
-        <ul class="navbar-nav" style="padding-left: 100px">
-            @guest
-                <li>
-                    <a class="active" href="{{ route('login') }}"><b style="color: black">{{ __('Đăng nhập ') }}</b></a>
-                    <b>|</b>
-                    @if (Route::has('register'))
-                        <a class="active" href="{{ route('register') }}"><b style="color: black">{{ __('Đăng ký') }}</b></a>
-                    @endif
-                </li>
-            @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span
-                                class="caret" style="color: white">{{ Auth::user()->name }}</span>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/information">Thông tin tài khoản</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+        <div class="col-sm-4">
+                <div method="get" action="">
+                    <div class="searchbar">
+                        <input class="search_input" type="text" name="" placeholder="Search...">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
                     </div>
-                </li>
-            @endguest
-        </ul>
-    </div>
-</nav>
-<nav class="navbar navbar-expand-sm  navbar-light sticky " style="background:lightgoldenrodyellow">
-    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-left: 300px;">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" href="/home"> <b>TRANG CHỦ</b></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link  active   dropdown-toggle dropbtn" href="#" id="navbardrop"
-                   data-toggle="dropdown">
-                    <b>SẢN PHẨM</b>
-                </a>
-                <div class="dropdown-menu dropdown-content">
-                    <a class="dropdown-item" href="/category/1">PVC Figure</a>
-                    <a class="dropdown-item" href="/category/2">Nendoroid</a>
-                    <a class="dropdown-item" href="/category/3">Figma</a>
-                    <a class="dropdown-item" href="/category/4">Revoltech</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  active   " href="/about"><b> GIỚI THIỆU</b></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  active  " href="/contact"><b>LIÊN HỆ</b></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/cart" style="padding-left: 100px">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="d-inline list-added text-dark" id="added-quantity">0</div>
-                    GIỎ HÀNG
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+        </div>
+        <div class="col-sm-3">
+            <ul class="user">
+                <div class="dropdown nav-item">
+                    <div class="userdrop">
+                        @guest
+                            <li>
+                                <a class="active" href="{{ route('login') }}"><b
+                                            style="color: black">{{ __('Đăng nhập ') }}</b></a>
+                                <b>/</b>
+                                @if (Route::has('register'))
+                                    <a class="active" href="{{ route('register') }}"><b
+                                                style="color: black">{{ __('Đăng ký') }}</b></a>
+                                @endif
+                            </li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src=" {{ Auth::user()->avatar }}" alt="" style="width: 50px;"> <span
+                                            class="caret">{{ Auth::user()->name }}</span>
+                                </a>
 
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/information">Thông tin tài khoản</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="navhome" style="background-color: red">
+    <div class=" navbar-expand-lg navbar-light bg-light sticky">
+        <div class="text-center" style="background-color: red">
+            <div class="row mr-auto">
+                <div class="col-sm-1"></div>
+                <div class=" nav-item col-sm-2 ">
+                    <a class="nav-link dropbtn" href="/home"><b>TRANG CHỦ</b></a>
+                </div>
+                <div class="dropdown nav-item col-sm-2">
+                    <a class="nav-link  active dropdown-toggle dropbtn" href="#" id="navbardrop"
+                       data-toggle="dropdown">
+                        <b>SẢN PHẨM</b>
+                    </a>
+                    <div class="dropdown-menu dropdown-content">
+                        <a class="dropdown-item" href="/category/1"><b style="font-size: 20px">PVC Figure</b></a>
+                        <a class="dropdown-item" href="/category/2"><b style="font-size: 20px">Nendoroid</b></a>
+                        <a class="dropdown-item" href="/category/3"><b style="font-size: 20px">Figma</b></a>
+                        <a class="dropdown-item" href="/category/4"><b style="font-size: 20px">Revoltech</b></a>
+                    </div>
+                </div>
+                <div class="nav-item col-sm-2 ">
+                    <a class="nav-link dropbtn" href="/about"><b>GIỚI THIỆU</b></a>
+                </div>
+                <div class="nav-item col-sm-2">
+                    <a class="nav-link active dropbtn" href="/contact"><b>LIÊN HỆ</b></a>
+                </div>
+                <div class="nav-item col-sm-2">
+                    <a class="nav-link dropbtn" href="/cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="d-inline list-added text-dark" id="added-quantity">0</div>
+                        GIỎ HÀNG
+                    </a>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
 <main class="">
     @yield('content')
 </main>
@@ -194,6 +210,26 @@
     AOS.init({
         duration: 1200
     });
+</script>
+<script>
+    var mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 </script>
 </body>
 </html>
