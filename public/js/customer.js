@@ -89,7 +89,6 @@ $(document).ready(function () {
 
     var shoppingCartJson = localStorage.getItem('shopping-cart');
     if (shoppingCartJson == null) {
-        alert('Hiện tại không có sản phẩm nào trong giỏ hàng!');
         return;
     }
     var shoppingCart = JSON.parse(shoppingCartJson);
