@@ -34,12 +34,12 @@
             </a>
         </div>
         <div class="col-sm-4">
-                <div method="get" action="">
-                    <div class="searchbar">
-                        <input class="search_input" type="text" name="" placeholder="Search...">
-                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                    </div>
+            <div method="get" action="">
+                <div class="searchbar">
+                    <input class="search_input" type="text" name="" placeholder="Search...">
+                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
                 </div>
+            </div>
         </div>
         <div class="col-sm-3">
             <ul class="user">
@@ -125,83 +125,52 @@
 <main class="">
     @yield('content')
 </main>
-<footer class="bg-dark">
-    <div>
-        <div class="row" style="padding-top: 40px;">
+<footer class="bg-dark row" style="color: white">
+    <div class="col-sm-4">
+        <div style="padding: 25px">
+            <h2>GIỚI THIỆU</h2>
+            <p>Cửa hàng quà tặng - Vật phẩm trong game : Liên minh huyền thoại, Overwatch, ... - Phụ kiện anime :
+                Onepiece,
+                Naruto, dragonball, Attack on Titan... - Vật phẩm trong siêu anh hùng... Chất lượng đảm bảo - uy tín -
+                Độc
+                nhất</p>
+        </div>
 
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12 col-sm-6">
+        <div style="padding: 25px">
+            <h2>CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h2>
+            <p>Hotline 1: 0985-776-331</p>
+            <p>Hotline 2: 0934-648-240</p>
+            <p>Open - Close: 08:30-22:00</p>
+            <p>Mail: anhnguyentvn@gmail.com</p>
+        </div>
 
+    </div>
+    <div class="col-sm-4">
+        <div style="padding: 25px;">
+            <h3 class="widget-title">KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <img src="https://media.timeout.com/images/103173510/630/472/image.jpg"
+                 width="350px" height="auto" alt="">
+        </div>
 
-                        <div class="widget" style="padding-top: 20px;">
-
-                            <h3 class="widget-title">GIỚI THIỆU </h3>
-
-                            <div class="widget-content">
-                                <p>Cửa hàng quà tặng
-                                    - Vật phẩm trong game : Liên minh huyền thoại, Overwatch, ...
-                                    - Phụ kiện anime : Onepiece, Naruto, dragonball, Attack on Titan...
-                                    - Vật phẩm trong siêu anh hùng...
-                                    Chất lượng đảm bảo - uy tín - Độc nhất</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-12 col-sm-6">
-
-
-                        <div class="widget" style="padding-top: 20px;">
-                            <h3 class="widget-title">CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h3>
-
-                            <div class="widget-content">
-                                <p>Hotline 1: 0985-776-331</p>
-                                <p>Hotline 2: 0934-648-240</p>
-                                <p>Open - Close: 08:30-22:00</p>
-                                <p>Mail: anhnguyentvn@gmail.com</p>
-                            </div>
-                        </div><!-- /.widget -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-
-                <div class="widget" style="padding-top: 20px;">
-                    <h3 class="widget-title">KẾT NỐI VỚI CHÚNG TÔI</h3>
-                    <img src="https://media.timeout.com/images/103173510/630/472/image.jpg"
-                         width="350px" height="auto" alt="">
-
-
-                </div><!-- /.widget -->
-
-            </div>
-            <div class="col-md-4">
-                <div class="widget" style="padding-top: 20px;">
-                    <h3 class="widget-title">SOCIAL</h3>
-                    <a href="#" style="margin-right: 40px;color: white;" title=""><i
-                                class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#" style="margin-right: 40px ; color: white;" title=""><i
-                                class="fab fa-facebook-f fa-2x"></i></a>
-                    <a href="#" style="margin-right: 40px; color: white;" title=""><i
-                                class="fab fa-google-plus-g fa-2x"></i></a>
-                    <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
-                    <a href="#" style="margin-right: 40px;color: white;" title="">
-                    </a>
-                </div>
-
-
-                <div class="widget" style="padding-top: 20px;">
-
-                    <h3 class="widget-title">THANH TOÁN</h3>
-                    <p>
-                        Các bạn có thể thanh toán trước qua tài khoản ngân hàng hoặc thanh toán COD khi nhận hàng.
-                    </p>
-                </div>
-            </div>
-
+    </div>
+    <div class="col-sm-4">
+        <div style="padding: 25px">
+            <h3 class="widget-title">SOCIAL</h3>
+            <a href="#" style="margin-right: 40px;color: white;" title=""><i
+                        class="fab fa-twitter fa-2x"></i></a>
+            <a href="#" style="margin-right: 40px ; color: white;" title=""><i
+                        class="fab fa-facebook-f fa-2x"></i></a>
+            <a href="#" style="margin-right: 40px; color: white;" title=""><i
+                        class="fab fa-google-plus-g fa-2x"></i></a>
+            <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+            <a href="#" style="margin-right: 40px;color: white;" title="">
+            </a>
+        </div>
+        <div style="padding: 25px">
+            <h3 class="widget-title">THANH TOÁN</h3>
+            <p>
+                Các bạn có thể thanh toán trước qua tài khoản ngân hàng hoặc thanh toán COD khi nhận hàng.
+            </p>
         </div>
     </div>
 </footer>
