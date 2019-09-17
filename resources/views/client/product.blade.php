@@ -39,8 +39,9 @@
 
             </div>
             <div class="col-sm-9">
-                <h3> Tất cả sản phẩm</h3>
-                <ul class="nav nav-tabs">
+                <h3 class="text-center "> Tất cả sản phẩm</h3>
+                <hr>
+                <ul class="nav nav-tabs ">
 
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#listView">
@@ -52,10 +53,10 @@
                             <button class="btn"><i class="fa fa-bars"></i></button>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <form action="#" method="post" style="float:right; margin-top:0;" class="form-inline col-sm-6">
-                            <div class="row">
-                                <label> Sắp xếp: <br></label>
+                    <li class="nav-item sort">
+                        <form action="#" method="post"  class="form-inline col-sm-6">
+                            <div class="row ">
+                                <label > Sắp xếp: </label>
                                 <select name=" index-view-page" id="index-view-page" class="form-control">
                                     <option value="date">Ngày: Mới- Cũ</option>
                                     <option value="product-hot">Sản phẩm nổi bật</option>
@@ -116,36 +117,45 @@
                     <div id="gridView" class="container tab-pane fade"><br>
                         <div class="row">
                             @foreach($list_product as $item)
-                                <div class="col-xl-3 col-sm-4 col-12 mb-5">
-                                    <div class="card">
+                                <div class="col-12">
+                                    <div class="card2">
                                         <div class="fuild">
-                                            <div class="img-cart">
+                                            <div class="img-cart2 col-sm-4">
                                                 <a target="_blank" href="/product/{{$item->id}}">
                                                     <div style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
                                                 </a>
 
                                             </div>
-                                            <div class="card-body">
+                                            <div class="card-body2 col-sm-8">
                                                 <h4 class="card-text name">{{$item->name}}</h4>
                                                 <h3 class="card-text "> <pre> <b> {{number_format($item->price)}} VNĐ</b></pre> </h3>
-                                            </div>
-                                            <div class="overlay overlay-product">
-                                                <ul class="nav">
-                                                    <li class="nav-item">
-                                                        <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$item->id}}"
-                                                           data-price="{{$item->price}}"
-                                                           data-name="{{$item->name}}"
-                                                           data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
-                                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                                <h5 class="card-text ">{{$item->detail}} </h5>
+                                                <div>
+                                                    <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-d1">
+                                                        <a class="add-cart nav-link active color" href="#">
+                                                            <i class="fa fa-shopping-bag" style="font-size:30px">Thêm vào giỏ hàng</i>
                                                         </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link color" href="/product/{{$item->id}}">
-                                                            <i class="fa fa-eye" style="font-size:30px"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                        {{--                                            <span id="AddToCartText" class="fas fa-cart-plus"> Thêm vào giỏ hàng</span>--}}
+                                                    </button></div>
                                             </div>
+
+{{--                                            <div class="overlay overlay-product">--}}
+{{--                                                <ul class="nav">--}}
+{{--                                                    <li class="nav-item">--}}
+{{--                                                        <a class="add-cart nav-link active color" href="javascript:void(0)" data-id="{{$item->id}}"--}}
+{{--                                                           data-price="{{$item->price}}"--}}
+{{--                                                           data-name="{{$item->name}}"--}}
+{{--                                                           data-thumbnail="{{$item->productDetail->first()->thumbnail}}">--}}
+{{--                                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </li>--}}
+{{--                                                    <li class="nav-item">--}}
+{{--                                                        <a class="nav-link color" href="/product/{{$item->id}}">--}}
+{{--                                                            <i class="fa fa-eye" style="font-size:30px"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </li>--}}
+{{--                                                </ul>--}}
+{{--                                            </div>--}}
                                         </div>
                                     </div>
                                 </div>

@@ -20,7 +20,6 @@
             </a>
         </div>
     </div>
-    <hr>
     <div class="container-fluid">
 
         <div class="text-center  text-uppercase col-12 col-sm-auto ">
@@ -49,8 +48,8 @@
                                 </h3>
                             </div>
                             <div class="overlay overlay-product">
-                                <ul class="nav">
-                                    <li class="nav-item">
+                                <div style="display: flex">
+                                    <span style="width: 50%; text-align: center">
                                         <a class="add-cart nav-link active color" href="javascript:void(0)"
                                            data-id="{{$item->id}}"
                                            data-price="{{$item->price}}"
@@ -58,13 +57,13 @@
                                            data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
                                             <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </span>
+                                    <span style="width: 50%; text-align: center">
                                         <a class="nav-link color1" href="/product/{{$item->id}}">
                                             <i class="fa fa-eye" style="font-size:30px"></i>
                                         </a>
-                                    </li>
-                                </ul>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -155,20 +154,23 @@
                                                             </a>
 
                                                         </div>
-                                                        <div class="overlay">
-                                                            <ul class="nav">
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link active color" href="#">
-                                                                        <i class="fa fa-shopping-bag"
-                                                                           style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link color1" href="#">
-                                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
+                                                        <div class="overlay overlay-product">
+                                                            <div style="display: flex">
+                                    <span style="width: 50%; text-align: center">
+                                        <a class="add-cart nav-link active color" href="javascript:void(0)"
+                                           data-id="{{$item->id}}"
+                                           data-price="{{$item->price}}"
+                                           data-name="{{$item->name}}"
+                                           data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                                <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="/product/{{$item->id}}">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -313,20 +315,23 @@
                                                             </a>
 
                                                         </div>
-                                                        <div class="overlay">
-                                                            <ul class="nav">
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link active color" href="#">
-                                                                        <i class="fa fa-shopping-bag"
-                                                                           style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link color" href="#">
-                                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
+                                                        <div class="overlay overlay-product">
+                                                            <div style="display: flex">
+                                    <span style="width: 50%; text-align: center">
+                                        <a class="add-cart nav-link active color" href="javascript:void(0)"
+                                           data-id="{{$item->id}}"
+                                           data-price="{{$item->price}}"
+                                           data-name="{{$item->name}}"
+                                           data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                                <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="/product/{{$item->id}}">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -399,7 +404,5 @@
                 </div>
             </div>
         </div>
-        <hr>
-
     </div>
 @endsection
