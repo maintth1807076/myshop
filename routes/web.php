@@ -84,7 +84,7 @@ Route::resource('/admin/user','quanliUserController'
 
 //end Route adin_user
 Route::get('/admin', function () {
-    return view('admin.layout');
+    return view('statistical.statistical');
 })->middleware('role:admin');
 Route::resource('/admin/categories', 'CategoryController')->middleware('role:admin');
 Route::post('/admin/categories/change-status', 'CategoryController@changeStatus')->middleware('role:admin');
