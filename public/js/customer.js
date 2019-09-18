@@ -114,6 +114,7 @@ $(document).ready(function () {
     }
     var shoppingCart = JSON.parse(shoppingCartJson);
     var htmlContent = '';
+    var totalPrice=0;
     for (var gameId in shoppingCart) {
         var cartItem = shoppingCart[gameId];
         htmlContent += `<tr>
@@ -134,11 +135,13 @@ $(document).ready(function () {
                        -
                       </button>
                 </td>
-                <td>$${cartItem.price * cartItem.quantity}</td>
+                <td>${cartItem.price * cartItem.quantity}</td>
                 <td>
                 </td>
             </tr>`;
+        totalPrice += cartItem.price * cartItem.quantity;
     }
+    htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td>Tổng<td>${totalPrice} VND</td></tr>`;
     $('#cart-body').html(htmlContent);
     $('.minus-btn').click(function () {
         var $input = $(this).closest('td').find('input');
