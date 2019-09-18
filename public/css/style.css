@@ -59,6 +59,7 @@ body {
 .filter-name input{
     width: 70%;
     border-radius: 5px;
+    margin-left: 6%;
 }
 .title-filter{
     background: #8a1c10;
@@ -72,9 +73,19 @@ body {
 }
 .filter-price{
     margin-bottom: 4%;
+    margin-top: 4%;
+}
+.filter-price input{
+    margin-left: 6%;
 }
 .filter-category{
     margin-bottom: 4%;
+}
+.filter-category input{
+    margin-left: 6%;
+}
+.button-filter{
+    margin-left: 70%;
 }
 .sort{
     margin-left: 60%;
@@ -461,27 +472,83 @@ strong.kiluc {
 .overlay {
     position: absolute;
     bottom: 0;
-    background: rgb(0, 0, 0);
-    background: white;
-    color: #f1f1f1;
-    width: 100%;
+    background: #fffcfcab;
+    width: 70%;
     transition: .5s ease;
     opacity: 0;
-    color: white;
-    font-size: 20px;
+    font-size: 18px;
     padding: 20px;
     text-align: center;
+    margin-bottom: 37%;
+    margin-left: 16%;
+
 }
 
 .overlay1 {
     background: rgba(0, 0, 0, 0.5);
-/ important;
+/important;
 }
+.overlay-product{
+    position: absolute;
+    bottom: 0;
+    background: #fffcfcab;
+    width: 70%;
+    transition: .5s ease;
+    opacity: 0;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 55%;
+    margin-left: 15%;
 
+}
+.overlay-product-home{
+    position: absolute;
+    bottom: 0;
+    background: #fffcfcab;
+    width: 70%;
+    transition: .5s ease;
+    opacity: 0;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 55%;
+    margin-left: 15%;
+
+}
+.overlay-product-home2{
+    position: absolute;
+    bottom: 0;
+    background: #fffcfcab;
+    width: 70%;
+    transition: .5s ease;
+    opacity: 0;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 45%;
+    margin-left: 15%;
+
+}
+.color {
+    color: #000000;
+}
+.color1{
+    color: #000000;
+    border-left: solid 1px #000000;
+}
+.card-title b{
+    color: white;
+}
 .fuild:hover .overlay {
     opacity: 1;
 }
-
+.color {
+    color: black;
+}
+.overlay-product-fix{
+    margin-bottom: 15%;
+}
 .container1 {
     display: table-cell;
     padding: 1em;

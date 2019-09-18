@@ -47,23 +47,23 @@
                                     <pre> <b> {{number_format($item->price)}} VNĐ</b></pre>
                                 </h3>
                             </div>
-                            <div class="overlay">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a class="add-cart nav-link active color" href="javascript:void(0)"
-                                           data-id="{{$item->id}}"
-                                           data-price="{{$item->price}}"
-                                           data-name="{{$item->name}}"
-                                           data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
+                            <div class="overlay overlay-product-home">
+                                <div style="display: flex">
+                                                    <span style="width: 50%; text-align: center">
+                                                     <a class="add-cart nav-link active color" href="javascript:void(0)"
+                                                        data-id="{{$item->id}}"
+                                                        data-price="{{$item->price}}"
+                                                        data-name="{{$item->name}}"
+                                                        data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
                                             <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link color" href="/product/{{$item->id}}">
+                                    </span>
+                                    <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="/product/{{$item->id}}">
                                             <i class="fa fa-eye" style="font-size:30px"></i>
                                         </a>
-                                    </li>
-                                </ul>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,21 +109,21 @@
                                                             </a>
 
                                                         </div>
-                                                        <div class="overlay">
-                                                            <ul class="nav">
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link active color" href="#">
-                                                                        <i class="fa fa-shopping-bag"
-                                                                           style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link color" href="#">
-                                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
+                                                        <div class="overlay overlay-product-home2">
+                                                            <div style="display: flex">
+                                                    <span style="width: 50%; text-align: center">
+                                                     <a class="add-cart nav-link active color" href="#">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                                <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="#">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                            </div>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,20 +139,19 @@
                                                         </a>
 
                                                     </div>
-                                                    <div class="overlay">
-                                                        <ul class="nav">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link active color" href="#">
-                                                                    <i class="fa fa-shopping-bag"
-                                                                       style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link color" href="#">
-                                                                    <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                    <div class="overlay overlay-product-home2">
+                                                        <div style="display: flex">
+                                                    <span style="width: 50%; text-align: center">
+                                                     <a class="add-cart nav-link active color" href="#">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                            <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="#">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,20 +168,19 @@
 
                                                     </div>
 
-                                                    <div class="overlay">
-                                                        <ul class="nav">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link active color" href="#">
-                                                                    <i class="fa fa-shopping-bag"
-                                                                       style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link color" href="#">
-                                                                    <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                    <div class="overlay overlay-product-home2">
+                                                        <div style="display: flex">
+                                                    <span style="width: 50%; text-align: center">
+                                                     <a class="add-cart nav-link active color" href="#">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                            <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="#">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,7 +198,7 @@
                                  src="http://mohinhdep.net/wp-content/uploads/2018/05/Your-name-mohinhdep.net-1.jpg"
                                  alt="Card image cap">
                         </div>
-                        <div class="overlay overlay1">
+                        <div class="overlay overlay1 overlay-product-fix ">
                             <div class="card-title">
                                 <h3><b>Mô hình/FIGRUTE</b></h3>
                             </div>
@@ -226,7 +224,7 @@
                                  src="https://zpro.vn/images/product/500x500/moc-khoa-chao-game-pubg-nhieu-kieu-moi.1544426036.jpg"
                                  alt="Card image cap">
                         </div>
-                        <div class="overlay overlay1">
+                        <div class="overlay overlay1 overlay-product-fix ">
                             <div class="card-title">
                                 <h3><b>Móc khóa</b></h3>
                             </div>
@@ -267,20 +265,19 @@
                                                             </a>
 
                                                         </div>
-                                                        <div class="overlay">
-                                                            <ul class="nav">
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link active color" href="#">
-                                                                        <i class="fa fa-shopping-bag"
-                                                                           style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link color" href="#">
-                                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
+                                                        <div class="overlay overlay-product-home2">
+                                                            <div style="display: flex">
+                                                    <span style="width: 50%; text-align: center">
+                                                     <a class="add-cart nav-link active color" href="#">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                                <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="#">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -297,20 +294,19 @@
                                                         </a>
 
                                                     </div>
-                                                    <div class="overlay">
-                                                        <ul class="nav">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link active color" href="#">
-                                                                    <i class="fa fa-shopping-bag"
-                                                                       style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link color" href="#">
-                                                                    <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                    <div class="overlay overlay-product-home2">
+                                                        <div style="display: flex">
+                                                    <span style="width: 50%; text-align: center">
+                                                     <a class="add-cart nav-link active color" href="#">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                            <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="#">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -327,20 +323,19 @@
 
                                                     </div>
 
-                                                    <div class="overlay">
-                                                        <ul class="nav">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link active color" href="#">
-                                                                    <i class="fa fa-shopping-bag"
-                                                                       style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link color" href="#">
-                                                                    <i class="fa fa-eye" style="font-size:30px"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                    <div class="overlay overlay-product-home2">
+                                                        <div style="display: flex">
+                                                    <span style="width: 50%; text-align: center">
+                                                     <a class="add-cart nav-link active color" href="#">
+                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                        </a>
+                                    </span>
+                                                            <span style="width: 50%; text-align: center">
+                                        <a class="nav-link color1" href="#">
+                                            <i class="fa fa-eye" style="font-size:30px"></i>
+                                        </a>
+                                    </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
