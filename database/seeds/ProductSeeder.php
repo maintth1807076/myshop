@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                 Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-01-11 10:37:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -35,7 +35,7 @@ class ProductSeeder extends Seeder
                 Kích thước: 22cm / 9 .
                 Sản xuất: Trung Quốc',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2019-01-01 11:20:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -47,7 +47,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-02-12 12:30:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -59,7 +59,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: Nhựa PVC cao cấp bền màu.
                 Tình trạng: Full box',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-03-13 13:40:02',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -71,7 +71,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: Nhựa PVC cao cấp bền màu.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-04-14 14:50:04',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -83,7 +83,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: Nhựa PVC cao cấp bền màu.
               Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-05-15 15:10:06',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -95,7 +95,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: Nhựa PVC cao cấp bền màu.
                 Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-06-16 16:37:31',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -107,7 +107,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: Nhựa PVC cao cấp bền màu.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-07-17 17:37:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -119,7 +119,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: Nhựa PVC cao cấp bền màu.
                 Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-08-18 18:12:07',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -131,7 +131,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: Nhựa PVC cao cấp bền màu.
                 Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2019-02-12 13:20:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -144,7 +144,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-09-19 19:36:09',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -157,7 +157,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-10-01 06:17:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -170,7 +170,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-11-02 07:11:10',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -183,7 +183,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-12-03 08:32:11',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -196,7 +196,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-01-01 09:00:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -209,7 +209,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-02-02 10:20:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -222,7 +222,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2019-08-19 04:20:11',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -235,7 +235,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-03-04 22:44:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -248,7 +248,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2019-06-17 11:45:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -261,7 +261,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2019-07-21 12:26:31',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -274,7 +274,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-04-04 20:07:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -287,7 +287,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-05-05 22:37:08',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -300,7 +300,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-06-06 23:00:00',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -313,7 +313,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-07-07 12:35:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -326,7 +326,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-08-08 13:37:09',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -339,7 +339,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-09-09 10:24:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -352,7 +352,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2019-03-20 15:05:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -365,7 +365,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-09-09 14:47:45',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -379,7 +379,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-10-10 10:00:30',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -392,7 +392,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2019-04-24 08:10:05',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -405,7 +405,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-11-11 15:22:12',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -418,7 +418,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-12-12 15:30:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -431,7 +431,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-01-20 17:01:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -444,7 +444,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-02-21 18:44:14',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -457,7 +457,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-03-22 19:37:11',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -470,7 +470,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-04-24 14:47:24',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -483,7 +483,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-05-05 20:28:32',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -496,7 +496,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' =>'2018-06-26 21:45:33',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -509,7 +509,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2018-07-27 02:07:01',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
@@ -522,7 +522,7 @@ class ProductSeeder extends Seeder
                 'detail' => 'Chất liệu: PVC chất lượng tốt.
                Một mặt hàng hoàn toàn mới, chưa sử dụng, chưa mở, không bị hư hại (bao gồm cả các mặt hàng thủ công)',
                 'category_id' => 4,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => '2019-05-12 10:33:20',
                 'updated_at' => date('Y-m-d H:i:s'),
                 'status' => 1
             ],
