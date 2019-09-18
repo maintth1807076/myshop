@@ -81,7 +81,7 @@ Route::get('/user/{user}', function ($id) {
 //route admin_user
 Route::resource('/admin/user','quanliUserController'
 )->middleware('role:admin');
-Route::post('/admin/user/change-status', 'quanliUserController@changeStatus')->middleware('role:admin');
+
 //end Route adin_user
 Route::get('/admin', function () {
     return view('admin.layout');
@@ -104,5 +104,7 @@ Route::get('/send', function () {
 Route::get('/cart', function () {
     return view('search');
 });
+Route::resource('/admin/users','MannagerUserController')->middleware('role:admin');
+Route::post('/admin/users/change-status', 'MannagerUserController@changeStatus')->middleware('role:admin');
 
 
