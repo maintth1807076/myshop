@@ -60,8 +60,29 @@ $(document).ready(function () {
         },
     });
     //end js for Validate-form-client
-
-    $('.add-cart').click(function () {
+    $(document).on('click','#btn-more',function(){
+        var id = $(this).data('id');
+        $("#btn-more").html("Loading....");
+        $.ajax({
+            url : '/home',
+            method : "POST",
+            data : {'id':id, '_token': $('meta[name=csrf-token]').attr('content')},
+            dataType : "text",
+            success : function (data)
+            {
+                if(data != '')
+                {
+                    $('#remove-row').remove();
+                    $('#load-more-new-product').append(data);
+                }
+                else
+                {
+                    $('#btn-more').html("No Data");
+                }
+            }
+        });
+    });
+    $(document).on('click','.add-cart',function(){
         var shoppingCart = {};
         if (localStorage.getItem('shopping-cart') !== null) {
             shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));

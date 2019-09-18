@@ -27,9 +27,7 @@
             </h1>
             <hr>
         </div>
-
-
-        <div class="row m-2">
+        <div class="row m-2" id="load-more-new-product">
             @foreach($list_product_hot as $item)
                 <div class="col-xl-3 col-sm-4 col-12 mb-5">
                     <div class="card">
@@ -69,12 +67,15 @@
                     </div>
                 </div>
             @endforeach
+                <div id="remove-row">
+                    <button id="btn-more" data-id="{{ $item->id }}" class="btn btn-outline-dark" ><h4>Xem thêm sản phẩm</h4></button>
+                </div>
         </div>
-        <div class="col-12 col-sm-auto text-center show-more">
-            <button type="button" class="btn btn-outline-dark">
-                <h4>Xem thêm sản phẩm</h4>
-            </button>
-        </div>
+{{--        <div class="col-12 col-sm-auto text-center show-more">--}}
+{{--            <button type="button" class="btn btn-outline-dark">--}}
+{{--                <h4>Xem thêm sản phẩm</h4>--}}
+{{--            </button>--}}
+{{--        </div>--}}
         <div class="container-fluid">
             <div class="text-center  text-uppercase col-12 col-sm-auto ">
                 <h1>

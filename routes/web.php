@@ -32,15 +32,15 @@ Route::get('/', function () {
 Route::get('/home', function () {
     $data = [
         'list_slide' => Slide::whereNotIn('status', [-1])->get(),
-        'list_product_hot' => Product::all(),
+        'list_product_hot' => Product::orderBy('created_at', 'DESC')->limit(4)->get(),
         'list_category' => Category::all()
     ];
     return view('client.home', $data);
 });
+Route::post('/home','GuestController@loadMore');
 Route::get('/about', function () {
     return view('client.about');
 });
-
 Route::get('/contact', function () {
     return view('client.contact');
 });
