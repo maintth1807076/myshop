@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/', function () {
     $data = [
         'list_slide' => Slide::whereNotIn('status', [-1])->get(),
-        'list_product_hot' => Product::all(),
+        'list_product_hot' => Product::orderBy('created_at', 'DESC')->limit(4)->get(),
         'list_category' => Category::all()
     ];
     return view('client.home', $data);
