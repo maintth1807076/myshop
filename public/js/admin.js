@@ -285,12 +285,12 @@ $(document).ready(function () {
     });
     //end js for product
     //js for user manager
-    $('.btn-user-delete').click(function () {
+    $('.btn-users-delete').click(function () {
         if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
             var deleteId = $(this).attr('id').replace('btn-delete-', '');
             var currentItem = $(this);
             $.ajax({
-                url: '/admin/user/' + deleteId,
+                url: '/admin/users/' + deleteId,
                 method: 'DELETE',
                 data: {
                     '_token': $('meta[name=csrf-token]').attr('content')
@@ -306,9 +306,9 @@ $(document).ready(function () {
         }
 
     });
-    $('#btn-user-apply-all').click(function () {
+    $('#btn-users-apply-all').click(function () {
         var arrayId = new Array();
-        var url = '/admin/user/change-status';
+        var url = '/admin/users/change-status';
         $('.check-item:checkbox:checked').each(function () {
             arrayId.push($(this).val());
         });
@@ -415,7 +415,38 @@ function changeStatus(arrayId, url, status) {
             swal("Thao tác thất bại, vui lòng thử lại sau");
         }
     });
+    //js phan mannagerUser//
+    $('.btn-users-delete').click(function () {
+        var deleteId = $(this).attr('id').replace('btn-delete-', '');
+        var currentItem = $(this);
+        swal({
+                title: "Bạn có chắc muốn xóa danh mục này?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Có',
+                cancelButtonText: 'Không',
+                closeOnConfirm: false,
+            },
+            function () {
+                $.ajax({
+                    url: '/admin/users/' + deleteId,
+                    method: 'DELETE',
+                    data: {
+                        '_token': $('meta[name=csrf-token]').attr('content')
+                    },
+                    success: function () {
+                        swal('Thao tác thành công!');
+                        currentItem.closest("tr").remove();
+                    },
+                    error: function () {
+                        swal('Thao tác thất bại!');
+                    }
+                });
+            });
+    });
 }
+
 
 // js for validate-client
 // $(document).ready(function () {
