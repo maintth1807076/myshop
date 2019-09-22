@@ -12,7 +12,7 @@
     <div class="row mb-2 mt-2">
         <div class="col-7">
         </div>
-        <div class="col-5">
+{{--        <div class="col-5">--}}
 {{--            <div class="form-group float-left mr-2">--}}
 {{--                <select name="categoryId" class="form-control">--}}
 {{--                    <option value="0" {{($currentCategoryId == 0) ? 'selected':''}}>Tất cả</option>--}}
@@ -29,30 +29,30 @@
 {{--            <div class="form-group float-left">--}}
 {{--                <button type="submit" id="btn-search" class="btn btn-outline-primary mb-2">Search</button>--}}
 {{--            </div>--}}
-            <div class="filter-btn form-inline" action="/admin/order" method="GET">
-                <div class="form-group mx-sm-4 mb-3">
-                    <label for="chooseStatus">Status</label>
-                    <select id="select-action" name="status" class="form-control">
-                        <option selected value="3" {{3==$choosedStatus?'selected':''}}>All</option>
-                        <option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>
-                        <option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>
-                        <option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>
-                        <option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>
-                    </select>
-                </div>
-                {{--<div class="form-group mx-sm-4 mb-3">--}}
-                {{--<label for="chooseTime">Time</label>--}}
-                {{--<select id="select-action" name="categoryId" class="form-control">--}}
-                {{--<option selected value="1">Today</option>--}}
-                {{--<option selected value="2">Last Week</option>--}}
-                {{--<option selected value="3">Last Month</option>--}}
-                {{--<option selected value="4">Last 2 Months</option>--}}
-                {{--<option selected value="5">All</option>--}}
-                {{--</select>--}}
-                {{--</div>--}}
+{{--            <div class="filter-btn form-inline" action="/admin/order" method="GET">--}}
+{{--                <div class="form-group mx-sm-4 mb-3">--}}
+{{--                    <label for="chooseStatus">Status</label>--}}
+{{--                    <select id="select-action" name="status" class="form-control">--}}
+{{--                        <option selected value="3" {{3==$choosedStatus?'selected':''}}>All</option>--}}
+{{--                        <option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>--}}
+{{--                        <option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>--}}
+{{--                        <option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>--}}
+{{--                        <option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>--}}
+{{--                    </select>--}}
+{{--                </div>--}}
+{{--                --}}{{--<div class="form-group mx-sm-4 mb-3">--}}
+{{--                --}}{{--<label for="chooseTime">Time</label>--}}
+{{--                --}}{{--<select id="select-action" name="categoryId" class="form-control">--}}
+{{--                --}}{{--<option selected value="1">Today</option>--}}
+{{--                --}}{{--<option selected value="2">Last Week</option>--}}
+{{--                --}}{{--<option selected value="3">Last Month</option>--}}
+{{--                --}}{{--<option selected value="4">Last 2 Months</option>--}}
+{{--                --}}{{--<option selected value="5">All</option>--}}
+{{--                --}}{{--</select>--}}
+{{--                --}}{{--</div>--}}
 
-            </div>
-        </div>
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
     <div class="row">
         <table class="table">
@@ -90,31 +90,31 @@
                         <td class="column-2">{{$item->ship_name}}</td>
                         <td class="column-3">{{$item->ship_address}}</td>
                         <td class="column-4">{{$item->ship_phone}}</td>
-                        <td class="column-5">
-                            @foreach($item->details as $order_detail)
-                                <li>{{$order_detail->quantity}} - {{$order_detail->product->name}}</li>
-                            @endforeach
-                        </td>
-                        <td class="column-6" style="width: 6%;">{{$item->total_money_with_format}} (vnd)</td>
-                        <th class="column-9" style="font-weight: normal;">{{$item->created_at}}</th>
-                        <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
-                        <td class="column-8 text-center">
-                            @if($item->status == 0)
-                                <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
-                                   class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
-                                <a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to confirm this order?')"
-                                   class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
-                            @elseif($item->status==1)
-                                <a href="/admin/order/update-status/{{$item->id}}?status=2" onclick="return confirm('Are you sure to finish this order?')"
-                                   class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>
-                                <a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to cancel this order?')"
-                                   class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
-                            @elseif($item->status==2)
-                                <i class="fas fa-check 4x text-danger"></i>
-                            @elseif($item->status==-1)
-                                <i class="fas fa-times 4x text-danger"></i>
-                            @endif
-                        </td>
+{{--                        <td class="column-5">--}}
+{{--                            @foreach($item->details as $order_detail)--}}
+{{--                                <li>{{$order_detail->quantity}} - {{$order_detail->product->name}}</li>--}}
+{{--                            @endforeach--}}
+{{--                        </td>--}}
+{{--                        <td class="column-6" style="width: 6%;">{{$item->total_money_with_format}} (vnd)</td>--}}
+{{--                        <th class="column-9" style="font-weight: normal;">{{$item->created_at}}</th>--}}
+{{--                        <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>--}}
+{{--                        <td class="column-8 text-center">--}}
+{{--                            @if($item->status == 0)--}}
+{{--                                <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"--}}
+{{--                                   class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>--}}
+{{--                                <a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to confirm this order?')"--}}
+{{--                                   class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>--}}
+{{--                            @elseif($item->status==1)--}}
+{{--                                <a href="/admin/order/update-status/{{$item->id}}?status=2" onclick="return confirm('Are you sure to finish this order?')"--}}
+{{--                                   class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>--}}
+{{--                                <a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to cancel this order?')"--}}
+{{--                                   class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>--}}
+{{--                            @elseif($item->status==2)--}}
+{{--                                <i class="fas fa-check 4x text-danger"></i>--}}
+{{--                            @elseif($item->status==-1)--}}
+{{--                                <i class="fas fa-times 4x text-danger"></i>--}}
+{{--                            @endif--}}
+{{--                        </td>--}}
                     </tr>
                 @endforeach
                 </tbody>
@@ -133,10 +133,10 @@
                     </div>
                 </div>
             </div>
-            @else
-                <div class="alert alert-info">Have no order in this field.
-                </div>
-            @endif
+{{--            @else--}}
+{{--                <div class="alert alert-info">Have no order in this field.--}}
+{{--                </div>--}}
+{{--            @endif--}}
             <div class="pagination pull-right">
                 {!! $orders->links() !!}
             </div>

@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<input type="file">
+
 </body>
 </html>
