@@ -17,7 +17,7 @@ use App\Product;
 use App\Slide;
 use Illuminate\Support\Facades\Mail;
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 //Route::get('/home', 'HomeController@index')->name('home');
 /*route guest*/
@@ -36,8 +36,8 @@ Route::get('/home', function () {
         'list_category' => Category::all()
     ];
     return view('client.home', $data);
-});
-Route::post('/home','GuestController@loadMore');
+})->middleware('verified');
+Route::post('/home', 'GuestController@loadMore');
 Route::get('/about', function () {
     return view('client.about');
 });
@@ -79,7 +79,7 @@ Route::get('/user/{user}', function ($id) {
     return view('client.product', $data);
 });
 //route admin_user
-Route::resource('/admin/user','quanliUserController'
+Route::resource('/admin/user', 'quanliUserController'
 )->middleware('role:admin');
 
 //end Route adin_user
@@ -94,19 +94,20 @@ Route::resource('/admin/slides', 'SlideController')->middleware('role:admin');
 Route::post('/admin/slides/change-status', 'ProductController@changeStatus')->middleware('role:admin');
 
 //test
-Route::get('/send', function () {
-
-    Mail::to('demo@gmail.com')->send(new DemoMail());
-
-    return 'A message has been sent to Mailtrap!';
-
-});
+//Route::get('/send', function () {
+//
+//    Mail::to('demo@gmail.com')->send(new DemoMail());
+//
+//    return 'A message has been sent to Mailtrap!';
+//
+//});
 Route::get('/cart', function () {
     return view('search');
 });
-Route::resource('/admin/users','MannagerUserController')->middleware('role:admin');
+Route::resource('/admin/users', 'MannagerUserController')->middleware('role:admin');
 Route::post('/admin/users/change-status', 'MannagerUserController@changeStatus')->middleware('role:admin');
 Route::resource('/admin/orders','OrderController');
 Route::post('/order-success', 'CartController@checkoutCart');
 
-
+//mail
+Route::get('mail.send', 'EmailController@send');
