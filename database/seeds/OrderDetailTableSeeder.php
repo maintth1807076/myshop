@@ -518,7 +518,6 @@ class OrderDetailTableSeeder extends Seeder
                 'created_at' => '2019-07-23 15:44:17',
             ],
 
-
         ]);
     }
 }
