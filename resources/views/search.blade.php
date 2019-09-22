@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h3 class="mb-3">
-                    <i class="fas fa-stream"></i> Shopiing
-                </h3>
+                <h2 class="mb-3 text-center mt-3">
+               Giỏ hàng
+                </h2>
             </div>
         </div>
         <div class="row">

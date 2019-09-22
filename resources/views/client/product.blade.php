@@ -145,7 +145,6 @@
                                                         <a class=" nav-link " style="color: black" href="#">
                                                             <b>Thêm vào giỏ hàng</b>
                                                         </a>
-                                                        {{--                                            <span id="AddToCartText" class="fas fa-cart-plus"> Thêm vào giỏ hàng</span>--}}
                                                     </button>
                                                 </div>
                                             </div>

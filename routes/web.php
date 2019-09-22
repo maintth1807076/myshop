@@ -19,8 +19,6 @@ use Illuminate\Support\Facades\Mail;
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-/*route guest*/
 Route::get('/', function () {
     $data = [
         'list_slide' => Slide::whereNotIn('status', [-1])->get(),
