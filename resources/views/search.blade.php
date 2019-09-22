@@ -29,5 +29,9 @@
             </table>
         </div>
         <button id="btn-check" class="btn btn-primary">Ok</button>
+        <button id="btn-buy" class="btn btn-primary">Buy</button>
     </div>
+    <div>Ship name<input type="text"></div>
+    <div>Ship address<input type="text"></div>
+    <div>Ship phone<input type="text"></div>
 @endsection

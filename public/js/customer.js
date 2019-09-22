@@ -117,6 +117,8 @@ $(document).ready(function () {
     var totalPrice=0;
     for (var gameId in shoppingCart) {
         var cartItem = shoppingCart[gameId];
+        var price = format_money(cartItem.price);
+        var total = format_money(cartItem.price * cartItem.quantity);
         htmlContent += `<tr>
                 <th scope="row">
                     <input type="checkbox" class="check-item" value="">
@@ -125,7 +127,7 @@ $(document).ready(function () {
                 <td><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
                 </td>
                 <td>${cartItem.name}</td>
-                <td></td>
+                <td>${price}</td>
                 <td id="${cartItem.id}" class="quantity">
                     <button class="plus-btn" type="button" name="button">
                         +
@@ -135,7 +137,7 @@ $(document).ready(function () {
                        -
                       </button>
                 </td>
-                <td>${cartItem.price * cartItem.quantity}</td>
+                <td>${total}</td>
                 <td>
                 </td>
             </tr>`;
@@ -178,12 +180,28 @@ $(document).ready(function () {
             }
         }
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-        // $.each(shoppingCart, function(key, value) {
-        //     console.log(key, value);
-        // });
         console.log(JSON.parse(localStorage.getItem('shopping-cart')))
     });
+    $('#btn-buy').click(function () {
+        console.log(JSON.parse(localStorage.getItem('shopping-cart')))
+        $.ajax({
+            url: '/order-success',
+            method: 'POST',
+            data: {
+                '_token': $('meta[name=csrf-token]').attr('content'),
+                'cart': JSON.parse(localStorage.getItem('shopping-cart'))
+            },
+            success: function (response) {
+                alert('Success');
+                console.log(response)
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    });
 });
+
 function format_money(money) {
     money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     return money;

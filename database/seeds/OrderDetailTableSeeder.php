@@ -16,42 +16,42 @@ class OrderDetailTableSeeder extends Seeder
             [
                 'product_id' => 17,
                 'quantity' => 2,
-                'unit_price' => \App\Product::find(17)->getPrice(),
+                'unit_price' => \App\Product::find(17)->price,
                 'order_id' => 1,
                 'created_at' => '2018-07-27 02:07:01',
             ],
             [
                 'product_id' => 20,
                 'quantity' => 1,
-                'unit_price' => \App\Product::find(20)->getPrice(),
+                'unit_price' => \App\Product::find(20)->price,
                 'order_id' => 1,
                 'created_at' => '2018-07-27 02:07:01',
             ],
             [
                 'product_id' => 31,
                 'quantity' => 2,
-                'unit_price' => \App\Product::find(31)->getPrice(),
+                'unit_price' => \App\Product::find(31)->price,
                 'order_id' => 1,
                 'created_at' => '2018-07-27 02:07:01',
             ],
             [
                 'product_id' => 40,
                 'quantity' => 1,
-                'unit_price' => \App\Product::find(40)->getPrice(),
+                'unit_price' => \App\Product::find(40)->price,
                 'order_id' => 2,
                 'created_at' => '2019-08-13 13:07:00'
             ],
             [
                 'product_id' => 19,
                 'quantity' => 3,
-                'unit_price' => \App\Product::find(19)->getPrice(),
+                'unit_price' => \App\Product::find(19)->price,
                 'order_id' => 2,
                 'created_at' => '2019-08-13 13:07:00'
             ],
             [
                 'product_id' => 29,
                 'quantity' => 2,
-                'unit_price' => \App\Product::find(29)->getPrice(),
+                'unit_price' => \App\Product::find(29)->price,
                 'order_id' => 2,
                 'created_at' => '2019-08-13 13:07:00'
             ],

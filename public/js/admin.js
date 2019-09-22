@@ -415,61 +415,36 @@ function changeStatus(arrayId, url, status) {
             swal("Thao tác thất bại, vui lòng thử lại sau");
         }
     });
-    //js phan mannagerUser//
-    $('.btn-users-delete').click(function () {
-        var deleteId = $(this).attr('id').replace('btn-delete-', '');
-        var currentItem = $(this);
-        swal({
-                title: "Bạn có chắc muốn xóa danh mục này?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Có',
-                cancelButtonText: 'Không',
-                closeOnConfirm: false,
-            },
-            function () {
-                $.ajax({
-                    url: '/admin/users/' + deleteId,
-                    method: 'DELETE',
-                    data: {
-                        '_token': $('meta[name=csrf-token]').attr('content')
-                    },
-                    success: function () {
-                        swal('Thao tác thành công!');
-                        currentItem.closest("tr").remove();
-                    },
-                    error: function () {
-                        swal('Thao tác thất bại!');
-                    }
-                });
-            });
-    });
 }
 
+//js phan mannagerUser//
+$('.btn-users-delete').click(function () {
+    var deleteId = $(this).attr('id').replace('btn-delete-', '');
+    var currentItem = $(this);
+    swal({
+            title: "Bạn có chắc muốn xóa danh mục này?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Có',
+            cancelButtonText: 'Không',
+            closeOnConfirm: false,
+        },
+        function () {
+            $.ajax({
+                url: '/admin/users/' + deleteId,
+                method: 'DELETE',
+                data: {
+                    '_token': $('meta[name=csrf-token]').attr('content')
+                },
+                success: function () {
+                    swal('Thao tác thành công!');
+                    currentItem.closest("tr").remove();
+                },
+                error: function () {
+                    swal('Thao tác thất bại!');
+                }
+            });
+        });
+});
 
-// js for validate-client
-// $(document).ready(function () {
-//     $("#login-form").validate({
-//
-//         rules: {
-//             email: {
-//                 required: true,
-//                 minlength: 5,
-//                 email: true,
-//             },
-//             password: {
-//                 required: true,
-//             }
-//         },
-//         messages: {
-//             email: {
-//                 required: "Vui lòng nhập email",
-//                 email: "Vui lòng nhập email hợp lệ",
-//             },
-//             password: {
-//                 required: "Vui lòng nhập mật khẩu",
-//             }
-//         },
-//     })
-// });

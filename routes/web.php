@@ -106,5 +106,7 @@ Route::get('/cart', function () {
 });
 Route::resource('/admin/users','MannagerUserController')->middleware('role:admin');
 Route::post('/admin/users/change-status', 'MannagerUserController@changeStatus')->middleware('role:admin');
+Route::resource('/admin/orders','OrderController');
+Route::post('/order-success', 'CartController@checkoutCart');
 
 
