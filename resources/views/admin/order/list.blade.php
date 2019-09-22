@@ -137,7 +137,7 @@
 {{--                <div class="alert alert-info">Have no order in this field.--}}
 {{--                </div>--}}
 {{--            @endif--}}
-            <div class="pagination pull-right">
+            <div class="pagination pull-right" style="margin-left: 50%">
                 {!! $orders->links() !!}
             </div>
             </thead>

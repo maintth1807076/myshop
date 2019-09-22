@@ -123,23 +123,21 @@ $(document).ready(function () {
                 <th scope="row">
                     <input type="checkbox" class="check-item" value="">
                 </th>
-                <td>${cartItem.id}</td>
-                <td><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
+                <td style="width: 2%;border-right: solid 2px #EEF0F2">${cartItem.id}</td>
+                <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
                 </td>
-                <td>${cartItem.name}</td>
-                <td>${price}</td>
-                <td id="${cartItem.id}" class="quantity">
+                <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
+                <td style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNĐ</td>
+                <td id="${cartItem.id}" class="quantity" style="width: 13%;border-right: solid 2px #EEF0F2">
                     <button class="plus-btn" type="button" name="button">
                         +
                       </button>
-                      <input type="text" name="quantity" value="${cartItem.quantity}">
+                      <input style="width: 50%" type="text" class="center-block" name="quantity" value="${cartItem.quantity}">
                       <button class="minus-btn" type="button" name="button">
                        -
                       </button>
                 </td>
-                <td>${total}</td>
-                <td>
-                </td>
+                <td style="width: 30%">${total}</td>
             </tr>`;
         totalPrice += cartItem.price * cartItem.quantity;
     }
