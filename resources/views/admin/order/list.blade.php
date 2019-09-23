@@ -35,88 +35,84 @@
     <div class="row">
         <table class="table">
             <thead>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col"><input style="width: auto" id="check-all" type="checkbox" class="form-control" name="">
-                    </th>
-                    <th class="column-1 text-center">ID</th>
-                    <th class="column-2">Receiver</th>
-                    <th class="column-3">Address</th>
-                    <th class="column-4">Phone Number</th>
-                    <th class="column-5">Order Detail</th>
-                    <th class="column-6" style="width: 6%;">Total</th>
-                    <th class="column-9">Created Time</th>
-                    <th class="column-7">Status</th>
-                    <th class="column-8 text-center">Action</th>
+            <tr>
+                <th scope="col"><input style="width: auto" id="check-all" type="checkbox" class="form-control" name="">
+                </th>
+                <th class="column-1 text-center">ID</th>
+                <th class="column-2">Receiver</th>
+                <th class="column-3">Address</th>
+                <th class="column-4">Phone Number</th>
+                <th class="column-5">Order Detail</th>
+                <th class="column-6" style="width: 6%;">Total</th>
+                <th class="column-9">Created Time</th>
+                <th class="column-7">Status</th>
+                <th class="column-8 text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($orders as $item)
+                <tr class="row-item" id="row-item-{{$item->id}}">
+                    <td class="column-0">
+                        @if($item->status==1 || $item->status==0)
+                            <input type="checkbox" class="check-item">
+                        @endif
+                    </td>
+                    <td class="column-1 text-center">
+                        <div>{{$item->id}}</div>
+                        <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
+                           title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
+                            <button class="btn btn-outline-success">Detail</button>
+                        </a>
+                    </td>
+                    <td class="column-2">{{$item->ship_name}}</td>
+                    <td class="column-3">{{$item->ship_address}}</td>
+                    <td class="column-4">{{$item->ship_phone}}</td>
+                    <td class="column-5">
+                        @foreach($item->details as $order_detail)
+                            <li>{{$order_detail->quantity}} - {{$order_detail->product->name}}</li>
+                        @endforeach
+                    </td>
+                    <td class="column-6" style="width: 6%;">{{number_format($item->total_price)}} (vnd)</td>
+                    <th class="column-9" style="font-weight: normal;">{{$item->created_at}}</th>
+                    <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
+                    <td class="column-8 text-center">
+                        @if($item->status == 0)
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
+                               class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to confirm this order?')"
+                               class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
+                        @elseif($item->status==1)
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=2" onclick="return confirm('Are you sure to finish this order?')"
+                               class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to cancel this order?')"
+                               class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
+                        @elseif($item->status==2)
+                            <i class="fas fa-check 4x text-danger"></i>
+                        @elseif($item->status==-1)
+                            <i class="fas fa-times 4x text-danger"></i>
+                        @endif
+                    </td>
                 </tr>
-                </thead>
-                <tbody>
-                @foreach($orders as $item)
-                    <tr class="row-item" id="row-item-{{$item->id}}">
-                        <td class="column-0">
-                            @if($item->status==1 || $item->status==0)
-                                <input type="checkbox" class="check-item">
-                            @endif
-                        </td>
-                        <td class="column-1 text-center">
-                            <div>{{$item->id}}</div>
-                            <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
-                               title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
-                                <button class="btn btn-outline-success">Detail</button>
-                            </a>
-                        </td>
-                        <td class="column-2">{{$item->ship_name}}</td>
-                        <td class="column-3">{{$item->ship_address}}</td>
-                        <td class="column-4">{{$item->ship_phone}}</td>
-                        <td class="column-5">
-                            @foreach($item->details as $order_detail)
-                                <li>{{$order_detail->quantity}} - {{$order_detail->product->name}}</li>
-                            @endforeach
-                        </td>
-                        <td class="column-6" style="width: 6%;">{{number_format($item->total_price)}} (vnd)</td>
-                        <th class="column-9" style="font-weight: normal;">{{$item->created_at}}</th>
-                        <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
-                        <td class="column-8 text-center">
-                            @if($item->status == 0)
-                                <a href="/admin/orders/change-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
-                                   class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
-                                <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to confirm this order?')"
-                                   class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
-                            @elseif($item->status==1)
-                                <a href="/admin/orders/change-status/{{$item->id}}?status=2" onclick="return confirm('Are you sure to finish this order?')"
-                                   class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>
-                                <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to cancel this order?')"
-                                   class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
-                            @elseif($item->status==2)
-                                <i class="fas fa-check 4x text-danger"></i>
-                            @elseif($item->status==-1)
-                                <i class="fas fa-times 4x text-danger"></i>
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col-md-8 form-inline">
-                    <div class="form-check mb-2">
-                        <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
-                        <select id="select-action" name="select-action" class="form-control">
-                            <option selected value="0">Action</option>
-                            <option value="1">Confirm All</option>
-                            <option value="2">Finish All</option>
-                            <option value="-1">Cancel All</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary ml-2" id="btn-apply-action">Submit</button>
-                    </div>
+            @endforeach
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-8 form-inline">
+                <div class="form-check mb-2">
+                    <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
+                    <select id="select-action" name="select-action" class="form-control">
+                        <option selected value="0">Action</option>
+                        <option value="1">Confirm All</option>
+                        <option value="2">Finish All</option>
+                        <option value="-1">Cancel All</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary ml-2" id="btn-apply-action">Submit</button>
                 </div>
             </div>
-            <div class="pagination pull-right">
-                {{$orders->links()}}
-            </div>
-            </thead>
-        </table>
+        </div>
+        <div class="pagination pull-right" style="margin-left: 50%">
+            {{$orders->links()}}
+        </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script>
