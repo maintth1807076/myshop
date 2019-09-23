@@ -34,7 +34,7 @@
             </div>
             <div id="menu1" class="container tab-pane fade"><br>
                 <div class="row mb-5">
-                    <div class="col-sm-12" style="font-family: cursive; font-size: initial">
+                    <div class="col-sm-12" style="font-family: serif; font-size: initial">
                         <form method="POST" action="/change-name">
                             @csrf
                             <div class="form-group">
@@ -59,7 +59,7 @@
             </div>
             <div id="menu2" class="container tab-pane fade"><br>
                 <div class="row mb-5">
-                    <div class="col-sm-12" style="font-family: cursive; font-size: initial">
+                    <div class="col-sm-12" style="font-family: serif; font-size: initial">
                         <form method="POST" action="/change-avatar">
                             @csrf
                             <div class="form-group">
@@ -83,7 +83,7 @@
             </div>
             <div id="menu3" class="container tab-pane fade"><br>
                 <div class="row mb-5">
-                    <div class="col-sm-12" style="font-family: cursive; font-size: initial">
+                    <div class="col-sm-12" style="font-family: serif; font-size: initial">
                         <form action="/change-password" method="post">
                             @csrf
 
