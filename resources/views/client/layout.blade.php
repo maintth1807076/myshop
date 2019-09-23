@@ -36,8 +36,8 @@
         <div class="col-sm-4">
             <div method="get" action="">
                 <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    <input class="search_input" type="text" name="keyword" placeholder="Search...">
+                    <a href="javascript:void(0)" id="search_icon"><i class="fas fa-search"></i></a>
                 </div>
             </div>
         </div>
@@ -99,10 +99,10 @@
                         <b>SẢN PHẨM</b>
                     </a>
                     <div class="dropdown-menu dropdown-content">
-                        <a class="dropdown-item" href="/category/1"><b style="font-size: 20px">PVC Figure</b></a>
-                        <a class="dropdown-item" href="/category/2"><b style="font-size: 20px">Nendoroid</b></a>
-                        <a class="dropdown-item" href="/category/3"><b style="font-size: 20px">Figma</b></a>
-                        <a class="dropdown-item" href="/category/4"><b style="font-size: 20px">Revoltech</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=1"><b style="font-size: 20px">PVC Figure</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=2"><b style="font-size: 20px">Nendoroid</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=3"><b style="font-size: 20px">Figma</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=4"><b style="font-size: 20px">Revoltech</b></a>
                     </div>
                 </div>
                 <div class="nav-item col-sm-2 ">
@@ -115,13 +115,11 @@
                         <a class="nav-link dropbtn active " href="#" id="navbardrop"
                            data-toggle="dropdown">
                             <i class="fas fa-shopping-cart"></i>
-                            <div class="d-inline list-added text-dark" id="added-quantity">0</div>
+                            <div class="d-inline list-added text-dark" id="added-quantity"></div>
                             GIỎ HÀNG
                         </a>
                     <div class="dropdown-content  dropdown-menu-right mini-cart  " id="cart-body1" >
                 </div>
-
-
                 </div>
             </div>
         </div>

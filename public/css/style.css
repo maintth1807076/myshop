@@ -637,7 +637,7 @@ mini-cart1{
     line-height: 20px;
 }
 
-.search_icon {
+#search_icon {
     height: 20px;
     width: 20px;
     float: right;

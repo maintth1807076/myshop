@@ -28,8 +28,7 @@
             </table>
             <div class="col-md-12" style="padding-left: 81%">
                 <div style="margin: 0 1% 1%">
-                    <button id="btn-check" class="btn btn-warning">Cập nhập</button>
-                    <button id="btn-buy" class="btn btn-warning">Thanh toán</button>
+                    <button id="btn-pay" class="btn btn-warning">Thanh toán</button>
                 </div>
             </div>
         </div>

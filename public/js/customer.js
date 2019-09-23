@@ -1,3 +1,4 @@
+var BASE_URL = 'http://' + $(location).attr('host');
 $(document).ready(function () {
     // js for Validate-form-client
     $("#login-form").validate({
@@ -101,7 +102,7 @@ $(document).ready(function () {
         }
         shoppingCart[id] = cartItem;
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-        alert('Add cart item success!');
+        swal('Add cart item success!');
     });
 
     var shoppingCartJson = localStorage.getItem('shopping-cart');
@@ -124,17 +125,20 @@ $(document).ready(function () {
                 <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
                 </td>
                 <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
-                <td style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNĐ</td>
+                <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNĐ</td>
                 <td id="${cartItem.id}" class="quantity" style="width: 13%;border-right: solid 2px #EEF0F2">
-                    <button class="plus-btn" type="button" name="button">
-                        +
-                      </button>
-                      <input style="width: 50%" type="text" class="center-block" name="quantity" value="${cartItem.quantity}">
                       <button class="minus-btn" type="button" name="button">
                        -
                       </button>
+                      <input style="width: 50%" type="text" class="center-block" name="quantity" value="${cartItem.quantity}">
+                      <button class="plus-btn" type="button" name="button">
+                        +
+                      </button>
                 </td>
-                <td style="width: 30%">${total}</td>
+                <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total} VNĐ</td>
+                <td>
+                <button class="btn-cart-item-delete" onclick="remove(${cartItem.id})">x</button>
+                </td>
             </tr>`;
 
         totalPrice += cartItem.price * cartItem.quantity;
@@ -163,7 +167,6 @@ $(document).ready(function () {
 </div>
        `;
     }
-    htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td>Tổng<td>${totalPrice} VND</td></tr>`;
     htmlContent1 = htmlContent1 + `<div><div><div></div><div></div> 
 <div class="col-sm-12 text-right " style="margin-top: 3%;">
           <h4><pre>Tổng:  <b>${totalPrice} VND</b></pre> </h4>
@@ -177,6 +180,8 @@ $(document).ready(function () {
 
   `;
     $('#cart-body1').html(htmlContent1);
+    var totalPriceFormat = format_money(totalPrice);
+    htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
     $('#cart-body').html(htmlContent);
     $('.minus-btn').click(function () {
         var $input = $(this).closest('td').find('input');
@@ -187,8 +192,11 @@ $(document).ready(function () {
         } else {
             value = 0;
         }
-
         $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
     });
     $('.plus-btn').click(function () {
         var $input = $(this).closest('td').find('input');
@@ -199,24 +207,13 @@ $(document).ready(function () {
         } else {
             value = 20;
         }
-
         $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
     });
-    $('#btn-check').click(function () {
-        shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
-        for (var key in shoppingCart) {
-            var $input = $('td[id="' + key + '"]').find('input');
-            shoppingCart[key].quantity = $input.val();
-            if (shoppingCart[key].quantity == 0) {
-                delete (shoppingCart[key]);
-                $input.closest("tr").remove();
-            }
-        }
-        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-        console.log(JSON.parse(localStorage.getItem('shopping-cart')))
-    });
-    $('#btn-buy').click(function () {
-        console.log(JSON.parse(localStorage.getItem('shopping-cart')))
+    $('#btn-pay').click(function () {
         $.ajax({
             url: '/order-success',
             method: 'POST',
@@ -232,10 +229,55 @@ $(document).ready(function () {
                 alert('Error');
             }
         });
+        localStorage.clear();
+        location.href = `${BASE_URL}/history`;
+    });
+    $('#btn-search-home').click(function () {
+        var page = $('input[name="currentPage"]').val();
+        var categoryId = $('input[name="categoryId"]').val();
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
+    });
+    $('#search_icon').click(function () {
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?keyword=${keyword}`;
     });
 });
 
 function format_money(money) {
     money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     return money;
+}
+
+function remove(id) {
+    $(this).closest('tr').remove();
+    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
+    for (var key in shoppingCart) {
+        if (key == id) {
+            delete (shoppingCart[id]);
+        }
+    }
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+}
+
+function changeQuantity() {
+    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
+    for (var key in shoppingCart) {
+        var $input = $('td[id="' + key + '"]').find('input');
+        shoppingCart[key].quantity = $input.val();
+        if (shoppingCart[key].quantity == 0) {
+            delete (shoppingCart[key]);
+            $input.closest("tr").remove();
+        }
+    }
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+}
+
+function calculateTotalPrice() {
+    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
+    var totalPrice = 0;
+    for (var key in shoppingCart) {
+        totalPrice += shoppingCart[key].price * shoppingCart[key].quantity;
+    }
+    $('#total-price').text(format_money(totalPrice) + ' VNĐ');
 }

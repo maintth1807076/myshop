@@ -1,6 +1,12 @@
 @extends('client.layout')
 
 @section('content')
+
+    @if (session('alert'))
+        <div class="alert alert-success text-md-center" role="alert">
+            {{ session('alert') }}
+        </div>
+    @endif
     <div class="container mt-5 mb-4">
         <div class="row">
             <div class="col-lg-6 mb-3">
@@ -17,56 +23,48 @@
                         <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
                         <p>Mọi thắc mắc xin liên hệ theo form bên dưới. Cảm ơn, rất hân hạnh được phục vụ.</p>
                     </div>
+                    <form action='' method='post'>
+                        @csrf
 
-                    <div id="ajax-message"></div>
-                    <form accept-charset='UTF-8' action='/contact' class='contact-form' method='post'>
-                        <input name='form_type' type='hidden' value='contact'>
-                        <input name='utf8' type='hidden' value='✓'>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control dark" type="text" id="ContactFormName"
-                                           name="contact[ten]"
-                                           placeholder="Họ tên" autocapitalize="words" value="">
+                                    <input class="form-control dark" type="text"
+                                           name="c_name" required
+                                           placeholder="Họ tên">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control dark" type="email" id="ContactFormEmail"
-                                           name="contact[email]" placeholder="Email" autocorrect="off"
-                                           autocapitalize="off"
-                                           value="">
+                                    <input class="form-control dark" type="email"
+                                           name="c_email" placeholder="Email" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control dark" type="text" id="ContactFormAddress"
-                                           name="contact[address]"
-                                           placeholder="Địa chỉ" value="">
+                                    <input class="form-control dark" type="text"
+                                           name="c_address" required
+                                           placeholder="Địa chỉ">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control dark" type="tel" id="ContactFormPhone"
-                                           name="contact[phone]"
-                                           placeholder="Điện thoại" pattern="[0-9\-]*" value="">
+                                    <input class="form-control dark" type="tel"
+                                           name="c_phone" required
+                                           placeholder="Điện thoại" pattern="[0-9\-]*">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <select class="form-control" id="sel1">
-                                <option value>--- Chủ đề liên hệ ---</option>
-                                <option value="1">Tư vấn về sản phẩm, mua hàng</option>
-                                <option value="2">Thắc mắc về tình trạng đơn hàng</option>
-                                <option value="3">Khiếu nại về chất lượng dịch vụ, sản phẩm</option>
-                                <option value="4">Chủ đề khác</option>
-                            </select>
+                            <input class="form-control dark" type="text"
+                                   name="c_title" required
+                                   placeholder="Chủ đề liên hệ">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control dark" rows="6" id="ContactFormMessage"
-                                      name="contact[body]" placeholder="Nội dung liên hệ"></textarea>
+                            <textarea class="form-control dark" rows="6"
+                                      name="c_content" placeholder="Nội dung liên hệ" required></textarea>
                         </div>
                         <div class="form-button">
                             <button type="submit" class="btn btn-lg btn-danger">Gửi yêu cầu</button>
@@ -104,4 +102,5 @@
             </div>
         </div>
     </div>
+
 @endsection
