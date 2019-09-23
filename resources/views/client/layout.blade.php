@@ -85,9 +85,9 @@
         </div>
     </div>
 </div>
-<div class="navhome sticky" style="background-color: red">
+<div class="navhome sticky container-fluid" style="background-color: red">
     <div class=" navbar-expand-lg navbar-light bg-light">
-        <div class="text-center" style="background-color: red">
+        <div class="text-center" style="background-color: red;">
             <div class="row mr-auto">
                 <div class="col-sm-1"></div>
                 <div class=" nav-item col-sm-2 ">
@@ -111,14 +111,16 @@
                 <div class="nav-item col-sm-2">
                     <a class="nav-link active dropbtn" href="/contact"><b>LIÊN HỆ</b></a>
                 </div>
-                <div class="nav-item col-sm-2">
-                    <a class="nav-link dropbtn" href="/cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <div class="d-inline list-added text-dark" id="added-quantity"></div>
-                        GIỎ HÀNG
-                    </a>
+                <div class=" dropdown  nav-item col-sm-3 mini-cart1"  >
+                        <a class="nav-link dropbtn active " href="#" id="navbardrop"
+                           data-toggle="dropdown">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div class="d-inline list-added text-dark" id="added-quantity"></div>
+                            GIỎ HÀNG
+                        </a>
+                    <div class="dropdown-content  dropdown-menu-right mini-cart  " id="cart-body1" >
                 </div>
-                <div class="col-sm-1"></div>
+                </div>
             </div>
         </div>
     </div>
