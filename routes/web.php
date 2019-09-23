@@ -41,9 +41,8 @@ Route::post('/home', 'GuestController@loadMore');
 Route::get('/about', function () {
     return view('client.about');
 });
-Route::get('/contact', function () {
-    return view('client.contact');
-});
+Route::get('/contact', 'ContactController@getContact');
+Route::post('/contact', 'ContactController@saveContact');
 Route::get('/product/{product}', function ($id) {
     $data = [
         'list_category' => Category::all(),
@@ -70,6 +69,7 @@ Route::get('/category/{category}', function ($id) {
 Route::get('/information', 'UserController@show')->middleware('auth');
 Route::post('/change-name', 'UserController@changeName')->middleware('auth');
 Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth');
+Route::post('/change-password', 'UserController@changePassword')->middleware('auth');
 /*route admin*/
 Route::get('/user/{user}', function ($id) {
     $data = [
@@ -106,7 +106,7 @@ Route::get('/cart', function () {
 });
 Route::resource('/admin/users', 'MannagerUserController')->middleware('role:admin');
 Route::post('/admin/users/change-status', 'MannagerUserController@changeStatus')->middleware('role:admin');
-Route::resource('/admin/orders','OrderController');
+Route::resource('/admin/orders', 'OrderController');
 Route::post('/order-success', 'CartController@checkoutCart');
 
 //mail
