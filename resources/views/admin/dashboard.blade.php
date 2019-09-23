@@ -99,7 +99,6 @@
                 }
             });
         });
-
         function drawChart(chart_data) {
             var data = new google.visualization.DataTable();
             data.addColumn('date', 'Date');
@@ -129,7 +128,103 @@
                 }
             }
         }
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(function () {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+            $.ajax({
+                url: '/admin/get-pie-chart-data?startDate=' + start.format('YYYY-MM-DD') + '&endDate=' + end.format('YYYY-MM-DD'),
+                method: 'GET',
+                success: function (resp) {
+                    if (resp.length == 0) {
+                        swal('No data exists for pie chart', 'Please choose another time range.', 'warning');
+                        return;
+                    }
+                    ;
+                    drawPieChart(resp);
+                },
+                error: function (r) {
+                    swal('Something is wrong', 'Cannot retrieve data from API', 'error');
+                }
+            });
+        });
 
+        function drawPieChart(chart_data) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Product Name');
+            data.addColumn('number', 'Quantity');
+            for (var i = 0; i < 5; i++) {
+                data.addRow([chart_data[i].product.name, Number(chart_data[i].total_quantity)]);
+            }
+            ;
+            var rest = 0;
+            for (var i = 5; i < chart_data.length; i++) {
+                rest += Number(chart_data[i].total);
+            };
+            var all = 0;
+            for (var i = 0; i < chart_data.length; i++) {
+                all += Number(chart_data[i].totalQuantity);
+            };
+            var percentage1 = (chart_data[0].totalQuantity/all)*100;
+            // if(percentage1<=20){
+            //     $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing great but compared with all its percentage overall is not too big</span>');
+            // } else if (percentage1<50 && percentage1>20) {
+            //     $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing so great this time that you should think of importing more of it</span>');
+            // } else if (percentage1<=50) {
+            //     $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> takes more than half of your sales, you should not only import more of it but also promoting other products too. Such as <a href="'+'/admin/order?product_id='+ chart_data[1].product_id+'">'+chart_data[1].product.name+'</span>');
+            // }
+            data.addRow(['Other Products', rest]);
+            var options = {
+                title: '5 Best-sellers'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+
+            function selectHandler(e) {
+                for (var i = 0; i < chart.getSelection().length; i++) {
+                    var item = chart.getSelection()[i];
+                    window.location.href = '/admin/order?product_id=' + chart_data[item.row].product_id;
+                }
+            }
+        }
+        // google.charts.load('current', {'packages':['corechart']});
+        // google.charts.setOnLoadCallback(function () {
+        //     var start = moment().subtract(29, 'days');
+        //     var end = moment();
+        //     $.ajax({
+        //         url: '/api-get-line-curve?startDate=' + start.format('YYYY-MM-DD') + '&endDate=' + end.format('YYYY-MM-DD'),
+        //         method: 'GET',
+        //         success: function (resp) {
+        //             console.log(resp);
+        //
+        //         },
+        //         error: function (r) {
+        //             console.log(r);
+        //             swal('Something is wrong', 'Cannot retrieve data from API', 'error');
+        //         }
+        //     });
+        // });
+
+        // function drawLineCurveChart() {
+        //     var data = new google.visualization.DataTable();
+        //     data.addColumn('date', 'Date');
+
+        //     data.addColumn('number', 'Date');
+
+        //     var options = {
+        //         title: 'Company Performance',
+        //         curveType: 'function',
+        //         legend: { position: 'bottom' }
+        //     };
+
+        //     var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        //     chart.draw(data, options);
+        // }
         $(function () {
             var start = moment().subtract(29, 'days');
             var end = moment();
@@ -216,103 +311,5 @@
                 });
             });
         });
-        // google.charts.load('current', {'packages': ['corechart']});
-        // google.charts.setOnLoadCallback(function () {
-        //     var start = moment().subtract(29, 'days');
-        //     var end = moment();
-        //     $.ajax({
-        //         url: '/api-get-pie-chart-data?startDate=' + start.format('YYYY-MM-DD') + '&endDate=' + end.format('YYYY-MM-DD'),
-        //         method: 'GET',
-        //         success: function (resp) {
-        //             if (resp.length == 0) {
-        //                 swal('No data exists for pie chart', 'Please choose another time range.', 'warning');
-        //                 return;
-        //             }
-        //             ;
-        //             // console.log(resp);
-        //             drawPieChart(resp);
-        //         },
-        //         error: function (r) {
-        //             swal('Something is wrong', 'Cannot retrieve data from API', 'error');
-        //         }
-        //     });
-        // });
-        //
-        // function drawPieChart(chart_data) {
-        //     var data = new google.visualization.DataTable();
-        //     data.addColumn('string', 'Product Name');
-        //     data.addColumn('number', 'Quantity');
-        //     for (var i = 0; i < 5; i++) {
-        //         data.addRow([chart_data[i].product.name, Number(chart_data[i].totalQuantity)]);
-        //     }
-        //     ;
-        //     var rest = 0;
-        //     for (var i = 5; i < chart_data.length; i++) {
-        //         rest += Number(chart_data[i].totalQuantity);
-        //     };
-        //     var all = 0;
-        //     for (var i = 0; i < chart_data.length; i++) {
-        //         all += Number(chart_data[i].totalQuantity);
-        //     };
-        //     var percentage1 = (chart_data[0].totalQuantity/all)*100;
-        //     if(percentage1<=20){
-        //         $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing great but compared with all its percentage overall is not too big</span>');
-        //     } else if (percentage1<50 && percentage1>20) {
-        //         $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing so great this time that you should think of importing more of it</span>');
-        //     } else if (percentage1<=50) {
-        //         $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> takes more than half of your sales, you should not only import more of it but also promoting other products too. Such as <a href="'+'/admin/order?product_id='+ chart_data[1].product_id+'">'+chart_data[1].product.name+'</span>');
-        //     }
-        //     data.addRow(['Other Products', rest]);
-        //     var options = {
-        //         title: '5 Best-sellers'
-        //     };
-        //
-        //     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        //
-        //     chart.draw(data, options);
-        //
-        //     google.visualization.events.addListener(chart, 'select', selectHandler);
-        //
-        //     function selectHandler(e) {
-        //         for (var i = 0; i < chart.getSelection().length; i++) {
-        //             var item = chart.getSelection()[i];
-        //             window.location.href = '/admin/order?product_id=' + chart_data[item.row].product_id;
-        //         }
-        //     }
-        // }
-        // google.charts.load('current', {'packages':['corechart']});
-        // google.charts.setOnLoadCallback(function () {
-        //     var start = moment().subtract(29, 'days');
-        //     var end = moment();
-        //     $.ajax({
-        //         url: '/api-get-line-curve?startDate=' + start.format('YYYY-MM-DD') + '&endDate=' + end.format('YYYY-MM-DD'),
-        //         method: 'GET',
-        //         success: function (resp) {
-        //             console.log(resp);
-
-        //         },
-        //         error: function (r) {
-        //             console.log(r);
-        //             swal('Something is wrong', 'Cannot retrieve data from API', 'error');
-        //         }
-        //     });
-        // });
-
-        // function drawLineCurveChart() {
-        //     var data = new google.visualization.DataTable();
-        //     data.addColumn('date', 'Date');
-
-        //     data.addColumn('number', 'Date');
-
-        //     var options = {
-        //         title: 'Company Performance',
-        //         curveType: 'function',
-        //         legend: { position: 'bottom' }
-        //     };
-
-        //     var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        //     chart.draw(data, options);
-        // }
     </script>
 @endsection
