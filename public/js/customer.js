@@ -1,3 +1,4 @@
+var BASE_URL = 'http://' + $(location).attr('host');
 $(document).ready(function () {
     // js for Validate-form-client
     $("#login-form").validate({
@@ -127,17 +128,20 @@ $(document).ready(function () {
                 <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
                 </td>
                 <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
-                <td style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNĐ</td>
+                <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNĐ</td>
                 <td id="${cartItem.id}" class="quantity" style="width: 13%;border-right: solid 2px #EEF0F2">
-                    <button class="plus-btn" type="button" name="button">
-                        +
-                      </button>
-                      <input style="width: 50%" type="text" class="center-block" name="quantity" value="${cartItem.quantity}">
                       <button class="minus-btn" type="button" name="button">
                        -
                       </button>
+                      <input style="width: 50%" type="text" class="center-block" name="quantity" value="${cartItem.quantity}">
+                      <button class="plus-btn" type="button" name="button">
+                        +
+                      </button>
                 </td>
-                <td style="width: 30%">${total}</td>
+                <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total}</td>
+                <td>
+                <button class="btn-cart-item-delete">x</button>
+                </td>
             </tr>`;
         totalPrice += cartItem.price * cartItem.quantity;
     }
@@ -152,8 +156,17 @@ $(document).ready(function () {
         } else {
             value = 0;
         }
-
         $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text($unit*value);
+        $(this).closest('tr').find('td[data-total]').attr('data-total', $unit*value);
+        var list = $('#cart-body').find('td[data-total]');
+        // $('#cart-body').find('td[data-total]').each(function () {
+        //     console.log(($('#cart-body').find('td[data-total]').attr('data-total')));
+        // })
+        // $.each(list, function(key, value) {
+        //         console.log(key, value);
+        //     });
     });
     $('.plus-btn').click(function () {
         var $input = $(this).closest('td').find('input');
@@ -164,8 +177,12 @@ $(document).ready(function () {
         } else {
             value = 20;
         }
-
         $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text($unit*value);
+    });
+    $('.btn-cart-item-delete').click(function () {
+        $(this).closest('tr').remove();
     });
     $('#btn-check').click(function () {
         shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
@@ -178,7 +195,7 @@ $(document).ready(function () {
             }
         }
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-        console.log(JSON.parse(localStorage.getItem('shopping-cart')))
+        location.reload();
     });
     $('#btn-buy').click(function () {
         console.log(JSON.parse(localStorage.getItem('shopping-cart')))
@@ -197,6 +214,12 @@ $(document).ready(function () {
                 alert('Error');
             }
         });
+    });
+    $('#btn-search-home').click(function () {
+        var page = $('input[name="currentPage"]').val();
+        var categoryId = $('input[name="categoryId"]').val();
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
     });
 });
 

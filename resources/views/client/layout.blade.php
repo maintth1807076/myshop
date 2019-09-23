@@ -99,10 +99,10 @@
                         <b>SẢN PHẨM</b>
                     </a>
                     <div class="dropdown-menu dropdown-content">
-                        <a class="dropdown-item" href="/category/1"><b style="font-size: 20px">PVC Figure</b></a>
-                        <a class="dropdown-item" href="/category/2"><b style="font-size: 20px">Nendoroid</b></a>
-                        <a class="dropdown-item" href="/category/3"><b style="font-size: 20px">Figma</b></a>
-                        <a class="dropdown-item" href="/category/4"><b style="font-size: 20px">Revoltech</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=1"><b style="font-size: 20px">PVC Figure</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=2"><b style="font-size: 20px">Nendoroid</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=3"><b style="font-size: 20px">Figma</b></a>
+                        <a class="dropdown-item" href="/products/?category_id=4"><b style="font-size: 20px">Revoltech</b></a>
                     </div>
                 </div>
                 <div class="nav-item col-sm-2 ">
