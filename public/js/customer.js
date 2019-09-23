@@ -248,6 +248,92 @@ $(document).ready(function () {
         var keyword = $('input[name="keyword"]').val();
         location.href = `${BASE_URL}/products?keyword=${keyword}`;
     });
+
+
+    var shoppingCartJson = localStorage.getItem('shopping-cart');
+    if (shoppingCartJson == null) {
+        return;
+    }
+    var shoppingCart = JSON.parse(shoppingCartJson);
+    var htmlContent = '';
+    var htmlContent1 = '';
+    var totalPrice = 0;
+    for (var gameId in shoppingCart) {
+        var cartItem = shoppingCart[gameId];
+        var price = format_money(cartItem.price);
+        var total = format_money(cartItem.price * cartItem.quantity);
+        htmlContent += `<tr>
+                <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
+                </td>
+                <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
+                <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNÐ</td>             
+                <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total}</td>              
+            </tr>`;
+        totalPrice += cartItem.price * cartItem.quantity;
+    }
+    $('#cart-pay').html(htmlContent1);
+    var totalPriceFormat = format_money(totalPrice);
+    htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
+    $('#cart-pay').html(htmlContent);
+    $('.minus-btn').click(function () {
+        var $input = $(this).closest('td').find('input');
+        var value = parseInt($input.val());
+
+        if (value >= 1) {
+            value = value - 1;
+        } else {
+            value = 0;
+        }
+        $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
+    });
+    $('.plus-btn').click(function () {
+        var $input = $(this).closest('td').find('input');
+        var value = parseInt($input.val());
+
+        if (value < 20) {
+            value = value + 1;
+        } else {
+            value = 20;
+        }
+        $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
+    });
+    $('#btn-pay').click(function () {
+        $.ajax({
+            url: '/order-success',
+            method: 'POST',
+            data: {
+                '_token': $('meta[name=csrf-token]').attr('content'),
+                'cart': JSON.parse(localStorage.getItem('shopping-cart'))
+            },
+            success: function (response) {
+                alert('Success');
+                console.log(response)
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+        localStorage.clear();
+        location.href = `${BASE_URL}/history`;
+    });
+    $('#btn-search-home').click(function () {
+        var page = $('input[name="currentPage"]').val();
+        var categoryId = $('input[name="categoryId"]').val();
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
+    });
+    $('#search_icon').click(function () {
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?keyword=${keyword}`;
+    });
 });
 
 function format_money(money) {
