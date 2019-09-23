@@ -9,7 +9,8 @@
                                 <figure><img class="img-thumbnail" src="/img/shacon.png" /></figure>
                     </div>
                     <div data-aos="fade-down" class="col-12 col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
-                        <i class="font1"><img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"> là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
+                        <i class="font1"><img class="responsive3" src="{{ asset('img/logo-home.png') }}" width="140px"
+                                              alt=""> là shop hàng đầu trong lĩnh vực Manga - Anime.</i><br>
                         Nếu là một fan ruột của Manga-Anime thì bạn không thể không đến với shop,
                         bạn có thể tìm thấy cho mình những nhân vật
                         manga mà từ thời bé xíu đã gắn bó với bạn qua những tập truyện tranh như mèo máy Đoraemon,
@@ -24,13 +25,14 @@
         </div>
     <div class="row">
         <div class="col-12 mt-2">
-            <h1>Thành Viên của <img id="imglogo" src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png"></h1>
+            <h1>Thành Viên của   <img class="responsive2" src="{{ asset('img/logo-home.png') }}" width="240px"
+                                      alt=""></h1>
         </div>
     </div>
         <div class="row mr-0 ml-0">
             <div class="col">
                 <div class="row mr-0 ml-0">
-                    <div class="col-12 col-xl-1 col-lg-2 col-md-1 col-sm-1 "></div>
+                    <div class="col-12 col-xl-1 col-lg-1 col-md-1 col-sm-1 "></div>
                     <div class="col-12 col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mt-4">
 {{--
    <i data-aos="flip-left" class="fas fa-user-tie" style="font-size: 500%"></i><br>--}}
@@ -66,14 +68,14 @@
         <div class="row mr-0 ml-0">
             <div class="col">
                 <div class="row mr-0 ml-0" id="thua2">
-                    <div class="col-xl-1 col-lg-1 "></div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-3 mr-1">
+                    <div class="col-xl-2 col-lg-1 "></div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mr-1">
                         <p data-aos="zoom-in" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
                             khỏe mạnh hơn.
                         </p>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4 mr-1">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ml-4  mr-1">
                         <p data-aos="zoom-in" class="text-toy"> Mục đích của chúng tôi là nâng cao chất lượng cuộc sống và góp phần vào một
                             tương lai khỏe mạnh hơn. Chúng tôi mong muốn tạo ra một thế giới tốt đẹp và
                             khỏe mạnh hơn.
@@ -95,7 +97,8 @@
 {{--				<h2 data-aos="fade-left" style="font-size: 500%;color: greenyellow;font-family: none">Shop uy tín chất lượng</h2>--}}
 {{--			</span>--}}
                 <h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
-                    <img src="https://res.cloudinary.com/dkzqu5nh2/image/upload/v1566975633/image.png" style="width: 32%">
+                    <img class="responsive1" src="{{ asset('img/logo-home.png') }}" width="440px"
+                          alt="">
                 </h3>
             </div>
         </div>
