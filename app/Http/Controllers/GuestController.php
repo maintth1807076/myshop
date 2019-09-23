@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class GuestController extends Controller
 {
@@ -58,5 +60,27 @@ class GuestController extends Controller
                 </div>';
             echo $output;
         }
+    }
+    public function searchHome(Request $request)
+    {
+        $list = Product::orderBy('created_at', 'desc')->whereNotIn('status', [-1]);
+        if (Input::get('keyword')) {
+            $list = $list->where('name', 'like', '%' . $request->get('keyword') . '%');
+        }
+        $category_id = Input::get('category_id');
+        if ($category_id) {
+            $list = $list->where('category_id', $category_id);
+        } else {
+            $category_id = 0;
+        }
+        $list = $list->paginate(8);
+        $data = [
+            'list_product' => $list->appends(Input::except('page')),
+            'currentPage' => $request->get('page'),
+            'currentCategoryId' => $request->get('category_id'),
+            'currentKeyword' => $request->get('keyword'),
+            'list_category' => Category::all()
+        ];
+        return view('client.product', $data);
     }
 }

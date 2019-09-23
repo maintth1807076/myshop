@@ -52,14 +52,7 @@ Route::get('/product/{product}', function ($id) {
     ];
     return view('client.detail-product', $data);
 });
-Route::get('/category/{category}', function ($id) {
-    $data = [
-        'list_category' => Category::all(),
-        'item' => Category::find($id),
-        'list_product' => Category::find($id)->products
-    ];
-    return view('client.product', $data);
-});
+Route::get('/products','GuestController@searchHome');
 Route::get('/cart', function () {
     return view('search');
 });

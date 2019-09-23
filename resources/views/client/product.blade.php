@@ -8,36 +8,32 @@
                 <div class="filter-name">
                     <label for="name"><b> Lọc theo tên:</b></label>
                     <br>
-                    <input type="text" name="name"></div>
-                <div class="filter-price">
-                    <label for="name"><b> Lọc theo giá:</b></label>
-                    <br>
-                    <input type="checkbox" name="price1" value="price1">100.000VNĐ.
-                    <br>
-                    <input type="checkbox" name="price2" value="price2">100.000VNĐ-500.000VNĐ.
-                    <br>
-                    <input type="checkbox" name="price3" value="price3">Trên 500.000VNĐ.
-
-
+                    <input type="text" name="keyword" value="{{$currentKeyword}}">
+                    <input type="hidden" name="currentPage" value="{{$currentPage}}">
                 </div>
+                {{--                <div class="filter-price">--}}
+                {{--                    <label for="name"><b> Lọc theo giá:</b></label>--}}
+                {{--                    <br>--}}
+                {{--                    <input type="checkbox" name="price1" value="price1">100.000VNĐ.--}}
+                {{--                    <br>--}}
+                {{--                    <input type="checkbox" name="price2" value="price2">100.000VNĐ-500.000VNĐ.--}}
+                {{--                    <br>--}}
+                {{--                    <input type="checkbox" name="price3" value="price3">Trên 500.000VNĐ.--}}
+                {{--                </div>--}}
                 <div class="filter-category">
                     <label for="name"><b> Lọc theo loại sản phẩm:</b></label>
                     <br>
-                    <input type="checkbox" name="category1" value="category1">PVC Figure
+                    <input type="radio" name="categoryId" value="0" {{($currentCategoryId == 0) ? 'checked':''}}>Tất cả
                     <br>
-                    <input type="checkbox" name="category2" value="category2">Nendoroid
-                    <br>
-                    <input type="checkbox" name="category3" value="category3">Figma
-                    <br>
-                    <input type="checkbox" name="category4" value="category4">Revoltech
-
-
+                    @foreach($list_category as $category)
+                        <br>
+                        <input type="radio" name="categoryId" value="{{$category->id}}" {{($currentCategoryId == $category->id) ? 'checked':''}}>{{$category->name}}
+                    @endforeach
                 </div>
                 <div class="button-filter">
-                    <button type="button" class="btn btn-danger">Lọc</button>
+                    <button type="button" class="btn btn-danger" id="btn-search-home">Lọc</button>
                 </div>
             </div>
-
             <div class="col-sm-9">
                 <div class="text-center">
                     <h3><b>Tất cả sản phẩm</b></h3>
@@ -158,7 +154,14 @@
 
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-8"></div>
+                    <div class="col-4">
+                        <nav aria-label="Page navigation example">
+                            {{$list_product->links()}}
+                        </nav>
+                    </div>
+                </div>
             </div>
 
         </div>
