@@ -1,0 +1,19 @@
+/*css for admin layout*/
+.admin-nav-link {
+    color: black;
+}
+.admin-nav-link:hover {
+    color: black;
+    background: white;
+}
+
+.admin-nav-side {
+    border-right: 2px solid black;
+}
+
+.active-nav-admin {
+    background-color: #343a40;
+    color: white;
+}
+
+/*end css for admin layout*/

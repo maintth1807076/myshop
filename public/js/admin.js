@@ -1,5 +1,11 @@
 var BASE_URL = 'http://' + $(location).attr('host');
 $(document).ready(function () {
+    var path = 'http://' + $(location).attr('host') + $(location).attr('pathname');
+    $('.admin-nav-side a').each(function() {
+        if (this.href === path) {
+            $(this).addClass('active-nav-admin');
+        }
+    });
     $('.close').click(function () {
         $('.modal').hide();
     });

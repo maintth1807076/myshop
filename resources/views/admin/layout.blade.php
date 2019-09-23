@@ -13,12 +13,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{asset('js/admin.js')}}"></script>
     <script src="{{asset('js/sweet-alert.min.js')}}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js"></script>
     <script type='text/javascript' src='//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js'></script>
+    <script src="{{asset('js/admin.js')}}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -27,7 +27,7 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/all.css')}}" rel="stylesheet">
     <link href="{{asset('css/sweet-alert.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
@@ -61,18 +61,17 @@
     <div class="row pt-5 ml-2">
         <div class="col-4 col-md-3 col-lg-2 admin-nav-side">
             <div class="nav flex-column nav-pills text-dark">
-                <a class="nav-link active bg-dark" href="/admin/dashboard"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/users"><i class="fas fa-users pr-2"></i>Khách
+                <a class="nav-link admin-nav-link" href="/admin/dashboard"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
+                <a class="nav-link admin-nav-link" href="/admin/users"><i class="fas fa-users pr-2"></i>Khách
                     hàng</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/slides"><i class="fas fa-images pr-2"></i>Ảnh
+                <a class="nav-link admin-nav-link" href="/admin/slides"><i class="fas fa-images pr-2"></i>Ảnh
                     slide</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/categories"><i
+                <a class="nav-link admin-nav-link" href="/admin/categories"><i
                             class="fas fa-th-list pr-2"></i>Danh mục</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/products"><i class="fas fa-cube pr-2"></i>Sản
+                <a class="nav-link admin-nav-link" href="/admin/products"><i class="fas fa-cube pr-2"></i>Sản
                     phẩm</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/orders"><i class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
-                <a class="nav-link text-dark admin-nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo cáo</a>
-
+                <a class="nav-link admin-nav-link" href="/admin/orders"><i class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
+                <a class="nav-link admin-nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo cáo</a>
             </div>
         </div>
         <div class="col-8 col-md-9 col-lg-10 pl-5">

@@ -1,5 +1,11 @@
 var BASE_URL = 'http://' + $(location).attr('host');
 $(document).ready(function () {
+    var path = $(location).attr('href');
+    $('.navhome a').each(function() {
+        if (this.href === path) {
+            $(this).addClass('active-nav');
+        }
+    });
     // js for Validate-form-client
     $("#login-form").validate({
 
