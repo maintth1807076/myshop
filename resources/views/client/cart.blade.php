@@ -23,28 +23,14 @@
                     <th scope="col">Total Price</th>
                 </tr>
                 </thead>
-                <tbody id="cart-body">
+                <tbody id="cart-body1">
                 </tbody>
             </table>
             <div class="col-md-12" style="padding-left: 81%">
                 <div style="margin: 0 1% 1%">
-                    <button id="btn-pay" class="btn btn-warning">Thanh toán</button>
+                    <a href="/pay"><button class="btn btn-warning">Thanh toán</button></a>
                 </div>
             </div>
         </div>
     </div>
-    <form>
-        <div class="form-group col-md-3">
-            <label for="inputEmail4">Ship name</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Name">
-        </div>
-        <div class="form-group col-sm-3">
-            <label for="inputEmail4">Ship adress</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputEmail4">Ship phone</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Phone">
-        </div>
-    </form>
 @endsection

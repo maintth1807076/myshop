@@ -55,6 +55,9 @@ Route::get('/products','GuestController@searchHome');
 Route::get('/cart', function () {
     return view('client.cart');
 });
+Route::get('/pay', function () {
+    return view('client.pay');
+});
 /*route user*/
 Route::get('/information', 'UserController@show')->middleware('auth');
 Route::post('/change-name', 'UserController@changeName')->middleware('auth');
