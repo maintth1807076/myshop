@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class OrderController extends Controller
@@ -43,5 +44,45 @@ class OrderController extends Controller
             ->with('product_id', $product_id)
             ->with('null', null);
 
+    }
+    public function changeStatus($id)
+    {
+        $obj = Order::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        $obj->status = Input::get('status');
+        $obj->save();
+        return redirect()->back();
+    }
+    public function changeStatusMany(Request $request)
+    {
+        DB::table('orders')->whereIn('id', Input::get('ids'))->update(['status' => $request->get('status')]);
+        return redirect()->back();
+    }
+    public function getDataToTime()
+    {
+        $start_date = Input::get('startDate');
+        $end_date = Input::get('endDate');
+        $orders = Order::select()
+            ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
+            ->orderBy('created_at','desc')
+            ->get();
+        foreach ($orders as $data) {
+            $data->statusLabel = $data->getStatusLabelAttribute();
+        }
+        return response()->json(['list_obj' => $orders], 200);
+    }
+    public function getChartData()
+    {
+        $start_date = Input::get('startDate');
+        $end_date = Input::get('endDate');
+        $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('created_at as day'))
+//            ->where(['status' => 2])
+            ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
+            ->groupBy('day')
+            ->orderBy('day', 'desc')
+            ->get();
+        return $chart_data;
     }
 }
