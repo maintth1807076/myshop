@@ -35,7 +35,7 @@ class OrderController extends Controller
             $created_at = Input::get('created_at');
             $orders = Order::where('created_at', '>=', $created_at.' 00:00:00')
                 ->where('created_at', '<=', $created_at.' 23:59:59')
-                ->where('status', '=', '2')
+//                ->where('status', '=', '2')
                 ->paginate(10);
         }
         return view('admin.order.list')

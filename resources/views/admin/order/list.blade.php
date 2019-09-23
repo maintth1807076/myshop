@@ -5,9 +5,8 @@
         <div class="col">
             <h3 class="mb-3">
                 <i class="fas fa-stream"></i> List Orders
-                <small class="text-muted">All [Oders] availble</small>
+                <small class="text-muted">All order availble</small>
             </h3>
-            <a href="{{route('products.create')}}"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add new Products</a>
         </div>
     </div>
     <div class="row mb-2 mt-2">
