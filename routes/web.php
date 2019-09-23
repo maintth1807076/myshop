@@ -36,7 +36,7 @@ Route::get('/home', function () {
         'list_category' => Category::all()
     ];
     return view('client.home', $data);
-})->middleware(['auth','verified']);
+});
 Route::post('/home', 'GuestController@loadMore');
 Route::get('/about', function () {
     return view('client.about');
@@ -56,7 +56,7 @@ Route::get('/cart', function () {
     return view('client.cart');
 });
 /*route user*/
-Route::get('/information', 'UserController@show')->middleware('auth');
+Route::get('/information', 'UserController@show')->middleware(['auth','verified']);
 Route::post('/change-name', 'UserController@changeName')->middleware('auth');
 Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth');
 Route::post('/change-password', 'UserController@changePassword')->middleware('auth');
