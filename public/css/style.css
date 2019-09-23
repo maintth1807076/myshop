@@ -398,15 +398,16 @@ strong.kiluc {
 
     width: 500px;
     text-align: left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 400px;
 }
 mini-cart1{
     background-color: white;
 }
 .dropdown-content {
     display: none;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 400px;
+
     position: absolute;
     background-color: #f1f1f1;
     min-width: 300px;
