@@ -442,18 +442,6 @@ mini-cart1{
     margin-bottom: 39%;
 }
 
-
-/*css for admin layout*/
-.admin-nav-link:hover {
-    background: white;
-}
-
-.admin-nav-side {
-    border-right: 2px solid black;
-}
-
-/*end css for admin layout*/
-
 /*css của header*/
 .text-uppercase hr {
     border: #1b4b72 1px solid;
@@ -609,17 +597,6 @@ mini-cart1{
     margin-bottom: 39%;
 }
 
-/*css for admin layout*/
-.admin-nav-link:hover {
-    background: white;
-}
-
-.admin-nav-side {
-    border-right: 2px solid black;
-}
-
-/*end css for admin layout*/
-
 /*css for header navbar*/
 .searchbar {
     margin: 20px;
@@ -697,3 +674,7 @@ ul .user {
 .center-block {
     padding-left: 20%;
 }
+.active-nav {
+    color: yellow;
+}
+

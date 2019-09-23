@@ -61,9 +61,9 @@ Route::post('/change-name', 'UserController@changeName')->middleware('auth');
 Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth');
 Route::post('/change-password', 'UserController@changePassword')->middleware('auth');
 /*route admin*/
-Route::get('/admin', function () {
-    return view('admin.layout');
-})->middleware('role:admin');
+//Route::get('/admin', function () {
+//    return view('admin.layout');
+//})->middleware('role:admin');
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware('role:admin');
