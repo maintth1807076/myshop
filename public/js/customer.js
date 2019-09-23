@@ -60,29 +60,25 @@ $(document).ready(function () {
         },
     });
     //end js for Validate-form-client
-    $(document).on('click','#btn-more',function(){
+    $(document).on('click', '#btn-more', function () {
         var id = $(this).data('id');
         $("#btn-more").html("Loading....");
         $.ajax({
-            url : '/home',
-            method : "POST",
-            data : {'id':id, '_token': $('meta[name=csrf-token]').attr('content')},
-            dataType : "text",
-            success : function (data)
-            {
-                if(data != '')
-                {
+            url: '/home',
+            method: "POST",
+            data: {'id': id, '_token': $('meta[name=csrf-token]').attr('content')},
+            dataType: "text",
+            success: function (data) {
+                if (data != '') {
                     $('#remove-row').remove();
                     $('#load-more-new-product').append(data);
-                }
-                else
-                {
+                } else {
                     $('#btn-more').html("No Data");
                 }
             }
         });
     });
-    $(document).on('click','.add-cart',function(){
+    $(document).on('click', '.add-cart', function () {
         var shoppingCart = {};
         if (localStorage.getItem('shopping-cart') !== null) {
             shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
@@ -114,7 +110,8 @@ $(document).ready(function () {
     }
     var shoppingCart = JSON.parse(shoppingCartJson);
     var htmlContent = '';
-    var totalPrice=0;
+    var htmlContent1 = '';
+    var totalPrice = 0;
     for (var gameId in shoppingCart) {
         var cartItem = shoppingCart[gameId];
         var price = format_money(cartItem.price);
@@ -139,9 +136,47 @@ $(document).ready(function () {
                 </td>
                 <td style="width: 30%">${total}</td>
             </tr>`;
+
         totalPrice += cartItem.price * cartItem.quantity;
+
+
+        htmlContent1 += `
+<div class="mini-cart" style="height: 110px; margin-bottom:2%;">
+     <div class="row">
+        <div class="col-sm-3">
+                <img width="80%;" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
+        </div>
+        <div class="col-sm-9" >
+           <div class="row">
+            <div class="col-sm-12 "><b>${cartItem.name}</b></div>
+            <div class="col-sm-12">
+            <div class="row">
+            <span class="col-sm-6"><pre>Số lượng:<b> ${cartItem.quantity}</b></pre></span>
+             <span class="col-sm-6"><pre>Giá: <b>${price}</b> VNĐ.</pre></span>
+             </div>
+             </div>
+             </div>
+           </div>
+        </div>
+     </div>
+       
+</div>
+       `;
     }
     htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td>Tổng<td>${totalPrice} VND</td></tr>`;
+    htmlContent1 = htmlContent1 + `<div><div><div></div><div></div> 
+<div class="col-sm-12 text-right " style="margin-top: 3%;">
+          <h4><pre>Tổng:  <b>${totalPrice} VND</b></pre> </h4>
+            </div>
+            <div class="col-sm-12" style="margin-bottom: 5%;">
+            <div class="row">
+            <span  class="col-sm-6 "> <a href="/cart"  class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
+        <span class="col-sm-6 "> <a class="btn btn-danger" href="#">Thanh toán</a></span>
+        </div></div>
+        </div></div>
+
+  `;
+    $('#cart-body1').html(htmlContent1);
     $('#cart-body').html(htmlContent);
     $('.minus-btn').click(function () {
         var $input = $(this).closest('td').find('input');
@@ -172,7 +207,7 @@ $(document).ready(function () {
         for (var key in shoppingCart) {
             var $input = $('td[id="' + key + '"]').find('input');
             shoppingCart[key].quantity = $input.val();
-            if(shoppingCart[key].quantity == 0){
+            if (shoppingCart[key].quantity == 0) {
                 delete (shoppingCart[key]);
                 $input.closest("tr").remove();
             }
