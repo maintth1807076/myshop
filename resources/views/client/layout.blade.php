@@ -36,8 +36,8 @@
         <div class="col-sm-4">
             <div method="get" action="">
                 <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    <input class="search_input" type="text" name="keyword" placeholder="Search...">
+                    <a href="javascript:void(0)" id="search_icon"><i class="fas fa-search"></i></a>
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                 <div class="nav-item col-sm-2">
                     <a class="nav-link dropbtn" href="/cart">
                         <i class="fas fa-shopping-cart"></i>
-                        <div class="d-inline list-added text-dark" id="added-quantity">0</div>
+                        <div class="d-inline list-added text-dark" id="added-quantity"></div>
                         GIỎ HÀNG
                     </a>
                 </div>

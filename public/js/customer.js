@@ -155,8 +155,7 @@ $(document).ready(function () {
         }
         $input.val(value);
         $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text($unit * value);
-        $(this).closest('tr').find('td[data-total]').attr('data-total', $unit * value);
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
         changeQuantity();
         calculateTotalPrice();
     });
@@ -171,7 +170,7 @@ $(document).ready(function () {
         }
         $input.val(value);
         $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text($unit * value);
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
         changeQuantity();
         calculateTotalPrice();
     });
@@ -199,6 +198,10 @@ $(document).ready(function () {
         var categoryId = $('input[name="categoryId"]').val();
         var keyword = $('input[name="keyword"]').val();
         location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
+    });
+    $('#search_icon').click(function () {
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?keyword=${keyword}`;
     });
 });
 
