@@ -53,7 +53,7 @@ Route::get('/product/{product}', function ($id) {
 });
 Route::get('/products','GuestController@searchHome');
 Route::get('/cart', function () {
-    return view('search');
+    return view('client.cart');
 });
 /*route user*/
 Route::get('/information', 'UserController@show')->middleware('auth');
