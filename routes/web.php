@@ -36,7 +36,7 @@ Route::get('/home', function () {
         'list_category' => Category::all()
     ];
     return view('client.home', $data);
-})->middleware('verified');
+})->middleware(['auth','verified']);
 Route::post('/home', 'GuestController@loadMore');
 Route::get('/about', function () {
     return view('client.about');
