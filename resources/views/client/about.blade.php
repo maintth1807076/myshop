@@ -6,7 +6,10 @@
             <div class="col">
                 <div class="row mr-0 ml-0">
                     <div data-aos="fade-up" class="col-12 col-xl-4 col-lg-4 col-md-11 col-sm-10 mt-5 ml-3">
-                                <figure><img class="img-thumbnail" src="/img/shacon.png" /></figure>
+                                <figure><img class="img-thumbnail1" style="
+    border: 0px white;
+    width: 67%;
+    margin-left: 20%;" src="/img/shacon.png" /></figure>
                     </div>
                     <div data-aos="fade-down" class="col-12 col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5 mr-5 pt-3 ">
                         <i class="font1"><img class="responsive3" src="{{ asset('img/logo-home.png') }}" width="140px"
@@ -15,9 +18,6 @@
                         bạn có thể tìm thấy cho mình những nhân vật
                         manga mà từ thời bé xíu đã gắn bó với bạn qua những tập truyện tranh như mèo máy Đoraemon,
                         hay thám từ lừng danh Conan đến người máy Arale nghịch ngợm cùng 2 nhóc Boco và cũng ko thể bỏ
-                        manga mà từ thời bé xíu đã gắn bó với bạn qua những tập truyện tranh như mèo máy Đoraemon,
-                        hay thám từ lừng danh Conan đến người máy Arale nghịch ngợm cùng 2 nhóc Boco
-                        manga mà từ thời bé xíu đã gắn bó với bạn qua những tập truyện tranh như mèo máy Đoraemon
 
                     </div>
                 </div>
@@ -25,7 +25,7 @@
         </div>
     <div class="row">
         <div class="col-12 mt-2">
-            <h1>Thành Viên của   <img class="responsive2" src="{{ asset('img/logo-home.png') }}" width="240px"
+            <h1 style="text-align: center">Thành Viên của   <img class="responsive2" src="{{ asset('img/logo-home.png') }}" width="240px"
                                       alt=""></h1>
         </div>
     </div>
