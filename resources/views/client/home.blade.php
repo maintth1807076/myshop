@@ -68,14 +68,9 @@
                 </div>
             @endforeach
                 <div id="remove-row">
-                    <button id="btn-more" data-id="{{ $item->id }}" class="btn btn-outline-dark" ><h4>Xem thêm sản phẩm</h4></button>
+                    <button id="btn-more" data-number="1" class="btn btn-outline-dark" ><h4>Xem thêm sản phẩm</h4></button>
                 </div>
         </div>
-{{--        <div class="col-12 col-sm-auto text-center show-more">--}}
-{{--            <button type="button" class="btn btn-outline-dark">--}}
-{{--                <h4>Xem thêm sản phẩm</h4>--}}
-{{--            </button>--}}
-{{--        </div>--}}
         <div class="container-fluid">
             <div class="text-center  text-uppercase col-12 col-sm-auto ">
                 <h1>

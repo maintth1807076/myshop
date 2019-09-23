@@ -114,7 +114,7 @@
                     <a class="nav-link active dropbtn" href="/contact"><b>LIÊN HỆ</b></a>
                 </div>
                 <div class=" dropdown  nav-item col-sm-3 mini-cart1"  >
-                        <a class="nav-link dropbtn active " href="#" id="navbardrop"
+                        <a class="nav-link dropbtn active checkout-cart" href="#" id="navbardrop"
                            data-toggle="dropdown">
                             <i class="fas fa-shopping-cart"></i>
                             <div class="d-inline list-added text-dark" id="added-quantity"></div>

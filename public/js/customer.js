@@ -1,7 +1,7 @@
 var BASE_URL = 'http://' + $(location).attr('host');
 $(document).ready(function () {
     var path = $(location).attr('href');
-    $('.navhome a').each(function() {
+    $('.navhome a').each(function () {
         if (this.href === path) {
             $(this).addClass('active-nav');
         }
@@ -67,13 +67,23 @@ $(document).ready(function () {
         },
     });
     //end js for Validate-form-client
+    $('#btn-search-home').click(function () {
+        var page = $('input[name="currentPage"]').val();
+        var categoryId = $('input[name="categoryId"]').val();
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
+    });
+    $('#search_icon').click(function () {
+        var keyword = $('input[name="keyword"]').val();
+        location.href = `${BASE_URL}/products?keyword=${keyword}`;
+    });
     $(document).on('click', '#btn-more', function () {
-        var id = $(this).data('id');
+        var number = $(this).data('number');
         $("#btn-more").html("Loading....");
         $.ajax({
             url: '/home',
             method: "POST",
-            data: {'id': id, '_token': $('meta[name=csrf-token]').attr('content')},
+            data: {'number': number, '_token': $('meta[name=csrf-token]').attr('content')},
             dataType: "text",
             success: function (data) {
                 if (data != '') {
@@ -110,7 +120,6 @@ $(document).ready(function () {
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
         swal('Add cart item success!');
     });
-
     var shoppingCartJson = localStorage.getItem('shopping-cart');
     if (shoppingCartJson == null) {
         return;
@@ -118,11 +127,13 @@ $(document).ready(function () {
     var shoppingCart = JSON.parse(shoppingCartJson);
     var htmlContent = '';
     var htmlContent1 = '';
+    var htmlContent2 = '';
     var totalPrice = 0;
     for (var gameId in shoppingCart) {
         var cartItem = shoppingCart[gameId];
         var price = format_money(cartItem.price);
         var total = format_money(cartItem.price * cartItem.quantity);
+        totalPrice += cartItem.price * cartItem.quantity;
         htmlContent += `<tr>
                 <th scope="row">
                     <input type="checkbox" class="check-item" value="">
@@ -146,165 +157,56 @@ $(document).ready(function () {
                 <button class="btn-cart-item-delete" onclick="remove(${cartItem.id})">x</button>
                 </td>
             </tr>`;
-
-        totalPrice += cartItem.price * cartItem.quantity;
-
-
-        htmlContent1 += `
-<div class="mini-cart" style="height: 110px; margin-bottom:2%;">
-     <div class="row">
-        <div class="col-sm-3">
-                <img width="80%;" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
-        </div>
-        <div class="col-sm-9" >
-           <div class="row">
-            <div class="col-sm-12 "><b>${cartItem.name}</b></div>
-            <div class="col-sm-12">
-            <div class="row">
-            <span class="col-sm-6"><pre>Số lượng:<b> ${cartItem.quantity}</b></pre></span>
-             <span class="col-sm-6"><pre>Giá: <b>${price}</b> VNĐ.</pre></span>
-             </div>
-             </div>
-             </div>
-           </div>
-        </div>
-     </div>
-       
-</div>
-       `;
-    }
-    htmlContent1 = htmlContent1 + `<div><div><div></div><div></div> 
-<div class="col-sm-12 text-right " style="margin-top: 3%;">
-          <h4><pre>Tổng:  <b>${totalPrice} VND</b></pre> </h4>
+        htmlContent1 += `<div class="mini-cart" style="height: 110px; margin-bottom:2%;">
+        <div class="row">
+            <div class="col-sm-3">
+                <img width="80%;" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}"
+                     alt=${cartItem.name}>
             </div>
-            <div class="col-sm-12" style="margin-bottom: 5%;">
-            <div class="row">
-            <span  class="col-sm-6 "> <a href="/cart"  class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
-        <span class="col-sm-6 "> <a class="btn btn-danger" href="#">Thanh toán</a></span>
-        </div></div>
-        </div></div>
-
-  `;
-    $('#cart-body1').html(htmlContent1);
-    var totalPriceFormat = format_money(totalPrice);
-    htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
-    $('#cart-body').html(htmlContent);
-    $('.minus-btn').click(function () {
-        var $input = $(this).closest('td').find('input');
-        var value = parseInt($input.val());
-
-        if (value >= 1) {
-            value = value - 1;
-        } else {
-            value = 0;
-        }
-        $input.val(value);
-        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
-        changeQuantity();
-        calculateTotalPrice();
-    });
-    $('.plus-btn').click(function () {
-        var $input = $(this).closest('td').find('input');
-        var value = parseInt($input.val());
-
-        if (value < 20) {
-            value = value + 1;
-        } else {
-            value = 20;
-        }
-        $input.val(value);
-        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
-        changeQuantity();
-        calculateTotalPrice();
-    });
-    $('#btn-pay').click(function () {
-        $.ajax({
-            url: '/order-success',
-            method: 'POST',
-            data: {
-                '_token': $('meta[name=csrf-token]').attr('content'),
-                'cart': JSON.parse(localStorage.getItem('shopping-cart'))
-            },
-            success: function (response) {
-                alert('Success');
-                console.log(response)
-            },
-            error: function () {
-                alert('Error');
-            }
-        });
-        localStorage.clear();
-        location.href = `${BASE_URL}/history`;
-    });
-    $('#btn-search-home').click(function () {
-        var page = $('input[name="currentPage"]').val();
-        var categoryId = $('input[name="categoryId"]').val();
-        var keyword = $('input[name="keyword"]').val();
-        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
-    });
-    $('#search_icon').click(function () {
-        var keyword = $('input[name="keyword"]').val();
-        location.href = `${BASE_URL}/products?keyword=${keyword}`;
-    });
-
-
-    var shoppingCartJson = localStorage.getItem('shopping-cart');
-    if (shoppingCartJson == null) {
-        return;
-    }
-    var shoppingCart = JSON.parse(shoppingCartJson);
-    var htmlContent = '';
-    var htmlContent1 = '';
-    var totalPrice = 0;
-    for (var gameId in shoppingCart) {
-        var cartItem = shoppingCart[gameId];
-        var price = format_money(cartItem.price);
-        var total = format_money(cartItem.price * cartItem.quantity);
-        htmlContent += `<tr>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12 "><b>${cartItem.name}</b></div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <span class="col-sm-6"><pre>Số lượng:<b> ${cartItem.quantity}</b></pre></span>
+                            <span class="col-sm-6"><pre>Giá: <b>${price}</b> VNĐ</pre></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+        htmlContent2 += `<tr>
                 <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
                 </td>
                 <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
                 <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNÐ</td>             
                 <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total}</td>              
             </tr>`;
-        totalPrice += cartItem.price * cartItem.quantity;
     }
-    $('#cart-pay').html(htmlContent1);
     var totalPriceFormat = format_money(totalPrice);
+    htmlContent1 = htmlContent1 + `<div>
+        <div>
+            <div></div>
+            <div></div>
+            <div class="col-sm-12 text-right " style="margin-top: 3%;">
+                <h4>
+                    <pre>Tổng:  <b>${totalPriceFormat} VNĐ</b></pre>
+                </h4>
+            </div>
+            <div class="col-sm-12" style="margin-bottom: 5%;">
+                <div class="row">
+                    <span class="col-sm-6 "> <a href="/cart" class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
+                    <span class="col-sm-6 "> <a class="btn btn-danger" href="#">Thanh toán</a></span>
+                </div>
+            </div>
+        </div>
+    </div>`;
     htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
-    $('#cart-pay').html(htmlContent);
-    $('.minus-btn').click(function () {
-        var $input = $(this).closest('td').find('input');
-        var value = parseInt($input.val());
-
-        if (value >= 1) {
-            value = value - 1;
-        } else {
-            value = 0;
-        }
-        $input.val(value);
-        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
-        changeQuantity();
-        calculateTotalPrice();
-    });
-    $('.plus-btn').click(function () {
-        var $input = $(this).closest('td').find('input');
-        var value = parseInt($input.val());
-
-        if (value < 20) {
-            value = value + 1;
-        } else {
-            value = 20;
-        }
-        $input.val(value);
-        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
-        changeQuantity();
-        calculateTotalPrice();
-    });
+    htmlContent2 = htmlContent2 + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td>${totalPriceFormat} VNĐ</td></tr>`;
+    $('#cart-body').html(htmlContent);
+    $('#cart-body1').html(htmlContent1);
+    $('#cart-pay').html(htmlContent2);
     $('#btn-pay').click(function () {
         $.ajax({
             url: '/order-success',
@@ -323,16 +225,6 @@ $(document).ready(function () {
         });
         localStorage.clear();
         location.href = `${BASE_URL}/history`;
-    });
-    $('#btn-search-home').click(function () {
-        var page = $('input[name="currentPage"]').val();
-        var categoryId = $('input[name="categoryId"]').val();
-        var keyword = $('input[name="keyword"]').val();
-        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
-    });
-    $('#search_icon').click(function () {
-        var keyword = $('input[name="keyword"]').val();
-        location.href = `${BASE_URL}/products?keyword=${keyword}`;
     });
 });
 

@@ -33,8 +33,6 @@
                     <button id="btn-pay" class="btn btn-primary" style="margin-left: 63.05%">Thanh toán</button>
                 </div>
             </div>
-
-
         </div>
         <div class="col-sm-6">
             <table class="table">

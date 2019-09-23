@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $choosedStatus = Input::get('status'); // default all.
+        $choosedStatus = Input::get('status');
         $product_id = Input::get('product_id');
 
         if((!Input::has('status') || $choosedStatus== 3)){
