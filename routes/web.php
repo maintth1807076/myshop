@@ -93,21 +93,20 @@ Route::post('/admin/products/change-status', 'ProductController@changeStatus')->
 Route::resource('/admin/slides', 'SlideController')->middleware('role:admin');
 Route::post('/admin/slides/change-status', 'ProductController@changeStatus')->middleware('role:admin');
 
-//test
-//Route::get('/send', function () {
-//
-//    Mail::to('demo@gmail.com')->send(new DemoMail());
-//
-//    return 'A message has been sent to Mailtrap!';
-//
-//});
 Route::get('/cart', function () {
     return view('search');
+});
+Route::get('/test', function () {
+    return view('admin.dashboard');
 });
 Route::resource('/admin/users', 'MannagerUserController')->middleware('role:admin');
 Route::post('/admin/users/change-status', 'MannagerUserController@changeStatus')->middleware('role:admin');
 Route::resource('/admin/orders','OrderController');
 Route::post('/order-success', 'CartController@checkoutCart');
-
+Route::get('/admin/orders/change-status/{id}', 'OrderController@changeStatus');
+Route::get('/admin/orders/change-status-many', 'OrderController@changeStatusMany');
+Route::get('/admin/get-data-to-time', 'OrderController@getDataToTime');
+Route::get('/admin/get-chart-data', 'OrderController@getChartData');
+Route::get('/admin/get-pie-chart-data', 'OrderDetailController@getPieChartData');
 //mail
 Route::get('mail.send', 'EmailController@send');

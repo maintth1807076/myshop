@@ -18,6 +18,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js"></script>
+    <script type='text/javascript' src='//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js'></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -32,7 +33,7 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="col-2"><a class="navbar-brand ml-5" href="/home">
-                <img src="https://res.cloudinary.com//image/upload/v1566975633/image.png" width="75px"
+                <img src="" width="75px"
                      height="auto" alt="">
             </a></div>
         <div class="col-8"></div>
