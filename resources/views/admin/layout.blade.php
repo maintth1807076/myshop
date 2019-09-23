@@ -61,7 +61,7 @@
     <div class="row pt-5 ml-2">
         <div class="col-4 col-md-3 col-lg-2 admin-nav-side">
             <div class="nav flex-column nav-pills text-dark">
-                <a class="nav-link active bg-dark" href="/admin"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
+                <a class="nav-link active bg-dark" href="/admin/dashboard"><i class="fas fa-cogs pr-2"></i>Quản lí</a>
                 <a class="nav-link text-dark admin-nav-link" href="/admin/users"><i class="fas fa-users pr-2"></i>Khách
                     hàng</a>
                 <a class="nav-link text-dark admin-nav-link" href="/admin/slides"><i class="fas fa-images pr-2"></i>Ảnh

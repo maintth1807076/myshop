@@ -124,7 +124,7 @@
             function selectHandler(e) {
                 for (var i = 0; i < chart.getSelection().length; i++) {
                     var item = chart.getSelection()[i];
-                    window.location.href = '/admin/order?created_at=' + chart_data[item.row].day;
+                    window.location.href = '/admin/orders?created_at=' + chart_data[item.row].day;
                 }
             }
         }
@@ -163,16 +163,16 @@
             };
             var all = 0;
             for (var i = 0; i < chart_data.length; i++) {
-                all += Number(chart_data[i].totalQuantity);
+                all += Number(chart_data[i].total_quantity);
             };
-            var percentage1 = (chart_data[0].totalQuantity/all)*100;
-            // if(percentage1<=20){
-            //     $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing great but compared with all its percentage overall is not too big</span>');
-            // } else if (percentage1<50 && percentage1>20) {
-            //     $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing so great this time that you should think of importing more of it</span>');
-            // } else if (percentage1<=50) {
-            //     $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/order?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> takes more than half of your sales, you should not only import more of it but also promoting other products too. Such as <a href="'+'/admin/order?product_id='+ chart_data[1].product_id+'">'+chart_data[1].product.name+'</span>');
-            // }
+            var percentage1 = (chart_data[0].total_quantity/all)*100;
+            if(percentage1<=20){
+                $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/orders?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing great but compared with all its percentage overall is not too big</span>');
+            } else if (percentage1<50 && percentage1>20) {
+                $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/orders?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> is doing so great this time that you should think of importing more of it</span>');
+            } else if (percentage1<=50) {
+                $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/orders?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> takes more than half of your sales, you should not only import more of it but also promoting other products too. Such as <a href="'+'/admin/order?product_id='+ chart_data[1].product_id+'">'+chart_data[1].product.name+'</span>');
+            }
             data.addRow(['Other Products', rest]);
             var options = {
                 title: '5 Best-sellers'
@@ -187,7 +187,7 @@
             function selectHandler(e) {
                 for (var i = 0; i < chart.getSelection().length; i++) {
                     var item = chart.getSelection()[i];
-                    window.location.href = '/admin/order?product_id=' + chart_data[item.row].product_id;
+                    window.location.href = '/admin/orders?product_id=' + chart_data[item.row].product_id;
                 }
             }
         }

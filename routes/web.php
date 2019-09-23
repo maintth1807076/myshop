@@ -60,31 +60,19 @@ Route::get('/category/{category}', function ($id) {
     ];
     return view('client.product', $data);
 });
-//Route::get('search', function (Request $request) {
-//    $data = [
-//        'list_product' => Product::where('name', 'like', '%' . $request->get('keyword') . '%')->get()
-//    ];
-//    return $data;
-//});
+Route::get('/cart', function () {
+    return view('search');
+});
 /*route user*/
 Route::get('/information', 'UserController@show')->middleware('auth');
 Route::post('/change-name', 'UserController@changeName')->middleware('auth');
 Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth');
 /*route admin*/
-Route::get('/user/{user}', function ($id) {
-    $data = [
-        'list_User' => User::whereNotIn('status', [-1])->get(),
-        'item' => User::find($id),
-    ];
-    return view('client.product', $data);
-});
-//route admin_user
-Route::resource('/admin/user', 'quanliUserController'
-)->middleware('role:admin');
-
-//end Route adin_user
 Route::get('/admin', function () {
     return view('admin.layout');
+})->middleware('role:admin');
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
 })->middleware('role:admin');
 Route::resource('/admin/categories', 'CategoryController')->middleware('role:admin');
 Route::post('/admin/categories/change-status', 'CategoryController@changeStatus')->middleware('role:admin');
@@ -92,13 +80,6 @@ Route::resource('/admin/products', 'ProductController')->middleware('role:admin'
 Route::post('/admin/products/change-status', 'ProductController@changeStatus')->middleware('role:admin');
 Route::resource('/admin/slides', 'SlideController')->middleware('role:admin');
 Route::post('/admin/slides/change-status', 'ProductController@changeStatus')->middleware('role:admin');
-
-Route::get('/cart', function () {
-    return view('search');
-});
-Route::get('/test', function () {
-    return view('admin.dashboard');
-});
 Route::resource('/admin/users', 'MannagerUserController')->middleware('role:admin');
 Route::post('/admin/users/change-status', 'MannagerUserController@changeStatus')->middleware('role:admin');
 Route::resource('/admin/orders','OrderController');

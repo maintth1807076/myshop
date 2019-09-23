@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="col-5">
-            <div class="filter-btn form-inline" action="/admin/order" method="GET">
+            <div class="filter-btn form-inline" action="/admin/orders" method="GET">
                 <div class="form-group mx-sm-4 mb-3">
                     <label for="chooseStatus">Status</label>
                     <select id="select-action" name="status" class="form-control">
@@ -60,7 +60,7 @@
                     <td class="column-1 text-center">
                         <div>{{$item->id}}</div>
                         <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
-                           title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
+                           title="Click to view the details of this order" href="/admin/orders/{{$item->id}}">
                             <button class="btn btn-outline-success">Detail</button>
                         </a>
                     </td>
@@ -99,7 +99,6 @@
         <div class="row">
             <div class="col-md-8 form-inline">
                 <div class="form-check mb-2">
-                    <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
                     <select id="select-action" name="select-action" class="form-control">
                         <option selected value="0">Action</option>
                         <option value="1">Confirm All</option>
@@ -110,11 +109,12 @@
                 </div>
             </div>
         </div>
-        <div class="pagination pull-right" style="margin-left: 50%">
+        <div class="pagination pull-right" style="margin-left: 30%">
             {{$orders->links()}}
         </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type='text/javascript' src='//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js'></script>
     <script>
         $('.filter-btn select[name=status]').change(function () {
             window.location.href = $('.filter-btn').attr('action') + '?status=' + $(this).val();
