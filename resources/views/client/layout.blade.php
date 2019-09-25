@@ -64,7 +64,6 @@
                                          style="width: 50px; height: 50px"> <span
                                         class="caret">{{ Auth::user()->name }}</span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/information">Thông tin tài khoản</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -72,7 +71,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Đăng xuất') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                           style="display: none;">
                                         @csrf
@@ -120,7 +118,7 @@
                             GIỎ HÀNG
                         </a>
                     <div class="dropdown-content dropdown-menu-right mini-cart" id="cart-body1" >
-                </div>
+                    </div>
                 </div>
             </div>
         </div>

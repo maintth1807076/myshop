@@ -55,30 +55,30 @@
     <link href="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.css" rel="stylesheet"/>
     <script src="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js"></script>
     <script type="text/javascript">
-        $("#btnPopup").click(function () {
-            var amount = $("#create_form input[name=amount]").val();
-            console.log(amount)
-            console.log(amount * 100);
-            var submitUrl = $("#create_form").attr("action");
-            $.ajax({
-                type: "POST",
-                url: submitUrl,
-                data: {
-                    '_token': $('meta[name=csrf-token]').attr('content'),
-                    'amount': amount
-                },
-                success: function (x) {
-                    if (x.code === '00') {
-                        if (window.vnpay) {
-                            vnpay.open({width: 768, height: 600, url: x.data});
-                        }
-                        return false;
-                    } else {
-                        alert(x.Message);
-                    }
-                }
-            });
-            return false;
-        });
+        // $("#btnPopup").click(function () {
+        //     var amount = $("#create_form input[name=amount]").val();
+        //     console.log(amount)
+        //     console.log(amount * 100);
+        //     var submitUrl = $("#create_form").attr("action");
+        //     $.ajax({
+        //         type: "POST",
+        //         url: submitUrl,
+        //         data: {
+        //             '_token': $('meta[name=csrf-token]').attr('content'),
+        //             'amount': amount
+        //         },
+        //         success: function (x) {
+        //             if (x.code === '00') {
+        //                 if (window.vnpay) {
+        //                     vnpay.open({width: 768, height: 600, url: x.data});
+        //                 }
+        //                 return false;
+        //             } else {
+        //                 alert(x.Message);
+        //             }
+        //         }
+        //     });
+        //     return false;
+        // });
     </script>
 @endsection

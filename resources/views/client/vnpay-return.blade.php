@@ -10,9 +10,12 @@
                 <label >Mã đơn hàng:</label>
                 <label><?php echo $_GET['vnp_TxnRef'] ?></label>
             </div>
+            Name {{$order->ship_name}}
+            Phone {{$order->ship_phone}}
+            Địa chỉ {{$order->ship_address}}
             <div class="form-group">
                 <label >Số tiền:</label>
-                <label><?php echo $_GET['vnp_Amount'] ?></label>
+                <label><?php echo number_format($_GET['vnp_Amount']) ?> VNĐ</label>
             </div>
             <div class="form-group">
                 <label >Nội dung thanh toán:</label>

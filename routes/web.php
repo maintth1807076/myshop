@@ -44,20 +44,17 @@ Route::get('/cart', function () {
 Route::get('/pay', function () {
     return view('client.pay');
 });
-Route::get('/vnpay', function () {
-    return view('client.vnpay');
-});
-Route::post('/vnpay', 'PayController@create');
-Route::get('/vnpay-return', 'PayController@return');
+Route::post('/pay', 'CartController@checkoutCart');
+Route::get('/vnpay-return', 'CartController@return');
 /*route user*/
 Route::get('/information', 'UserController@show')->middleware(['auth','verified']);
 Route::post('/change-name', 'UserController@changeName')->middleware('auth');
 Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth');
 Route::post('/change-password', 'UserController@changePassword')->middleware('auth');
 /*route admin*/
-Route::get('/admin/login', function () {
-    return view('admin.login');
-});
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->middleware('role:admin');
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware('role:admin');
