@@ -3,10 +3,9 @@
     <div class="row">
         <div class="col">
             <h3 class="mb-3">
-                <i class="fas fa-stream"></i> List [USER]
-                <small class="text-muted">All USER availble</small>
+                <i class="fas fa-stream"></i> List user
+                <small class="text-muted">All user availble</small>
             </h3>
-            <a href="{{route('user.create')}}"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add new</a>
         </div>
     </div>
     <div class="row mb-2 mt-2">
@@ -14,16 +13,12 @@
         </div>
         <div class="col-5">
             <div class="form-group float-left mr-2">
-
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
+                       placeholder="Enter keyword to search">
             </div>
-            <form >
-                <div class="form-group float-left mr-2">
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2 placeholder="Enter keyword to search">
-                </div>
-                <div class="form-group float-left">
-                    <button type="submit" class="btn btn-outline-primary mb-2">Search</button>
-                </div>
-            </form>
+            <div class="form-group float-left">
+                <button type="submit" class="btn btn-outline-primary mb-2">Search</button>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -47,8 +42,8 @@
                     <td><img src="{{$item->avatar}}" alt="{{$item->name}}" width="50px;"></td>
                     <td width="25%">{{$item->email}}</td>
                     <td>
-                        <a href="{{route('user.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>
-                <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-user-delete" title="Delete this game">Delete</a>
+                        <a href="{{route('users.show', [$item->id])}}" class="mr-2" title="View game detail">Detail</a>
+                        <a href="javascript:void(0)" id="btn-delete-{{$item->id}}" class="mr-2 btn-user-delete" title="Delete this game">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -75,5 +70,4 @@
             </nav>
         </div>
     </div>
-
 @endsection

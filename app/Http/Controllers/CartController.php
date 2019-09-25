@@ -15,14 +15,12 @@ class CartController extends Controller
     {
         try {
             $cart = $request->input('cart');
+            $ship = $request->input('ship');
             DB::beginTransaction();
-            $ship_name = 'mai';
-            $ship_address = 'hn';
-            $ship_phone = '09122';
             $order = new Order();
-            $order->ship_name = $ship_name;
-            $order->ship_address = $ship_address;
-            $order->ship_phone = $ship_phone;
+            $order->ship_name = $ship['ship_name'];
+            $order->ship_address = $ship['ship_address'];
+            $order->ship_phone = $ship['ship_phone'];
             $order->total_price = 0;
             $order->save();
             $order_id = $order->id;

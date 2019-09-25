@@ -9,7 +9,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="{{asset('js/sweet-alert.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js"></script>
@@ -96,7 +95,7 @@
                     <a class="nav-link dropbtn" href="/home"><b>TRANG CHỦ</b></a>
                 </div>
                 <div class="dropdown nav-item col-sm-2">
-                    <a class="nav-link  active dropdown-toggle dropbtn" href="#" id="navbardrop"
+                    <a class="nav-link  active dropdown-toggle dropbtn" href="/products" id="navbardrop"
                        data-toggle="dropdown">
                         <b>SẢN PHẨM</b>
                     </a>
@@ -114,13 +113,13 @@
                     <a class="nav-link active dropbtn" href="/contact"><b>LIÊN HỆ</b></a>
                 </div>
                 <div class=" dropdown  nav-item col-sm-3 mini-cart1"  >
-                        <a class="nav-link dropbtn active checkout-cart" href="#" id="navbardrop"
+                        <a class="nav-link dropbtn active checkout-cart" href="/cart" id="navbardrop"
                            data-toggle="dropdown">
                             <i class="fas fa-shopping-cart"></i>
                             <div class="d-inline list-added text-dark" id="added-quantity"></div>
                             GIỎ HÀNG
                         </a>
-                    <div class="dropdown-content  dropdown-menu-right mini-cart  " id="cart-body1" >
+                    <div class="dropdown-content dropdown-menu-right mini-cart" id="cart-body1" >
                 </div>
                 </div>
             </div>
@@ -130,52 +129,51 @@
 <main class="">
     @yield('content')
 </main>
-<footer class="bg-dark row" style="color: white; font-family: -webkit-body">
-    <div class="col-sm-4">
-        <div style="padding: 25px">
-            <h3>GIỚI THIỆU</h3>
-            <p>Cửa hàng quà tặng - Vật phẩm trong game : Liên minh huyền thoại, Overwatch, ... - Phụ kiện anime :
-                Onepiece,
-                Naruto, dragonball, Attack on Titan... - Vật phẩm trong siêu anh hùng... Chất lượng đảm bảo - uy tín -
-                Độc
-                nhất</p>
+<footer class="bg-dark container-fluid" style="color: white; font-family: -webkit-body">
+    <div class="row">
+        <div class="col-sm-4">
+            <div style="padding: 25px">
+                <h3>GIỚI THIỆU</h3>
+                <p>Cửa hàng quà tặng - Vật phẩm trong game : Liên minh huyền thoại, Overwatch, ... - Phụ kiện anime :
+                    Onepiece,
+                    Naruto, dragonball, Attack on Titan... - Vật phẩm trong siêu anh hùng... Chất lượng đảm bảo - uy tín -
+                    Độc
+                    nhất</p>
+            </div>
+            <div style="padding: 25px">
+                <h3>CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h3>
+                <p>Hotline : 0985-776-331</p>
+                <p>Open - Close: 08:30-22:00</p>
+                <p>Mail: anhnguyentvn@gmail.com</p>
+            </div>
         </div>
-
-        <div style="padding: 25px">
-            <h3>CHÚNG TÔI CÓ THỂ GIÚP BẠN?</h3>
-            <p>Hotline : 0985-776-331</p>
-            <p>Open - Close: 08:30-22:00</p>
-            <p>Mail: anhnguyentvn@gmail.com</p>
+        <div class="col-sm-4">
+            <div style="padding: 25px;">
+                <h3 class="widget-title mb-3">KẾT NỐI VỚI CHÚNG TÔI</h3>
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096814183571!2d105.7800937149326!3d21.028811885998316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455f9bdf0e1c7%3A0x26caee8e7662dd9b!2zRlBUIEFwdGVjaCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1566843331684!5m2!1svi!2s"
+                        width="100%" height="280" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
         </div>
-
-    </div>
-    <div class="col-sm-4">
-        <div style="padding: 25px;">
-            <h3 class="widget-title mb-3">KẾT NỐI VỚI CHÚNG TÔI</h3>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096814183571!2d105.7800937149326!3d21.028811885998316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455f9bdf0e1c7%3A0x26caee8e7662dd9b!2zRlBUIEFwdGVjaCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1566843331684!5m2!1svi!2s"
-                width="100%" height="280" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div>
-
-    </div>
-    <div class="col-sm-4">
-        <div style="padding: 25px">
-            <h3 class="widget-title">LIÊN KẾT</h3>
-            <a href="#" style="margin-right: 40px;color: white;" title=""><i
-                    class="fab fa-twitter fa-2x"></i></a>
-            <a href="#" style="margin-right: 40px ; color: white;" title=""><i
-                    class="fab fa-facebook-f fa-2x"></i></a>
-            <a href="#" style="margin-right: 40px; color: white;" title=""><i
-                    class="fab fa-google-plus-g fa-2x"></i></a>
-            <a href="#" style="margin-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
-            <a href="#" style="margin-right: 40px;color: white;" title="">
-            </a>
-        </div>
-        <div style="padding: 25px">
-            <h3 class="widget-title">THANH TOÁN</h3>
-            <p>
-                Các bạn có thể thanh toán trước qua tài khoản ngân hàng hoặc thanh toán COD khi nhận hàng.
-            </p>
+        <div class="col-sm-4">
+            <div style="padding: 25px">
+                <h3 class="widget-title">LIÊN KẾT</h3>
+                <a href="#" style="padding-right: 40px;color: white;" title=""><i
+                            class="fab fa-twitter fa-2x"></i></a>
+                <a href="#" style="padding-right: 40px ; color: white;" title=""><i
+                            class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="#" style="padding-right: 40px; color: white;" title=""><i
+                            class="fab fa-google-plus-g fa-2x"></i></a>
+                <a href="#" style="padding-right: 40px;color: white;" title=""><i class="fab fa-pinterest fa-2x"></i></a>
+                <a href="#" style="padding-right: 40px;color: white;" title="">
+                </a>
+            </div>
+            <div style="padding: 25px">
+                <h3 class="widget-title">THANH TOÁN</h3>
+                <p>
+                    Các bạn có thể thanh toán trước qua tài khoản ngân hàng hoặc thanh toán COD khi nhận hàng.
+                </p>
+            </div>
         </div>
     </div>
 </footer>

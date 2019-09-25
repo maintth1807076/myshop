@@ -1,7 +1,7 @@
 var BASE_URL = 'http://' + $(location).attr('host');
 $(document).ready(function () {
-    var path = $(location).attr('href');
-    $('.navhome a').each(function () {
+    var path = 'http://' + $(location).attr('host') + $(location).attr('pathname');
+    $('.navhome a').each(function() {
         if (this.href === path) {
             $(this).addClass('active-nav');
         }
@@ -69,8 +69,8 @@ $(document).ready(function () {
     //end js for Validate-form-client
     $('#btn-search-home').click(function () {
         var page = $('input[name="currentPage"]').val();
-        var categoryId = $('input[name="categoryId"]').val();
-        var keyword = $('input[name="keyword"]').val();
+        var categoryId = $('input[name="categoryId"]:checked').val();
+        var keyword = $('input[name="keyword1"]').val();
         location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
     });
     $('#search_icon').click(function () {
@@ -83,7 +83,9 @@ $(document).ready(function () {
         $.ajax({
             url: '/home',
             method: "POST",
-            data: {'number': number, '_token': $('meta[name=csrf-token]').attr('content')},
+            data: {'number': number,
+                '_token': $('meta[name=csrf-token]').attr('content'),
+                'query': 'Product::orderBy(\'created_at\', \'DESC\')->offset(4 * $number)->limit(4)->get()'},
             dataType: "text",
             success: function (data) {
                 if (data != '') {
@@ -91,6 +93,26 @@ $(document).ready(function () {
                     $('#load-more-new-product').append(data);
                 } else {
                     $('#btn-more').html("No Data");
+                }
+            }
+        });
+    });
+    $(document).on('click', '#btn-more-1', function () {
+        var number = $(this).data('number1');
+        $("#btn-more-1").html("Loading....");
+        $.ajax({
+            url: '/home',
+            method: "POST",
+            data: {'number1': number,
+                '_token': $('meta[name=csrf-token]').attr('content'),
+                },
+            dataType: "text",
+            success: function (data) {
+                if (data != '') {
+                    $('#remove-row-1').remove();
+                    $('#load-more-best-product').append(data);
+                } else {
+                    $('#btn-more-1').html("No Data");
                 }
             }
         });
@@ -119,11 +141,92 @@ $(document).ready(function () {
         shoppingCart[id] = cartItem;
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
         swal('Add cart item success!');
+        var shoppingCartJson = localStorage.getItem('shopping-cart');
+        var shoppingCart = JSON.parse(shoppingCartJson);
+        var htmlContent = '';
+        var htmlContent1 = '';
+        var htmlContent2 = '';
+        var totalPrice = 0;
+        for (var gameId in shoppingCart) {
+            var cartItem = shoppingCart[gameId];
+            var price = format_money(cartItem.price);
+            var total = format_money(cartItem.price * cartItem.quantity);
+            totalPrice += cartItem.price * cartItem.quantity;
+            htmlContent += `<tr>
+                <th scope="row">
+                    <input type="checkbox" class="check-item" value="">
+                </th>
+                <td style="width: 2%;border-right: solid 2px #EEF0F2">${cartItem.id}</td>
+                <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
+                </td>
+                <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
+                <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNĐ</td>
+                <td id="${cartItem.id}" class="quantity" style="width: 13%;border-right: solid 2px #EEF0F2">
+                      <button class="minus-btn" type="button" name="button">
+                       -
+                      </button>
+                      <input style="width: 50%" type="text" class="center-block" name="quantity" value="${cartItem.quantity}">
+                      <button class="plus-btn" type="button" name="button">
+                        +
+                      </button>
+                </td>
+                <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total} VNĐ</td>
+                <td>
+                <button class="btn-cart-item-delete" onclick="remove(${cartItem.id})">x</button>
+                </td>
+            </tr>`;
+            htmlContent1 += `<div class="mini-cart" style="height: 110px; margin-bottom:2%;">
+        <div class="row">
+            <div class="col-sm-3">
+                <img width="80%;" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}"
+                     alt=${cartItem.name}>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12 "><b>${cartItem.name}</b></div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <span class="col-sm-6"><pre>Số lượng:<b> ${cartItem.quantity}</b></pre></span>
+                            <span class="col-sm-6"><pre>Giá: <b>${price}</b> VNĐ</pre></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+            htmlContent2 += `<tr>
+                <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
+                </td>
+                <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
+                <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNÐ</td>             
+                <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total}</td>              
+            </tr>`;
+        }
+        var totalPriceFormat = format_money(totalPrice);
+        htmlContent1 = htmlContent1 + `<div>
+        <div>
+            <div></div>
+            <div></div>
+            <div class="col-sm-12 text-right " style="margin-top: 3%;">
+                <h4>
+                    <pre>Tổng:  <b>${totalPriceFormat} VNĐ</b></pre>
+                </h4>
+            </div>
+            <div class="col-sm-12" style="margin-bottom: 5%;">
+                <div class="row">
+                    <span class="col-sm-6 "> <a href="/cart" class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
+                    <span class="col-sm-6 "> <a class="btn btn-danger" href="/pay">Thanh toán</a></span>
+                </div>
+            </div>
+        </div>
+    </div>`;
+        htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
+        htmlContent2 = htmlContent2 + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td>${totalPriceFormat} VNĐ</td></tr>`;
+        $('#cart-body').html(htmlContent);
+        $('#cart-body1').html(htmlContent1);
+        $('#cart-pay').html(htmlContent2);
     });
     var shoppingCartJson = localStorage.getItem('shopping-cart');
-    if (shoppingCartJson == null) {
-        return;
-    }
     var shoppingCart = JSON.parse(shoppingCartJson);
     var htmlContent = '';
     var htmlContent1 = '';
@@ -197,7 +300,7 @@ $(document).ready(function () {
             <div class="col-sm-12" style="margin-bottom: 5%;">
                 <div class="row">
                     <span class="col-sm-6 "> <a href="/cart" class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
-                    <span class="col-sm-6 "> <a class="btn btn-danger" href="#">Thanh toán</a></span>
+                    <span class="col-sm-6 "> <a class="btn btn-danger" href="/pay">Thanh toán</a></span>
                 </div>
             </div>
         </div>
@@ -207,16 +310,32 @@ $(document).ready(function () {
     $('#cart-body').html(htmlContent);
     $('#cart-body1').html(htmlContent1);
     $('#cart-pay').html(htmlContent2);
+    // var shoppingCartJson = localStorage.getItem('shopping-cart');
+    // var shoppingCart = JSON.parse(shoppingCartJson);
+    // if (shoppingCartJson == null) {
+    //     $('.checkout-cart').hover(function () {
+    //         $('.dropdown-content');
+    //     })
+    // }
     $('#btn-pay').click(function () {
+        var ship_name = $("#form-receiver-infor input[name = 'name']").val();
+        var ship_address = $("#form-receiver-infor input[name = 'address']").val();
+        var ship_phone = $("#form-receiver-infor input[name = 'phone']").val();
+        var ship = {
+            'ship_name': ship_name,
+            'ship_address': ship_address,
+            'ship_phone': ship_phone,
+        };
         $.ajax({
             url: '/order-success',
             method: 'POST',
             data: {
                 '_token': $('meta[name=csrf-token]').attr('content'),
-                'cart': JSON.parse(localStorage.getItem('shopping-cart'))
+                'cart': JSON.parse(localStorage.getItem('shopping-cart')),
+                'ship': ship
             },
             success: function (response) {
-                alert('Success');
+                swal('Đặt hàng thành công');
                 console.log(response)
             },
             error: function () {

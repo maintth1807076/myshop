@@ -67,7 +67,7 @@
                                       name="c_content" placeholder="Nội dung liên hệ" required></textarea>
                         </div>
                         <div class="form-button">
-                            <button type="submit" class="btn btn-lg btn-danger">Gửi yêu cầu</button>
+                            <button type="submit" class="btn btn-lg btn-primary">Gửi yêu cầu</button>
                         </div>
                     </form>
                 </div>

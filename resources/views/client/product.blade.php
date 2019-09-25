@@ -8,7 +8,7 @@
                 <div class="filter-name">
                     <label for="name"><b> Lọc theo tên:</b></label>
                     <br>
-                    <input type="text" name="keyword" value="{{$currentKeyword}}">
+                    <input type="text" name="keyword1" value="{{$currentKeyword}}">
                     <input type="hidden" name="currentPage" value="{{$currentPage}}">
                 </div>
                 {{--                <div class="filter-price">--}}
@@ -27,16 +27,27 @@
                     <br>
                     @foreach($list_category as $category)
                         <br>
-                        <input type="radio" name="categoryId" value="{{$category->id}}" {{($currentCategoryId == $category->id) ? 'checked':''}}>{{$category->name}}
+                        <input type="radio" name="categoryId"
+                               value="{{$category->id}}" {{($currentCategoryId == $category->id) ? 'checked':''}}>{{$category->name}}
                     @endforeach
                 </div>
                 <div class="button-filter">
-                    <button type="button" class="btn btn-danger" id="btn-search-home">Lọc</button>
+                    <button type="button" class="btn btn-primary" id="btn-search-home">Lọc</button>
                 </div>
             </div>
             <div class="col-sm-9">
                 <div class="text-center">
-                    <h3><b>Tất cả sản phẩm</b></h3>
+                    @if ($currentCategoryId == 0)
+                        <h3><b>Tất cả sản phẩm</b></h3>
+                    @elseif ($currentCategoryId == 1)
+                        <h3><b>Sản phẩm PVC Figure</b></h3>
+                    @elseif ($currentCategoryId == 2)
+                        <h3><b>Sản phẩm Nendoroid</b></h3>
+                    @elseif ($currentCategoryId == 3)
+                        <h3><b>Sản phẩm Figma</b></h3>
+                    @else
+                        <h3><b>Sản phẩm Revoltech</b></h3>
+                    @endif
                 </div>
                 <ul class="nav nav-tabs">
 
@@ -74,84 +85,92 @@
                 <div class="tab-content">
 
                     <div id="gridView" class="container tab-pane  active"><br>
-                        <div class="row">
-                            @foreach($list_product as $item)
-                                <div class=" col-sm-4  mb-5">
-                                    <div class="card">
-                                        <div class="fuild">
-                                            <div class="img-cart">
-                                                <a target="_blank" href="/product/{{$item->id}}">
-                                                    <div
-                                                        style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
-                                                </a>
-
-                                            </div>
-                                            <div class="card-body">
-                                                <h4 class="card-text name">{{$item->name}}</h4>
-                                                <h3 class="card-text ">
-                                                    <pre> <b> {{number_format($item->price)}} VNĐ</b></pre>
-                                                </h3>
-                                            </div>
-                                            <div class="overlay overlay-product">
-                                                <div style="display: flex">
+                        @if($list_product->isEmpty())
+                            <h6>Không có sản phẩm phù hợp.</h6>
+                        @else
+                            <div class="row">
+                                @foreach($list_product as $item)
+                                    <div class=" col-sm-4  mb-5">
+                                        <div class="card">
+                                            <div class="fuild">
+                                                <div class="img-cart">
+                                                    <a href="/product/{{$item->id}}">
+                                                        <div
+                                                                style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-text name">{{$item->name}}</h4>
+                                                    <h3 class="card-text ">
+                                                        <pre> <b> {{number_format($item->price)}} VNĐ</b></pre>
+                                                    </h3>
+                                                </div>
+                                                <div class="overlay overlay-product">
+                                                    <div style="display: flex">
                                                     <span style="width: 50%; text-align: center">
                                                      <a class="add-cart nav-link active color" href="javascript:void(0)"
-                                           data-id="{{$item->id}}"
-                                           data-price="{{$item->price}}"
-                                           data-name="{{$item->name}}"
-                                           data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
+                                                        data-id="{{$item->id}}"
+                                                        data-price="{{$item->price}}"
+                                                        data-name="{{$item->name}}"
+                                                        data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
                                             <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
                                         </a>
                                     </span>
-                                                    <span style="width: 50%; text-align: center">
+                                                        <span style="width: 50%; text-align: center">
                                         <a class="nav-link color1" href="/product/{{$item->id}}">
                                             <i class="fa fa-eye" style="font-size:30px"></i>
                                         </a>
                                     </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                     <div id="listView" class="container tab-pane  fade"><br>
-                        <div class="row">
-                            @foreach($list_product as $item)
-                                <div class="col-12">
-                                    <div class="card2">
-                                        <div class="fuild">
-                                            <div class="img-cart2 col-sm-4">
-                                                <a target="_blank" href="/product/{{$item->id}}">
-                                                    <div
-                                                        style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
-                                                </a>
-
-                                            </div>
-                                            <div class="card-body2 col-sm-8">
-                                                <h4 class="card-text name">{{$item->name}}</h4>
-                                                <h3 class="card-text ">
-                                                    <pre> <b> {{number_format($item->price)}} VNĐ</b></pre>
-                                                </h3>
-                                                <h5 class="card-text ">{{$item->detail}} </h5>
-                                                <div class="button-add-car">
-                                                    <button type="submit" name="add" id="AddToCart"
-                                                            class="btn btn-danger ">
-                                                        <a class=" nav-link " style="color: black" href="#">
-                                                            <b>Thêm vào giỏ hàng</b>
-                                                        </a>
-                                                        {{--                                            <span id="AddToCartText" class="fas fa-cart-plus"> Thêm vào giỏ hàng</span>--}}
-                                                    </button>
+                        @if($list_product->isEmpty())
+                            <h6>Không có sản phẩm phù hợp.</h6>
+                        @else
+                            <div class="row">
+                                @foreach($list_product as $item)
+                                    <div class="col-12">
+                                        <div class="card2">
+                                            <div class="fuild">
+                                                <div class="img-cart2 col-sm-4">
+                                                    <a href="/product/{{$item->id}}">
+                                                        <div
+                                                                style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$item->productDetail->first()->thumbnail}}')"></div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-body2 col-sm-8">
+                                                    <h4 class="card-text name">{{$item->name}}</h4>
+                                                    <h3 class="card-text ">
+                                                        <pre> <b> {{number_format($item->price)}} VNĐ</b></pre>
+                                                    </h3>
+                                                    <h5 class="card-text ">{{$item->detail}} </h5>
+                                                    <div class="button-add-car">
+                                                        <button name="add" class="btn btn-primary ">
+                                                            <a class="add-cart nav-link active color"
+                                                               href="javascript:void(0)"
+                                                               data-id="{{$item->id}}"
+                                                               data-price="{{$item->price}}"
+                                                               data-name="{{$item->name}}"
+                                                               data-thumbnail="{{$item->productDetail->first()->thumbnail}}"
+                                                               style="color: black">
+                                                                <b>Thêm vào giỏ hàng</b>
+                                                            </a>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
-
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="row">

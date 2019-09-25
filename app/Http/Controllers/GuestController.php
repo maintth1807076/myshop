@@ -3,17 +3,64 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Order;
+use App\OrderDetail;
 use App\Product;
+use App\Slide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class GuestController extends Controller
 {
+    public function index(){
+        $orders = Order::whereRaw('status=2')->get();
+        $id = $orders->pluck('id')->all();
+        $product_id_best = OrderDetail::select(DB::raw('sum(quantity) as total_quantity'),'product_id')
+            ->whereIn('order_id',$id)
+            ->groupBy('product_id')
+            ->orderBy('total_quantity', 'desc')
+            ->get();
+        $ids = array();
+        foreach ($product_id_best as $item){
+            $id = $item->product_id;
+            array_push($ids, $id);
+        }
+        $list_product_best = Product::whereIn('id', $ids)->limit(4)->get();
+        $list_product_hot = Product::orderBy('created_at', 'DESC')->get();
+        $data = [
+            'list_slide' => Slide::whereNotIn('status', [-1])->get(),
+            'list_product_new' => Product::orderBy('created_at', 'DESC')->limit(4)->get(),
+            'list_product_hot' => $list_product_hot,
+            'list_product_best' => $list_product_best,
+            'list_category' => Category::all()
+        ];
+        return view('client.home', $data);
+    }
+
     public function loadMore(Request $request)
     {
+        if (Input::has('number')){
+            $number = Input::get('number');
+            $list = Product::orderBy('created_at', 'DESC')->offset(4 * $number)->limit(4)->get();
+        }
+        if (Input::has('number1')){
+            $number = Input::get('number1');
+            $orders = Order::whereRaw('status=2')->get();
+            $id = $orders->pluck('id')->all();
+            $product_id_best = OrderDetail::select(DB::raw('sum(quantity) as total_quantity'),'product_id')
+                ->whereIn('order_id',$id)
+                ->groupBy('product_id')
+                ->orderBy('total_quantity', 'desc')
+                ->get();
+            $ids = array();
+            foreach ($product_id_best as $item){
+                $id = $item->product_id;
+                array_push($ids, $id);
+            }
+            $list = Product::whereIn('id', $ids)->offset(4 * $number)->limit(4)->get();
+        }
         $output = '';
-        $number = Input::get('number');
-        $list = Product::orderBy('created_at', 'DESC')->offset(4 * $number)->limit(4)->get();
         if (!$list->isEmpty()) {
             foreach ($list as $item) {
                 $url = '/product/' . $item->id;
@@ -55,12 +102,18 @@ class GuestController extends Controller
     </div>';
             }
             $new_number = $number + 1;
-            if($new_number <=2){
+            if (Input::has('number') & $new_number <=2){
                 $output .= '<div id="remove-row">
                     <button id="btn-more" data-number="' . $new_number . '" class="btn btn-outline-dark" ><h4>Xem thêm sản phẩm</h4></button>
                 </div>';
-            } else {
-                $output .= '<div id="remove-row">
+            }
+            elseif (Input::has('number1') & $new_number <=2){
+                $output .= '<div id="remove-row-1">
+                    <button id="btn-more-1" data-number1="' . $new_number . '" class="btn btn-outline-dark" ><h4>Xem thêm sản phẩm</h4></button>
+                </div>';
+            }
+            else {
+                $output .= '<div>
                     <a href="/products" class="btn btn-outline-dark" ><h4>Xem tất cả</h4></a>
                 </div>';
             }
