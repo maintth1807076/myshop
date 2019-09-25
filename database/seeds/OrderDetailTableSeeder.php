@@ -273,9 +273,9 @@ class OrderDetailTableSeeder extends Seeder
                 'created_at' => '2019-07-27 10:47:01',
             ],
             [
-                'product_id' => 31,
+                'product_id' => 32,
                 'quantity' => 1,
-                'unit_price' => \App\Product::find(31)->price,
+                'unit_price' => \App\Product::find(32)->price,
                 'order_id' => 11,
                 'created_at' => '2019-07-27 10:47:01',
             ],

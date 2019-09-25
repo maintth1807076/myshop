@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $choosedStatus = Input::get('status'); // default all.
+        $choosedStatus = Input::get('status');
         $product_id = Input::get('product_id');
 
         if((!Input::has('status') || $choosedStatus== 3)){
@@ -35,7 +35,7 @@ class OrderController extends Controller
             $created_at = Input::get('created_at');
             $orders = Order::where('created_at', '>=', $created_at.' 00:00:00')
                 ->where('created_at', '<=', $created_at.' 23:59:59')
-//                ->where('status', '=', '2')
+                ->where('status', '=', '2')
                 ->paginate(10);
         }
         return view('admin.order.list')
@@ -57,7 +57,9 @@ class OrderController extends Controller
     }
     public function changeStatusMany(Request $request)
     {
-        DB::table('orders')->whereIn('id', Input::get('ids'))->update(['status' => $request->get('status')]);
+        DB::table('orders')->whereIn('id', Input::get('ids'))
+            ->update(['status' => $request->get('status'),
+                'updated_at' => date('Y-m-d H:i:s')]);
         return redirect()->back();
     }
     public function getDataToTime()

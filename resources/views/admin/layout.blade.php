@@ -72,6 +72,7 @@
                     phẩm</a>
                 <a class="nav-link admin-nav-link" href="/admin/orders"><i class="fas fa-shopping-cart pr-2"></i>Đơn hàng</a>
                 <a class="nav-link admin-nav-link" href="/admin/reports"><i class="fas fa-file-alt pr-2"></i>Báo cáo</a>
+                <a class="nav-link admin-nav-link" href="/home"><i class="fas fa-home pr-2"></i>Xem trước trang chủ</a>
             </div>
         </div>
         <div class="col-8 col-md-9 col-lg-10 pl-5">

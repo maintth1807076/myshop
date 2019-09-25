@@ -53,7 +53,7 @@
                 <tr class="row-item" id="row-item-{{$item->id}}">
                     <td class="column-0">
                         @if($item->status==1 || $item->status==0)
-                            <input type="checkbox" class="check-item">
+                            <input type="checkbox" class="check-item" value="{{$item->id}}">
                         @endif
                     </td>
                     <td class="column-1 text-center">
@@ -76,14 +76,14 @@
                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                     <td class="column-8 text-center">
                         @if($item->status == 0)
-                            <a href="/admin/orders/change-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=1" onclick="return confirm('Bạn có chắc xác nhận đơn hàng này?')"
                                class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
-                            <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to confirm this order?')"
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Bạn có chắc muốn xóa đơn hàng này?')"
                                class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
                         @elseif($item->status==1)
-                            <a href="/admin/orders/change-status/{{$item->id}}?status=2" onclick="return confirm('Are you sure to finish this order?')"
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=2" onclick="return confirm('Bạn có chắc hoàn thành đơn hàng này?')"
                                class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>
-                            <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to cancel this order?')"
+                            <a href="/admin/orders/change-status/{{$item->id}}?status=-1" onclick="return confirm('Bạn có chắc muốn xóa đơn hàng này?')"
                                class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
                         @elseif($item->status==2)
                             <i class="fas fa-check 4x text-danger"></i>
@@ -98,13 +98,13 @@
         <div class="row">
             <div class="col-md-8 form-inline">
                 <div class="form-check mb-2">
-                    <select id="select-action" name="select-action" class="form-control">
-                        <option selected value="0">Action</option>
-                        <option value="1">Confirm All</option>
-                        <option value="2">Finish All</option>
-                        <option value="-1">Cancel All</option>
+                    <select id="select-action" name="action-id" class="form-control">
+                        <option selected value="0">Thao tác</option>
+                        <option value="1">Xác nhận</option>
+                        <option value="2">Hoàn thành</option>
+                        <option value="-1">Xóa</option>
                     </select>
-                    <button type="submit" class="btn btn-primary ml-2" id="btn-apply-action">Submit</button>
+                    <button type="submit" class="btn btn-primary ml-2" id="btn-order-apply-all">Apply to all</button>
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
                             content += '<tr class="row-item" id="row-item-' + list_obj[i].id + '">';
                             content += '<td class="column-0">';
                             if (list_obj[i].status == 1 || list_obj[i].status == 0){
-                                content += '<input type="checkbox" class="check-item">';
+                                content += '<input type="checkbox" class="check-item" value="' + list_obj[i].id + '">';
                             }
                             content += '</td>';
                             content += '<td style="text-align:center;" class="column-1"><div>' + list_obj[i].id + '</div>';
@@ -173,9 +173,9 @@
                             content += '<td class="column-3">' + list_obj[i].ship_address + '</td>';
                             content += '<td class="column-4">' + list_obj[i].ship_phone + '</td>';
                             content += '<td class="column-5">';
-                            // jQuery.each(list_obj[i].order_details, function(j, item) {
-                            //     content += '<li>' + item.quantity + ' - ' + item.product.name + '</li>';
-                            // });
+                            jQuery.each(list_obj[i].order_details, function(j, item) {
+                                content += '<li>' + item.quantity + ' - ' + item.product.name + '</li>';
+                            });
                             content += '</td>';
                             content += '<th class="column-9" style="font-weight: normal;">'+list_obj[i].created_at+'</th>';
                             content += '<td class="column-6">' + list_obj[i].unit_price + '</td>';
@@ -204,169 +204,33 @@
                 });
             });
         });
-        // $(document).ready(function(){
-        //     $('body').on('click', '#btn-apply-action',sendData )
-        // })
-        // function sendData() {
-        //
-        //     var value = ($('select[name="select-action"]').val());
-        //     var arrayId = [];
-        //     $('.check-item:checked').each(function(index, item) {
-        //         arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
-        //     });
-        //
-        //     if(arrayId.length == 0){
-        //         swal("Please choose at least 1 item!", {
-        //             icon: "warning",
-        //         });
-        //         return;
-        //     }
-        //
-        //     switch (value){
-        //         case '-1':
-        //             swal({
-        //                 title: "Are you sure?",
-        //                 text: "Are you sure to cancel these orders?",
-        //                 icon: "info",
-        //                 buttons: true,
-        //                 dangerMode: true,
-        //             }),
-        //                 function(willCancel){if (willCancel) {
-        //                     var arrayStatus = [];
-        //                     for (var k = 0; k < arrayId.length; k++) {
-        //                         var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().next().text().trim();
-        //                         arrayStatus.push(status);
-        //                     }
-        //                     console.log(arrayStatus);
-        //                     // return
-        //                     for (var j = 0; j < arrayStatus.length; j++){
-        //                         console.log(arrayStatus[j]);
-        //                         if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
-        //                             delete arrayId[j];
-        //                             swal({
-        //                                 title: "Can't cancel confirmed or finished orders!",
-        //                                 text: "Please only choose orders that can be canceled",
-        //                                 icon: "warning",
-        //                             });
-        //                             return;
-        //                         }
-        //                     }
-        //                     arrayId = jQuery.grep(arrayId, function(n){ return (n); });
-        //                     console.log(arrayId);
-        //
-        //                     $.ajax({
-        //                         method: 'POST',
-        //                         url: '/admin/orders/change-status-many',
-        //                         data: {
-        //                             '_token': $('meta[name="csrf-token"]').attr('content'),
-        //                             'ids': arrayId,
-        //                             'status': -1
-        //                         },
-        //                         success: function (resp) {
-        //                             for (var i = 0; i < arrayId.length; i++) {
-        //                                 $('#row-item-' + arrayId[i]).remove();
-        //                             }
-        //                             window.setTimeout(function(){window.location.reload()}, 1000);
-        //                         },
-        //                         error: function (r) {
-        //                             console.log(r);
-        //                             swal("Action fails! Please try again later!", {
-        //                                 icon: "warning",
-        //                             });
-        //                         }
-        //                     });
-        //                 }};
-        //             break;
-        //
-        //         case '1':
-        //             swal({
-        //                 title: "Are you sure?",
-        //                 text: "Are you sure to confirm these orders?",
-        //                 icon: "info",
-        //                 buttons: true,
-        //                 dangerMode: true,
-        //             })
-        //                 .then((willConfirm) => {if (willConfirm) {
-        //                     $.ajax({
-        //                         method: 'POST',
-        //                         url: '/admin/orders/change-status-many',
-        //                         data: {
-        //                             '_token': $('meta[name="csrf-token"]').attr('content'),
-        //                             'ids': arrayId,
-        //                             'status': 1
-        //                         },
-        //                         success: function (resp) {
-        //                             for (var i = 0; i < arrayId.length; i++) {
-        //                                 $('#row-item-' + arrayId[i]).remove();
-        //                             }
-        //                             window.setTimeout(function(){window.location.reload()}, 1000);
-        //                         },
-        //                         error: function (r) {
-        //                             console.log(r);
-        //                             swal("Action fails! Please try again later!", {
-        //                                 icon: "warning",
-        //                             });
-        //                         }
-        //                     });
-        //                 }});
-        //             break;
-        //
-        //         case '2':
-        //             swal({
-        //                 title: "Are you sure?",
-        //                 text: "Are you sure to finish these orders?",
-        //                 icon: "info",
-        //                 buttons: true,
-        //                 dangerMode: true,
-        //             })
-        //                 .then((willFinish) => {if (willFinish) {
-        //                     var arrayStatus = [];
-        //                     for (var k = 0; k < arrayId.length; k++) {
-        //                         var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().next().text().trim();
-        //                         arrayStatus.push(status);
-        //                     }
-        //                     for (var j = 0; j < arrayStatus.length; j++){
-        //                         console.log(arrayStatus[j]);
-        //                         if (arrayStatus[j] == 'Canceled' || arrayStatus[j] == 'DONE') {
-        //                             delete arrayId[j];
-        //                             swal({
-        //                                 title: "Can't finish confirmed or canceld orders!",
-        //                                 text: "Please only choose orders that can be finished",
-        //                                 icon: "warning",
-        //                             });
-        //                             return
-        //                         }
-        //                     }
-        //                     arrayId = jQuery.grep(arrayId, function(n){ return (n); });
-        //                     $.ajax({
-        //                         method: 'POST',
-        //                         url: '/admin/orders/change-status-many',
-        //                         data: {
-        //                             '_token': $('meta[name="csrf-token"]').attr('content'),
-        //                             'ids': arrayId,
-        //                             'status': 2
-        //                         },
-        //                         success: function (resp) {
-        //                             for (var i = 0; i < arrayId.length; i++) {
-        //                                 $('#row-item-' + arrayId[i]).remove();
-        //                             }
-        //                             window.setTimeout(function(){window.location.reload()}, 1000);
-        //                         },
-        //                         error: function (r) {
-        //                             console.log(r);
-        //                             swal("Action fails! Please try again later!", {
-        //                                 icon: "warning",
-        //                             });
-        //                         }
-        //                     });
-        //                 }});
-        //             break;
-        //         default:
-        //             swal("Invalid action! Please try again!", {
-        //                 icon: "warning",
-        //             });
-        //             break;
-        //     }
-        // }
+        $('#btn-order-apply-all').click(function () {
+            var arrayId = new Array();
+            var url = '/admin/orders/change-status';
+            $('.check-item:checkbox:checked').each(function () {
+                arrayId.push($(this).val());
+            });
+            if (arrayId.length == 0) {
+                swal('Vui lòng chọn ít nhất một đơn hàng trước khi thực hiện thao tác!');
+                return;
+            }
+            var action = $("select[name='action-id']").val();
+            if (action == 0) {
+                swal('Vui lòng chọn thao tác muốn thực hiện!');
+                return;
+            }
+            swal({
+                    title: "Bạn có chắc muốn thực hiện thao tác?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Có',
+                    cancelButtonText: 'Không',
+                    closeOnConfirm: false,
+                },
+                function () {
+                    changeStatus(arrayId, url, action);
+                });
+        });
     </script>
 @endsection

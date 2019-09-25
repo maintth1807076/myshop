@@ -14,11 +14,11 @@ class OrderDetailController extends Controller
     {
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
-//        $orders = Order::whereRaw('status=2')->get();
-//        $id = $orders->pluck('id')->all();
+        $orders = Order::whereRaw('status=2')->get();
+        $id = $orders->pluck('id')->all();
         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as total_quantity'), 'product_id')
             ->whereBetween('order_details.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
-//            ->whereIn('order_id',$id)
+            ->whereIn('order_id',$id)
             ->groupBy('product_id')
             ->orderBy('total_quantity', 'desc')
             ->get();

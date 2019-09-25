@@ -51,37 +51,36 @@
                         <span class="price">{{number_format($product->price)}} <ins>đ</ins></span>
                     </div>
                     <div class="product-actions-wrapper">
-                        <form action=" " method="post" enctype="multipart/form-data" id="AddToCartForm">
-                            <div class="product-signle-options clearfix">
-                                <div class="product-single-quantity">
-                                    <label for="Quantity">Số Lượng: </label>
-                                    <input type="number" id="Quantity" name="quantity" value="1" min="1"
-                                           class="quantity-selector form-control">
+{{--                            <div class="product-signle-options clearfix">--}}
+{{--                                <div class="product-single-quantity">--}}
+{{--                                    <label for="Quantity">Số Lượng: </label>--}}
+{{--                                    <input type="number" id="Quantity" name="quantity" value="1" min="1"--}}
+{{--                                           class="quantity-selector form-control">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
+                        <div class="product-actions">
+                            <div class="row">
+                                <div class="col-xl-3 col-md-3 col-sm-4 mb-3">
+                                    <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-warning">
+                                        <span class="fas fa-shopping-cart"> Mua ngay</span>
+                                    </button>
+                                </div>
+                                <div class="col-xl-3 col-md-3 col-sm-4">
+                                    <button class="btn btn-lg btn-primary">
+                                        <a style="color: black" class="add-cart " href="javascript:void(0)" data-id="{{$product->id}}"
+                                           data-price="{{$product->price}}"
+                                           data-name="{{$product->name}}"
+                                           data-thumbnail="{{$product->productDetail->first()->thumbnail}}">
+                                            <i class="fa fa-shopping-bag" style="font-size:1.125rem">Thêm vào giỏ
+                                                hàng</i>
+                                        </a>
+                                    </button>
+                                </div>
+                                <div class="col-xl-6">
                                 </div>
                             </div>
-                            <div class="product-actions">
-                                <div class="row">
-                                    <div class="col-xl-3 col-md-3 col-sm-4 mb-3">
-                                        <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-warning">
-                                            <span class="fas fa-shopping-cart"> Mua ngay</span>
-                                        </button>
-                                    </div>
-                                    <div class="col-xl-3 col-md-3 col-sm-4">
-                                        <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-d1">
-                                            <a class="add-cart " href="javascript:void(0)" data-id="{{$product->id}}"
-                                               data-price="{{$product->price}}"
-                                               data-name="{{$product->name}}"
-                                               data-thumbnail="{{$product->productDetail->first()->thumbnail}}">
-                                                <i class="fa fa-shopping-bag" style="font-size:1.125rem">Thêm vào giỏ
-                                                    hàng</i>
-                                            </a>
-                                        </button>
-                                    </div>
-                                    <div class="col-xl-6">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="col-md-12 mt-2">
                         <div class="title-name">
@@ -233,61 +232,137 @@
                         <hr>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6 col-lg-4">
-                    <div class="product-item">
-                        <div class="product-img hover-img">
-                            <a href=""><img src="https://cf.shopee.vn/file/c9240c39cf24c4dd5e96e6813a03426a"
-                                            class="img-reponsive img-fluid" alt=""></a>
-                        </div>
-                        <div class="pro-name">
-                            <a href="">Mô Hình Tôn Ngộ Không</a>
-                        </div>
-                        <div class="pro-price">
-                            200,000 đ
-                        </div>
-                    </div>
+            </div>
+            <div id="multi-item-example2" class="carousel slide carousel-multi-item" data-ride="carousel">
+                <div class="controls-top">
+                    <a class="btn-floating" href="#multi-item-example2" data-slide="prev"><i
+                                class="fa fa-chevron-left"></i></a>
+                    <a class="btn-floating" href="#multi-item-example2" data-slide="next"><i
+                                class="fa fa-chevron-right"></i></a>
                 </div>
-                <div class="col-xl-3 col-md-6 col-lg-4">
-                    <div class="product-item">
-                        <div class="product-img hover-img">
-                            <a href=""><img src="https://cf.shopee.vn/file/c9240c39cf24c4dd5e96e6813a03426a"
-                                            class="img-reponsive img-fluid" alt=""></a>
+                <div class="carousel-inner" role="listbox">
+                    @for($i = 0; $i <count($list_product_hot)-4; $i++)
+                        <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="card mb-2">
+                                        <div class="card">
+                                            <div class="fuild">
+                                                <div class="img-cart">
+                                                    <a target="_blank"
+                                                       href="/product/{{$list_product_hot[$i]->id}}">
+                                                        <div
+                                                                style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$list_product_hot[$i]->productDetail->first()->thumbnail}}')"></div>
+                                                    </a>
+
+                                                </div>
+                                                <div class="overlay overlay-product-home2">
+                                                    <div style="display: flex">
+                                                                <span style="width: 50%; text-align: center">
+                                                                 <a class="add-cart nav-link active color" href="#">
+                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                                    </a>
+                                                </span>
+                                                        <span style="width: 50%; text-align: center">
+                                                    <a class="nav-link color1" href="#">
+                                                        <i class="fa fa-eye" style="font-size:30px"></i>
+                                                    </a>
+                                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 clearfix d-none d-md-block">
+                                    <div class="card mb-2">
+                                        <div class="fuild">
+                                            <div class="img-cart">
+                                                <a target="_blank"
+                                                   href="/product/{{$list_product_hot[ $i + 1]->id}}">
+                                                    <div
+                                                            style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$list_product_hot[$i + 1]->productDetail->first()->thumbnail}}')"></div>
+                                                </a>
+
+                                            </div>
+                                            <div class="overlay overlay-product-home2">
+                                                <div style="display: flex">
+                                                                <span style="width: 50%; text-align: center">
+                                                                 <a class="add-cart nav-link active color" href="#">
+                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                                    </a>
+                                                </span>
+                                                    <span style="width: 50%; text-align: center">
+                                                    <a class="nav-link color1" href="#">
+                                                        <i class="fa fa-eye" style="font-size:30px"></i>
+                                                    </a>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 clearfix d-none d-md-block">
+                                    <div class="card mb-2">
+                                        <div class="fuild">
+                                            <div class="img-cart">
+                                                <a target="_blank"
+                                                   href="/product/{{$list_product_hot[ $i + 2]->id}}">
+                                                    <div
+                                                            style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$list_product_hot[$i + 2]->productDetail->first()->thumbnail}}')"></div>
+                                                </a>
+
+                                            </div>
+
+                                            <div class="overlay overlay-product-home2">
+                                                <div style="display: flex">
+                                                                <span style="width: 50%; text-align: center">
+                                                                 <a class="add-cart nav-link active color" href="#">
+                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                                    </a>
+                                                </span>
+                                                    <span style="width: 50%; text-align: center">
+                                                    <a class="nav-link color1" href="#">
+                                                        <i class="fa fa-eye" style="font-size:30px"></i>
+                                                    </a>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 clearfix d-none d-md-block">
+                                    <div class="card mb-2">
+                                        <div class="fuild">
+                                            <div class="img-cart">
+                                                <a target="_blank"
+                                                   href="/product/{{$list_product_hot[ $i + 3]->id}}">
+                                                    <div
+                                                            style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$list_product_hot[$i + 3]->productDetail->first()->thumbnail}}')"></div>
+                                                </a>
+
+                                            </div>
+
+                                            <div class="overlay overlay-product-home2">
+                                                <div style="display: flex">
+                                                                <span style="width: 50%; text-align: center">
+                                                                 <a class="add-cart nav-link active color" href="#">
+                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                                    </a>
+                                                </span>
+                                                    <span style="width: 50%; text-align: center">
+                                                    <a class="nav-link color1" href="#">
+                                                        <i class="fa fa-eye" style="font-size:30px"></i>
+                                                    </a>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pro-name">
-                            <a href="">Mô Hình Tôn Ngộ Không</a>
-                        </div>
-                        <div class="pro-price">
-                            200,000 đ
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-4">
-                    <div class="product-item">
-                        <div class="product-img hover-img">
-                            <a href=""><img src="https://cf.shopee.vn/file/c9240c39cf24c4dd5e96e6813a03426a"
-                                            class="img-reponsive img-fluid" alt=""></a>
-                        </div>
-                        <div class="pro-name">
-                            <a href="">Mô Hình Tôn Ngộ Không</a>
-                        </div>
-                        <div class="pro-price">
-                            200,000 đ
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-item">
-                        <div class="product-img hover-img">
-                            <a href=""><img src="https://cf.shopee.vn/file/c9240c39cf24c4dd5e96e6813a03426a"
-                                            class="img-reponsive img-fluid" alt=""></a>
-                        </div>
-                        <div class="pro-name">
-                            <a href="">Mô Hình Tôn Ngộ Không</a>
-                        </div>
-                        <div class="pro-price">
-                            200,000 đ
-                        </div>
-                    </div>
+                    @endfor
                 </div>
             </div>
         </div>
