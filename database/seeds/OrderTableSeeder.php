@@ -181,15 +181,14 @@ class OrderTableSeeder extends Seeder
                 'created_at' => '2019-07-23 15:44:17',
             ],
             [
-            'id' => 21,
-            'total_price' => 2259000,
-            'ship_name' => 'Hoa',
-            'ship_address' => ' số 54 Liễu Giai, quận Ba Đình, Ba Đình, Hà Nội',
-            'ship_phone' => '0438277178',
-            'created_at' => '2019-09-27 03:07:01',
+                'id' => 21,
+                'total_price' => 2259000,
+                'ship_name' => 'Hoa',
+                'ship_address' => ' số 54 Liễu Giai, quận Ba Đình, Ba Đình, Hà Nội',
+                'ship_phone' => '0438277178',
+                'created_at' => '2019-09-27 03:07:01',
                 'status'=> 2,
-
-        ],
+            ],
             [
                 'id' => 22,
                 'total_price' => 2220000,
@@ -279,7 +278,6 @@ class OrderTableSeeder extends Seeder
                 'ship_phone' => '02374354374',
                 'created_at' => '2019-09-27 03:47:01',
                 'status'=> 2,
-
             ],
             [
                 'id' => 32,

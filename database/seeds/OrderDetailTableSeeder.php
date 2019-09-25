@@ -937,6 +937,8 @@ class OrderDetailTableSeeder extends Seeder
                 'order_id' =>40,
                 'created_at' => '2019-09-25 03:44:17',
             ],
+
+
         ]);
     }
 }
