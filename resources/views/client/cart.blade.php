@@ -28,7 +28,7 @@
             </table>
             <div class="col-md-12" style="padding-left: 81%">
                 <div style="margin: 0 1% 1%">
-                    <a href="/pay"><button class="btn btn-warning">Thanh toán</button></a>
+                    <a href="/pay"><button class="btn btn-warning">Tiến hành đặt hàng</button></a>
                 </div>
             </div>
         </div>

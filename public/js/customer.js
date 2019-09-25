@@ -105,7 +105,7 @@ $(document).ready(function () {
             method: "POST",
             data: {'number1': number,
                 '_token': $('meta[name=csrf-token]').attr('content'),
-                },
+            },
             dataType: "text",
             success: function (data) {
                 if (data != '') {
@@ -152,29 +152,6 @@ $(document).ready(function () {
             var price = format_money(cartItem.price);
             var total = format_money(cartItem.price * cartItem.quantity);
             totalPrice += cartItem.price * cartItem.quantity;
-            htmlContent += `<tr>
-                <th scope="row">
-                    <input type="checkbox" class="check-item" value="">
-                </th>
-                <td style="width: 2%;border-right: solid 2px #EEF0F2">${cartItem.id}</td>
-                <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
-                </td>
-                <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
-                <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNĐ</td>
-                <td id="${cartItem.id}" class="quantity" style="width: 13%;border-right: solid 2px #EEF0F2">
-                      <button class="minus-btn" type="button" name="button">
-                       -
-                      </button>
-                      <input style="width: 50%" type="text" class="center-block" name="quantity" value="${cartItem.quantity}">
-                      <button class="plus-btn" type="button" name="button">
-                        +
-                      </button>
-                </td>
-                <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total} VNĐ</td>
-                <td>
-                <button class="btn-cart-item-delete" onclick="remove(${cartItem.id})">x</button>
-                </td>
-            </tr>`;
             htmlContent1 += `<div class="mini-cart" style="height: 110px; margin-bottom:2%;">
         <div class="row">
             <div class="col-sm-3">
@@ -194,13 +171,6 @@ $(document).ready(function () {
             </div>
         </div>
     </div>`;
-            htmlContent2 += `<tr>
-                <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
-                </td>
-                <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
-                <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNÐ</td>             
-                <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total}</td>              
-            </tr>`;
         }
         var totalPriceFormat = format_money(totalPrice);
         htmlContent1 = htmlContent1 + `<div>
@@ -215,22 +185,23 @@ $(document).ready(function () {
             <div class="col-sm-12" style="margin-bottom: 5%;">
                 <div class="row">
                     <span class="col-sm-6 "> <a href="/cart" class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
-                    <span class="col-sm-6 "> <a class="btn btn-danger" href="/pay">Thanh toán</a></span>
+                    <span class="col-sm-6 "> <a class="btn btn-primary" href="/pay">Thanh toán</a></span>
                 </div>
             </div>
         </div>
     </div>`;
-        htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
-        htmlContent2 = htmlContent2 + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td>${totalPriceFormat} VNĐ</td></tr>`;
-        $('#cart-body').html(htmlContent);
         $('#cart-body1').html(htmlContent1);
-        $('#cart-pay').html(htmlContent2);
     });
     var shoppingCartJson = localStorage.getItem('shopping-cart');
     var shoppingCart = JSON.parse(shoppingCartJson);
     var htmlContent = '';
     var htmlContent1 = '';
     var htmlContent2 = '';
+    if(shoppingCart == null){
+        htmlContent1 += `<p class="text-center pt-2 text-primary">Giỏ hàng trống</p>`;
+        $('#cart-body1').html(htmlContent1);
+        return;
+    }
     var totalPrice = 0;
     for (var gameId in shoppingCart) {
         var cartItem = shoppingCart[gameId];
@@ -284,10 +255,12 @@ $(document).ready(function () {
                 </td>
                 <td style="width: 30%;border-right: solid 2px #EEF0F2">${cartItem.name}</td>
                 <td data-price="${cartItem.price}" style="width: 15%;border-right: solid 2px #EEF0F2">${price} VNÐ</td>             
+                <td style="width: 15%;border-right: solid 2px #EEF0F2">${cartItem.quantity}</td>             
                 <td data-total="${cartItem.price * cartItem.quantity}" style="width: 30%">${total}</td>              
             </tr>`;
     }
     var totalPriceFormat = format_money(totalPrice);
+    htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
     htmlContent1 = htmlContent1 + `<div>
         <div>
             <div></div>
@@ -300,23 +273,45 @@ $(document).ready(function () {
             <div class="col-sm-12" style="margin-bottom: 5%;">
                 <div class="row">
                     <span class="col-sm-6 "> <a href="/cart" class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
-                    <span class="col-sm-6 "> <a class="btn btn-danger" href="/pay">Thanh toán</a></span>
+                    <span class="col-sm-6 "> <a class="btn btn-primary" href="/pay">Thanh toán</a></span>
                 </div>
             </div>
         </div>
     </div>`;
-    htmlContent = htmlContent + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td id ="total-price">${totalPriceFormat} VNĐ</td></tr>`;
     htmlContent2 = htmlContent2 + `<tr><td></td><td></td><td></td><td></td><td></td><td></td ><td>${totalPriceFormat} VNĐ</td></tr>`;
     $('#cart-body').html(htmlContent);
     $('#cart-body1').html(htmlContent1);
     $('#cart-pay').html(htmlContent2);
-    // var shoppingCartJson = localStorage.getItem('shopping-cart');
-    // var shoppingCart = JSON.parse(shoppingCartJson);
-    // if (shoppingCartJson == null) {
-    //     $('.checkout-cart').hover(function () {
-    //         $('.dropdown-content');
-    //     })
-    // }
+    $('.minus-btn').click(function () {
+        var $input = $(this).closest('td').find('input');
+        var value = parseInt($input.val());
+
+        if (value >= 1) {
+            value = value - 1;
+        } else {
+            value = 0;
+        }
+        $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
+    });
+    $('.plus-btn').click(function () {
+        var $input = $(this).closest('td').find('input');
+        var value = parseInt($input.val());
+
+        if (value < 20) {
+            value = value + 1;
+        } else {
+            value = 20;
+        }
+        $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
+    });
     $('#btn-pay').click(function () {
         var ship_name = $("#form-receiver-infor input[name = 'name']").val();
         var ship_address = $("#form-receiver-infor input[name = 'address']").val();
@@ -336,14 +331,20 @@ $(document).ready(function () {
             },
             success: function (response) {
                 swal('Đặt hàng thành công');
-                console.log(response)
+                localStorage.clear();
+                if (response.code === '00') {
+                    if (window.vnpay) {
+                        vnpay.open({width: 768, height: 600, url: response.data});
+                    }
+                    return false;
+                } else {
+                    alert(response.Message);
+                }
             },
             error: function () {
                 alert('Error');
             }
         });
-        localStorage.clear();
-        location.href = `${BASE_URL}/history`;
     });
 });
 
