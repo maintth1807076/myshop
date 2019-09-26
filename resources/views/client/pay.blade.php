@@ -31,7 +31,6 @@
                     <span class="invalid-feedback" role="alert">{{ $errors->first('address') }}</span>
                 </div>
                 <div class="col-sm-6">
-                    <a href="/cart">Quay lại giỏ hàng</a>
                 </div>
                 <div class="col-sm-6">
                     <button id="btn-pay" class="btn btn-primary" style="margin-left: 63.05%">Thanh toán</button>
@@ -41,6 +40,9 @@
                         <p>Vui lòng đăng nhập để đặt hàng<a href="/login">Đăng nhập</a></p>
                     </div>
                     @endif
+                <div class="col-sm-6">
+                    <a href="/cart">Quay lại giỏ hàng</a>
+                </div>
             </div>
         </div>
         <div class="col-sm-6">

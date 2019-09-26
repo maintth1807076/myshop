@@ -23,9 +23,6 @@ class CartController extends Controller
 //            ]);
             $cart = $request->input('cart');
             $ship = $request->input('ship');
-            if($cart.isEmpty() || $ship.isEmpty()){
-                $this->return();
-            }
             DB::beginTransaction();
             $order = new Order();
             $order->ship_name = $ship['ship_name'];

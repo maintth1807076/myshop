@@ -171,7 +171,7 @@ class GuestController extends Controller
                     $list = $list->orderBy('name', 'asc');
                     break;
                 case 4:
-                    $list = $list > orderBy('name', 'desc');
+                    $list = $list->orderBy('name', 'desc');
                     break;
                 case 5:
                     $list = $list->orderBy('price', 'asc');

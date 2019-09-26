@@ -15,7 +15,6 @@
                             <div class="carousel-item thumbnail {{ $key == 0 ? 'active' : '' }}">
                                 <div class="product-image"
                                      style="  width: 100%; height: 540px;  background-size: cover; background-image:url('{{$item->thumbnail}}')"></div>
-
                             </div>
                         @endforeach
                     </div>
