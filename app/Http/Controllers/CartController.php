@@ -15,11 +15,21 @@ class CartController extends Controller
     public function checkoutCart(Request $request)
     {
         try {
+//            $validatedData = $request->validate([
+//                'ship_name' => 'required',
+//                'ship_email' => 'required',
+//                'ship_phone' => 'required',
+//                'ship_address' => 'required',
+//            ]);
             $cart = $request->input('cart');
             $ship = $request->input('ship');
+            if($cart.isEmpty() || $ship.isEmpty()){
+                $this->return();
+            }
             DB::beginTransaction();
             $order = new Order();
             $order->ship_name = $ship['ship_name'];
+            $order->ship_email = $ship['ship_email'];
             $order->ship_address = $ship['ship_address'];
             $order->ship_phone = $ship['ship_phone'];
             $order->total_price = 0;
@@ -126,7 +136,6 @@ class CartController extends Controller
         }
         $secureHash = hash('sha256',$vnp_HashSecret . $hashData);
         $order_id = $_GET['vnp_TxnRef'];
-        Log::info($order_id);
         $data = [
             'secureHash' => $secureHash,
             'order' => Order::find($order_id)

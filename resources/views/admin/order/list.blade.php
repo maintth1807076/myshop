@@ -205,6 +205,7 @@
             });
         });
         $('#btn-order-apply-all').click(function () {
+            var action = $("select[name='action-id']").val();
             var arrayId = new Array();
             var url = '/admin/orders/change-status';
             $('.check-item:checkbox:checked').each(function () {
@@ -214,10 +215,38 @@
                 swal('Vui lòng chọn ít nhất một đơn hàng trước khi thực hiện thao tác!');
                 return;
             }
-            var action = $("select[name='action-id']").val();
             if (action == 0) {
                 swal('Vui lòng chọn thao tác muốn thực hiện!');
                 return;
+            }
+            if(action == 1){
+                $.ajax({
+                    url: '/send-check-order',
+                    method: 'POST',
+                    data: {
+                        '_token': $('meta[name=csrf-token]').attr("content"),
+                        'ids': arrayId,
+                        'status': status
+                    },
+                    success: function () {
+
+                    },
+                    error: function () {
+
+                    }
+                })
+                swal({
+                        title: "Bạn có chắc muốn thực hiện thao tác?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: '#DD6B55',
+                        confirmButtonText: 'Có',
+                        cancelButtonText: 'Không',
+                        closeOnConfirm: false,
+                    },
+                    function () {
+                        changeStatus(arrayId, url, action);
+                    });
             }
             swal({
                     title: "Bạn có chắc muốn thực hiện thao tác?",

@@ -312,24 +312,33 @@ $(document).ready(function () {
         }
 
     });
-    $('#btn-users-apply-all').click(function () {
+    $('#btn-user-apply-all').click(function () {
         var arrayId = new Array();
         var url = '/admin/users/change-status';
         $('.check-item:checkbox:checked').each(function () {
             arrayId.push($(this).val());
         });
         if (arrayId.length == 0) {
-            alert('Vui lòng chọn ít nhất một danh mục trước khi thực hiện thao tác!');
+            swal('Vui lòng chọn ít nhất một tài khoản trước khi thực hiện thao tác!');
             return;
         }
         var action = $("select[name='action-id']").val();
         if (action == 0) {
-            alert('Vui lòng chọn thao tác muốn thực hiện!');
+            swal('Vui lòng chọn thao tác muốn thực hiện!');
             return;
         }
-        if (confirm('Bạn có chắc muốn thực hiện thao tác?')) {
-            changeStatus(arrayId, url, action);
-        }
+        swal({
+                title: "Bạn có chắc muốn thực hiện thao tác?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Có',
+                cancelButtonText: 'Không',
+                closeOnConfirm: false,
+            },
+            function () {
+                changeStatus(arrayId, url, action);
+            });
     });
     //end js for user manager
     // js for validate-form-admin

@@ -37,7 +37,7 @@
         <div class="col-sm-4">
             <div method="get" action="">
                 <div class="searchbar">
-                    <input class="search_input" type="text" name="keyword" placeholder="Search...">
+                    <input class="search_input" type="text" name="keyword" placeholder="Tìm kiếm...">
                     <a href="javascript:void(0)" id="search_icon"><i class="fas fa-search"></i></a>
                 </div>
             </div>

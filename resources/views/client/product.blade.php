@@ -63,24 +63,20 @@
                     </li>
                     <li class="nav-item sort">
                         <div class="row ">
-
                             <label>Sắp xếp:</label>
-                            <select name=" index-view-page" id="index-view-page" class="form-control">
-                                <option value="date">Ngày: Mới- Cũ</option>
-                                <option value="product-hot">Sản phẩm nổi bật</option>
-                                <option value="36">Sản phẩm bán chạy</option>
-                                <option value="36">Tên: A-Z</option>
-                                <option value="36">Tên: Z-A</option>
-                                <option value="36">Giá: Tăng dần</option>
-                                <option value="36">Giá: Giảm dần</option>
-                                <option value="date">Ngày: Mới- Cũ</option>
-                                <option value="date">Ngày: Cũ- Mới</option>
-                            </select>
+                            <div class="filter-btn form-inline" action="/products" method="GET">
+                                <select name="sortBy" id="index-view-page" class="form-control">
+                                    <option value="1" {{($currentSortBy == 1) ? 'selected':''}}>Sản phẩm nổi bật</option>
+                                    <option value="2" {{($currentSortBy == 2) ? 'selected':''}}>Sản phẩm bán chạy</option>
+                                    <option value="3" {{($currentSortBy == 3) ? 'selected':''}}>Tên: A-Z</option>
+                                    <option value="4" {{($currentSortBy == 4) ? 'selected':''}}>Tên: Z-A</option>
+                                    <option value="5" {{($currentSortBy == 5) ? 'selected':''}}>Giá: Tăng dần</option>
+                                    <option value="6" {{($currentSortBy == 6) ? 'selected':''}}>Giá: Giảm dần</option>
+                                </select>
+                            </div>
                         </div>
-
                     </li>
                 </ul>
-
                 <!-- Tab panes -->
                 <div class="tab-content">
 

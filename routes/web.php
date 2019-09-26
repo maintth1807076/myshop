@@ -30,10 +30,13 @@ Route::get('/about', function () {
 Route::get('/contact', 'ContactController@getContact');
 Route::post('/contact', 'ContactController@saveContact');
 Route::get('/product/{product}', function ($id) {
+    $product = Product::find($id);
+    $price = $product->price;
+    $list_product_hot = Product::whereBetween('price', [$price - 100000, $price + 500000])->get();
     $data = [
-        'product' => Product::find($id),
+        'product' => $product,
         'list_product_detail' => Product::find($id)->productDetail,
-        'list_product_hot' => Product::all()
+        'list_product_hot' => $list_product_hot
     ];
     return view('client.detail-product', $data);
 });
@@ -74,4 +77,10 @@ Route::get('/admin/get-data-to-time', 'OrderController@getDataToTime');
 Route::get('/admin/get-chart-data', 'OrderController@getChartData');
 Route::get('/admin/get-pie-chart-data', 'OrderDetailController@getPieChartData');
 //mail
-Route::get('mail.send', 'EmailController@send');
+Route::get('/send', 'EmailController@send');
+Route::get('/send-product', 'EmailController@sendMailQuangCao');
+Route::post('/send-check-order', 'EmailController@sendMailCheckOrder');
+Route::post('/send-notice-order', 'EmailController@sendMailNoticeOrder');
+Route::post('/helo', function (){
+    return "hello";
+});

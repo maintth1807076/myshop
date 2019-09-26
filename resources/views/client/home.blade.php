@@ -118,7 +118,8 @@
                 </div>
             @endforeach
             <div id="remove-row-1">
-                <button id="btn-more-1" data-number1="1" class="btn btn-outline-dark"><h4>Xem thêm sản phẩm</h4></button>
+                <button id="btn-more-1" data-number1="1" class="btn btn-outline-dark"><h4>Xem thêm sản phẩm</h4>
+                </button>
             </div>
         </div>
         <div class="container-fluid">
@@ -128,7 +129,28 @@
                 </h1>
                 <hr>
             </div>
-            <div class="row product-hot">
+            <div class="row  product-hot">
+                <div class="col-sm-3 clearfix d-none d-md-block">
+                    <div class="fuild" style="margin-top: 23px">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                 src="http://mohinhdep.net/wp-content/uploads/2018/05/Your-name-mohinhdep.net-1.jpg"
+                                 alt="Card image cap">
+                        </div>
+                        <div class="overlay overlay1 overlay-product-fix ">
+                            <div class="card-title">
+                                <h3><b></b></h3>
+                            </div>
+                            <section class="buttons">
+                                <div class="container1">
+                                    <a href="/products?sort_by=6" class="btn1 btn-5">
+                                        View all
+                                    </a>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-9">
                     <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
                         <div class="controls-top">
@@ -230,161 +252,6 @@
                                             <i class="fa fa-eye" style="font-size:30px"></i>
                                         </a>
                                     </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endfor
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 clearfix d-none d-md-block">
-                    <div class="fuild" style="margin-top: 23px">
-                        <div class="card mb-2">
-                            <img class="card-img-top"
-                                 src="http://mohinhdep.net/wp-content/uploads/2018/05/Your-name-mohinhdep.net-1.jpg"
-                                 alt="Card image cap">
-                        </div>
-                        <div class="overlay overlay1 overlay-product-fix ">
-                            <div class="card-title">
-                                <h3><b>Mô hình/FIGRUTE</b></h3>
-                            </div>
-                            <a href="#">
-                                <section class="buttons">
-                                    <div class="container1">
-                                        <a href="#" class="btn1 btn-5">
-                                            View all
-                                        </a>
-                                    </div>
-                                </section>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row  product-hot">
-                <div class="col-sm-3 clearfix d-none d-md-block">
-                    <div class="fuild" style="margin-top: 23px">
-                        <div class="card mb-2">
-                            <img class="card-img-top"
-                                 src="https://zpro.vn/images/product/500x500/moc-khoa-chao-game-pubg-nhieu-kieu-moi.1544426036.jpg"
-                                 alt="Card image cap">
-                        </div>
-                        <div class="overlay overlay1 overlay-product-fix ">
-                            <div class="card-title">
-                                <h3><b>Móc khóa</b></h3>
-                            </div>
-                            <a href="#">
-                                <section class="buttons">
-                                    <div class="container1">
-                                        <a href="#" class="btn1 btn-5">
-                                            View all
-                                        </a>
-                                    </div>
-                                </section>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-9">
-                    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-                        <div class="controls-top">
-                            <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
-                                        class="fa fa-chevron-left"></i></a>
-                            <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                                        class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="carousel-inner" role="listbox">
-
-                            @for($i = 0; $i <count($list_product_hot)-3; $i++)
-                                <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="card mb-2">
-                                                <div class="card">
-                                                    <div class="fuild">
-                                                        <div class="img-cart">
-                                                            <a target="_blank"
-                                                               href="/product/{{$list_product_hot[$i]->id}}">
-                                                                <div
-                                                                        style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$list_product_hot[$i]->productDetail->first()->thumbnail}}')"></div>
-                                                            </a>
-
-                                                        </div>
-                                                        <div class="overlay overlay-product-home2">
-                                                            <div style="display: flex">
-                                                                <span style="width: 50%; text-align: center">
-                                                                 <a class="add-cart nav-link active color" href="#">
-                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
-                                                    </a>
-                                                </span>
-                                                                <span style="width: 50%; text-align: center">
-                                                    <a class="nav-link color1" href="#">
-                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                    </a>
-                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 clearfix d-none d-md-block">
-                                            <div class="card mb-2">
-                                                <div class="fuild">
-                                                    <div class="img-cart">
-                                                        <a target="_blank"
-                                                           href="/product/{{$list_product_hot[ $i + 1]->id}}">
-                                                            <div
-                                                                    style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$list_product_hot[$i + 1]->productDetail->first()->thumbnail}}')"></div>
-                                                        </a>
-
-                                                    </div>
-                                                    <div class="overlay overlay-product-home2">
-                                                        <div style="display: flex">
-                                                                <span style="width: 50%; text-align: center">
-                                                                 <a class="add-cart nav-link active color" href="#">
-                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
-                                                    </a>
-                                                </span>
-                                                            <span style="width: 50%; text-align: center">
-                                                    <a class="nav-link color1" href="#">
-                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                    </a>
-                                                </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 clearfix d-none d-md-block">
-                                            <div class="card mb-2">
-                                                <div class="fuild">
-                                                    <div class="img-cart">
-                                                        <a target="_blank"
-                                                           href="/product/{{$list_product_hot[ $i + 2]->id}}">
-                                                            <div
-                                                                    style="  width: 100%; height: 300px;  background-size: cover; background-image:url('{{$list_product_hot[$i + 2]->productDetail->first()->thumbnail}}')"></div>
-                                                        </a>
-
-                                                    </div>
-
-                                                    <div class="overlay overlay-product-home2">
-                                                        <div style="display: flex">
-                                                                <span style="width: 50%; text-align: center">
-                                                                 <a class="add-cart nav-link active color" href="#">
-                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
-                                                    </a>
-                                                </span>
-                                                            <span style="width: 50%; text-align: center">
-                                                    <a class="nav-link color1" href="#">
-                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                    </a>
-                                                </span>
                                                         </div>
                                                     </div>
                                                 </div>

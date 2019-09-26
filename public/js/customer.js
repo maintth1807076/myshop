@@ -66,12 +66,50 @@ $(document).ready(function () {
             }
         },
     });
+    $("#form-receiver-infor").validate({
+
+        rules: {
+            name: {
+                required: true,
+            },
+            email: {
+                required: true,
+                email: true,
+            },
+            phone: {
+                required: true,
+            },
+            address: {
+                required: true,
+            },
+
+        },
+        messages: {
+            name: {
+                required: "Vui lòng nhập họ tên",
+            },
+            email: {
+                required: "Vui lòng nhập email",
+                email: "Vui lòng nhập email hợp lệ",
+            },
+            phone: {
+                required: "Vui lòng nhập số điện thoại",
+            },
+            address: {
+                required: "Vui lòng nhập địa chỉ",
+            }
+        },
+    });
     //end js for Validate-form-client
     $('#btn-search-home').click(function () {
         var page = $('input[name="currentPage"]').val();
         var categoryId = $('input[name="categoryId"]:checked').val();
         var keyword = $('input[name="keyword1"]').val();
-        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}`;
+        var sortBy = $('select[name="sortBy"]').val();
+        location.href = `${BASE_URL}/products?page=${page}&category_id=${categoryId}&keyword=${keyword}&sort_by=${sortBy}`;
+    });
+    $('.filter-btn select[name=sortBy]').change(function () {
+        location.href = BASE_URL + $('.filter-btn').attr('action') + '?sort_by=' + $(this).val();
     });
     $('#search_icon').click(function () {
         var keyword = $('input[name="keyword"]').val();
@@ -140,58 +178,118 @@ $(document).ready(function () {
         }
         shoppingCart[id] = cartItem;
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-        swal('Add cart item success!');
-        var shoppingCartJson = localStorage.getItem('shopping-cart');
-        var shoppingCart = JSON.parse(shoppingCartJson);
-        var htmlContent = '';
-        var htmlContent1 = '';
-        var htmlContent2 = '';
-        var totalPrice = 0;
-        for (var gameId in shoppingCart) {
-            var cartItem = shoppingCart[gameId];
-            var price = format_money(cartItem.price);
-            var total = format_money(cartItem.price * cartItem.quantity);
-            totalPrice += cartItem.price * cartItem.quantity;
-            htmlContent1 += `<div class="mini-cart" style="height: 110px; margin-bottom:2%;">
-        <div class="row">
-            <div class="col-sm-3">
-                <img width="80%;" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}"
-                     alt=${cartItem.name}>
-            </div>
-            <div class="col-sm-9">
-                <div class="row">
-                    <div class="col-sm-12 "><b>${cartItem.name}</b></div>
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <span class="col-sm-6"><pre>Số lượng:<b> ${cartItem.quantity}</b></pre></span>
-                            <span class="col-sm-6"><pre>Giá: <b>${price}</b> VNĐ</pre></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>`;
-        }
-        var totalPriceFormat = format_money(totalPrice);
-        htmlContent1 = htmlContent1 + `<div>
-        <div>
-            <div></div>
-            <div></div>
-            <div class="col-sm-12 text-right " style="margin-top: 3%;">
-                <h4>
-                    <pre>Tổng:  <b>${totalPriceFormat} VNĐ</b></pre>
-                </h4>
-            </div>
-            <div class="col-sm-12" style="margin-bottom: 5%;">
-                <div class="row">
-                    <span class="col-sm-6 "> <a href="/cart" class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
-                    <span class="col-sm-6 "> <a class="btn btn-primary" href="/pay">Thanh toán</a></span>
-                </div>
-            </div>
-        </div>
-    </div>`;
-        $('#cart-body1').html(htmlContent1);
+        swal('Thêm vào giỏ rồi!');
+        renderCart1();
     });
+    renderCart();
+    $('.btn-cart-item-delete').click(function () {
+        $(this).closest('tr').remove();
+    });
+    $('.minus-btn').click(function () {
+        var $input = $(this).closest('td').find('input');
+        var value = parseInt($input.val());
+
+        if (value >= 1) {
+            value = value - 1;
+        } else {
+            value = 0;
+        }
+        $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
+    });
+    $('.plus-btn').click(function () {
+        var $input = $(this).closest('td').find('input');
+        var value = parseInt($input.val());
+
+        if (value < 20) {
+            value = value + 1;
+        } else {
+            value = 20;
+        }
+        $input.val(value);
+        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
+        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
+        changeQuantity();
+        calculateTotalPrice();
+    });
+    $('#btn-pay').click(function () {
+        var ship_name = $("#form-receiver-infor input[name = 'name']").val();
+        var ship_address = $("#form-receiver-infor input[name = 'address']").val();
+        var ship_phone = $("#form-receiver-infor input[name = 'phone']").val();
+        var ship_email = $("#form-receiver-infor input[name = 'email']").val();
+        var ship = {
+            'ship_name': ship_name,
+            'ship_address': ship_address,
+            'ship_phone': ship_phone,
+            'ship_email': ship_email,
+        };
+        $.ajax({
+            url: '/order-success',
+            method: 'POST',
+            data: {
+                '_token': $('meta[name=csrf-token]').attr('content'),
+                'cart': JSON.parse(localStorage.getItem('shopping-cart')),
+                'ship': ship
+            },
+            success: function (response) {
+                swal('Đặt hàng thành công');
+                localStorage.clear();
+                if (response.code === '00') {
+                    if (window.vnpay) {
+                        vnpay.open({width: 768, height: 600, url: response.data});
+                    }
+                    return false;
+                } else {
+                    alert(response.Message);
+                }
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    });
+});
+
+function format_money(money) {
+    money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    return money;
+}
+
+function remove(id) {
+    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
+    for (var key in shoppingCart) {
+        if (key == id) {
+            delete (shoppingCart[id]);
+        }
+    }
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+}
+
+function changeQuantity() {
+    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
+    for (var key in shoppingCart) {
+        var $input = $('td[id="' + key + '"]').find('input');
+        shoppingCart[key].quantity = $input.val();
+        if (shoppingCart[key].quantity == 0) {
+            delete (shoppingCart[key]);
+            $input.closest("tr").remove();
+        }
+    }
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+}
+
+function calculateTotalPrice() {
+    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
+    var totalPrice = 0;
+    for (var key in shoppingCart) {
+        totalPrice += shoppingCart[key].price * shoppingCart[key].quantity;
+    }
+    $('#total-price').text(format_money(totalPrice) + ' VNĐ');
+}
+function renderCart() {
     var shoppingCartJson = localStorage.getItem('shopping-cart');
     var shoppingCart = JSON.parse(shoppingCartJson);
     var htmlContent = '';
@@ -200,7 +298,8 @@ $(document).ready(function () {
     if(shoppingCart == null){
         htmlContent1 += `<p class="text-center pt-2 text-primary">Giỏ hàng trống</p>`;
         $('#cart-body1').html(htmlContent1);
-        return;
+        htmlContent += `<p class="text-center pt-2 text-primary">Giỏ hàng trống</p>`;
+        $('#cart-body').html(htmlContent);
     }
     var totalPrice = 0;
     for (var gameId in shoppingCart) {
@@ -209,9 +308,6 @@ $(document).ready(function () {
         var total = format_money(cartItem.price * cartItem.quantity);
         totalPrice += cartItem.price * cartItem.quantity;
         htmlContent += `<tr>
-                <th scope="row">
-                    <input type="checkbox" class="check-item" value="">
-                </th>
                 <td style="width: 2%;border-right: solid 2px #EEF0F2">${cartItem.id}</td>
                 <td style="width: 25%;border-right: solid 2px #EEF0F2"><img width="50px" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}" alt=${cartItem.name}>
                 </td>
@@ -282,106 +378,58 @@ $(document).ready(function () {
     $('#cart-body').html(htmlContent);
     $('#cart-body1').html(htmlContent1);
     $('#cart-pay').html(htmlContent2);
-    $('.minus-btn').click(function () {
-        var $input = $(this).closest('td').find('input');
-        var value = parseInt($input.val());
-
-        if (value >= 1) {
-            value = value - 1;
-        } else {
-            value = 0;
-        }
-        $input.val(value);
-        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
-        changeQuantity();
-        calculateTotalPrice();
-    });
-    $('.plus-btn').click(function () {
-        var $input = $(this).closest('td').find('input');
-        var value = parseInt($input.val());
-
-        if (value < 20) {
-            value = value + 1;
-        } else {
-            value = 20;
-        }
-        $input.val(value);
-        $unit = $(this).closest('tr').find('td[data-price]').attr('data-price');
-        $(this).closest('tr').find('td[data-total]').text(format_money($unit * value) + ' VNĐ');
-        changeQuantity();
-        calculateTotalPrice();
-    });
-    $('#btn-pay').click(function () {
-        var ship_name = $("#form-receiver-infor input[name = 'name']").val();
-        var ship_address = $("#form-receiver-infor input[name = 'address']").val();
-        var ship_phone = $("#form-receiver-infor input[name = 'phone']").val();
-        var ship = {
-            'ship_name': ship_name,
-            'ship_address': ship_address,
-            'ship_phone': ship_phone,
-        };
-        $.ajax({
-            url: '/order-success',
-            method: 'POST',
-            data: {
-                '_token': $('meta[name=csrf-token]').attr('content'),
-                'cart': JSON.parse(localStorage.getItem('shopping-cart')),
-                'ship': ship
-            },
-            success: function (response) {
-                swal('Đặt hàng thành công');
-                localStorage.clear();
-                if (response.code === '00') {
-                    if (window.vnpay) {
-                        vnpay.open({width: 768, height: 600, url: response.data});
-                    }
-                    return false;
-                } else {
-                    alert(response.Message);
-                }
-            },
-            error: function () {
-                alert('Error');
-            }
-        });
-    });
-});
-
-function format_money(money) {
-    money = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-    return money;
 }
-
-function remove(id) {
-    $(this).closest('tr').remove();
-    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
-    for (var key in shoppingCart) {
-        if (key == id) {
-            delete (shoppingCart[id]);
-        }
+function renderCart1() {
+    var shoppingCartJson = localStorage.getItem('shopping-cart');
+    var shoppingCart = JSON.parse(shoppingCartJson);
+    var htmlContent1 = '';
+    if(shoppingCart == null){
+        htmlContent1 += `<p class="text-center pt-2 text-primary">Giỏ hàng trống</p>`;
+        $('#cart-body1').html(htmlContent1);
     }
-    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-}
-
-function changeQuantity() {
-    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
-    for (var key in shoppingCart) {
-        var $input = $('td[id="' + key + '"]').find('input');
-        shoppingCart[key].quantity = $input.val();
-        if (shoppingCart[key].quantity == 0) {
-            delete (shoppingCart[key]);
-            $input.closest("tr").remove();
-        }
-    }
-    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-}
-
-function calculateTotalPrice() {
-    shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
     var totalPrice = 0;
-    for (var key in shoppingCart) {
-        totalPrice += shoppingCart[key].price * shoppingCart[key].quantity;
+    for (var gameId in shoppingCart) {
+        var cartItem = shoppingCart[gameId];
+        var price = format_money(cartItem.price);
+        var total = format_money(cartItem.price * cartItem.quantity);
+        totalPrice += cartItem.price * cartItem.quantity;
+        htmlContent1 += `<div class="mini-cart" style="height: 110px; margin-bottom:2%;">
+        <div class="row">
+            <div class="col-sm-3">
+                <img width="80%;" class="img-thumbnail rounded game-avatar" src="${cartItem.thumbnail}"
+                     alt=${cartItem.name}>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12 "><b>${cartItem.name}</b></div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <span class="col-sm-6"><pre>Số lượng:<b> ${cartItem.quantity}</b></pre></span>
+                            <span class="col-sm-6"><pre>Giá: <b>${price}</b> VNĐ</pre></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
     }
-    $('#total-price').text(format_money(totalPrice) + ' VNĐ');
+    var totalPriceFormat = format_money(totalPrice);
+    htmlContent1 = htmlContent1 + `<div>
+        <div>
+            <div></div>
+            <div></div>
+            <div class="col-sm-12 text-right " style="margin-top: 3%;">
+                <h4>
+                    <pre>Tổng:  <b>${totalPriceFormat} VNĐ</b></pre>
+                </h4>
+            </div>
+            <div class="col-sm-12" style="margin-bottom: 5%;">
+                <div class="row">
+                    <span class="col-sm-6 "> <a href="/cart" class=" btn btn-outline-dark">Xem giỏ hàng</a></span>
+                    <span class="col-sm-6 "> <a class="btn btn-primary" href="/pay">Thanh toán</a></span>
+                </div>
+            </div>
+        </div>
+    </div>`;
+    $('#cart-body1').html(htmlContent1);
 }

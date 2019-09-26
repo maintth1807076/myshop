@@ -16,15 +16,19 @@
                 @if( Auth::check())
                 <div class="form-group col-md-12">
                     <input type="text" class="form-control" name="name" placeholder="Tên đầy đủ">
+                    <span class="invalid-feedback" role="alert">{{ $errors->first('name') }}</span>
                 </div>
                 <div class="form-group col-sm-8">
                     <input type="email" class="form-control" name="email" placeholder="Email">
+                    <span class="invalid-feedback" role="alert">{{ $errors->first('email') }}</span>
                 </div>
                 <div class="form-group col-sm-4">
                     <input type="text" class="form-control" name="phone" placeholder="Số điện thoại">
+                    <span class="invalid-feedback" role="alert">{{ $errors->first('phone') }}</span>
                 </div>
                 <div class="form-group col-md-12">
                     <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
+                    <span class="invalid-feedback" role="alert">{{ $errors->first('address') }}</span>
                 </div>
                 <div class="col-sm-6">
                     <a href="/cart">Quay lại giỏ hàng</a>

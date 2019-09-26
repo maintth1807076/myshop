@@ -56,11 +56,15 @@
                 <option value="0">Choose action</option>
                 <option value="-1">Delete</option>
                 <option value="1">Publish</option>
+                <option value="2">Send Mail Quảng Cáo</option>
             </select>
         </div>
         <div class="form-group">
             <button id="btn-user-apply-all" type="submit" class="btn btn-outline-primary mb-2">Apply to all</button>
         </div>
+    </div>
+    <div class="row">
+        <a href="/send-product">Send Mail</a>
     </div>
     <div class="row">
         <div class="col-8"></div>

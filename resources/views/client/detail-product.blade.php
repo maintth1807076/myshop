@@ -51,20 +51,24 @@
                         <span class="price">{{number_format($product->price)}} <ins>đ</ins></span>
                     </div>
                     <div class="product-actions-wrapper">
-{{--                            <div class="product-signle-options clearfix">--}}
-{{--                                <div class="product-single-quantity">--}}
-{{--                                    <label for="Quantity">Số Lượng: </label>--}}
-{{--                                    <input type="number" id="Quantity" name="quantity" value="1" min="1"--}}
-{{--                                           class="quantity-selector form-control">--}}
-{{--                                </div>--}}
+{{--                        <div class="product-signle-options clearfix">--}}
+{{--                            <div class="product-single-quantity">--}}
+{{--                                <label for="Quantity">Số Lượng: </label>--}}
+{{--                                <input type="number" id="Quantity" name="quantity" value="1" min="1"--}}
+{{--                                       class="quantity-selector form-control">--}}
 {{--                            </div>--}}
-
+{{--                        </div>--}}
                         <div class="product-actions">
                             <div class="row">
                                 <div class="col-xl-3 col-md-3 col-sm-4 mb-3">
-                                    <button type="submit" name="add" id="AddToCart" class="btn btn-lg btn-warning">
-                                        <span class="fas fa-shopping-cart"> Mua ngay</span>
-                                    </button>
+{{--                                    <button class="btn btn-lg btn-warning">--}}
+{{--                                        <a style="color: black" class="add-cart " href="javascript:void(0)" data-id="{{$product->id}}"--}}
+{{--                                           data-price="{{$product->price}}"--}}
+{{--                                           data-name="{{$product->name}}"--}}
+{{--                                           data-thumbnail="{{$product->productDetail->first()->thumbnail}}">--}}
+{{--                                            <i class="fa fa-shopping-cart" style="font-size:1.125rem">Mua ngay</i>--}}
+{{--                                        </a>--}}
+{{--                                    </button>--}}
                                 </div>
                                 <div class="col-xl-3 col-md-3 col-sm-4">
                                     <button class="btn btn-lg btn-primary">
@@ -257,18 +261,19 @@
 
                                                 </div>
                                                 <div class="overlay overlay-product-home2">
-                                                    <div style="display: flex">
-                                                                <span style="width: 50%; text-align: center">
-                                                                 <a class="add-cart nav-link active color" href="#">
-                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
-                                                    </a>
-                                                </span>
-                                                        <span style="width: 50%; text-align: center">
-                                                    <a class="nav-link color1" href="#">
-                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                    </a>
-                                                </span>
-                                                    </div>
+                                                    <p>{{number_format($list_product_hot[ $i]->price)}} VNĐ</p>
+{{--                                                    <div style="display: flex">--}}
+{{--                                                                <span style="width: 50%; text-align: center">--}}
+{{--                                                                 <a class="add-cart nav-link active color" href="#">--}}
+{{--                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                        <span style="width: 50%; text-align: center">--}}
+{{--                                                    <a class="nav-link color1" href="#">--}}
+{{--                                                        <i class="fa fa-eye" style="font-size:30px"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                    </div>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -286,18 +291,19 @@
 
                                             </div>
                                             <div class="overlay overlay-product-home2">
-                                                <div style="display: flex">
-                                                                <span style="width: 50%; text-align: center">
-                                                                 <a class="add-cart nav-link active color" href="#">
-                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
-                                                    </a>
-                                                </span>
-                                                    <span style="width: 50%; text-align: center">
-                                                    <a class="nav-link color1" href="#">
-                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                    </a>
-                                                </span>
-                                                </div>
+                                                <p>{{number_format($list_product_hot[ $i + 1]->price)}} VNĐ</p>
+{{--                                                <div style="display: flex">--}}
+{{--                                                                <span style="width: 50%; text-align: center">--}}
+{{--                                                                 <a class="add-cart nav-link active color" href="#">--}}
+{{--                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                    <span style="width: 50%; text-align: center">--}}
+{{--                                                    <a class="nav-link color1" href="#">--}}
+{{--                                                        <i class="fa fa-eye" style="font-size:30px"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -315,18 +321,19 @@
                                             </div>
 
                                             <div class="overlay overlay-product-home2">
-                                                <div style="display: flex">
-                                                                <span style="width: 50%; text-align: center">
-                                                                 <a class="add-cart nav-link active color" href="#">
-                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
-                                                    </a>
-                                                </span>
-                                                    <span style="width: 50%; text-align: center">
-                                                    <a class="nav-link color1" href="#">
-                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                    </a>
-                                                </span>
-                                                </div>
+                                                <p>{{number_format($list_product_hot[ $i + 2]->price)}} VNĐ</p>
+{{--                                                <div style="display: flex">--}}
+{{--                                                                <span style="width: 50%; text-align: center">--}}
+{{--                                                                 <a class="add-cart nav-link active color" href="#">--}}
+{{--                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                    <span style="width: 50%; text-align: center">--}}
+{{--                                                    <a class="nav-link color1" href="#">--}}
+{{--                                                        <i class="fa fa-eye" style="font-size:30px"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -344,18 +351,19 @@
                                             </div>
 
                                             <div class="overlay overlay-product-home2">
-                                                <div style="display: flex">
-                                                                <span style="width: 50%; text-align: center">
-                                                                 <a class="add-cart nav-link active color" href="#">
-                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
-                                                    </a>
-                                                </span>
-                                                    <span style="width: 50%; text-align: center">
-                                                    <a class="nav-link color1" href="#">
-                                                        <i class="fa fa-eye" style="font-size:30px"></i>
-                                                    </a>
-                                                </span>
-                                                </div>
+                                                <p>{{number_format($list_product_hot[ $i + 3]->price)}} VNĐ</p>
+{{--                                                <div style="display: flex">--}}
+{{--                                                                <span style="width: 50%; text-align: center">--}}
+{{--                                                                 <a class="add-cart nav-link active color" href="#">--}}
+{{--                                                        <i class="fa fa-shopping-bag" style="font-size:30px;"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                    <span style="width: 50%; text-align: center">--}}
+{{--                                                    <a class="nav-link color1" href="#">--}}
+{{--                                                        <i class="fa fa-eye" style="font-size:30px"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </span>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>

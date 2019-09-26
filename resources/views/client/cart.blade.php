@@ -12,9 +12,6 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">
-                        <input type="checkbox" id="check-all">
-                    </th>
                     <th scope="col" style="border-right: 2px solid #EEF0F2">Id</th>
                     <th scope="col" style="border-right: 2px solid #EEF0F2">Avatar</th>
                     <th scope="col" style="border-right: 2px solid #EEF0F2">Name</th>
