@@ -53,7 +53,7 @@ Route::post('/change-avatar', 'UserController@changeAvatar')->middleware('auth')
 Route::post('/change-password', 'UserController@changePassword')->middleware('auth');
 /*route admin*/
 Route::get('/admin', function () {
-    return view('admin.dashboard');
+    return view('admin.layout');
 })->middleware('role:admin');
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
@@ -74,4 +74,5 @@ Route::get('/admin/get-data-to-time', 'OrderController@getDataToTime');
 Route::get('/admin/get-chart-data', 'OrderController@getChartData');
 Route::get('/admin/get-pie-chart-data', 'OrderDetailController@getPieChartData');
 //mail
-Route::get('mail.send', 'EmailController@send');
+Route::get('/mail', 'EmailController@send');
+Route::get('/send', 'EmailController@sendMailQuangCao');

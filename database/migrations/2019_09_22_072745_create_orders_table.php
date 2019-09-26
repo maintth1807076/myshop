@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('ship_name');
             $table->string('ship_address');
             $table->string('ship_phone');
+            $table->string('ship_email')->default('maintth1807076@fpt.edu.vn');
             $table->integer('status')->default(0); // -1. huỷ | 0. đang chờ xử lý | 1. đã nhận đơn hàng | 2. hoàn thành.
             $table->timestamps();
         });
