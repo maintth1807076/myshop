@@ -7,5 +7,5 @@ return [
     "username" => "keomut5sao@gmail.com",
     "password" => "lzxbtqefmdhztalr",
     "encryption" => "tls",
-    "from" => ['address' => 'keomut5sao@gmail.com', 'name' => 'Toys Shop'],
+    "from" => ['address' => 'keomut5sao@gmail.com', 'name' => 'ToysShop'],
 ];

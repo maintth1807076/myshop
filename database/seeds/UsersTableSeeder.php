@@ -12,10 +12,6 @@ class UsersTableSeeder extends Seeder
         $userRole = config('roles.models.role')::where('name', '=', 'User')->first();
         $adminRole = config('roles.models.role')::where('name', '=', 'Admin')->first();
         $permissions = config('roles.models.permission')::all();
-        /*
-         * Add Users
-         *
-         */
         if (config('roles.models.defaultUser')::where('email', '=', 'admin@admin.com')->first() === null) {
             $newUser = config('roles.models.defaultUser')::create([
                 'name'     => 'Admin',

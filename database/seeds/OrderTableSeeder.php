@@ -199,9 +199,8 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hoa',
                 'ship_address' => ' số 54 Liễu Giai, quận Ba Đình, Ba Đình, Hà Nội',
                 'ship_phone' => '0438277178',
-                'created_at' => '2019-01-01 02:07:01',
+                'created_at' => '2019-09-27 03:07:01',
                 'status' => 2,
-
             ],
             [
                 'id' => 22,
@@ -209,7 +208,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hùng',
                 'ship_address' => 'Thanh Liệt, Thanh Trì, Hà Nội',
                 'ship_phone' => '048230230',
-                'created_at' => '2019-01-13 13:07:00',
+                'created_at' => '2019-09-27 03:07:00',
                 'status' => 2,
             ],
             [
@@ -218,7 +217,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hải',
                 'ship_address' => 'Khu Công nghiệp Đồng Văn, huyện Duy Tiên, tỉnh Hà Nam, Duy Tiên, Hà Nam',
                 'ship_phone' => '0432575757',
-                'created_at' => '2019-01-06 12:30:30',
+                'created_at' => '2019-09-27 03:30:30',
                 'status' => 2,
             ],
             [
@@ -227,7 +226,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hòa',
                 'ship_address' => ' quận Long Biên, Hà Nội, Ba Đình, Hà Nội',
                 'ship_phone' => '0438736736',
-                'created_at' => '2019-02-09 15:25:21',
+                'created_at' => '2019-09-27 03:25:21',
                 'status' => 2,
             ],
             [
@@ -236,7 +235,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Chiến',
                 'ship_address' => 'Ngọc Khánh, Ba Đình, Hà Nội',
                 'ship_phone' => '02253567567',
-                'created_at' => '2019-02-10 17:40:22',
+                'created_at' => '2019-09-27 03:40:22',
                 'status' => 2,
             ],
             [
@@ -245,7 +244,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Thảo',
                 'ship_address' => 'Nguyễn Văn Cừ, Long Biên, Hà Nội',
                 'ship_phone' => ' 02253525252',
-                'created_at' => '2019-02-22 18:31:05',
+                'created_at' => '2019-09-27 03:31:05',
                 'status' => 2,
             ],
             [
@@ -254,7 +253,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Thủy',
                 'ship_address' => 'Hoàng Đạo Thúy, Thanh Xuân, Hà Nội',
                 'ship_phone' => '02253778778',
-                'created_at' => '2019-02-14 15:36:07',
+                'created_at' => '2019-09-27 03:36:07',
                 'status' => 2,
             ],
             [
@@ -263,7 +262,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Cường',
                 'ship_address' => ' Đào Duy Từ, Hoàn Kiếm, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-03-15 08:45:41',
+                'created_at' => '2019-09-27 03:45:41',
                 'status' => 2,
             ],
             [
@@ -272,7 +271,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Đạt',
                 'ship_address' => ' Ngô Thì Nhậm, Hà Đông, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-03-20 09:27:36',
+                'created_at' => '2019-09-27 03:27:36',
                 'status' => 2,
             ],
             [
@@ -281,7 +280,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => ' An',
                 'ship_address' => ' Lý Tự Trọng, Hồng Bàng, Hải Phòng',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-03-21 09:30:01',
+                'created_at' => '2019-09-27 03:30:01',
                 'status' => 2,
             ],
             [
@@ -290,9 +289,8 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hoa',
                 'ship_address' => 'Hoàng Quốc Việt, Cầu Giấy, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-03-27 10:47:01',
+                'created_at' => '2019-09-27 03:47:01',
                 'status' => 2,
-
             ],
             [
                 'id' => 32,
@@ -300,7 +298,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hùng',
                 'ship_address' => ' Lạc Trung, Hai Bà Trưng, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-04-30 19:07:01',
+                'created_at' => '2019-09-27 03:07:01',
                 'status' => 2,
             ],
             [
@@ -309,7 +307,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hải',
                 'ship_address' => 'Láng Hạ, Đống Đa, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-04-28 20:33:01',
+                'created_at' => '2019-09-27 03:33:01',
                 'status' => 2,
             ],
             [
@@ -318,7 +316,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Hòa',
                 'ship_address' => ' Bắc Linh Đàm, Hoàng Mai, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-05-12 13:43:34',
+                'created_at' => '2019-09-27 03:43:34',
                 'status' => 2,
             ],
             [
@@ -327,7 +325,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Chiến',
                 'ship_address' => 'Đường Hàm Nghi, Từ Liêm, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-05-05 20:18:44',
+                'created_at' => '2019-09-27 03:18:44',
                 'status' => 2,
             ],
             [
@@ -336,7 +334,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Thảo',
                 'ship_address' => 'Lê Văn Lương, Thanh Xuân, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-01-20 17:45:55',
+                'created_at' => '2019-09-25 03:45:55',
                 'status' => 2,
             ],
             [
@@ -345,7 +343,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Thủy',
                 'ship_address' => '191 Bà Triệu, Hai Bà Trưng, Hà Nội',
                 'ship_phone' => '02374354374',
-                'created_at' => '2019-02-24 18:25:46',
+                'created_at' => '2019-09-25 03:25:46',
                 'status' => 2,
             ],
             [
@@ -354,7 +352,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Cường',
                 'ship_address' => '356 Nguyễn Trãi, Thanh Xuân, Hà Nội',
                 'ship_phone' => '0212334567',
-                'created_at' => '2019-04-21 07:07:01',
+                'created_at' => '2019-09-25 03:07:01',
                 'status' => 2,
             ],
             [
@@ -363,7 +361,7 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => 'Đạt',
                 'ship_address' => 'khu đô thị Mỹ Đình, Mễ Trì, phường Mỹ Đình 1, Từ Liêm, Hà Nội',
                 'ship_phone' => '0345678124',
-                'created_at' => '2019-05-27 14:05:00',
+                'created_at' => '2019-09-25 03:05:00',
                 'status' => 2,
             ],
             [
@@ -372,9 +370,9 @@ class OrderTableSeeder extends Seeder
                 'ship_name' => ' An',
                 'ship_address' => 'Hoàng Minh Giám, P. Trung hòa, Cầu Giấy, Hà Nội',
                 'ship_phone' => '023123987',
-                'created_at' => '2019-02-23 15:44:17',
+                'created_at' => '2019-09-25 03:44:17',
                 'status' => 2,
-            ]
+            ],
         ]);
         DB::statement("ALTER SEQUENCE orders_id_seq RESTART WITH 41");
     }

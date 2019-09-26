@@ -111,4 +111,11 @@ class ProductController extends Controller
             'updated_at' => date('Y-m-d H:i:s')));
         return response()->json(['status' => '200', 'message' => 'Okie']);
     }
+    public function quangCao(Request $request){
+        $data = [
+            'list_product' => Product::whereIn('id', $request->input('ids')),
+            'ids_product' => $request->input('ids')
+        ];
+        return redirect('/admin/users', $data);
+    }
 }

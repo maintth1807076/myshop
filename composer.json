@@ -13,7 +13,8 @@
         "jeremykenedy/laravel-roles": "^2.1",
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "swiftmailer/swiftmailer": "^6.2"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
