@@ -18,11 +18,11 @@ class UsersTableSeeder extends Seeder
         $users = [
             [
                 'name' => 'Tran Van Anh',
-                'email' => 'maintth1807076@fpt.edu.vn',
+                'email' => 'kenrou.hol0.the.wolf@gmail.com',
             ],
             [
                 'name' => 'Nguyen Van Binh',
-                'email' => 'cocyeukin@gmail.com',
+                'email' => 'maintth1807076@fpt.edu.vn',
             ],
         ];
         foreach ($users as $user) {

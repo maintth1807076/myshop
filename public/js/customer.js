@@ -217,6 +217,26 @@ $(document).ready(function () {
         calculateTotalPrice();
     });
     $('#btn-pay').click(function () {
+        if( !$("#form-receiver-infor input[name = 'name']").val()) {
+            $('#errorName').text('Vui lòng nhập tên.');
+        } else {
+            $('#errorName').addClass('d-none');
+        }
+        if( !$("#form-receiver-infor input[name = 'address']").val()) {
+            $('#errorAddress').text('Vui lòng nhập địa chỉ.');
+        }else {
+            $('#errorAddress').addClass('d-none');
+        }
+        if( !$("#form-receiver-infor input[name = 'phone']").val()) {
+            $('#errorPhone').text('Vui lòng nhập số điện thoại.');
+        }else {
+            $('#errorPhone').addClass('d-none');
+        }
+        if( !$("#form-receiver-infor input[name = 'email']").val()) {
+            $('#errorEmail').text('Vui lòng nhập email.');
+        }else {
+            $('#errorEmail').addClass('d-none');
+        }
         var ship_name = $("#form-receiver-infor input[name = 'name']").val();
         var ship_address = $("#form-receiver-infor input[name = 'address']").val();
         var ship_phone = $("#form-receiver-infor input[name = 'phone']").val();
