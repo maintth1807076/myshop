@@ -53,7 +53,7 @@
                                                         data-price="{{$item->price}}"
                                                         data-name="{{$item->name}}"
                                                         data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                            <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
                                         </a>
                                     </span>
                                     <span style="width: 50%; text-align: center">
@@ -103,7 +103,7 @@
                                                         data-price="{{$item->price}}"
                                                         data-name="{{$item->name}}"
                                                         data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                            <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
                                         </a>
                                     </span>
                                     <span style="width: 50%; text-align: center">
@@ -182,7 +182,7 @@
                                                         data-price="{{$list_product_hot[$i]->price}}"
                                                         data-name="{{$list_product_hot[$i]->name}}"
                                                         data-thumbnail="{{$list_product_hot[$i]->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                            <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
                                         </a>
                                     </span>
                                                                 <span style="width: 50%; text-align: center">
@@ -214,7 +214,7 @@
                                                         data-price="{{$list_product_hot[$i + 1]->price}}"
                                                         data-name="{{$list_product_hot[$i + 1]->name}}"
                                                         data-thumbnail="{{$list_product_hot[$i + 1]->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                            <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
                                         </a>
                                     </span>
                                                             <span style="width: 50%; text-align: center">
@@ -244,7 +244,7 @@
                                                        data-price="{{$list_product_hot[$i + 2]->price}}"
                                                        data-name="{{$list_product_hot[$i + 2]->name}}"
                                                        data-thumbnail="{{$list_product_hot[$i + 2]->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                            <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
                                         </a>
                                     </span>
                                                             <span style="width: 50%; text-align: center">

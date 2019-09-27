@@ -184,6 +184,7 @@ $(document).ready(function () {
     renderCart();
     $('.btn-cart-item-delete').click(function () {
         $(this).closest('tr').remove();
+        calculateTotalPrice();
     });
     $('.minus-btn').click(function () {
         var $input = $(this).closest('td').find('input');
@@ -227,7 +228,7 @@ $(document).ready(function () {
             'ship_email': ship_email,
         };
         $.ajax({
-            url: '/order-success',
+            url: '/pay',
             method: 'POST',
             data: {
                 '_token': $('meta[name=csrf-token]').attr('content'),
@@ -235,15 +236,11 @@ $(document).ready(function () {
                 'ship': ship
             },
             success: function (response) {
-                swal('Đặt hàng thành công');
-                localStorage.clear();
                 if (response.code === '00') {
+                    localStorage.clear();
                     if (window.vnpay) {
                         vnpay.open({width: 768, height: 600, url: response.data});
                     }
-                    return false;
-                } else {
-                    alert(response.Message);
                 }
             },
             error: function () {

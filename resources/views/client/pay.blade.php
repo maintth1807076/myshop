@@ -6,44 +6,46 @@
     <script src="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js"></script>
     <div class="row">
         <div class="col-sm-6" style="border-right: solid 1px #7E8D96">
-            <div id="form-receiver-infor" class="row" style="margin: 5% 10%">
-                <div class="col-sm-12">
-                    <h1>Toy Shop - Ðồ choi phụ kiện Manga, Anime, Game, Siêu anh hùng</h1>
-                </div>
-                <div class="col-sm-12">
-                    <h4>Thông tin khách hàng</h4>
-                </div>
-                @if( Auth::check())
-                <div class="form-group col-md-12">
-                    <input type="text" class="form-control" name="name" placeholder="Tên đầy đủ">
-                    <span class="invalid-feedback" role="alert">{{ $errors->first('name') }}</span>
-                </div>
-                <div class="form-group col-sm-8">
-                    <input type="email" class="form-control" name="email" placeholder="Email">
-                    <span class="invalid-feedback" role="alert">{{ $errors->first('email') }}</span>
-                </div>
-                <div class="form-group col-sm-4">
-                    <input type="text" class="form-control" name="phone" placeholder="Số điện thoại">
-                    <span class="invalid-feedback" role="alert">{{ $errors->first('phone') }}</span>
-                </div>
-                <div class="form-group col-md-12">
-                    <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
-                    <span class="invalid-feedback" role="alert">{{ $errors->first('address') }}</span>
-                </div>
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <button id="btn-pay" class="btn btn-primary" style="margin-left: 63.05%">Thanh toán</button>
-                </div>
-                    @else
+{{--            <form id="form-receiver-infor" action="">--}}
+                <div id="form-receiver-infor" class="row" style="margin: 5% 10%">
                     <div class="col-sm-12">
-                        <p>Vui lòng đăng nhập để đặt hàng<a href="/login">Đăng nhập</a></p>
+                        <h1>Toy Shop - Ðồ choi phụ kiện Manga, Anime, Game, Siêu anh hùng</h1>
                     </div>
+                    <div class="col-sm-12">
+                        <h4>Thông tin khách hàng</h4>
+                    </div>
+                    @if( Auth::check())
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control" name="name" placeholder="Tên đầy đủ">
+                            <span class="invalid-feedback" role="alert">{{ $errors->first('name') }}</span>
+                        </div>
+                        <div class="form-group col-sm-8">
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                            <span class="invalid-feedback" role="alert">{{ $errors->first('email') }}</span>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <input type="text" class="form-control" name="phone" placeholder="Số điện thoại">
+                            <span class="invalid-feedback" role="alert">{{ $errors->first('phone') }}</span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
+                            <span class="invalid-feedback" role="alert">{{ $errors->first('address') }}</span>
+                        </div>
+                        <div class="col-sm-6">
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="submit" id="btn-pay" class="btn btn-primary" style="margin-left: 63.05%">Thanh toán</button>
+                        </div>
+                    @else
+                        <div class="col-sm-12">
+                            <p>Vui lòng đăng nhập để đặt hàng<a href="/login">Đăng nhập</a></p>
+                        </div>
                     @endif
-                <div class="col-sm-6">
-                    <a href="/cart">Quay lại giỏ hàng</a>
+                    <div class="col-sm-6">
+                        <a href="/cart">Quay lại giỏ hàng</a>
+                    </div>
                 </div>
-            </div>
+{{--            </form>--}}
         </div>
         <div class="col-sm-6">
             <table class="table">

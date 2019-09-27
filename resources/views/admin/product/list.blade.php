@@ -55,7 +55,7 @@
                     <td>{{$item->name}}</td>
                     <td width="5%"><img width="100%" alt="{{$item->name}}" src="{{$item->productDetail->first()->thumbnail}}"></td>
                     <td>{{$item->price}}</td>
-                    <td>{{substr($item->description,0,100)}}{{strlen($item->description)>100?"...":""}}</td>
+                    <td>{{$item->description}}</td>
                     <td>{{substr($item->detail,0,100)}}{{strlen($item->detail)>100?"...":""}}</td>
                     <td>{{$item->categories->name}}</td>
                     <td width="15%">

@@ -109,7 +109,7 @@
                                                         data-price="{{$item->price}}"
                                                         data-name="{{$item->name}}"
                                                         data-thumbnail="{{$item->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:30px;"></i>
+                                            <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
                                         </a>
                                     </span>
                                                         <span style="width: 50%; text-align: center">

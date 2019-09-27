@@ -75,7 +75,7 @@
                                            data-price="{{$product->price}}"
                                            data-name="{{$product->name}}"
                                            data-thumbnail="{{$product->productDetail->first()->thumbnail}}">
-                                            <i class="fa fa-shopping-bag" style="font-size:1.125rem">Thêm vào giỏ
+                                            <i class="fa fa-shopping-cart" style="font-size:1.125rem">Thêm vào giỏ
                                                 hàng</i>
                                         </a>
                                     </button>

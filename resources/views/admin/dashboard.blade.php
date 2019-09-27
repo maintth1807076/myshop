@@ -16,7 +16,7 @@
         <section class="wrapper">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    DASH BOARD
+                    Thống kê
                 </div>
                 <div class="float-right mt-3">
                     <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; width: 100%">
@@ -25,15 +25,15 @@
                     </div>
                 </div>
                 <div class="font-weight-bold ml-4 mt-3 text-uppercase">
-                    Total Revenue : <span class="total-revenue"></span> (VND)
+                    Tổng thu nhập : <span class="total-revenue"></span> (VND)
                 </div>
                 <div class="advice ml-5">
-                    <div class="text-danger"><strong>Revenue Status :</strong></div>
+                    <div class="text-danger"><strong>Tình hình kinh doanh:</strong></div>
                     <div class="advice-content" style="font-style: italic;"></div>
                 </div>
                 <div id="linechart_material" style="margin: 30px;"></div>
                 <div class="advice ml-5 m-b-50">
-                    <div class="text-danger"><strong>Best-sellers Status :</strong></div>
+                    <div class="text-danger"><strong>Sản phẩm bán chạy :</strong></div>
                     <div class="advice-content-best-seller" style="font-style: italic;"></div>
                 </div>
                 <div id="piechart" style="width: 600px; height: 500px;"></div>
@@ -101,15 +101,15 @@
         });
         function drawChart(chart_data) {
             var data = new google.visualization.DataTable();
-            data.addColumn('date', 'Date');
-            data.addColumn('number', 'Revenue');
+            data.addColumn('date', 'Ngày');
+            data.addColumn('number', 'Thu nhập');
             for (var i = 0; i < chart_data.length; i++) {
                 data.addRow([new Date(chart_data[i].day), Number(chart_data[i].revenue)]);
             }
             var options = {
                 chart: {
-                    title: 'Revenue chart over time',
-                    subtitle: 'Currency(VND)'
+                    title: 'Biểu đồ thu nhập theo thời gian',
+                    subtitle: 'Tiền tệ(VND)'
                 },
                 height: 500,
                 hAxis: {
@@ -167,8 +167,8 @@
 
         function drawPieChart(chart_data) {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Product Name');
-            data.addColumn('number', 'Quantity');
+            data.addColumn('string', 'Sản phẩm');
+            data.addColumn('number', 'Số lượng');
             for (var i = 0; i < 5; i++) {
                 data.addRow([chart_data[i].product.name, Number(chart_data[i].total_quantity)]);
             }
@@ -189,9 +189,9 @@
             } else if (percentage1<=50) {
                 $('.advice-content-best-seller').html('<span>The <a href="'+'/admin/orders?product_id='+ chart_data[0].product_id+'">'+chart_data[0].product.name+'</a> takes more than half of your sales, you should not only import more of it but also promoting other products too. Such as <a href="'+'/admin/order?product_id='+ chart_data[1].product_id+'">'+chart_data[1].product.name+'</span>');
             }
-            data.addRow(['Other Products', rest]);
+            data.addRow(['Sản phẩm khác', rest]);
             var options = {
-                title: '5 Best-sellers'
+                title: '5 sản phẩm bán chạy'
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));

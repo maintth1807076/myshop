@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <div class="row vn-pay-row">
-                        <span class="col-sm-5"><pre><b>Số tiền</b>: <?php echo number_format($_GET['vnp_Amount']) ?> VNĐ.</pre></span>
+                        <span class="col-sm-5"><pre><b>Số tiền</b>: <?php echo number_format($_GET['vnp_Amount']/100) ?> VNĐ.</pre></span>
                         <span class="col-sm-7"><pre><b>Thời gian thanh toán</b>: <?php echo $_GET['vnp_PayDate'] ?></pre></span>
                     </div>
                 </div>
